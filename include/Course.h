@@ -56,12 +56,12 @@ public:
      * Sets the course ID.
      * @param The course ID.
      */
-    void setId(const std::string& id) const { _id = id; }
+    void setId(const std::string& id) { _id = id; }
     /**
      * Sets the ID of the professor who teaches this course.
      * @param The ID of the professor who teaches this course.
      */
-    void setProfId(const std::string& profId) const { _profId = profId; }
+    void setProfId(const std::string& profId) { _profId = profId; }
     /**
      * Sets the ID's of the courses that conflict with this course.
      * @param A constant vector containing the ID's of the courses that
@@ -75,7 +75,7 @@ private:
     int _enrolled;
     std::string _profId;
     std::vector<std::string> _conflicts;
-    int compare (const Course& rhs) const;
+    int compare(const Course& rhs) const;
 };
 
 #endif // COURSE_H
