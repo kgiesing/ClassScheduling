@@ -38,7 +38,7 @@ public:
 private:
     std::string _id;
     int _capacity;
-    int compare(const Prof& rhs) const;
+    int compare(const Room& rhs) const;
 };
 
 #endif // ROOM_H

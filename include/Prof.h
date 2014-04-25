@@ -51,7 +51,7 @@ private:
     std::string _id;
     std::string _firstName;
     std::string _lastName;
-    int compare (const Prof& rhs) const;
+    int compare(const Prof& rhs) const;
 };
 
 #endif // PROF_H
