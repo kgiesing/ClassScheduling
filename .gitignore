@@ -12,5 +12,6 @@
 *.la
 *.a
 
-# KG Ignore binary files
+# KG Ignore binary files and doxygen directory
 bin/
+doxygen/
