@@ -11,3 +11,6 @@
 *.lai
 *.la
 *.a
+
+# KG Ignore binary files
+bin/
