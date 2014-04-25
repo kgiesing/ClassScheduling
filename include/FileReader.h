@@ -1,15 +1,27 @@
 #ifndef FILEREADER_H
 #define FILEREADER_H
 
-template <class T>
-class FileReader {
-  // Attributes
-private:
-  static std::string _filename;
-  // Operations
+#include "Reader.h"
+
+/**
+ * Abstract base class for objects that read something from file.
+ */
+template <typename T>
+class FileReader : public Reader<T> {
 public:
-  std::string getFilename ();
-  setFilename (const std::string& filename);
+    /**
+     * Returns the file name.
+     * @return std::string The file name.
+     */
+    std::string getFilename(void) { return _filename; }
+
+    /**
+     * Sets the file name.
+     * @param filename const std::string& The file name.
+     */
+    void setFilename(const std::string& filename) { _filename = filename; }
+private:
+    std::string _filename;
 };
 
 #endif // FILEREADER_H

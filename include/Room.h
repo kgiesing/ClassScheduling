@@ -1,19 +1,44 @@
 #ifndef ROOM_H
 #define ROOM_H
 
+#include <string>
 #include "Comparable.h"
 
-/// class Room -
-class Room : public Comparable {
-  // Attributes
-private:
-  int _capacity;
-  std::string _id;
-  // Operations
+/**
+ * This class represents a single room.
+ */
+class Room : private Comparable<Room> {
 public:
-  int getCapacity () const;
-  std::string getId () const;
-  bool compare (const Prof& rhs) const;
+    /**
+     * Constructor.
+     * @param Room capacity.
+     * @param Room ID.
+     */
+    Room(const std::string& id, int capacity);
+    /**
+     * Returns the room capacity.
+     * @return Constant reference to the room capacity.
+     */
+    const int& getCapacity() const { return _capacity; }
+    /**
+     * Returns the room ID.
+     * @return Constant reference to the room ID.
+     */
+    const std::string& getId() const { return _id; }
+    /**
+     * Sets the room capacity.
+     * @return Constant reference to the room capacity.
+     */
+    void setCapacity(int capacity) { _capacity = capacity; }
+    /**
+     * Sets the room ID.
+     * @return Constant reference to the room ID.
+     */
+    void setId(const std::string& id) { _id = id; }
+private:
+    std::string _id;
+    int _capacity;
+    int compare(const Prof& rhs) const;
 };
 
 #endif // ROOM_H

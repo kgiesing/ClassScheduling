@@ -1,12 +1,16 @@
 #ifndef PROFREADER_H
 #define PROFREADER_H
 
+#include <vector>
 #include "FileReader.h"
+#include "Prof.h"
 
-/// class ProfReader -
-class ProfReader : public FileReader {
-  // Operations
-  vector<Prof> read ();
+/**
+ * This class reads a list of Prof objects from a CSV file.
+ */
+class ProfReader : public FileReader< std::vector<Prof> > {
+public:
+    std::vector<Prof> read();
 };
 
 #endif // PROFREADER_H

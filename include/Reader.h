@@ -1,12 +1,16 @@
 #ifndef READER_H
 #define READER_H
 
-// interface
-/// class Reader -
-template <Object T>
+/**
+ * Pure abstract base class (interface) for objects that read something.
+ */
+template <typename T>
 class Reader {
-  // Operations
 public:
+  /**
+   * Reads something.
+   * @return Whatever is read.
+   */
   virtual T read () = 0;
 };
 

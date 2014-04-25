@@ -1,0 +1,6 @@
+/home/karl/Documents/GitHub/ClassScheduling/include/ScheduleWriter.h:11: warning: argument 'Contents' of command @param is not found in the argument list of ScheduleWriter::setContents(Schedule contents) inherited from member setContents at line 12 in file /home/karl/Documents/GitHub/ClassScheduling/include/Writer.h
+/home/karl/Documents/GitHub/ClassScheduling/include/ScheduleWriter.h:11: warning: The following parameters of ScheduleWriter::setContents(Schedule contents) are not documented:
+  parameter 'contents'
+/home/karl/Documents/GitHub/ClassScheduling/include/Writer.h:12: warning: argument 'Contents' of command @param is not found in the argument list of Writer< T >::setContents(T contents)=0
+/home/karl/Documents/GitHub/ClassScheduling/include/Writer.h:12: warning: The following parameters of Writer::setContents(T contents)=0 are not documented:
+  parameter 'contents'

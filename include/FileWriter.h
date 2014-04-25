@@ -1,15 +1,25 @@
 #ifndef FILEWRITER_H
 #define FILEWRITER_H
 
-template <class T>
-class FileWriter {
-  // Attributes
-private:
-  static std::string _filename;
-  // Operations
+/**
+ * Abstract base class for objects that write something to file.
+ */
+template <typename T>
+class FileWriter : public Writer<T> {
 public:
-  std::string getFilename ();
-  setFilename (const std::string& filename);
+    /**
+     * Returns the file name.
+     * @return std::string The file name.
+     */
+    std::string getFilename(void) { return _filename; }
+
+    /**
+     * Sets the file name.
+     * @param filename const std::string& The file name.
+     */
+    void setFilename(const std::string& filename) { _filename = filename; }
+private:
+    std::string _filename;
 };
 
 #endif // FILEWRITER_H

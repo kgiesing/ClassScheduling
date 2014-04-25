@@ -2,13 +2,15 @@
 #define SCHEDULEWRITER_H
 
 #include "FileWriter.h"
+#include "Schedule.h"
 
-/// class ScheduleWriter -
-class ScheduleWriter : public FileWriter {
-  // Operations
+class ScheduleWriter : public FileWriter<Schedule> {
 public:
-  setFieldDelimiter (std::string delimiter = "\t");
-  setContents (Schedule contents);
+    ScheduleWriter(std::string delimiter = "\t");
+    setFieldDelimiter(std::string delimiter);
+    setContents(Schedule contents);
+private:
+    std::string _delimiter;
 };
 
 #endif // SCHEDULEWRITER_H
