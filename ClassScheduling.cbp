@@ -32,12 +32,43 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="main.cpp" />
+		<Unit filename="include/Comparable.h" />
+		<Unit filename="include/Course.h" />
+		<Unit filename="include/CourseReader.h" />
+		<Unit filename="include/FileReader.h" />
+		<Unit filename="include/FileWriter.h" />
+		<Unit filename="include/GeneticScheduler.h" />
+		<Unit filename="include/LinearScoreCalculator.h" />
+		<Unit filename="include/MatchingScheduler.h" />
+		<Unit filename="include/Prof.h" />
+		<Unit filename="include/ProfInfo.h" />
+		<Unit filename="include/ProfReader.h" />
+		<Unit filename="include/Reader.h" />
+		<Unit filename="include/Room.h" />
+		<Unit filename="include/RoomReader.h" />
+		<Unit filename="include/Schedule.h" />
+		<Unit filename="include/ScheduleWriter.h" />
+		<Unit filename="include/Scheduler.h" />
+		<Unit filename="include/ScoreCalculator.h" />
+		<Unit filename="include/TimeBlock.h" />
+		<Unit filename="include/Weekdays.h" />
+		<Unit filename="include/WeightedScoreCalculator.h" />
+		<Unit filename="include/Writer.h" />
+		<Unit filename="src/main.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />
 			<debugger />
 			<lib_finder disable_auto="1" />
+			<DoxyBlocks>
+				<comment_style block="0" line="0" />
+				<doxyfile_project />
+				<doxyfile_build />
+				<doxyfile_warnings />
+				<doxyfile_output />
+				<doxyfile_dot />
+				<general use_at_in_tags="1" />
+			</DoxyBlocks>
 		</Extensions>
 	</Project>
 </CodeBlocks_project_file>
