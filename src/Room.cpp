@@ -6,14 +6,14 @@ Room::Room(const std::string& id, int capacity)
 int Room::compare(const Room& rhs) const
 {
     // Check ID's
-    if (_id.compare(rhs.getId()) == 0)
+    if (_id.compare(rhs._id) == 0)
         return 0;
     // ID's don't match; does capacity?
-    if (_capacity == rhs.getCapacity())
+    if (_capacity == rhs._capacity)
     {
         // Different rooms with same capacity; compare ID's
-        return _id.compare(rhs.getId());
+        return _id.compare(rhs._id);
     }
     // Capacity doesn't match
-    return _capacity - rhs.getCapacity();
+    return _capacity - rhs._capacity;
 }

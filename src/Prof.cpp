@@ -7,20 +7,20 @@ Prof::Prof(const std::string& id, const std::string& firstName,
 int Prof::compare(const Prof& rhs) const
 {
     // Check ID's
-    if (_id.compare(rhs.getId()) == 0)
+    if (_id.compare(rhs._id) == 0)
         return 0;
     // ID's don't match; does last name?
-    if (_lastName.compare(rhs.getLastName()) == 0)
+    if (_lastName.compare(rhs._lastName) == 0)
     {
         // Last name matches, so sort by first name
-        if (_firstName.compare(rhs.getFirstName()) == 0)
+        if (_firstName.compare(rhs._firstName) == 0)
         {
             // Professor with the same name, so compare ID's
-            return _id.compare(rhs.getId());
+            return _id.compare(rhs._id);
         }
         // Last name matches, first name doesn't
-        return _firstName.compare(rhs.getFirstName());
+        return _firstName.compare(rhs._firstName);
     }
     // Last name doesn't match
-    return _lastName.compare(rhs.getLastName());
+    return _lastName.compare(rhs._lastName);
 }
