@@ -1,4 +1,4 @@
-#include "../../include/Room.h"
+#include "../include/Room.h"
 
 Room::Room(const std::string& id, int capacity)
     : _id(id), _capacity(capacity) { }

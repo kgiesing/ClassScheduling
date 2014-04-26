@@ -1,4 +1,4 @@
-#include "../../include/Prof.h"
+#include "../include/Prof.h"
 
 Prof::Prof(const std::string& id, const std::string& firstName,
            const std::string& lastName) :
