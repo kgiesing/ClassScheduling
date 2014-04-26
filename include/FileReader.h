@@ -20,6 +20,8 @@ public:
      * @param filename const std::string& The file name.
      */
     void setFilename(const std::string& filename) { _filename = filename; }
+protected:
+    FileReader(std::string filename) : _filename(filename) { }
 private:
     std::string _filename;
 };

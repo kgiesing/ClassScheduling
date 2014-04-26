@@ -1,6 +1,8 @@
 #ifndef FILEWRITER_H
 #define FILEWRITER_H
 
+#include "Writer.h"
+
 /**
  * Abstract base class for objects that write something to file.
  */
@@ -18,6 +20,8 @@ public:
      * @param filename const std::string& The file name.
      */
     void setFilename(const std::string& filename) { _filename = filename; }
+protected:
+    FileWriter(std::string filename) : _filename(filename) { }
 private:
     std::string _filename;
 };
