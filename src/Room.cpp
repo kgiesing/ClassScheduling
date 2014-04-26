@@ -11,9 +11,9 @@ int Room::compare(const Room& rhs) const
     // ID's don't match; does capacity?
     if (_capacity == rhs.getCapacity())
     {
-        // Professor with the same name, so compare ID's
+        // Different rooms with same capacity; compare ID's
         return _id.compare(rhs.getId());
     }
     // Capacity doesn't match
-    return rhs.getCapacity() - _capacity;
+    return _capacity - rhs.getCapacity();
 }
