@@ -8,6 +8,8 @@
 
 /**
  * This class reads a list of Prof objects from a CSV file.
+ *
+ * Prof CSV file fields: professor ID, professor name
  */
 class ProfReader : public FileReader< std::vector<Prof> > {
 public:

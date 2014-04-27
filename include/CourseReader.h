@@ -8,6 +8,11 @@
 
 /**
  * This class reads a list of Course objects from a CSV file.
+ *
+ * Course CSV file fields: course ID, course name, Professor ID, number of
+ * enrolled students (as an integer), number of time periods required by the
+ * course (as an integer), list of conflicting course ID’s (if no conflicts
+ * exist, this section shall be empty)
  */
 class CourseReader : public FileReader< std::vector<Course> > {
 public:

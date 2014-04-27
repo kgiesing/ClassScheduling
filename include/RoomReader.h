@@ -8,6 +8,8 @@
 
 /**
  * This class reads a list of Room objects from a CSV file.
+ *
+ * Room CSV file fields: room ID, room capacity
  */
 class RoomReader : public FileReader< std::vector<Room> > {
 public:
