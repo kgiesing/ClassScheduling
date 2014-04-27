@@ -10,6 +10,9 @@
  */
 class Course : public Comparable<Course> {
 public:
+
+	Course();
+
     /**
      * Constructor.
      * @param Course ID.
