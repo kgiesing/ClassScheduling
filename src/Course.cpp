@@ -1,14 +1,6 @@
 #include "../include/Course.h"
 
-std::vector<std::string> temp;
-Course::Course(){
-	_id = "";
-	_name = "";
-	_enrolled = 0;
-	_profId = "";
-	_conflicts = temp;
-
-}
+Course::Course() : _id(""), _name(""), _enrolled(0), _profId("") { }
 
 Course::Course(const std::string& id, const std::string& name, int enrolled,
                const std::string& profId, const std::vector<std::string>& conflicts)
