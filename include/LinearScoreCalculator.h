@@ -2,24 +2,24 @@
 #ifndef LINEARSCORECALCULATOR_H
 #define LINEARSCORECALCULATOR_H
 
-#include "TimeBlock.h"
-#include "ScoreCalculator.h"
-#include "ProfInfo.h"
 #include <map>
 #include <string>
-using namespace std;
-#include "Weekdays.h"
+#include "ProfInfo.h"
+#include "ScoreCalculator.h"
 
-/// class LinearScoreCalculator -
+using std::map;
+using std::string;
+
+/**
+ * An implementation of ScoreCalculator that calculates professor score by
+ * simply measuring the gaps between different time blocks. It does not weigh
+ * gaps between days as "heavier" than gaps between time blocks.
+ */
 class LinearScoreCalculator : public ScoreCalculator {
-  // Associations
-  ProfInfo unnamed_6;
-  // Attributes
-private:
-  map<string, ProfInfo> _profInfo;
-  // Operations
 public:
-  double operator() (Weekdays w, TimeBlock t, const Prof& p) const;
+    double operator() (Weekdays w, TimeBlock t, const Prof& p) const;
+private:
+    map<string, ProfInfo> _profInfo; /**< Map of ID's to ProfInfo objects */
 };
 
 #endif // LINEARSCORECALCULATOR_H

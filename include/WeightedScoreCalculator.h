@@ -2,15 +2,16 @@
 #ifndef WEIGHTEDSCORECALCULATOR_H
 #define WEIGHTEDSCORECALCULATOR_H
 
-#include "TimeBlock.h"
-#include "ScoreCalculator.h"
-#include "ProfInfo.h"
-#include "Weekdays.h"
 #include <map>
 #include <string>
-using namespace std;
+#include "ScoreCalculator.h"
+#include "ProfInfo.h"
+
+using std::map;
+using std::string;
+
 /**
- * An implementation of ScoreCalculator that calculates professor scored by
+ * An implementation of ScoreCalculator that calculates professor score by
  * weighting separate days as "heavier" than large schedule gaps within the
  * same day.
  */
