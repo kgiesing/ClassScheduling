@@ -28,6 +28,11 @@ public:
      */
     Weekdays getDay() const { return _lastWeekday; }
     /**
+     * Returns the number of days this professor spends on campus.
+     * @return The number of days this professor spends on campus.
+     */
+    unsigned getDaysOnCampus() const { return _daysOnCampus; }
+    /**
      * Returns the professor about which we are holding information.
      * @return Professor about which we are holding information.
      */
@@ -52,6 +57,7 @@ private:
     Weekdays _lastWeekday;
     TimeBlock _lastTimeBlock;
     double _score;
+    unsigned _daysOnCampus;
 };
 
 #endif // PROFINFO_H
