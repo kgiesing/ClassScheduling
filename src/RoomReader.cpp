@@ -28,8 +28,11 @@ vector<Room> RoomReader::read()
     }
     file.close();
 
-    // Convert to vector and return
-    vector<Room> output(rooms.begin(), rooms.end());
+    // Convert to vector sorted in descending order
+    vector<Room> output(rooms.size());
+    set<Room>::reverse_iterator rev;
+    for (rev = rooms.rbegin(); rev != rooms.rend(); ++rev)
+        output.push_back(*rev);
     return output;
 }
 

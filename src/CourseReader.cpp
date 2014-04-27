@@ -42,7 +42,11 @@ vector<Course> CourseReader::read()
         courses.insert(c);
     }
     file.close();
-    // Convert to vector and return
-    vector<Course> output(courses.begin(), courses.end());
+
+    // Convert to vector sorted in descending order
+    vector<Course> output(courses.size());
+    set<Course>::reverse_iterator rev;
+    for (rev = courses.rbegin(); rev != courses.rend(); ++rev)
+        output.push_back(*rev);
     return output;
 }
