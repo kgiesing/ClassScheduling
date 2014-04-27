@@ -15,7 +15,7 @@ public:
      * @param Room capacity.
      * @param Room ID.
      */
-    Room(const std::string& id, int capacity);
+    Room(const std::string& id = "", int capacity = 0);
     /**
      * Returns the room capacity.
      * @return Constant reference to the room capacity.
