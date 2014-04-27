@@ -15,7 +15,6 @@
 # KG Ignore binary files and doxygen directory
 bin/
 doxygen/
+# KG Ignore Code::Blocks files
 *.layout
-*.cbp
-*.cbp
 *.cbp
