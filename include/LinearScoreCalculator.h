@@ -18,12 +18,6 @@ using std::string;
 class LinearScoreCalculator : public ScoreCalculator {
 public:
     double operator() (Weekdays w, TimeBlock t, const Prof& p);
-    /** Destructor */
-    ~LinearScoreCalculator(void);
-private:
-    map<string, ProfInfo*> _profInfo; /**< Map of ID's to ProfInfo objects */
-    LinearScoreCalculator(const LinearScoreCalculator& ); /**< Private copy constructor */
-    const LinearScoreCalculator& operator=(const LinearScoreCalculator&); /**< Private assignment operator */
 };
 
 #endif // LINEARSCORECALCULATOR_H

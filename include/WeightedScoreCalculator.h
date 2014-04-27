@@ -18,8 +18,6 @@ using std::string;
 class WeightedScoreCalculator : public ScoreCalculator {
 public:
     double operator()(Weekdays w, TimeBlock t, const Prof& p);
-private:
-    map<string, ProfInfo> _profInfo; /**< Map of ID's to ProfInfo objects */
 };
 
 #endif // WEIGHTEDSCORECALCULATOR_H
