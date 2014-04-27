@@ -1,3 +1,4 @@
+#pragma once
 #ifndef COURSEREADER_H
 #define COURSEREADER_H
 
@@ -11,8 +12,10 @@
 class CourseReader : public FileReader< std::vector<Course> > {
 public:
     /** Constructor with filename */
-    CourseReader(std::string filename) : FileReader(filename) { }
+    CourseReader(std::string filename, char delim=',') : FileReader(filename) { }
     std::vector<Course> read();
+private:
+
 };
 
 #endif // COURSEREADER_H

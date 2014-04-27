@@ -1,3 +1,4 @@
+#pragma once
 #ifndef FILEWRITER_H
 #define FILEWRITER_H
 

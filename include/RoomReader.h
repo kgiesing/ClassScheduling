@@ -1,3 +1,4 @@
+#pragma once
 #ifndef ROOMREADER_H
 #define ROOMREADER_H
 

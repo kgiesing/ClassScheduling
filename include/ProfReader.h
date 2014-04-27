@@ -1,3 +1,4 @@
+#pragma once
 #ifndef PROFREADER_H
 #define PROFREADER_H
 
