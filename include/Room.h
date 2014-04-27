@@ -8,7 +8,7 @@
 /**
  * This class represents a single room.
  */
-class Room : private Comparable<Room> {
+class Room : public Comparable<Room> {
 public:
     /**
      * Constructor.

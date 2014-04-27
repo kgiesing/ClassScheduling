@@ -8,7 +8,7 @@
 /**
  * This class represents a single professor.
  */
-class Prof : private Comparable<Prof> {
+class Prof : public Comparable<Prof> {
 public:
     /**
      * Constructor.

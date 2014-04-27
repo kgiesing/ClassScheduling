@@ -8,7 +8,7 @@
 /**
  * This class represents a single course.
  */
-class Course : private Comparable<Course> {
+class Course : public Comparable<Course> {
 public:
     /**
      * Constructor.
