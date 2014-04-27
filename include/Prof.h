@@ -16,8 +16,8 @@ public:
      * @param First name of professor.
      * @param Last name of professor.
      */
-    Prof(const std::string& id, const std::string& firstName,
-         const std::string& lastName);
+    Prof(const std::string& id = "", const std::string& firstName = "",
+         const std::string& lastName = "");
     /**
      * Returns the first name of the professor.
      * @return The first name of the professor.
