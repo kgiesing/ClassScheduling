@@ -54,6 +54,12 @@
 		<Unit filename="include/Weekdays.h" />
 		<Unit filename="include/WeightedScoreCalculator.h" />
 		<Unit filename="include/Writer.h" />
+		<Unit filename="src/Course.cpp" />
+		<Unit filename="src/CourseReader.cpp" />
+		<Unit filename="src/Prof.cpp" />
+		<Unit filename="src/ProfReader.cpp" />
+		<Unit filename="src/Room.cpp" />
+		<Unit filename="src/RoomReader.cpp" />
 		<Unit filename="src/main.cpp" />
 		<Extensions>
 			<code_completion />

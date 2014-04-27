@@ -18,3 +18,5 @@ doxygen/
 # KG Ignore Code::Blocks files
 *.layout
 *.cbp
+/*.cbp
+/*.layout
