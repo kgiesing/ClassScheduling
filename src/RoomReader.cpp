@@ -29,7 +29,7 @@ vector<Room> RoomReader::read()
     file.close();
 
     // Convert to vector and return
-    vector<Room> output(profs.begin(), profs.end());
+    vector<Room> output(rooms.begin(), rooms.end());
     return output;
 }
 
