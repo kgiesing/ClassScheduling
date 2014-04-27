@@ -12,10 +12,8 @@
 class CourseReader : public FileReader< std::vector<Course> > {
 public:
     /** Constructor with filename */
-    CourseReader(std::string filename, char delim=',') : FileReader(filename) { }
+    CourseReader(std::string filename, char delim=',') : FileReader(filename, delim) { }
     std::vector<Course> read();
-private:
-
 };
 
 #endif // COURSEREADER_H

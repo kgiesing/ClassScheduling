@@ -12,7 +12,7 @@
 class RoomReader : public FileReader< std::vector<Room> > {
 public:
     /** Constructor with filename */
-    RoomReader(std::string filename) : FileReader(filename) { }
+    RoomReader(std::string filename, char delim=',') : FileReader(filename, delim) { }
     std::vector<Room> read ();
 };
 

@@ -12,7 +12,7 @@
 class ProfReader : public FileReader< std::vector<Prof> > {
 public:
     /** Constructor with filename */
-    ProfReader(std::string filename) : FileReader(filename) { }
+    ProfReader(std::string filename, char delim=',') : FileReader(filename, delim) { }
     std::vector<Prof> read();
 };
 
