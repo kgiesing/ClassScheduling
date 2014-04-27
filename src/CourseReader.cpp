@@ -41,6 +41,7 @@ vector<Course> CourseReader::read()
         Course c(id, name, enrolled, profId, conflicts);
         courses.insert(c);
     }
+    file.close();
     // Convert to vector and return
     vector<Course> output(courses.begin(), courses.end());
     return output;
