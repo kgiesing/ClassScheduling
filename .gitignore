@@ -15,3 +15,7 @@
 # KG Ignore binary files and doxygen directory
 bin/
 doxygen/
+*.layout
+*.cbp
+*.cbp
+*.cbp
