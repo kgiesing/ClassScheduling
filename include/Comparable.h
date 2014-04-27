@@ -1,3 +1,4 @@
+#pragma once
 #ifndef COMPARABLE_H
 #define COMPARABLE_H
 

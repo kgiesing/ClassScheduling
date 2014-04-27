@@ -1,3 +1,4 @@
+#pragma once
 #ifndef SCHEDULEWRITER_H
 #define SCHEDULEWRITER_H
 

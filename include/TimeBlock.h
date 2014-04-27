@@ -1,3 +1,4 @@
+#pragma once
 #ifndef TIMEBLOCK_H
 #define TIMEBLOCK_H
 

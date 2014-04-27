@@ -1,3 +1,4 @@
+#pragma once
 #ifndef WEEKDAYS_H
 #define WEEKDAYS_H
 

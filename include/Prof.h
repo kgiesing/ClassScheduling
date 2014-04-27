@@ -1,3 +1,4 @@
+#pragma once
 #ifndef PROF_H
 #define PROF_H
 

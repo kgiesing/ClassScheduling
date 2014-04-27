@@ -1,9 +1,14 @@
+#pragma once
 #ifndef LINEARSCORECALCULATOR_H
 #define LINEARSCORECALCULATOR_H
 
 #include "TimeBlock.h"
 #include "ScoreCalculator.h"
 #include "ProfInfo.h"
+#include <map>
+#include <string>
+using namespace std;
+#include "Weekdays.h"
 
 /// class LinearScoreCalculator -
 class LinearScoreCalculator : public ScoreCalculator {
@@ -14,7 +19,7 @@ private:
   map<string, ProfInfo> _profInfo;
   // Operations
 public:
-  double operator() (Weekday w, TimeBlock t, const Prof& p) const;
+  double operator() (Weekdays w, TimeBlock t, const Prof& p) const;
 };
 
 #endif // LINEARSCORECALCULATOR_H

@@ -1,3 +1,4 @@
+#pragma once
 #ifndef PROFINFO_H
 #define PROFINFO_H
 
@@ -30,7 +31,7 @@ public:
      * @param The weekday on which the course is taught.
      * @param The time block when the course is taught.
      */
-    addTime(Weekdays w, TimeBlock t);
+    void addTime(Weekdays w, TimeBlock t);
 private:
     TimeBlock _lastTimeBlock;
     Weekdays _lastWeekday;

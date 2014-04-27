@@ -1,3 +1,4 @@
+#pragma once
 #ifndef SCHEDULER_H
 #define SCHEDULER_H
 
@@ -14,7 +15,7 @@ public:
      * generate an optimized schedule.
      * @return An optimal (or near-optimal) schedule.
      */
-    virtual Schedule getSchedule() = 0;
+    virtual Schedule* getSchedule() = 0;
     /**
      * Returns the timeout (last millisecond that this object should still
      * be working to generate the optimal schedule).
