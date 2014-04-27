@@ -15,7 +15,7 @@ public:
      * Constructor.
      * @param Professor about which we are holding information.
      */
-    ProfInfo (const Prof& p);
+    ProfInfo (const Prof&, Weekdays = WEEKDAYS_SIZE, TimeBlock = TIMEBLOCK_SIZE);
     /**
      * Returns the professor about which we are holding information.
      * @return Professor about which we are holding information.
