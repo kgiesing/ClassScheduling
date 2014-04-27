@@ -33,9 +33,9 @@ public:
      */
     void addTime(Weekdays w, TimeBlock t);
 private:
-    TimeBlock _lastTimeBlock;
+    const Prof& _prof;
     Weekdays _lastWeekday;
-    Prof& _prof;
+    TimeBlock _lastTimeBlock;
     double _score;
 };
 
