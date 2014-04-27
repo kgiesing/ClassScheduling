@@ -10,6 +10,8 @@
  */
 class RoomReader : public FileReader< std::vector<Room> > {
 public:
+    /** Constructor with filename */
+    RoomReader(std::string filename) : FileReader(filename) { }
     std::vector<Room> read ();
 };
 

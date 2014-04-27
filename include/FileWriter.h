@@ -1,6 +1,7 @@
 #ifndef FILEWRITER_H
 #define FILEWRITER_H
 
+#include <string>
 #include "Writer.h"
 
 /**

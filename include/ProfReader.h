@@ -10,6 +10,8 @@
  */
 class ProfReader : public FileReader< std::vector<Prof> > {
 public:
+    /** Constructor with filename */
+    ProfReader(std::string filename) : FileReader(filename) { }
     std::vector<Prof> read();
 };
 
