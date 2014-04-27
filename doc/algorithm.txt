@@ -1,0 +1,55 @@
+A. Input the Prof, Room, and Course sets, sorting each set on member insertion.
+
+B. Add courses taught by the same Prof to each Course object:
+  1. Get the professor who teaches the course
+  2. Go through the other courses in the list; if the professor is the same,
+      add the course as a conflict
+  3. If there are Course objects still in the set:
+    a. Get the next Course in the set
+    b. Go to 1.
+    Otherwise, we're done.
+  (Note: This is O(n^2), but I don't think we have a choice in the matter.)
+
+C. From these, create a Schedule using a greedy algorithm:
+  1. Start at the earliest time block
+  2. Match course enrollment to room capacity:
+    a. Find the highest-capacity room that is free in this time block
+    b. Find the highest-enrolled course that has not been scheduled
+    c. Schedule that course for that room, at the current time block
+      (Note: "schedule" for all necessary days: M/W, Tu/Th, more later)
+  3. While there are courses that conflict with that course:
+    a. Create a temporary time block, one more than the current time block
+    b. Find the lowest capacity room that will still hold the conflicting course
+    c. If that room is not free during the temporary time block:
+       - Find the next time block that is free for that room
+       - Assign that time block to the temporary time block
+    c. Schedule the conflicting course for that room, in the temporary time slot
+    d. Record that the conflicting course has been scheduled
+        (flag it, remove it from set, etc. - implementation TBD)
+  4. Increase the (non-temporary) time block
+  5. If there are more courses to schedule, go to 2.
+  6. Calculate the overall score for that schedule.
+
+D. Find the best schedule through "evolution:"
+  1. Duplicate the schedule created by C. as the most "fit"
+  2. Randomly choose two courses to swap
+  3. See if that swap would be valid:
+    - Make sure the same professor does not teach both courses
+      (the score would be unaffected)
+    - For both courses, check every room for conflicting courses
+    If invalid, go to 2.
+  4. Swap the courses, and calculate the overall score for the schedule.
+    - If we keep a data structure of scores per Prof, we only need to check
+      the scores of the Prof's that we swapped.
+  5. Check the new schedule against the most "fit" schedule.
+    If this schedule's score is lower, it is more "fit," and the other
+    schedule "goes extinct."
+  6. If we are out of time, return the "fit" schedule. Otherwise, go to 2.
+
+E. Output the Schedule to the console, or (optionally) to file.
+
+We may be able to improve the genetic algorithm in D. by keeping track of
+which Courses in the Schedule have been swapped. We could do this either by
+keeping a linked list of swapped courses, per course, in the Scheduler; or by a
+std::vector<bool> table, since that data structure is optimized to use only one
+bit for true or false. Just a suggestion.
