@@ -6,8 +6,18 @@ ProfInfo::ProfInfo(const Prof& p, Weekdays w, TimeBlock t) :
 
 void ProfInfo::addTime(Weekdays w, TimeBlock t)
 {
-    if (w > _lastWeekday)
+    if (_lastWeekday < w)
+    {
+        // New weekday; add 1 day, and 1 time block
         _daysOnCampus++;
+        _timeOnCampus++;
+    }
+    else
+    {
+        // Same weekday; add difference of time blocks
+        _timeOnCampus = (lastTime < thisTime) ?
+            thisTime - lastTime : lastTime - thisTime;
+    }
     _lastTimeBlock = t;
     _lastWeekday = w;
 }

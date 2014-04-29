@@ -38,25 +38,30 @@ public:
      */
     const Prof& getProf() const { return _prof; }
     /**
-     * Returns the professor's current score.
-     * @return The professor's current score.
-     */
-    double getScore() const { return _score; }
-    /**
      * Returns the last TimeBlock found.
      * @return The last TimeBlock found.
      */
-    TimeBlock getTime() const { return _lastTimeBlock; }
+    TimeBlock getTimeBlock() const { return _lastTimeBlock; }
+    /**
+     * Returns the total number of time blocks the professor spends on campus.
+     * @return The total number of time blocks the professor spends on campus.
+     */
+    unsigned getTotalTime() const { return _timeOnCampus; }
     /**
      * Sets the professor's current score.
      * @param The professor's current score.
      */
     void setScore(double score) { _score = score; }
 private:
+    /** Reference to the professor object */
     const Prof& _prof;
+    /** The last weekday found */
     Weekdays _lastWeekday;
+    /** The last time block found */
     TimeBlock _lastTimeBlock;
-    double _score;
+    /** Total number of time blocks on campus */
+    unsigned _timeOnCampus;
+    /** Total number of weekdays on campus */
     unsigned _daysOnCampus;
 };
 
