@@ -33,6 +33,11 @@ public:
      */
     unsigned getDaysOnCampus() const { return _daysOnCampus; }
     /**
+     * Returns the number of courses this professor teaches.
+     * @return Number of courses this professor teaches.
+     */
+    const Prof& getNumCourses() const { return _courses; }
+    /**
      * Returns the professor about which we are holding information.
      * @return Professor about which we are holding information.
      */
