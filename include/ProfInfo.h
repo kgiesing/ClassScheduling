@@ -48,7 +48,7 @@ public:
      */
     unsigned getTotalTime() const { return _timeOnCampus; }
 private:
-    /** Reference to the professor object */
+    /** Read-only reference to the professor object */
     const Prof& _prof;
     /** The last weekday found */
     Weekdays _lastWeekday;
