@@ -16,6 +16,8 @@ void ProfInfo::addTime(Weekdays w, TimeBlock t)
     else
     {
         // Same weekday; add difference of time blocks
+        unsigned lastTime = static_cast<unsigned>(_lastTimeBlock);
+        unsigned thisTime = static_cast<unsigned>(t);
         _timeOnCampus = (lastTime < thisTime) ?
             thisTime - lastTime : lastTime - thisTime;
     }
