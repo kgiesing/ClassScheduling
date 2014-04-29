@@ -47,11 +47,6 @@ public:
      * @return The total number of time blocks the professor spends on campus.
      */
     unsigned getTotalTime() const { return _timeOnCampus; }
-    /**
-     * Sets the professor's current score.
-     * @param The professor's current score.
-     */
-    void setScore(double score) { _score = score; }
 private:
     /** Reference to the professor object */
     const Prof& _prof;
