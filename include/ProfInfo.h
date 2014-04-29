@@ -58,6 +58,8 @@ private:
     unsigned _timeOnCampus;
     /** Total number of weekdays on campus */
     unsigned _daysOnCampus;
+    /** Total number of courses taught */
+    unsigned _courses;
 };
 
 #endif // PROFINFO_H
