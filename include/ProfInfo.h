@@ -5,6 +5,11 @@
 #include "Prof.h"
 #include "TimeBlock.h"
 #include "Weekdays.h"
+#include <vector>
+#include <utility>
+
+using std::vector;
+using std::pair;
 
 /**
  * This class represents information about a Professor.
@@ -14,24 +19,21 @@ public:
     /**
      * Constructor.
      * @param Professor about which we are holding information.
+     * @param Weekday for the time we are calculating.
+     * @param TimeBlock for the time we are calculating.
      */
-    ProfInfo (const Prof&, Weekdays = WEEKDAYS_SIZE, TimeBlock = TIMEBLOCK_SIZE);
+    ProfInfo (const Prof&);
     /**
-     * Adds a time that the professor is teaching a course.
+     * Adds a time when the professor is teaching a course.
      * @param The weekday on which the course is taught.
      * @param The time block when the course is taught.
      */
     void addTime(Weekdays w, TimeBlock t);
     /**
-     * Returns the last TimeBlock found.
-     * @return The last TimeBlock found.
-     */
-    Weekdays getDay() const { return _lastWeekday; }
-    /**
      * Returns the number of days this professor spends on campus.
      * @return The number of days this professor spends on campus.
      */
-    unsigned getDaysOnCampus() const { return _daysOnCampus; }
+    unsigned getDaysOnCampus() const;
     /**
      * Returns the number of courses this professor teaches.
      * @return Number of courses this professor teaches.
@@ -43,28 +45,19 @@ public:
      */
     const Prof& getProf() const { return _prof; }
     /**
-     * Returns the last TimeBlock found.
-     * @return The last TimeBlock found.
-     */
-    TimeBlock getTimeBlock() const { return _lastTimeBlock; }
-    /**
      * Returns the total number of time blocks the professor spends on campus.
      * @return The total number of time blocks the professor spends on campus.
      */
-    unsigned getTotalTime() const { return _timeOnCampus; }
+    unsigned getTotalTime() const;
 private:
     /** Read-only reference to the professor object */
     const Prof& _prof;
-    /** The last weekday found */
-    Weekdays _lastWeekday;
-    /** The last time block found */
-    TimeBlock _lastTimeBlock;
-    /** Total number of time blocks on campus */
-    unsigned _timeOnCampus;
-    /** Total number of weekdays on campus */
-    unsigned _daysOnCampus;
     /** Total number of courses taught */
     unsigned _courses;
+    /** Data structure holding whether a professor spends a day on campus */
+    vector<char> _isOnCampus; // Note: vector<bool> is "broken"
+    /** Data structure holding the first and last TimeBlocks per Weekday */
+    vector< pair<TimeBlock, TimeBlock> > _timeBlocks;
 };
 
 #endif // PROFINFO_H
