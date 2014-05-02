@@ -51,13 +51,13 @@ std::ostream& operator<<(std::ostream& out, const Weekdays value) {
 		case MON:
 			out << "Monday";
 			break;
-		case TUE:
+		case TUES:
 			out << "Tuesday";
 			break;
 		case WED:
 			out << "Wednesday";
 			break;
-		case THUR:
+		case THURS:
 			out << "Thursday";
 			break;
 		case FRI:
