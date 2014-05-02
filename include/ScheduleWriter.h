@@ -5,7 +5,7 @@
 #include "FileWriter.h"
 #include "Schedule.h"
 
-class ScheduleWriter : public FileWriter<Schedule> {
+class ScheduleWriter : public FileWriter<Schedule*> {
 public:
     ScheduleWriter(std::string delimiter = "\t");
     void setFieldDelimiter(std::string delimiter);
