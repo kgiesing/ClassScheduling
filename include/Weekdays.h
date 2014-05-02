@@ -16,4 +16,10 @@ enum Weekdays {
   WEEKDAYS_SIZE /**< Dummy value for iterating through enum */
 };
 
+/**
+ * Overwrite stream output.
+ */
+
+std::ostream& operator<<(std::ostream& out, const Weekdays value);
+
 #endif // WEEKDAYS_H

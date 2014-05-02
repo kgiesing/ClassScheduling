@@ -7,7 +7,7 @@
 
 class ScheduleWriter : public FileWriter<Schedule*> {
 public:
-    ScheduleWriter(std::string delimiter = "\t");
+    ScheduleWriter(std::string filename, std::string delimiter = "\t") : FileWriter(filename) { _delimiter = delimiter };
     void setFieldDelimiter(std::string delimiter);
     void setContents(Schedule *contents);
 private:

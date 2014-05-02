@@ -20,4 +20,10 @@ enum TimeBlock {
   TIMEBLOCK_SIZE /**< Dummy value for iterating through enum */
 };
 
+/**
+ * Overwrite stream output.
+ */
+
+std::ostream& operator<<(std::ostream& out, const TimeBlock value);
+
 #endif // TIMEBLOCK_H
