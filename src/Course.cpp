@@ -2,8 +2,8 @@
 
 Course::Course() : _id(""), _name(""), _enrolled(0), _profId("") { }
 
-Course::Course(const std::string& id, const std::string& name, int enrolled,
-               const std::string& profId, const std::vector<std::string>& conflicts)
+Course::Course(const string& id, const string& name, int enrolled,
+               const string& profId, const vector<string>& conflicts)
     : _id(id), _name(name), _enrolled(enrolled), _profId(profId),
       _conflicts(conflicts) { }
 

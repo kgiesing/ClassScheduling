@@ -6,13 +6,17 @@
 #include <string>
 #include "Comparable.h"
 
+using std::string;
+using std::vector;
+
 /**
  * This class represents a single course.
  */
 class Course : public Comparable<Course> {
 public:
 
-	Course();
+    /** No-arg constructor. */
+	Course(void);
 
     /**
      * Constructor.
@@ -22,8 +26,8 @@ public:
      * @param ID of professor who teaches the course.
      * @param List of conflicting courses.
      */
-    Course(const std::string& id, const std::string& name, int enrolled,
-           const std::string& profId, const std::vector<std::string>& conflicts);
+    Course(const string& id, const string& name, int enrolled,
+           const string& profId, const vector<string>& conflicts);
     /**
      * Returns the number of students enrolled in the course.
      * @return The number of students enrolled in the course.
@@ -33,24 +37,29 @@ public:
      * Returns the course ID.
      * @return The course ID.
      */
-    const std::string& getId() const { return _id; }
+    const string& getId() const { return _id; }
     /**
      * Returns the ID of the professor who teaches this course.
      * @return The ID of the professor who teaches this course.
      */
-    const std::string& getProfId() const { return _profId; }
+    const string& getProfId() const { return _profId; }
     /**
      * Returns the ID's of the courses that conflict with this course.
      * @return A constant vector containing the ID's of the courses that
      *         conflict with this course.
      */
-    const std::vector<std::string>& getConflicts() const { return _conflicts; }
+    const vector<string>& getConflicts() const { return _conflicts; }
     /**
      * Returns the ID's of the courses that conflict with this course.
      * @return A mutable vector containing the ID's of the courses that
      *         conflict with this course.
      */
-    std::vector<std::string>& getConflicts() { return _conflicts; }
+    vector<string>& getConflicts() { return _conflicts; }
+    /**
+     * Returns the name of this course.
+     * @return The name of this course.
+     */
+    const string& getName() const { return _name; }
     /**
      * Sets the number of students enrolled in the course.
      * @param The number of students enrolled in the course.
@@ -60,25 +69,30 @@ public:
      * Sets the course ID.
      * @param The course ID.
      */
-    void setId(const std::string& id) { _id = id; }
+    void setId(const string& id) { _id = id; }
     /**
      * Sets the ID of the professor who teaches this course.
      * @param The ID of the professor who teaches this course.
      */
-    void setProfId(const std::string& profId) { _profId = profId; }
+    void setProfId(const string& profId) { _profId = profId; }
     /**
      * Sets the ID's of the courses that conflict with this course.
      * @param A constant vector containing the ID's of the courses that
      *         conflict with this course.
      */
-     void setConflicts(const std::vector<std::string>& conflicts)
+     void setConflicts(const vector<string>& conflicts)
             { _conflicts = conflicts; }
+    /**
+     * Sets the name of this course.
+     * @param The name of this course.
+     */
+    void setName(const string& name) { _name = name; }
 private:
-    std::string _id;
-    std::string _name;
+    string _id;
+    string _name;
     int _enrolled;
-    std::string _profId;
-    std::vector<std::string> _conflicts;
+    string _profId;
+    vector<string> _conflicts;
     int compare(const Course& rhs) const;
 };
 
