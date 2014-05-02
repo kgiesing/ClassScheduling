@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SCHEDULER_H
-#define SCHEDULER_H
+#ifndef SCHEDULEGENERATOR_H
+#define SCHEDULEGENERATOR_H
 
 #include "Schedule.h"
 
@@ -8,7 +8,7 @@
  * This is an abstract base class used by the various algorithms to generate
  * Schedule objects.
  */
-class Scheduler {
+class ScheduleGenerator {
 public:
     /**
      * Gets the Schedule object. Subclasses will use different algorithms to
@@ -30,4 +30,4 @@ private:
     long _timeout;
 };
 
-#endif // SCHEDULER_H
+#endif // SCHEDULEGENERATOR_H
