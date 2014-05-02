@@ -1,0 +1,18 @@
+All of these should have accompanying test methods.
+
+-Reading files
+--What happens when files are out of order on command line call
+--What happens when a filename is broken
+--What happens when data is improperly formatted on any one of the readers
+
+-Writing schedule
+--Ensure weekdays and timeblocks are correctly outputted with overidden <<
+--Ensure all parts of each course output work
+
+-General input
+--What happens when any of rooms, courses, professor vectors are empty?
+--What happens when rooms * weekdays * times < courses (not enough spots to schedule all courses)?
+
+-Score Calculator (both Linear and Weighted)
+--Draw up some test cases simple enough (but not trivial) to do the score calculation by hand.
+--Actually simulate and check the score calculator works.
