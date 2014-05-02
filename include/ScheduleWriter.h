@@ -12,6 +12,7 @@ public:
     void setContents(Schedule contents);
 private:
     std::string _delimiter;
+    Schedule _contents;
 };
 
 #endif // SCHEDULEWRITER_H
