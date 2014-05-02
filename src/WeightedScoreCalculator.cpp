@@ -1,14 +1,12 @@
 #include "../include/WeightedScoreCalculator.h"
 #include <cmath> // for pow()
 
-double WeightedScoreCalculator::operator() (Weekdays w, TimeBlock t,
-        const Prof& p)
+double WeightedScoreCalculator::operator() (ProfInfo& pi)
 {
-    ProfInfo* pi = this->find(p, w, t);
-    // Update ProfInfo
-    pi->addTime(w, t);
-    // Return score using Dzmitry's formula:
+    // Calculate score using Dzmitry's formula:
     // totalTimeOnCampus * 3^numberOfDaysOnCampus / numberOfClasses
-    return pi->getTotalTime() * pow(3.0, pi->getDaysOnCampus())
-            / pi->getNumCourses();
+    double score = pi.getTotalTime() * pow(3.0, pi.getDaysOnCampus())
+            / pi.getNumCourses();
+    pi.setScore(score);
+    return score;
 }

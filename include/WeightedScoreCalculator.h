@@ -2,13 +2,7 @@
 #ifndef WEIGHTEDSCORECALCULATOR_H
 #define WEIGHTEDSCORECALCULATOR_H
 
-#include <map>
-#include <string>
 #include "ScoreCalculator.h"
-#include "ProfInfo.h"
-
-using std::map;
-using std::string;
 
 /**
  * An implementation of ScoreCalculator that calculates professor score by
@@ -17,7 +11,7 @@ using std::string;
  */
 class WeightedScoreCalculator : public ScoreCalculator {
 public:
-    double operator()(Weekdays w, TimeBlock t, const Prof& p);
+    double operator()(ProfInfo&);
 };
 
 #endif // WEIGHTEDSCORECALCULATOR_H

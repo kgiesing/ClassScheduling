@@ -2,13 +2,7 @@
 #ifndef LINEARSCORECALCULATOR_H
 #define LINEARSCORECALCULATOR_H
 
-#include <map>
-#include <string>
-#include "ProfInfo.h"
 #include "ScoreCalculator.h"
-
-using std::map;
-using std::string;
 
 /**
  * An implementation of ScoreCalculator that calculates professor score by
@@ -17,7 +11,7 @@ using std::string;
  */
 class LinearScoreCalculator : public ScoreCalculator {
 public:
-    double operator() (Weekdays w, TimeBlock t, const Prof& p);
+    double operator()(ProfInfo&);
 };
 
 #endif // LINEARSCORECALCULATOR_H
