@@ -16,3 +16,6 @@ All of these should have accompanying test methods.
 -Score Calculator (both Linear and Weighted)
 --Draw up some test cases simple enough (but not trivial) to do the score calculation by hand.
 --Actually simulate and check the score calculator works.
+
+-System Test
+--All of the constraints in the Project Agreement must be properly enforced.
