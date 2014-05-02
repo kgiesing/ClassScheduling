@@ -19,21 +19,13 @@ public:
     /**
      * Constructor.
      * @param Professor about which we are holding information.
-     * @param Weekday for the time we are calculating.
-     * @param TimeBlock for the time we are calculating.
      */
-    ProfInfo (const Prof&);
-    /**
-     * Adds a time when the professor is teaching a course.
-     * @param The weekday on which the course is taught.
-     * @param The time block when the course is taught.
-     */
-    void addTime(Weekdays w, TimeBlock t);
+    ProfInfo (const Prof& prof) : _prof(prof) { }
     /**
      * Returns the number of days this professor spends on campus.
      * @return The number of days this professor spends on campus.
      */
-    unsigned getDaysOnCampus() const;
+    unsigned getDaysOnCampus() const { return _daysOnCampus; }
     /**
      * Returns the number of courses this professor teaches.
      * @return Number of courses this professor teaches.
@@ -45,19 +37,50 @@ public:
      */
     const Prof& getProf() const { return _prof; }
     /**
+     * @brief Returns the professor's score.
+     * The score should be calculated using one of the subclasses of the
+     * ScoreCalculator base class (a functor).
+     * @return The total number of time blocks the professor spends on campus.
+     */
+    double getScore() const {return _score; }
+    /**
      * Returns the total number of time blocks the professor spends on campus.
      * @return The total number of time blocks the professor spends on campus.
      */
-    unsigned getTotalTime() const;
+    unsigned getTotalTime() const {return _timeBlocks; }
+    /**
+     * Sets the number of days this professor spends on campus.
+     * @param The number of days this professor spends on campus.
+     */
+    void setDaysOnCampus(unsigned days) { _daysOnCampus = days; }
+    /**
+     * Sets the number of courses this professor teaches.
+     * @param Number of courses this professor teaches.
+     */
+    void setNumCourses(unsigned courses) { _courses = courses; }
+    /**
+     * @brief Sets the professor's score.
+     * The score should be calculated using one of the subclasses of the
+     * ScoreCalculator base class (a functor).
+     * @param The total number of time blocks the professor spends on campus.
+     */
+    void setScore(double score) {_score = score; }
+    /**
+     * Sets the total number of time blocks the professor spends on campus.
+     * @param The total number of time blocks the professor spends on campus.
+     */
+    void setTotalTime(unsigned timeBlocks) {_timeBlocks = timeBlocks; }
 private:
     /** Read-only reference to the professor object */
     const Prof& _prof;
     /** Total number of courses taught */
     unsigned _courses;
-    /** Data structure holding whether a professor spends a day on campus */
-    vector<char> _isOnCampus; // Note: vector<bool> is "broken"
-    /** Data structure holding the first and last TimeBlocks per Weekday */
-    vector< pair<TimeBlock, TimeBlock> > _timeBlocks;
+    /** TOtal number of days spent on campus */
+    unsigned _daysOnCampus;
+    /** Total number of time blocks spent on campus */
+    unsigned _timeBlocks;
+    /** The professor's score */
+    double _score;
 };
 
 #endif // PROFINFO_H
