@@ -2,10 +2,12 @@
 #ifndef COURSE_H
 #define COURSE_H
 
-#include <vector>
+#include <set>
 #include <string>
+#include <vector>
 #include "Comparable.h"
 
+using std::set;
 using std::string;
 using std::vector;
 
@@ -27,7 +29,7 @@ public:
      * @param List of conflicting courses.
      */
     Course(const string& id, const string& name, int enrolled,
-           const string& profId, const vector<string>& conflicts);
+           const string& profId, const set<string>& conflicts);
     /**
      * Returns the number of students enrolled in the course.
      * @return The number of students enrolled in the course.
@@ -48,13 +50,13 @@ public:
      * @return A constant vector containing the ID's of the courses that
      *         conflict with this course.
      */
-    const vector<string>& getConflicts() const { return _conflicts; }
+    const set<string>& getConflicts() const { return _conflicts; }
     /**
      * Returns the ID's of the courses that conflict with this course.
      * @return A mutable vector containing the ID's of the courses that
      *         conflict with this course.
      */
-    vector<string>& getConflicts() { return _conflicts; }
+    set<string>& getConflicts() { return _conflicts; }
     /**
      * Returns the name of this course.
      * @return The name of this course.
@@ -80,7 +82,7 @@ public:
      * @param A constant vector containing the ID's of the courses that
      *         conflict with this course.
      */
-     void setConflicts(const vector<string>& conflicts)
+     void setConflicts(const set<string>& conflicts)
             { _conflicts = conflicts; }
     /**
      * Sets the name of this course.
@@ -92,7 +94,7 @@ private:
     string _name;
     int _enrolled;
     string _profId;
-    vector<string> _conflicts;
+    set<string> _conflicts;
     int compare(const Course& rhs) const;
 };
 

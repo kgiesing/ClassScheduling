@@ -18,7 +18,7 @@ vector<Course> CourseReader::read()
     string temp;
     int enrolled;
     string conflict;
-    vector<string> conflicts;
+    set<string> conflicts;
     set<Course> courses;
 
     file.open(this->getFilename().c_str());
@@ -35,7 +35,7 @@ vector<Course> CourseReader::read()
         stringstream ss(temp);
         while (!ss.eof()) {
             getline(ss, conflict, this->getDelimiter());
-            conflicts.push_back(conflict);
+            conflicts.insert(conflict);
         }
         // Construct the object, add it to the set
         Course c(id, name, enrolled, profId, conflicts);
