@@ -7,8 +7,8 @@
 #include "../include/ProfReader.h"
 #include "../include/Schedule.h"
 #include "../include/Reader.h"
-#include "../include/MatchingScheduler.h"
-#include "../include/GeneticScheduler.h"
+#include "../include/GreedyScheduleGenerator.h"
+#include "../include/GeneticScheduleGenerator.h"
 #include "../include/ScheduleWriter.h"
 
 using std::cout;
@@ -75,12 +75,12 @@ int main(int argc, char* argv[])
   
   //Form the schedule by using greedy algorithm
   //Will be changed depends on implementation of GreedyScheduler
-  MatchingScheduler greScheduler(roomV, profV, courseV);
+  GreedyScheduleGenerator greScheduler(roomV, profV, courseV);
   schedule = greScheduler.getSchedule();
   
   //Try to optimize the schedule
   //Will be changed depends on implementation of GeneticScheduler
-  GeneticScheduler genScheduler(schedule);
+  GeneticScheduleGenerator genScheduler(schedule);
   schedule = genScheduler.getSchedule();
   
   //Write schedule
