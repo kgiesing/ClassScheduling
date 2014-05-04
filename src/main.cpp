@@ -7,6 +7,7 @@
 #include "../include/ProfReader.h"
 #include "../include/Schedule.h"
 #include "../include/Reader.h"
+#include "../include/ScheduleGenerator.h"
 #include "../include/GreedyScheduleGenerator.h"
 #include "../include/GeneticScheduleGenerator.h"
 #include "../include/ScheduleWriter.h"
@@ -36,7 +37,8 @@ int main(int argc, char* argv[])
   int i = 1;
 
   //if "-o output" appears at beginning, record the output file name 
-  if((std::string c = argv[i]) == "-o")
+  std::string c;
+  if((c = argv[i]) == "-o")
     {
       outputN = argv[++i];
       i++;
@@ -48,7 +50,7 @@ int main(int argc, char* argv[])
   courseN = argv[i++];
 
   //if "-o output" appear at end, record the output file name
-  if((std::string c = argv[i]) == "-o")
+  if((c = argv[i]) == "-o")
     outputN = argv[++i];
 
   /* end of implementation of command line interface */
@@ -73,16 +75,20 @@ int main(int argc, char* argv[])
   courseV = reader->read();
   delete reader;
   
+  ScheduleGenerator* generator;
+
   //Form the schedule by using greedy algorithm
   //Will be changed depends on implementation of GreedyScheduler
-  GreedyScheduleGenerator greScheduler(roomV, profV, courseV);
-  schedule = greScheduler.getSchedule();
-  
+  generator = new GreedyScheduleGenerator(roomV, profV, courseV);
+  schedule = generator->getSchedule();
+  delete generator;
+
   //Try to optimize the schedule
   //Will be changed depends on implementation of GeneticScheduler
-  GeneticScheduleGenerator genScheduler(schedule);
-  schedule = genScheduler.getSchedule();
-  
+  generator = new GeneticScheduleGenerator(schedule);
+  schedule = generator->getSchedule();
+  delete generator;
+
   //Write schedule
   //Will be changed denpends on implementation of ScheduleWriter
   ScheduleWriter writer(outputN);
