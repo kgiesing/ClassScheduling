@@ -1,12 +1,12 @@
 #include <iostream>
 #include <vector>
+#include <string>
 
 // Including these so they'll be built
 #include "../include/CourseReader.h"
 #include "../include/RoomReader.h"
 #include "../include/ProfReader.h"
 #include "../include/Schedule.h"
-#include "../include/Reader.h"
 #include "../include/ScheduleGenerator.h"
 #include "../include/GreedyScheduleGenerator.h"
 #include "../include/GeneticScheduleGenerator.h"
@@ -61,19 +61,14 @@ int main(int argc, char* argv[])
   std::vector<Course> courseV;
   
   //Read the data
-  Reader* reader;
- 
-  reader = new RoomReader(roomN);
-  roomV = reader->read();
-  delete reader;
+  RoomReader roomR(roomN);
+  roomV = roomR.read();
 
-  reader = new ProfReader(profN);
-  profV = reader->read();
-  delete reader;
+  ProfReader profR(profN);
+  profV = profR.read();
 
-  reader = new CourseReader(courseN);
-  courseV = reader->read();
-  delete reader;
+  CourseReader courseR(courseN);
+  courseV = courseR.read();
   
   ScheduleGenerator* generator;
 
