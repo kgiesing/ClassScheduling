@@ -17,15 +17,19 @@ void ScheduleWriter::setContents(Schedule *contents) {
 	_contents = contents;
 }
 
+void ScheduleWriter::getFileName() {
+	return _filename;
+}
+
 void SchedulerWriter::write() {
 	ofstream file;
 	
 	file.open(this->getFileName().c_str());
 	
-	for(Weekdays w = 0; w < WEEKDAYS_SIZE; w++) {
-		for(TimeBlock t = 0; t < TIMEBLOCK_SIZE; t++) {
+	for(int w = MON; w != WEEKDAYS_SIZE; w++) {
+		for(int t = START_08_00; t != TIMEBLOCK_SIZE; t++) {
 			file << w << " at " << t << ":\n\n";
-			vector<Course> courses = contents->getCoursesAt(w, t);
+			vector<Course> courses = _contents->getCoursesAt(w, t);
 			
 			for(int i = 0; i < courses.size(); i++) {
 				file << courses[i].getId() << _delimiter
