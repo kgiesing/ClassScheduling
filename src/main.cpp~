@@ -33,7 +33,7 @@ int main(int argc, char* argv[])
       return 0;
     }
 
-  int i = 1;
+  int index = 1;
 
   //if "-o output" appears at beginning, record the output file name 
   if((std::string c = argv[i]) == "-o")
