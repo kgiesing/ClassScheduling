@@ -15,4 +15,8 @@ private:
     Schedule *_contents;
 };
 
+void ScheduleWriter::getFileName();
+
+void ScheduleWriter::write();
+
 #endif // SCHEDULEWRITER_H
