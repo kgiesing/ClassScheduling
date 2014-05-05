@@ -1,5 +1,8 @@
 #include "../include/Schedule.h"
+#include "../include/Prof.h"
 #include <vector>
+#include <set>
+#include <string>
 
 using namespace std;
 
@@ -100,6 +103,44 @@ vector < Weekdays > Schedule::getWeekdaysFor(const Course& course){
 	//returns empty vector if the class is not scheduled
 	return weekdays;
 }
+
+// returns true if swap was successful, false otherwise
+bool Schedule::swapCourses(Room room1, Weekdays weekdays1, TimeBlock timeBlock1, Room room2, Weekdays weekdays2, TimeBlock timeBlock2){
+	Course c1, c2;
+	if (room1.getCapacity() < c2.getEnrolled() || room2.getCapacity() < c1.getEnrolled()){
+		return false;
+	}
+	else {
+		c1 = getCourse(room1, weekdays1, timeBlock1);
+		c2 = getCourse(room2, weekdays2, timeBlock2);
+		setCourse(c2, room1, weekdays1, timeBlock1, 2);
+		setCourse(c1, room2, weekdays2, timeBlock2, 2);
+		return true;
+	}
+}
+
+double Schedule::calculateScore(vector<Prof> teachingProfessors){
+	//set <string> teachingProfessors;
+
+	/*typedef map < Room, vector < vector < Course > > >::iterator it;
+	vector<Weekdays> weekdays;
+	for (it iterator = _schedule.begin(); iterator != _schedule.end(); iterator++){
+		Room rr = iterator->first;
+		vector < vector < Course > > vec = iterator->second;
+		for (int i = 0; i < vec.size(); i++){
+			for (int j = 0; j < vec.at(i).size(); j++){
+				teachingProfessors.insert(getCourse(rr, (Weekdays)i, (TimeBlock)j).getProfId());
+			}
+		}
+	}*/
+
+	/*typedef vector<Prof>::iterator profIt;
+	for (profIt iterator = teachingProfessors.begin(); iterator != teachingProfessors.end(); iterator++){
+		(*_sc)(new ProfInfo(iterator));
+	}*/
+	return 1.0;
+}
+
 
 map < Room, vector < vector < Course > > > Schedule::getSchedule(){
 	return _schedule;
