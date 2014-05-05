@@ -7,7 +7,6 @@
 #include "Room.h"
 #include "TimeBlock.h"
 #include "Weekdays.h"
-#include "ScoreCalculator.h"
 #include <map>
 #include <vector>
 /**
@@ -24,16 +23,12 @@ public:
 	std::vector < Weekdays > getWeekdaysFor(const Course&);
 	TimeBlock getTimeFor(const Course&);
 	Room getRoomFor(const Course&);
-	bool swapCourses(Room, Weekdays, TimeBlock, Room, Weekdays, TimeBlock);
-	double calculateScore(std::vector<Prof>);
-	void setScoreCalculator(ScoreCalculator* sc) { _sc = sc; }
     //getScheduleFor(const Course& course) const;
     //getScheduleFor(const Prof& prof) const;
     //getScheduleFor(const Room& room) const;
     //getScheduleFor(TimeBlock time) const;
 private:
 	std::map < Room, std::vector < std::vector < Course > > > _schedule;
-	ScoreCalculator* _sc;
     //std::map<Room, std::vector<Course> > _schedule;
 };
 
