@@ -1,4 +1,4 @@
-#include "../include/ConflictPreprocessor.h"
+#include "ConflictPreprocessor.h"
 
 void ConflictPreprocessor::preprocess(vector<Course>& courses)
 {
