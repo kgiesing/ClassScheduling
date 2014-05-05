@@ -21,12 +21,11 @@ int main(int argc, char* argv[])
   
   //names for the data files and output file,
   //will get from users by command-line interface.
-  std::string roomN, courseN, profN, outputN;
+  std::string roomN, courseN, profN, outputN, delimiterN;
+  bool newDelimiter = false;
 
-  //default value for output file, might be changed
-  outputN = "Schedule.txt"; 
-  
-  /* simple implementation for command line interface, will be changed by Gavin */
+  //default value for output file
+  outputN = "schedule.txt"; 
 
   if(argc == 1)
     {
@@ -37,10 +36,15 @@ int main(int argc, char* argv[])
   int i = 1;
 
   //if "-o output" appears at beginning, record the output file name 
+  //if "-d delimiter" appears at beginning, record the new delimiter
   std::string c;
-  if((c = argv[i]) == "-o")
-    {
+  while((c = argv[i]) == "-o" || c == "-d")
+    if (c == "-o") {
       outputN = argv[++i];
+      i++;
+    } else {
+      newDelimiter = true;
+      delimiterN = argv[++i];
       i++;
     }
 
@@ -62,12 +66,18 @@ int main(int argc, char* argv[])
   
   //Read the data
   RoomReader roomR(roomN);
-  roomV = roomR.read();
-
   ProfReader profR(profN);
-  profV = profR.read();
-
   CourseReader courseR(courseN);
+  
+  //set delimiter if necessary
+  if(newDelimiter) {
+    roomR.setDelimiter(delimiterN);
+    profR.setDelimiter(delimiterN);
+    courseR.setDelimiter(delimiterN);
+  }
+  
+  roomV = roomR.read();
+  profV = profR.read();
   courseV = courseR.read();
   
   ScheduleGenerator* generator;
