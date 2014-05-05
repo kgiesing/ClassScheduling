@@ -1,4 +1,5 @@
 #include <vector>
+#include <set>
 #include "../include/GreedyScheduleGenerator.h"
 #include "../include/Weekdays.h"
 #include "../include/TimeBlock.h"
@@ -6,13 +7,13 @@
 using namespace std;
 Schedule* GreedyScheduleGenerator::getSchedule() {
 	Schedule* schedule = new Schedule(_rooms);
-	Weekdays day = 0;
-	TimeBlock time = 0;
+	Weekdays day = MON;
+	TimeBlock time = START_08_00;
 
 	vector<Room>::iterator roomItr;
 	for (roomItr = _rooms.begin(); roomItr != _rooms.end(); roomItr++) {
 		// skip the room that has been scheduled
-		if (schedule->getCourse(*roomItr, day, time))
+		if (schedule->getCourse(*roomItr, day, time).getId() != "")
 			continue;
 //		if (isRoomFree(*schedule, *roomItr, time))
 //			continue;
@@ -28,33 +29,26 @@ Schedule* GreedyScheduleGenerator::getSchedule() {
 		bool conflict = false;
 		vector<Course> periodCourses = schedule->getCoursesAt(day, time);
 		vector<Course>::iterator periodCourseItr;
-		for (periodCourses = periodCourses.begin();
+		for (periodCourseItr = periodCourses.begin();
 				periodCourseItr != periodCourses.end(); periodCourseItr++) {
-			vector<string> conflicts = periodCourseItr->getConflicts();
-			vector<string>::iterator conflictItr;
-			bool exist = false;
-			for (conflictItr = conflicts.begin();
-					conflictItr != conflicts.end(); conflictItr++) {
-				if (conflictItr->compare(course.getId())) {
-					exist = true;
-					break;
-				}
-			}
-			if (exist) {
+			set<string> conflicts = periodCourseItr->getConflicts();
+			if (conflicts.find(course.getId()) != conflicts.end()) {
 				conflict = true;
 				break;
 			}
 		}
 
 		if (conflict) {
-			for (Weekdays tday = day; tday < WEEKDAYS_SIZE; tday++) {
-				for (TimeBlock ttime = time + 1; ttime < TIMEBLOCK_SIZE;
-						ttime++) {
+			for (int tday_i = day; tday_i < WEEKDAYS_SIZE; tday_i++) {
+				for (int ttime_i = time + 1; ttime_i < TIMEBLOCK_SIZE;
+						ttime_i++) {
 					vector<Room>::iterator tRoomItr;
+					Weekdays tday = static_cast<Weekdays>(tday_i);
+					TimeBlock ttime = static_cast<TimeBlock>(ttime_i);
 					for (tRoomItr = _rooms.end() - 1; roomItr >= _rooms.begin();
 							tRoomItr--) {
 						if (tRoomItr->getCapacity() >= course.getEnrolled()) {
-							if (schedule->getCourse(*roomItr, day, time) != NULL) {
+							if (schedule->getCourse(*roomItr, day, time).getId() != "") {
 								break;
 							} else {
 								if (schedule->setCourse(course, *tRoomItr, tday, ttime, 0)) {
@@ -84,16 +78,16 @@ Schedule* GreedyScheduleGenerator::getSchedule() {
 	// calculate the score
 	vector<Prof>::iterator profItr;
 	for (profItr = _profs.begin(); profItr != _profs.end(); profItr++) {
-		_scores.insert(pair<string, double>(profItr->getId(), _sc.operate(*profItr)));
+		_scores.insert(pair<string, double>(profItr->getId(), _sc(*profItr)));
 	}
 	return schedule;
 
 }
 
 bool isRoomFree(Schedule schedule, Room room, TimeBlock time) {
-	if (schedule.getCourse(room, MON, time) == NULL && schedule.getCourse(room, WED, time) == NULL)
+	if (schedule.getCourse(room, MON, time).getId() != "" && schedule.getCourse(room, WED, time).getId() != "")
 		return true;
-	if (schedule.getCourse(room, TUES, time) == NULL && schedule.getCourse(room, THURS, time) == NULL)
+	if (schedule.getCourse(room, TUES, time).getId() != "" && schedule.getCourse(room, THURS, time).getId() != "")
 		return true;
 	return false;
 }
