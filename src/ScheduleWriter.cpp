@@ -17,11 +17,7 @@ void ScheduleWriter::setContents(Schedule *contents) {
 	_contents = contents;
 }
 
-void ScheduleWriter::getFileName() {
-	return _filename;
-}
-
-void SchedulerWriter::write() {
+void ScheduleWriter::write() {
 	ofstream file;
 	
 	file.open(this->getFileName().c_str());
