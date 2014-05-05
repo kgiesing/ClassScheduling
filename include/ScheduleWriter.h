@@ -7,16 +7,13 @@
 
 class ScheduleWriter : public FileWriter<Schedule*> {
 public:
-    ScheduleWriter(std::string filename, std::string delimiter = "\t") : FileWriter(filename) { _delimiter = delimiter };
+    ScheduleWriter(std::string filename, std::string delimiter = "\t") : FileWriter(filename) , _delimiter(delimiter) { };
     void setFieldDelimiter(std::string delimiter);
     void setContents(Schedule *contents);
+    void write();
 private:
     std::string _delimiter;
     Schedule *_contents;
 };
-
-void ScheduleWriter::getFileName();
-
-void ScheduleWriter::write();
 
 #endif // SCHEDULEWRITER_H
