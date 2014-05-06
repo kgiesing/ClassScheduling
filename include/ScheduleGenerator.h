@@ -33,9 +33,6 @@ protected:
      * @param timeout The initial time when the program was started.
      */
     ScheduleGenerator(long timeout) : _timeout(timeout) { }
-    vector<Room>& _rooms;     /**< Vector of Room objects */
-    vector<Course>& _courses; /**< Vector of Course objects */
-    vector<Prof>& _profs;     /**< Vector of Prof objects */
 private:
     long _timeout;            /**< Time when program was started */
 };
