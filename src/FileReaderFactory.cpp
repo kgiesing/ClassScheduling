@@ -12,14 +12,14 @@ vector<Course> FileReaderFactory::getCourses(string filename)
     return reader.read();
 }
 
-vector FileReaderFactory::getProfs(string filename)
+vector<Prof> FileReaderFactory::getProfs(string filename)
 {
     ProfReader reader(filename, _delimiter);
     return reader.read();
 
 }
 
-vector FileReaderFactory::getRooms(string filename)
+vector<Room> FileReaderFactory::getRooms(string filename)
 {
     RoomReader reader(filename, _delimiter);
     return reader.read();
