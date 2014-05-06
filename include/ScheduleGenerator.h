@@ -4,12 +4,15 @@
 
 #include "Schedule.h"
 
+using namespace std;
 /**
  * This is an abstract base class used by the various algorithms to generate
  * Schedule objects.
  */
 class ScheduleGenerator {
 public:
+	ScheduleGenerator(vector<Room>& rooms, vector<Prof>& profs, vector<Course>& courses):
+		_rooms(rooms), _courses(courses), _profs(profs), _timeout(10000){};
     /**
      * Gets the Schedule object. Subclasses will use different algorithms to
      * generate an optimized schedule.
