@@ -1,22 +1,49 @@
 #include <vector>
 #include <set>
+#include <iostream>
 #include "../include/GreedyScheduleGenerator.h"
 #include "../include/Weekdays.h"
 #include "../include/TimeBlock.h"
 
 using namespace std;
+
+GreedyScheduleGenerator::GreedyScheduleGenerator(vector<Room>& roomV,
+		vector<Prof>& profV, vector<Course>& courseV, ScoreCalculator& sc) :
+		ScheduleGenerator(roomV, profV, courseV), _sc(sc) { }
+
 Schedule* GreedyScheduleGenerator::getSchedule() {
 	Schedule* schedule = new Schedule(_rooms);
-	Weekdays day = MON;
-	TimeBlock time = START_08_00;
 
-	vector<Room>::iterator roomItr;
-	for (roomItr = _rooms.begin(); roomItr != _rooms.end(); roomItr++) {
+	while (_courses.size() != 0) {
+		int availableWeekday = NOT_AVAILABLE;
+		TimeBlock time = START_08_00;
+
+		// find the max capacity room
 		// skip the room that has been scheduled
-		if (schedule->getCourse(*roomItr, day, time).getId() != "")
-			continue;
-//		if (isRoomFree(*schedule, *roomItr, time))
-//			continue;
+		bool roomLeft = false;
+		Room maxRoom;
+		while (time != TIMEBLOCK_SIZE) {
+			bool findMaxFreeRoom = false;
+			for (vector<Room>::iterator roomItr = _rooms.begin();
+					roomItr != _rooms.end(); roomItr++) {
+				if ((availableWeekday = getAvailableWeekday(*schedule, *roomItr,
+						time)) != NOT_AVAILABLE) {
+					findMaxFreeRoom = true;
+					maxRoom = *roomItr;
+					break;
+				}
+			}
+			if (!findMaxFreeRoom) {
+				time = (TimeBlock) (((int) time) + 1);
+			} else {
+				roomLeft = true;
+				break;
+			}
+		}
+		if (!roomLeft) {
+			cout << "No room left!" << endl;
+			break;
+		}
 
 		// if all the courses have been scheduled, return this function
 		if (_courses.size() == 0)
@@ -25,34 +52,49 @@ Schedule* GreedyScheduleGenerator::getSchedule() {
 		Course course = _courses.at(0);
 		bool scheduled = false;
 
-		// look for the conflicting courses
-		bool conflict = false;
-		vector<Course> periodCourses = schedule->getCoursesAt(day, time);
-		vector<Course>::iterator periodCourseItr;
-		for (periodCourseItr = periodCourses.begin();
-				periodCourseItr != periodCourses.end(); periodCourseItr++) {
-			set<string> conflicts = periodCourseItr->getConflicts();
-			if (conflicts.find(course.getId()) != conflicts.end()) {
-				conflict = true;
+		// schedule the 2-period-courses
+		for (int i = 0; i < 2; i++) {
+			// find the weekday in current loop
+			if (availableWeekday == NOT_AVAILABLE)
 				break;
-			}
-		}
+			Weekdays day;
+			if (i == 0 && availableWeekday == AVAILABLE_MON_WED)
+				day = MON;
+			else if (i == 0 && availableWeekday == AVAILABLE_TUE_THU)
+				day = TUES;
+			else if (i == 1 && availableWeekday == AVAILABLE_MON_WED)
+				day = WED;
+			else if (i == 1 && availableWeekday == AVAILABLE_TUE_THU)
+				day = THURS;
 
-		if (conflict) {
-			for (int tday_i = day; tday_i < WEEKDAYS_SIZE; tday_i++) {
+			// find the conflicting courses
+			bool conflict = false;
+			vector<Course> periodCourses = schedule->getCoursesAt(day, time);
+			for (vector<Course>::iterator periodCourseItr =
+					periodCourses.begin();
+					periodCourseItr != periodCourses.end(); periodCourseItr++) {
+				set<string> conflicts = periodCourseItr->getConflicts();
+				if (conflicts.find(course.getId()) != conflicts.end()) {
+					conflict = true;
+					break;
+				}
+			}
+			if (conflict) {
 				for (int ttime_i = time + 1; ttime_i < TIMEBLOCK_SIZE;
 						ttime_i++) {
-					vector<Room>::iterator tRoomItr;
-					Weekdays tday = static_cast<Weekdays>(tday_i);
-					TimeBlock ttime = static_cast<TimeBlock>(ttime_i);
-					for (tRoomItr = _rooms.end() - 1; roomItr >= _rooms.begin();
-							tRoomItr--) {
+					TimeBlock ttime = (TimeBlock) ttime_i;
+					for (vector<Room>::iterator tRoomItr = _rooms.end() - 1;
+							tRoomItr >= _rooms.begin(); tRoomItr--) {
 						if (tRoomItr->getCapacity() >= course.getEnrolled()) {
-							if (schedule->getCourse(*roomItr, day, time).getId() != "") {
+							if (schedule->getCourse(*tRoomItr, day, time).getId()
+									!= "") {
 								break;
 							} else {
-								if (schedule->setCourse(course, *tRoomItr, tday, ttime, 0)) {
-									_courses.erase(_courses.begin());
+								if (schedule->setCourse(course, *tRoomItr, day,
+										ttime, 0)) {
+									if (i == 1) {
+										_courses.erase(_courses.begin());
+									}
 									scheduled = true;
 									break;
 								}
@@ -62,36 +104,37 @@ Schedule* GreedyScheduleGenerator::getSchedule() {
 					if (scheduled)
 						break;
 				}
-				if (scheduled)
-					break;
-			}
-		} else {
-			if (schedule->setCourse(course, *roomItr, day, time, 0)) {
-				// remove the scheduled course from _courses
-				_courses.erase(_courses.begin());
-				scheduled = true;
-				break;
+			} else {
+				if (schedule->setCourse(course, maxRoom, day, time, 0)) {
+					// remove the scheduled course from _courses
+					if (i == 1) {
+						_courses.erase(_courses.begin());
+					}
+					scheduled = true;
+				}
 			}
 		}
 	}
-	
+
 	// calculate the score
-	vector<Prof>::iterator profItr;
-	for (profItr = _profs.begin(); profItr != _profs.end(); profItr++) {
-		_scores.insert(pair<string, double>(profItr->getId(), _sc(*profItr)));
+	for (vector<Prof>::iterator profItr = _profs.begin(); profItr != _profs.end(); profItr++) {
+		ProfInfo* profInfo = new ProfInfo(*profItr);
+		_scores.insert(pair<string, double>(profItr->getId(), _sc(*profInfo)));
+		delete profInfo;
 	}
 	return schedule;
 
 }
 
-bool isRoomFree(Schedule schedule, Room room, TimeBlock time) {
-	if (schedule.getCourse(room, MON, time).getId() != "" && schedule.getCourse(room, WED, time).getId() != "")
-		return true;
-	if (schedule.getCourse(room, TUES, time).getId() != "" && schedule.getCourse(room, THURS, time).getId() != "")
-		return true;
-	return false;
-}
+int GreedyScheduleGenerator::getAvailableWeekday(Schedule& schedule, Room& room,
+		TimeBlock time) {
+	if (schedule.getCourse(room, MON, time).getId() == ""
+			&& schedule.getCourse(room, WED, time).getId() == "") {
 
-bool scheduleCourse() {
-	return false;
+		return AVAILABLE_MON_WED;
+	}
+	if (schedule.getCourse(room, TUES, time).getId() == ""
+			&& schedule.getCourse(room, THURS, time).getId() == "")
+		return AVAILABLE_TUE_THU;
+	return NOT_AVAILABLE;
 }
