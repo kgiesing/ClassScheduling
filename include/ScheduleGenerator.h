@@ -4,6 +4,8 @@
 
 #include "Schedule.h"
 
+using std::vector;
+
 /**
  * This is an abstract base class used by the various algorithms to generate
  * Schedule objects.
@@ -23,11 +25,19 @@ public:
      */
     long getTimeout() { return _timeout; }
 protected:
-    std::vector<Room>& _rooms;     /**< Vector of Room objects */
-    std::vector<Course>& _courses; /**< Vector of Course objects */
-    std::vector<Prof>& _profs;     /**< Vector of Prof objects */
+    /**
+     * Constructor for the abstract ScheduleGenerator base class. Subclasses
+     * should construct the vectors themselves, if necessary, either by
+     * accepting them as constructor arguments, or from a Schedule.
+     *
+     * @param timeout The initial time when the program was started.
+     */
+    ScheduleGenerator(long timeout) : _timeout(timeout) { }
+    vector<Room>& _rooms;     /**< Vector of Room objects */
+    vector<Course>& _courses; /**< Vector of Course objects */
+    vector<Prof>& _profs;     /**< Vector of Prof objects */
 private:
-    long _timeout;
+    long _timeout;            /**< Time when program was started */
 };
 
 #endif // SCHEDULEGENERATOR_H
