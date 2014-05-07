@@ -1,6 +1,13 @@
 #ifndef TESTRUNNER_H
 #define TESTRUNNER_H
 
+// Include these here, so subclasses won't have to.
+#include <iostream>
+
+using std::cerr;
+using std::endl;
+using std::cout;
+
 class TestRunner
 {
     public:
