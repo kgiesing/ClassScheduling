@@ -14,9 +14,8 @@
  * This class represents a schedule for all courses.
  */
 class Schedule {
-    // TODO What type of objects will these methods return?
 public:
-	Schedule(std::vector < Room > );
+	Schedule(std::vector < Room >, std::vector < Prof > );
 	std::map < Room, std::vector < std::vector < Course > > > getSchedule();
 	bool setCourse(const Course&, const Room&, Weekdays, TimeBlock, int);
 	Course getCourse(const Room&, Weekdays, TimeBlock);
@@ -24,17 +23,15 @@ public:
 	std::vector < Weekdays > getWeekdaysFor(const Course&);
 	TimeBlock getTimeFor(const Course&);
 	Room getRoomFor(const Course&);
-	bool swapCourses(Room, Weekdays, TimeBlock, Room, Weekdays, TimeBlock);
-	double calculateScore(std::vector<Prof>);
-	void setScoreCalculator(ScoreCalculator* sc) { _sc = sc; }
-    //getScheduleFor(const Course& course) const;
-    //getScheduleFor(const Prof& prof) const;
-    //getScheduleFor(const Room& room) const;
-    //getScheduleFor(TimeBlock time) const;
+	void swapCourses(Room, Weekdays, TimeBlock, Room, Weekdays, TimeBlock);
+	void setScore (double score){ _score = score; }
+	double getScore() { return _score; }
+	Prof getProf(string);
+	Prof getProf(Course);
 private:
 	std::map < Room, std::vector < std::vector < Course > > > _schedule;
-	ScoreCalculator* _sc;
-    //std::map<Room, std::vector<Course> > _schedule;
+	std::map < std::string, Prof > _professors;
+	double _score;
 };
 
 #endif // SCHEDULE_H
