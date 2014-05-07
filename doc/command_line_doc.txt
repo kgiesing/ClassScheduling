@@ -8,8 +8,14 @@ At the command line when running the program:
 -The output file of the resulting schedule is by default "schedule.txt".
 --To change the file to some outputFile, "-o outputFile" can be entered on the command line before or after the filenames (but not in the middle of them).
 
-Below is how each room, professor, and course should be listed on each line, with their fields listed from left to right.
+Below is how each room, professor, and course should be listed on each line, with their fields listed from left to right:
 
 -Rooms: Each room has a room ID and a max capacity (2 fields: string, int).
 -Professors: Each professor has a professor ID, a first name and a last name (3 fields: string, string, string).
 -Courses: Each course has a course ID, a name, a professor ID matching who's teaching it, the number of enrolled students, and a list of conflicting courses (by ID) (4+ fields: string, string, string, int, {string, string ...}).
+
+The output is as follows:
+
+-The schedule is partitioned by every weekday and time of day combination, in a natural order.
+-For every weekday and time of day, all the courses meeting at that time are listed, one course per line.
+--Each line has the course name, the room ID, the professor teaching it, the number of enrolled student, and the room's capacity, separated by the delimiter.

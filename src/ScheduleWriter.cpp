@@ -28,11 +28,13 @@ void ScheduleWriter::write() {
 			vector<Course> courses = _contents->getCoursesAt(w, t);
 			
 			for(int i = 0; i < courses.size(); i++) {
+				Room r = _contents->getRoomFor(courses[i]);
 				file << courses[i].getId() << _delimiter
 					 << courses[i].getName() << _delimiter
-					 << (_contents->getRoomFor(courses[i])).getId() << _delimiter
+					 << r.getId() << _delimiter
 					 << _contents->getProf(courses[i]) << _delimiter
-					 << courses[i].getEnrolled() << "\n";
+					 << courses[i].getEnrolled() << _delimiter
+					 << r.getCapacity() << "\n";
 			}
 			
 			file << "\n\n";
