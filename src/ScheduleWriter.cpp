@@ -30,8 +30,8 @@ void ScheduleWriter::write() {
 			for(int i = 0; i < courses.size(); i++) {
 				file << courses[i].getId() << _delimiter
 					 << courses[i].getName() << _delimiter
-					 << (contents->getRoomFor(courses[i])).getId() << _delimiter
-					 << contents->getProfForCourse(courses[i]) << _delimiter
+					 << (_contents->getRoomFor(courses[i])).getId() << _delimiter
+					 << _contents->getProf(courses[i]) << _delimiter
 					 << courses[i].getEnrolled() << "\n";
 			}
 			
