@@ -5,6 +5,8 @@
 #include <string>
 #include "Writer.h"
 
+using std::string;
+
 /**
  * Abstract base class for objects that write something to file.
  */
@@ -13,19 +15,19 @@ class FileWriter : public Writer<T> {
 public:
     /**
      * Returns the file name.
-     * @return std::string The file name.
+     * @return The file name.
      */
-    std::string getFilename(void) { return _filename; }
+    virtual string getFilename(void) { return _filename; }
 
     /**
      * Sets the file name.
-     * @param filename const std::string& The file name.
+     * @param The file name.
      */
-    void setFilename(const std::string& filename) { _filename = filename; }
+    virtual void setFilename(const string& filename) { _filename = filename; }
 protected:
-    FileWriter(std::string filename) : _filename(filename) { }
+    FileWriter(string filename) : _filename(filename) { }
 private:
-    std::string _filename;
+    string _filename;
 };
 
 #endif // FILEWRITER_H

@@ -5,6 +5,8 @@
 #include <string>
 #include "Reader.h"
 
+using std::string;
+
 /**
  * Abstract base class for objects that read something from file.
  */
@@ -13,32 +15,31 @@ class FileReader : public Reader<T> {
 public:
     /**
      * Returns the file name.
-     * @return std::string The file name.
+     * @return string The file name.
      */
-    std::string getFilename(void) const { return _filename; }
-
+    virtual string getFilename(void) const { return _filename; }
 
     /**
      * Returns the delimiter between fields in the file.
-     * @return std::string The file name.
+     * @return string The file name.
      */
-    char getDelimiter(void) const { return _delim; }
+    virtual char getDelimiter(void) const { return _delim; }
 
     /**
      * Sets the file name.
-     * @param filename const std::string& The file name.
+     * @param filename const string& The file name.
      */
-    void setFilename(const std::string& filename) { _filename = filename; }
+    virtual void setFilename(const string& filename) { _filename = filename; }
 
     /**
      * Sets the the delimiter between fields in the file.
      * @param delim char The the delimiter between fields in the file.
      */
-    void setDelimiter(char delim) { _delim = delim; }
+    virtual void setDelimiter(char delim) { _delim = delim; }
 protected:
-    FileReader(std::string filename, char delim=',') : _filename(filename), _delim(delim) { }
+    FileReader(string filename, char delim=',') : _filename(filename), _delim(delim) { }
 private:
-    std::string _filename;
+    string _filename;
     char _delim;
 };
 
