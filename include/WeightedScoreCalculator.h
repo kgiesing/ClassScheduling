@@ -11,6 +11,7 @@
  */
 class WeightedScoreCalculator : public ScoreCalculator {
 public:
+    WeightedScoreCalculator() { }
     double operator()(ProfInfo&);
 };
 

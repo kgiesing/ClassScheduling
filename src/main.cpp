@@ -3,11 +3,12 @@
 #include <string>
 
 // Including these so they'll be built
-#include "../include/CourseReader.h"
-#include "../include/RoomReader.h"
-#include "../include/ProfReader.h"
 #include "../include/Schedule.h"
+#include "../include/ReaderFactory.h"
+#include "../include/FileReaderFactory.h"
 #include "../include/ScheduleGenerator.h"
+#include "../include/LinearScoreCalculator.h"
+#include "../include/WeightedScoreCalculator.h"
 #include "../include/GreedyScheduleGenerator.h"
 #include "../include/GeneticScheduleGenerator.h"
 #include "../include/ScheduleWriter.h"
@@ -65,20 +66,18 @@ int main(int argc, char* argv[])
   std::vector<Course> courseV;
   
   //Read the data
-  RoomReader roomR(roomN);
-  ProfReader profR(profN);
-  CourseReader courseR(courseN);
+  ReaderFactory* reader;
   
   //set delimiter if necessary
-  if(newDelimiter) {
-    roomR.setDelimiter(delimiterN);
-    profR.setDelimiter(delimiterN);
-    courseR.setDelimiter(delimiterN);
-  }
+  if(newDelimiter) 
+    reader = new FileReaderFactory(delimiterN);
+  else
+    reader = new FileReaderFactory();
   
-  roomV = roomR.read();
-  profV = profR.read();
-  courseV = courseR.read();
+  roomV = reader->getRooms(roomN);
+  profV = reader->getProfs(profN);
+  courseV = reader->getCourses(courseN);
+  delete reader;
   
   ScheduleGenerator* generator;
 

@@ -11,6 +11,7 @@
  */
 class LinearScoreCalculator : public ScoreCalculator {
 public:
+    LinearScoreCalculator() { }
     double operator()(ProfInfo&);
 };
 
