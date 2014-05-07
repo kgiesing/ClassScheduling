@@ -24,3 +24,14 @@ void TestRunner::runFailTests(void)
     }
 
 }
+
+void TestRunner::testPass(void)
+{
+    cout << "[No pass tests written for" << this->getComponent() << "]" << endl;
+}
+
+void TestRunner::testFail(void)
+{
+    cout << "[No fail tests written for" << this->getComponent() << "]" << endl;
+}
+

@@ -17,7 +17,7 @@ class TestRunner
          */
         TestRunner(string component) : _component(component) { }
         /** Returns the name of the component being tested. */
-        virtual string getComponent() { return _component; }
+        virtual const string getComponent() const { return _component; }
         /**
          * Runs tests on this component that should pass.
          * This method calls the virtual function testPass(), catching any
@@ -34,13 +34,17 @@ class TestRunner
         /**
          * Hook for subclasses to run tests on a specific component. These
          * tests should pass. This method is called by runPassTests(void).
+         * Default implementation simply outputs that there are no pass tests
+         * written.
          */
-        virtual void testPass(void) = 0;
+        virtual void testPass(void);
         /**
          * Hook for subclasses to run tests on a specific component. These
          * tests should fail. This method is called by runPassTests(void).
+         * Default implementation simply outputs that there are no pass tests
+         * written.
          */
-        virtual void testFail(void) = 0;
+        virtual void testFail(void);
     private:
         string _component; /**< Name of component being tested. */
 };
