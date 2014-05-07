@@ -3,11 +3,14 @@
 
 #include TestRunner.h
 
-
+/**
+ * This class tests the Course class.
+ */
 class TestCourse : public TestRunner
 {
 public:
-    TestCourse() : TestRunner("TestCourse") { }
+    /** Constructor. */
+    TestCourse(void) : TestRunner("TestCourse") { }
 protected:
     virtual void testPass(void);
     virtual void testFail(void);

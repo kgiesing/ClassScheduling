@@ -52,8 +52,10 @@ void testPass(void)
     conflicts = c->getConflicts();
     set<string>::iterator it;
     for (it = conflicts.begin(); it != conflicts.end(); ++it)
-        cout << (*it) << " ";
+        cout << "\n\t\t" << (*it);
     cout << endl;
+
+    // Done
     delete c;
 }
 
