@@ -5,13 +5,13 @@
 using namespace std;
 
 // Global constants: valid and invalid test filenames
-const string VALID_COURSES = "../res/courses_ok.txt";
-const string VALID_PROFS = "../res/profs_ok.txt";
-const string VALID_ROOMS = "../res/rooms_ok.txt";
+const string VALID_COURSES = "./res/courses_ok.txt";
+const string VALID_PROFS   = "./res/profs_ok.txt";
+const string VALID_ROOMS   = "./res/rooms_ok.txt";
 // TODO: Create these
-const string INVALID_COURSES = "../res/courses_ok.txt";
-const string INVALID_PROFS = "../res/profs_ok.txt";
-const string INVALID_ROOMS = "../res/rooms_ok.txt";
+const string INVALID_COURSES = "./res/courses_ok.txt";
+const string INVALID_PROFS   = "./res/profs_ok.txt";
+const string INVALID_ROOMS   = "./res/rooms_ok.txt";
 
 int main()
 {
