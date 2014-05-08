@@ -4,8 +4,9 @@ void TestRunner::runPassTests(void)
 {
     try
     {
-        cout << "Running pass tests for " << this->getComponent() << endl;
+        cout << "Running pass tests for " << this->getComponent() << "...\n";
         this->testPass();
+        cout << "Pass tests for " << this->getComponent() << "complete.\n\n";
     }
     catch (...)
     {
@@ -17,8 +18,9 @@ void TestRunner::runFailTests(void)
 {
     try
     {
-        cout << "Running fail tests for " << this->getComponent() << endl;
+        cout << "Running fail tests for " << this->getComponent() << "...\n";
         this->testFail();
+        cout << "Fail tests for " << this->getComponent() << "complete.\n\n";
     }
     catch (...)
     {
