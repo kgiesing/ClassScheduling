@@ -1,4 +1,5 @@
 #include "../include/TestCourseReader.h"
+#include "../include/TestCourse.h"
 #include "../../include/CourseReader.h"
 
 TestCourseReader::TestCourseReader(string valid, string invalid) :
@@ -6,8 +7,13 @@ TestCourseReader::TestCourseReader(string valid, string invalid) :
 
 void TestCourseReader::runTest(string filename)
 {
+    // Run pass or fail tests, depending upon whether filename is _valid
+    TestCourse* test = new TestCourse();
+    (filename == _valid) ? test->runPassTests() : test->runFailTests();
+    delete test;
+
     // Create a fake object
-    CourseReader* instance = new CourseReader(_invalid);
+    CourseReader* instance = new CourseReader(filename);
     cout << "Successfully created CourseReader object with data" << endl;
 
     // Test accessors
@@ -34,7 +40,7 @@ void TestCourseReader::runTest(string filename)
 
     // Re-create object to test generators/specialized member functions
     cout << "Re-creating CourseReader object..." << endl;
-    instance = new CourseReader(_invalid);
+    instance = new CourseReader(filename);
     cout << "Testing remaining member functions..." << endl;
     cout << "\tread: " << endl;
     std::vector<Course> courses = instance->read();

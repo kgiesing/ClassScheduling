@@ -1,7 +1,7 @@
 #include "TestCourse.h"
 #include "../../include/Course.h"
 
-void testPass(void)
+void TestCourse::testPass(void)
 {
     set<string> conflicts;
     set<string>::iterator it;
