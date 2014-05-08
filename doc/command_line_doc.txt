@@ -12,7 +12,7 @@ Below is how each room, professor, and course should be listed on each line, wit
 
 -Rooms: Each room has a room ID and a max capacity (2 fields: string, int).
 -Professors: Each professor has a professor ID, a first name and a last name (3 fields: string, string, string).
--Courses: Each course has a course ID, a name, a professor ID matching who's teaching it, the number of enrolled students, and a list of conflicting courses (by ID) (4+ fields: string, string, string, int, {string, string ...}).
+-Courses: Each course has a course ID, a name, a professor ID matching who's teaching it, the number of enrolled students, how many times the class meets per week, and a list of conflicting courses (by ID) (5+ fields for the whole line: string, string, string, int, int, {string, string ...}).
 
 The output is as follows:
 
