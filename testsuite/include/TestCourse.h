@@ -13,7 +13,6 @@ public:
     TestCourse(void) : TestRunner("TestCourse") { }
 protected:
     virtual void testPass(void);
-    virtual void testFail(void);
 };
 
 #endif // TESTCOURSE_H

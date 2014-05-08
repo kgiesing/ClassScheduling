@@ -12,7 +12,6 @@ public:
     TestProf(void) : TestRunner("TestProf") { }
 protected:
     virtual void testPass(void);
-    virtual void testFail(void);
 };
 
 #endif // TESTPROF_H
