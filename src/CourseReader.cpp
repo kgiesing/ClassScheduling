@@ -1,8 +1,11 @@
 #include "../include/CourseReader.h"
+#include <iostream> // for cerr
 #include <fstream>
 #include <set>
 #include <sstream>
 
+using std::cerr;
+using std::endl;
 using std::ifstream;
 using std::set;
 using std::string;
@@ -22,6 +25,11 @@ vector<Course> CourseReader::read()
     set<Course> courses;
 
     file.open(this->getFilename().c_str());
+    if (!file.is_open())
+    {
+        cerr << "Could not open file: " << this->getFilename() << endl;
+        return vector<Course>();
+    }
     while (!file.eof())
     {
         getline(file, id, this->getDelimiter());
