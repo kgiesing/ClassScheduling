@@ -12,10 +12,12 @@ using namespace std;
 class GreedyScheduleGenerator : public ScheduleGenerator {
 public:
 	Schedule* getSchedule(void);
-	GreedyScheduleGenerator(vector<Room>& roomV, vector<Prof>& profV, vector<Course>& courseV, ScoreCalculator& sc);
+	GreedyScheduleGenerator(vector<Room>& roomV, vector<Prof>& profV, vector<Course>& courseV, long timeout) :
+		ScheduleGenerator(timeout), _rooms(roomV), _profs(profV), _courses(courseV){};
 private:
-	ScoreCalculator& _sc;
-	map<string, double> _scores;
+    std::vector<Room>& _rooms;     /**< Vector of Room objects */
+    std::vector<Prof>& _profs;     /**< Vector of Prof objects */
+    std::vector<Course>& _courses; /**< Vector of Course objects */
 
 	static const int AVAILABLE_MON_WED = 1;
 	static const int AVAILABLE_TUE_THU = 2;
