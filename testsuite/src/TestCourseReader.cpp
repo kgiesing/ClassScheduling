@@ -22,7 +22,7 @@ void TestCourseReader::runTest(string filename)
 
     // Test accessors
     cout << "Testing accessors..." << endl;
-    cout << "\tgetFilename: " << instance->getFileName() << endl;
+    cout << "\tgetFilename: " << instance->getFilename() << endl;
     cout << "\tgetDelimiter: " << instance->getDelimiter() << endl;
     cout << endl;
 
@@ -36,7 +36,7 @@ void TestCourseReader::runTest(string filename)
 
     // Output values after mutating
     cout << "Values after mutating:" << endl;
-    cout << "\tgetFilename: " << instance->getFileName() << endl;
+    cout << "\tgetFilename: " << instance->getFilename() << endl;
     cout << "\tgetDelimiter: " << instance->getDelimiter() << endl;
     cout << endl;
 
@@ -48,7 +48,7 @@ void TestCourseReader::runTest(string filename)
     cout << "Testing remaining member functions..." << endl;
     cout << "\tread: " << endl;
     std::vector<Course> courses = instance->read();
-    for (int i = 0; i < courses.size(); i++)
+    for (unsigned i = 0; i < courses.size(); i++)
         cout << "\n\t\t" << courses[i].getId();
     cout << endl;
 

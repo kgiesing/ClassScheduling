@@ -6,7 +6,7 @@ void TestRoom::testPass(void)
     // Create a no-arg object
     Room* instance = new Room();
     cout << "Successfully created no-arg Room object" << endl;
-    delete c;
+    delete instance;
 
     // Create a fake object
     instance = new Room("M-02-404", 50);

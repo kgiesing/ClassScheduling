@@ -3,10 +3,12 @@
 
 // Include these here, so subclasses won't have to.
 #include <iostream>
+#include <string>
 
 using std::cerr;
-using std::endl;
 using std::cout;
+using std::endl;
+using std::string;
 
 class TestRunner
 {

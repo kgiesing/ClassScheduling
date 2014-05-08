@@ -4,14 +4,15 @@
 void testPass(void)
 {
     set<string> conflicts;
+    set<string>::iterator it;
     // Create a no-arg object
     Course* c = new Course();
     cout << "Successfully created no-arg Course object" << endl;
     delete c;
 
     // Create a fake course with fake conflicts
-    conflicts.add("CS-210");
-    conflicts.add("CS-220");
+    conflicts.insert("CS-210");
+    conflicts.insert("CS-220");
     c = new Course("CS-240", "Programming in C", 30, "012345678", conflicts);
     cout << "Successfully created Course object with data" << endl;
 
@@ -23,7 +24,6 @@ void testPass(void)
     cout << "\tgetProfId: " << c->getProfId() << endl;
     cout << "\tgetConflicts: ";
     conflicts = c->getConflicts();
-    set<string>::iterator it;
     for (it = conflicts.begin(); it != conflicts.end(); ++it)
         cout << (*it) << " ";
     cout << endl;
@@ -50,7 +50,6 @@ void testPass(void)
     cout << "\tgetProfId: " << c->getProfId() << endl;
     cout << "\tgetConflicts: ";
     conflicts = c->getConflicts();
-    set<string>::iterator it;
     for (it = conflicts.begin(); it != conflicts.end(); ++it)
         cout << "\n\t\t" << (*it);
     cout << endl;

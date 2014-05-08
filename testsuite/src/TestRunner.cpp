@@ -1,4 +1,4 @@
-#include "../includes/TestRunner.h"
+#include "../include/TestRunner.h"
 
 void TestRunner::runPassTests(void)
 {

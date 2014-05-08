@@ -6,7 +6,7 @@ void TestProf::testPass(void)
     // Create a no-arg object
     Prof* instance = new Prof();
     cout << "Successfully created no-arg Prof object" << endl;
-    delete c;
+    delete instance;
 
     // Create a fake object
     instance = new Prof("012345678", "John", "Doe");
