@@ -1,5 +1,5 @@
 #include "TestCourse.h"
-#include "Course.h"
+#include "../../include/Course.h"
 
 void testPass(void)
 {

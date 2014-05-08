@@ -1,5 +1,5 @@
 #include "../include/TestCourseReader.h"
-#include "../include/CourseReader.h"
+#include "../../include/CourseReader.h"
 
 TestCourseReader::TestCourseReader(string valid, string invalid) :
     TestRunner("TestCourseReader"), _valid(valid), _invalid(invalid) { }

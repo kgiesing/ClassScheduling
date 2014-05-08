@@ -1,5 +1,5 @@
 #include "../include/TestProf.h"
-#include "../include/Prof.h"
+#include "../../include/Prof.h"
 
 void TestProf::testPass(void)
 {

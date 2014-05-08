@@ -1,5 +1,5 @@
 #include "../include/TestRoom.h"
-#include "../include/Room.h"
+#include "../../include/Room.h"
 
 void TestRoom::testPass(void)
 {
