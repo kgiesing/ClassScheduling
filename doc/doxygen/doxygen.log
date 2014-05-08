@@ -1,0 +1,94 @@
+/home/karl/Documents/GitHub/ClassScheduling/include/ConflictPreprocessor.h:13: warning: argument 'The' of command @param is not found in the argument list of ConflictPreprocessor::preprocess(vector< Course > &courses)
+/home/karl/Documents/GitHub/ClassScheduling/include/ConflictPreprocessor.h:13: warning: The following parameters of ConflictPreprocessor::preprocess(vector< Course > &courses) are not documented:
+  parameter 'courses'
+/home/karl/Documents/GitHub/ClassScheduling/include/Course.h:24: warning: argument 'Course' of command @param is not found in the argument list of Course::Course(const string &id, const string &name, int enrolled, const string &profId, const set< string > &conflicts)
+/home/karl/Documents/GitHub/ClassScheduling/include/Course.h:24: warning: argument 'Course' of command @param is not found in the argument list of Course::Course(const string &id, const string &name, int enrolled, const string &profId, const set< string > &conflicts)
+/home/karl/Documents/GitHub/ClassScheduling/include/Course.h:24: warning: argument 'Number' of command @param is not found in the argument list of Course::Course(const string &id, const string &name, int enrolled, const string &profId, const set< string > &conflicts)
+/home/karl/Documents/GitHub/ClassScheduling/include/Course.h:24: warning: argument 'ID' of command @param is not found in the argument list of Course::Course(const string &id, const string &name, int enrolled, const string &profId, const set< string > &conflicts)
+/home/karl/Documents/GitHub/ClassScheduling/include/Course.h:24: warning: argument 'List' of command @param is not found in the argument list of Course::Course(const string &id, const string &name, int enrolled, const string &profId, const set< string > &conflicts)
+/home/karl/Documents/GitHub/ClassScheduling/include/Course.h:24: warning: The following parameters of Course::Course(const string &id, const string &name, int enrolled, const string &profId, const set< string > &conflicts) are not documented:
+  parameter 'id'
+  parameter 'name'
+  parameter 'enrolled'
+  parameter 'profId'
+  parameter 'conflicts'
+/home/karl/Documents/GitHub/ClassScheduling/include/Course.h:81: warning: argument 'A' of command @param is not found in the argument list of Course::setConflicts(const set< string > &conflicts)
+/home/karl/Documents/GitHub/ClassScheduling/include/Course.h:81: warning: The following parameters of Course::setConflicts(const set< string > &conflicts) are not documented:
+  parameter 'conflicts'
+/home/karl/Documents/GitHub/ClassScheduling/include/Course.h:66: warning: argument 'The' of command @param is not found in the argument list of Course::setEnrolled(int enrolled)
+/home/karl/Documents/GitHub/ClassScheduling/include/Course.h:66: warning: The following parameters of Course::setEnrolled(int enrolled) are not documented:
+  parameter 'enrolled'
+/home/karl/Documents/GitHub/ClassScheduling/include/Course.h:71: warning: argument 'The' of command @param is not found in the argument list of Course::setId(const string &id)
+/home/karl/Documents/GitHub/ClassScheduling/include/Course.h:71: warning: The following parameters of Course::setId(const string &id) are not documented:
+  parameter 'id'
+/home/karl/Documents/GitHub/ClassScheduling/include/Course.h:88: warning: argument 'The' of command @param is not found in the argument list of Course::setName(const string &name)
+/home/karl/Documents/GitHub/ClassScheduling/include/Course.h:88: warning: The following parameters of Course::setName(const string &name) are not documented:
+  parameter 'name'
+/home/karl/Documents/GitHub/ClassScheduling/include/Course.h:76: warning: argument 'The' of command @param is not found in the argument list of Course::setProfId(const string &profId)
+/home/karl/Documents/GitHub/ClassScheduling/include/Course.h:76: warning: The following parameters of Course::setProfId(const string &profId) are not documented:
+  parameter 'profId'
+/home/karl/Documents/GitHub/ClassScheduling/include/FileReaderFactory.h:13: warning: argument 'The' of command @param is not found in the argument list of FileReaderFactory::FileReaderFactory(char delimiter=',')
+/home/karl/Documents/GitHub/ClassScheduling/include/FileReaderFactory.h:13: warning: The following parameters of FileReaderFactory::FileReaderFactory(char delimiter=',') are not documented:
+  parameter 'delimiter'
+/home/karl/Documents/GitHub/ClassScheduling/include/FileReaderFactory.h:18: warning: argument 'A' of command @param is not found in the argument list of FileReaderFactory::getCourses(string) inherited from member getCourses at line 23 in file /home/karl/Documents/GitHub/ClassScheduling/include/ReaderFactory.h
+/home/karl/Documents/GitHub/ClassScheduling/include/FileReaderFactory.h:19: warning: argument 'A' of command @param is not found in the argument list of FileReaderFactory::getProfs(string) inherited from member getProfs at line 28 in file /home/karl/Documents/GitHub/ClassScheduling/include/ReaderFactory.h
+/home/karl/Documents/GitHub/ClassScheduling/include/FileReaderFactory.h:20: warning: argument 'A' of command @param is not found in the argument list of FileReaderFactory::getRooms(string) inherited from member getRooms at line 33 in file /home/karl/Documents/GitHub/ClassScheduling/include/ReaderFactory.h
+/home/karl/Documents/GitHub/ClassScheduling/include/FileWriter.h:23: warning: argument 'The' of command @param is not found in the argument list of FileWriter< T >::setFilename(const string &filename)
+/home/karl/Documents/GitHub/ClassScheduling/include/FileWriter.h:23: warning: The following parameters of FileWriter::setFilename(const string &filename) are not documented:
+  parameter 'filename'
+/home/karl/Documents/GitHub/ClassScheduling/include/LinearScoreCalculator.h:15: warning: argument 'ProfInfo' of command @param is not found in the argument list of LinearScoreCalculator::operator()(ProfInfo &) inherited from member operator() at line 15 in file /home/karl/Documents/GitHub/ClassScheduling/include/ScoreCalculator.h
+/home/karl/Documents/GitHub/ClassScheduling/include/Prof.h:14: warning: argument 'Professor' of command @param is not found in the argument list of Prof::Prof(const std::string &id="", const std::string &firstName="", const std::string &lastName="")
+/home/karl/Documents/GitHub/ClassScheduling/include/Prof.h:14: warning: argument 'First' of command @param is not found in the argument list of Prof::Prof(const std::string &id="", const std::string &firstName="", const std::string &lastName="")
+/home/karl/Documents/GitHub/ClassScheduling/include/Prof.h:14: warning: argument 'Last' of command @param is not found in the argument list of Prof::Prof(const std::string &id="", const std::string &firstName="", const std::string &lastName="")
+/home/karl/Documents/GitHub/ClassScheduling/include/Prof.h:14: warning: The following parameters of Prof::Prof(const std::string &id="", const std::string &firstName="", const std::string &lastName="") are not documented:
+  parameter 'id'
+  parameter 'firstName'
+  parameter 'lastName'
+/home/karl/Documents/GitHub/ClassScheduling/include/Prof.h:37: warning: argument 'The' of command @param is not found in the argument list of Prof::setFirstName(const std::string &firstName)
+/home/karl/Documents/GitHub/ClassScheduling/include/Prof.h:37: warning: The following parameters of Prof::setFirstName(const std::string &firstName) are not documented:
+  parameter 'firstName'
+/home/karl/Documents/GitHub/ClassScheduling/include/Prof.h:47: warning: argument 'The' of command @param is not found in the argument list of Prof::setId(const std::string &id)
+/home/karl/Documents/GitHub/ClassScheduling/include/Prof.h:47: warning: The following parameters of Prof::setId(const std::string &id) are not documented:
+  parameter 'id'
+/home/karl/Documents/GitHub/ClassScheduling/include/Prof.h:42: warning: argument 'The' of command @param is not found in the argument list of Prof::setLastName(const std::string &lastName)
+/home/karl/Documents/GitHub/ClassScheduling/include/Prof.h:42: warning: The following parameters of Prof::setLastName(const std::string &lastName) are not documented:
+  parameter 'lastName'
+/home/karl/Documents/GitHub/ClassScheduling/include/ProfInfo.h:20: warning: argument 'Professor' of command @param is not found in the argument list of ProfInfo::ProfInfo(const Prof &prof)
+/home/karl/Documents/GitHub/ClassScheduling/include/ProfInfo.h:20: warning: The following parameters of ProfInfo::ProfInfo(const Prof &prof) are not documented:
+  parameter 'prof'
+/home/karl/Documents/GitHub/ClassScheduling/include/ProfInfo.h:52: warning: argument 'The' of command @param is not found in the argument list of ProfInfo::setDaysOnCampus(unsigned days)
+/home/karl/Documents/GitHub/ClassScheduling/include/ProfInfo.h:52: warning: The following parameters of ProfInfo::setDaysOnCampus(unsigned days) are not documented:
+  parameter 'days'
+/home/karl/Documents/GitHub/ClassScheduling/include/ProfInfo.h:57: warning: argument 'Number' of command @param is not found in the argument list of ProfInfo::setNumCourses(unsigned courses)
+/home/karl/Documents/GitHub/ClassScheduling/include/ProfInfo.h:57: warning: The following parameters of ProfInfo::setNumCourses(unsigned courses) are not documented:
+  parameter 'courses'
+/home/karl/Documents/GitHub/ClassScheduling/include/ProfInfo.h:62: warning: argument 'The' of command @param is not found in the argument list of ProfInfo::setScore(double score)
+/home/karl/Documents/GitHub/ClassScheduling/include/ProfInfo.h:62: warning: The following parameters of ProfInfo::setScore(double score) are not documented:
+  parameter 'score'
+/home/karl/Documents/GitHub/ClassScheduling/include/ProfInfo.h:69: warning: argument 'The' of command @param is not found in the argument list of ProfInfo::setTotalTime(unsigned timeBlocks)
+/home/karl/Documents/GitHub/ClassScheduling/include/ProfInfo.h:69: warning: The following parameters of ProfInfo::setTotalTime(unsigned timeBlocks) are not documented:
+  parameter 'timeBlocks'
+/home/karl/Documents/GitHub/ClassScheduling/include/ReaderFactory.h:23: warning: argument 'A' of command @param is not found in the argument list of ReaderFactory::getCourses(string)=0
+/home/karl/Documents/GitHub/ClassScheduling/include/ReaderFactory.h:28: warning: argument 'A' of command @param is not found in the argument list of ReaderFactory::getProfs(string)=0
+/home/karl/Documents/GitHub/ClassScheduling/include/ReaderFactory.h:33: warning: argument 'A' of command @param is not found in the argument list of ReaderFactory::getRooms(string)=0
+/home/karl/Documents/GitHub/ClassScheduling/include/Room.h:14: warning: argument 'Room' of command @param is not found in the argument list of Room::Room(const std::string &id="", int capacity=0)
+/home/karl/Documents/GitHub/ClassScheduling/include/Room.h:14: warning: argument 'Room' of command @param is not found in the argument list of Room::Room(const std::string &id="", int capacity=0)
+/home/karl/Documents/GitHub/ClassScheduling/include/Room.h:14: warning: The following parameters of Room::Room(const std::string &id="", int capacity=0) are not documented:
+  parameter 'id'
+  parameter 'capacity'
+/home/karl/Documents/GitHub/ClassScheduling/include/ScheduleWriter.h:12: warning: argument 'Contents' of command @param is not found in the argument list of ScheduleWriter::setContents(Schedule *contents) inherited from member setContents at line 13 in file /home/karl/Documents/GitHub/ClassScheduling/include/Writer.h
+/home/karl/Documents/GitHub/ClassScheduling/include/ScheduleWriter.h:12: warning: The following parameters of ScheduleWriter::setContents(Schedule *contents) are not documented:
+  parameter 'contents'
+/home/karl/Documents/GitHub/ClassScheduling/include/ScoreCalculator.h:15: warning: argument 'ProfInfo' of command @param is not found in the argument list of ScoreCalculator::operator()(ProfInfo &)=0
+/home/karl/Documents/GitHub/ClassScheduling/include/TestCourseReader.h:13: warning: argument 'Filename' of command @param is not found in the argument list of TestCourseReader::TestCourseReader(string valid, string invalid)
+/home/karl/Documents/GitHub/ClassScheduling/include/TestCourseReader.h:13: warning: argument 'Filename' of command @param is not found in the argument list of TestCourseReader::TestCourseReader(string valid, string invalid)
+/home/karl/Documents/GitHub/ClassScheduling/include/TestCourseReader.h:13: warning: The following parameters of TestCourseReader::TestCourseReader(string valid, string invalid) are not documented:
+  parameter 'valid'
+  parameter 'invalid'
+/home/karl/Documents/GitHub/ClassScheduling/include/TestRunner.h:15: warning: argument 'Name' of command @param is not found in the argument list of TestRunner::TestRunner(string component)
+/home/karl/Documents/GitHub/ClassScheduling/include/TestRunner.h:15: warning: The following parameters of TestRunner::TestRunner(string component) are not documented:
+  parameter 'component'
+/home/karl/Documents/GitHub/ClassScheduling/include/WeightedScoreCalculator.h:15: warning: argument 'ProfInfo' of command @param is not found in the argument list of WeightedScoreCalculator::operator()(ProfInfo &) inherited from member operator() at line 15 in file /home/karl/Documents/GitHub/ClassScheduling/include/ScoreCalculator.h
+/home/karl/Documents/GitHub/ClassScheduling/include/Writer.h:13: warning: argument 'Contents' of command @param is not found in the argument list of Writer< T >::setContents(T contents)=0
+/home/karl/Documents/GitHub/ClassScheduling/include/Writer.h:13: warning: The following parameters of Writer::setContents(T contents)=0 are not documented:
+  parameter 'contents'
