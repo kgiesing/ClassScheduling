@@ -24,7 +24,6 @@ protected:
     virtual void runTest(string) = 0;
     virtual void testPass(void) { this->runTest(_valid); }
     virtual void testFail(void) { this->runTest(_invalid); }
-private:
     string _valid;
     string _invalid;
 };

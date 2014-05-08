@@ -2,17 +2,7 @@
 #include "../../include/CourseReader.h"
 
 TestCourseReader::TestCourseReader(string valid, string invalid) :
-    TestRunner("TestCourseReader"), _valid(valid), _invalid(invalid) { }
-
-void TestCourseReader::testPass(void)
-{
-    runTest(_valid);
-}
-
-void TestCourseReader::testFail(void)
-{
-    runTest(_invalid);
-}
+    TestFileReaders("TestCourseReader", valid, invalid) { }
 
 void TestCourseReader::runTest(string filename)
 {
