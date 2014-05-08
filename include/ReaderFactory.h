@@ -4,7 +4,7 @@
 #include "Course.h"
 #include "Prof.h"
 #include "Room.h"
-#include <string>s
+#include <string>
 #include <vector>
 
 using std::string;
