@@ -1,6 +1,6 @@
-CS105-1,Introduction to Computer Concepts,S3158A,35,
-CS105-2,Introduction to Computer Concepts,S3158B,32,
-CS108-1,An Introduction to Python,S3183,26,CS105-1,CS105-2
-CS110-1,Introduction to Computing,S3176,29,
-CS110-2,Introduction to Computing,S3158B,37,
-CS110-3,Introduction to Computing,S3176,40,
+CS105-1,Introduction to Computer Concepts,S3158A,35,2,
+CS105-2,Introduction to Computer Concepts,S3158B,32,2,
+CS108-1,An Introduction to Python,S3183,26,2,CS105-1,CS105-2
+CS110-1,Introduction to Computing,S3176,29,2,
+CS110-2,Introduction to Computing,S3158B,37,2,
+CS110-3,Introduction to Computing,S3176,40,2,
