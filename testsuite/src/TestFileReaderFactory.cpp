@@ -53,7 +53,7 @@ void TestFileReaderFactory::testPass(void)
 
     // Re-create object to test generators/specialized member functions
     cout << "Re-creating object..." << endl;
-    instance = new FileReaderFactory(filename);
+    instance = new FileReaderFactory();
     cout << "Testing remaining member functions..." << endl;
     cout << "\tgetCourses: " << endl;
     std::vector<Course> courses = instance->getCourses(_validCourse);
