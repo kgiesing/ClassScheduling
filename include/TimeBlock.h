@@ -21,9 +21,8 @@ enum TimeBlock {
 };
 
 /**
- * Overwrite stream output.
+ * Overwrite stream output operator
  */
-
 std::ostream& operator<<(std::ostream& out, const TimeBlock value);
 
 #endif // TIMEBLOCK_H

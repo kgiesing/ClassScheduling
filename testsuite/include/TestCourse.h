@@ -1,7 +1,7 @@
 #ifndef TESTCOURSE_H
 #define TESTCOURSE_H
 
-#include TestRunner.h
+#include "TestRunner.h"
 
 /**
  * This class tests the Course class.
@@ -13,7 +13,6 @@ public:
     TestCourse(void) : TestRunner("TestCourse") { }
 protected:
     virtual void testPass(void);
-    virtual void testFail(void);
 };
 
 #endif // TESTCOURSE_H

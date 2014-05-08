@@ -7,10 +7,6 @@
 
 using namespace std;
 
-GreedyScheduleGenerator::GreedyScheduleGenerator(vector<Room>& roomV,
-		vector<Prof>& profV, vector<Course>& courseV, ScoreCalculator& sc) :
-		ScheduleGenerator(roomV, profV, courseV), _sc(sc) { }
-
 Schedule* GreedyScheduleGenerator::getSchedule() {
 	Schedule* schedule = new Schedule(_rooms);
 
@@ -67,31 +63,17 @@ Schedule* GreedyScheduleGenerator::getSchedule() {
 			else if (i == 1 && availableWeekday == AVAILABLE_TUE_THU)
 				day = THURS;
 
-			// find the conflicting courses
-			bool conflict = false;
-			vector<Course> periodCourses = schedule->getCoursesAt(day, time);
-			for (vector<Course>::iterator periodCourseItr =
-					periodCourses.begin();
-					periodCourseItr != periodCourses.end(); periodCourseItr++) {
-				set<string> conflicts = periodCourseItr->getConflicts();
-				if (conflicts.find(course.getId()) != conflicts.end()) {
-					conflict = true;
-					break;
-				}
-			}
-			if (conflict) {
-				for (int ttime_i = time + 1; ttime_i < TIMEBLOCK_SIZE;
-						ttime_i++) {
+			if (isConflict(*schedule, day, time, course)) {
+				for (int ttime_i = time + 1; ttime_i < TIMEBLOCK_SIZE; ttime_i++) {
 					TimeBlock ttime = (TimeBlock) ttime_i;
 					for (vector<Room>::iterator tRoomItr = _rooms.end() - 1;
 							tRoomItr >= _rooms.begin(); tRoomItr--) {
 						if (tRoomItr->getCapacity() >= course.getEnrolled()) {
-							if (schedule->getCourse(*tRoomItr, day, time).getId()
-									!= "") {
+							if (schedule->getCourse(*tRoomItr, day, time).getId() != ""
+									|| isConflict(*schedule, day, ttime, course)) {
 								break;
 							} else {
-								if (schedule->setCourse(course, *tRoomItr, day,
-										ttime, 0)) {
+								if (schedule->setCourse(course, *tRoomItr, day, ttime, 0)) {
 									if (i == 1) {
 										_courses.erase(_courses.begin());
 									}
@@ -116,12 +98,6 @@ Schedule* GreedyScheduleGenerator::getSchedule() {
 		}
 	}
 
-	// calculate the score
-	for (vector<Prof>::iterator profItr = _profs.begin(); profItr != _profs.end(); profItr++) {
-		ProfInfo* profInfo = new ProfInfo(*profItr);
-		_scores.insert(pair<string, double>(profItr->getId(), _sc(*profInfo)));
-		delete profInfo;
-	}
 	return schedule;
 
 }
@@ -137,4 +113,17 @@ int GreedyScheduleGenerator::getAvailableWeekday(Schedule& schedule, Room& room,
 			&& schedule.getCourse(room, THURS, time).getId() == "")
 		return AVAILABLE_TUE_THU;
 	return NOT_AVAILABLE;
+}
+
+bool GreedyScheduleGenerator::isConflict(Schedule& schedule, Weekdays day,
+		TimeBlock time, Course& course) {
+	vector<Course> periodCourses = schedule.getCoursesAt(day, time);
+	for (vector<Course>::iterator periodCourseItr = periodCourses.begin();
+			periodCourseItr != periodCourses.end(); periodCourseItr++) {
+		set<string> conflicts = periodCourseItr->getConflicts();
+		if (conflicts.find(course.getId()) != conflicts.end()) {
+			return true;
+		}
+	}
+	return false;
 }

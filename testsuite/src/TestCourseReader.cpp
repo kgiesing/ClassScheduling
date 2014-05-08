@@ -1,28 +1,24 @@
 #include "../include/TestCourseReader.h"
-#include "../include/CourseReader.h"
+#include "../include/TestCourse.h"
+#include "../../include/CourseReader.h"
 
 TestCourseReader::TestCourseReader(string valid, string invalid) :
-    TestRunner("TestCourseReader"), _valid(valid), _invalid(invalid) { }
-
-void TestCourseReader::testPass(void)
-{
-    runTest(_valid);
-}
-
-void TestCourseReader::testFail(void)
-{
-    runTest(_invalid);
-}
+    TestFileReaders("TestCourseReader", valid, invalid) { }
 
 void TestCourseReader::runTest(string filename)
 {
+    // Run pass or fail tests, depending upon whether filename is _valid
+    TestCourse* test = new TestCourse();
+    (filename == _valid) ? test->runPassTests() : test->runFailTests();
+    delete test;
+
     // Create a fake object
-    CourseReader* instance = new CourseReader(_invalid);
+    CourseReader* instance = new CourseReader(filename);
     cout << "Successfully created CourseReader object with data" << endl;
 
     // Test accessors
     cout << "Testing accessors..." << endl;
-    cout << "\tgetFilename: " << instance->getFileName() << endl;
+    cout << "\tgetFilename: " << instance->getFilename() << endl;
     cout << "\tgetDelimiter: " << instance->getDelimiter() << endl;
     cout << endl;
 
@@ -36,7 +32,7 @@ void TestCourseReader::runTest(string filename)
 
     // Output values after mutating
     cout << "Values after mutating:" << endl;
-    cout << "\tgetFilename: " << instance->getFileName() << endl;
+    cout << "\tgetFilename: " << instance->getFilename() << endl;
     cout << "\tgetDelimiter: " << instance->getDelimiter() << endl;
     cout << endl;
 
@@ -44,11 +40,11 @@ void TestCourseReader::runTest(string filename)
 
     // Re-create object to test generators/specialized member functions
     cout << "Re-creating CourseReader object..." << endl;
-    instance = new CourseReader(_invalid);
+    instance = new CourseReader(filename);
     cout << "Testing remaining member functions..." << endl;
     cout << "\tread: " << endl;
     std::vector<Course> courses = instance->read();
-    for (int i = 0; i < courses.size(); i++)
+    for (unsigned i = 0; i < courses.size(); i++)
         cout << "\n\t\t" << courses[i].getId();
     cout << endl;
 
