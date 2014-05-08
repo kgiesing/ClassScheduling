@@ -1,20 +1,20 @@
-#include "../include/TestProfReader.h"
-#include "../include/TestProf.h"
-#include "../../include/ProfReader.h"
+#include "TestRoomReader.h"
+#include "../include/TestRoom.h"
+#include "../../include/RoomReader.h"
 
-TestProfReader::TestProfReader(string valid, string invalid) :
-    TestFileReaders("TestProfReader", valid, invalid) { }
+TestRoomReader::TestRoomReader(string valid, string invalid) :
+    TestFileReaders("TestRoomReader", valid, invalid) { }
 
-void TestProfReader::runTest(string filename)
+void TestRoomReader::runTest(string filename)
 {
     // Run pass or fail tests, depending upon whether filename is _valid
-    TestProf* test = new TestProf();
+    TestRoom* test = new TestRoom();
     (filename == _valid) ? test->runPassTests() : test->runFailTests();
     delete test;
 
     // Create a fake object
-    ProfReader* instance = new ProfReader(filename);
-    cout << "Successfully created ProfReader object with data" << endl;
+    RoomReader* instance = new RoomReader(filename);
+    cout << "Successfully created RoomReader object with data" << endl;
 
     // Test accessors
     cout << "Testing accessors..." << endl;
@@ -39,17 +39,15 @@ void TestProfReader::runTest(string filename)
     delete instance;
 
     // Re-create object to test generators/specialized member functions
-    cout << "Re-creating ProfReader object..." << endl;
-    instance = new ProfReader(filename);
+    cout << "Re-creating RoomReader object..." << endl;
+    instance = new RoomReader(filename);
     cout << "Testing remaining member functions..." << endl;
     cout << "\tread: " << endl;
-    std::vector<Prof> courses = instance->read();
-    for (unsigned i = 0; i < courses.size(); i++)
-        cout << "\n\t\t" << courses[i].getId();
+    std::vector<Room> Rooms = instance->read();
+    for (unsigned i = 0; i < Rooms.size(); i++)
+        cout << "\n\t\t" << Rooms[i].getId();
     cout << endl;
 
     // Done
     delete instance;
 }
-
-
