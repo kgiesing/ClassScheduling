@@ -6,13 +6,16 @@
 TestCourseReader::TestCourseReader(string valid, string invalid) :
     TestFileReaders("CourseReader", valid, invalid) { }
 
+void TestCourseReader::preTest(bool isPass)
+{
+    // Run pass or fail tests, depending upon whether isPass is true
+    TestCourse* test = new TestCourse();
+    isPass ? test->runPassTests() : test->runFailTests();
+    delete test;
+}
+
 void TestCourseReader::runTest(string filename)
 {
-    // Run pass or fail tests, depending upon whether filename is _valid
-    TestCourse* test = new TestCourse();
-    (filename == _valid) ? test->runPassTests() : test->runFailTests();
-    delete test;
-
     // Create a fake object
     CourseReader* instance = new CourseReader(filename);
     cout << "Successfully created CourseReader object with data" << endl;

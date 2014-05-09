@@ -16,21 +16,24 @@ TestFileReaderFactory::TestFileReaderFactory(string validCourse,
     _validRoom(validRoom),
     _invalidRoom(invalidRoom) { }
 
-void TestFileReaderFactory::testPass(void)
+void TestFileReaderFactory::preTest(bool isPass)
 {
+    // Test the Readers here
     TestFileReaders* reader;
-    FileReaderFactory* instance;
-
-    // Test the Readers first
     reader = new TestCourseReader(_validCourse, _invalidCourse);
-    reader->runPassTests();
+    isPass ? reader->runPassTests() : reader->runFailTests();
     delete reader;
     reader = new TestProfReader(_validProf, _invalidProf);
-    reader->runPassTests();
+    isPass ? reader->runPassTests() : reader->runFailTests();
     delete reader;
     reader = new TestRoomReader(_validRoom, _invalidRoom);
-    reader->runPassTests();
+    isPass ? reader->runPassTests() : reader->runFailTests();
     delete reader;
+}
+
+void TestFileReaderFactory::testPass(void)
+{
+    FileReaderFactory* instance;
 
     // Run tests on the factory
     instance = new FileReaderFactory();

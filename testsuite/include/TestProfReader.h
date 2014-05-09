@@ -14,6 +14,7 @@ public:
      */
     TestProfReader(string, string);
 private:
+    virtual void preTest(bool);
     virtual void runTest(string);
 };
 

@@ -6,13 +6,16 @@
 TestProfReader::TestProfReader(string valid, string invalid) :
     TestFileReaders("ProfReader", valid, invalid) { }
 
+void TestProfReader::preTest(bool isPass)
+{
+    // Run pass or fail tests, depending upon whether isPass is true
+    TestProf* test = new TestProf();
+    isPass ? test->runPassTests() : test->runFailTests();
+    delete test;
+}
+
 void TestProfReader::runTest(string filename)
 {
-    // Run pass or fail tests, depending upon whether filename is _valid
-    TestProf* test = new TestProf();
-    (filename == _valid) ? test->runPassTests() : test->runFailTests();
-    delete test;
-
     // Create a fake object
     ProfReader* instance = new ProfReader(filename);
     cout << "Successfully created ProfReader object with data" << endl;

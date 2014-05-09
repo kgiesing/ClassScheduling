@@ -10,6 +10,7 @@ public:
     /** Constructor. */
     TestFileReaderFactory(string, string, string, string, string, string);
 protected:
+    virtual void preTest(bool);
     virtual void testPass(void);
     virtual void testFail(void);
 private:

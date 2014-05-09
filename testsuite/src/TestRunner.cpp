@@ -2,6 +2,11 @@
 
 void TestRunner::runPassTests(void)
 {
+    cout << "Running pass tests for sub-components of "
+         << this->getComponent() << "...\n";
+    this->preTest(true);
+    cout << "Pass tests for sub-components of " << this->getComponent()
+         << " complete.\n\n";
     try
     {
         cout << "Running pass tests for " << this->getComponent() << "...\n";
@@ -16,6 +21,11 @@ void TestRunner::runPassTests(void)
 
 void TestRunner::runFailTests(void)
 {
+    cout << "Running fail tests for sub-components of "
+         << this->getComponent() << "...\n";
+    this->preTest(false);
+    cout << "Fail tests for sub-components of " << this->getComponent()
+         << " complete.\n\n";
     try
     {
         cout << "Running fail tests for " << this->getComponent() << "...\n";
@@ -29,13 +39,17 @@ void TestRunner::runFailTests(void)
 
 }
 
+void TestRunner::preTest(bool)
+{
+    cout << "[No sub-component tests written for " << this->getComponent() << "]" << endl;
+}
+
 void TestRunner::testPass(void)
 {
-    cout << "[No pass tests written for" << this->getComponent() << "]" << endl;
+    cout << "[No pass tests written for " << this->getComponent() << "]" << endl;
 }
 
 void TestRunner::testFail(void)
 {
-    cout << "[No fail tests written for" << this->getComponent() << "]" << endl;
+    cout << "[No fail tests written for " << this->getComponent() << "]" << endl;
 }
-

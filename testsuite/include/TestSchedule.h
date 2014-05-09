@@ -9,6 +9,7 @@ public:
     /** Default constructor */
     TestSchedule() : TestRunner("Schedule") { }
 protected:
+    // virtual void preTest(bool);
     // virtual void testPass(void);
     // virtual void testFail(void);
 };

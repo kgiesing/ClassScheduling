@@ -16,7 +16,8 @@ public:
      */
     TestCourseReader(string, string);
 private:
-    void runTest(string);
+    virtual void preTest(bool);
+    virtual void runTest(string);
 };
 
 #endif // TESTCOURSEREADER_H

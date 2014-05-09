@@ -6,13 +6,16 @@
 TestRoomReader::TestRoomReader(string valid, string invalid) :
     TestFileReaders("RoomReader", valid, invalid) { }
 
-void TestRoomReader::runTest(string filename)
+void TestRoomReader::preTest(bool isPass)
 {
     // Run pass or fail tests, depending upon whether filename is _valid
     TestRoom* test = new TestRoom();
-    (filename == _valid) ? test->runPassTests() : test->runFailTests();
+    isPass ? test->runPassTests() : test->runFailTests();
     delete test;
+}
 
+void TestRoomReader::runTest(string filename)
+{
     // Create a fake object
     RoomReader* instance = new RoomReader(filename);
     cout << "Successfully created RoomReader object with data" << endl;

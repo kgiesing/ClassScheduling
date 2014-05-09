@@ -34,8 +34,15 @@ public:
     virtual void runFailTests(void);
 protected:
     /**
+     * Hook for subclasses to run tests on their sub-components.
+     * This method is called by both runPassTests() and runFailTests(),
+     * prior to testPass() and testFail() (respectively).
+     * @param True if this is a pass test; false if it is a fail test.
+     */
+    virtual void preTest(bool);
+    /**
      * Hook for subclasses to run tests on a specific component. These
-     * tests should pass. This method is called by runPassTests(void).
+     * tests should pass. This method is called by runPassTests().
      * Default implementation simply outputs that there are no pass tests
      * written.
      */
