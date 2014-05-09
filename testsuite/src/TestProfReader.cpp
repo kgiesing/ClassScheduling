@@ -1,9 +1,10 @@
 #include "../include/TestProfReader.h"
 #include "../include/TestProf.h"
+#include "../include/VectorPrinter.h"
 #include "../../include/ProfReader.h"
 
 TestProfReader::TestProfReader(string valid, string invalid) :
-    TestFileReaders("TestProfReader", valid, invalid) { }
+    TestFileReaders("ProfReader", valid, invalid) { }
 
 void TestProfReader::runTest(string filename)
 {
@@ -42,11 +43,8 @@ void TestProfReader::runTest(string filename)
     cout << "Re-creating ProfReader object..." << endl;
     instance = new ProfReader(filename);
     cout << "Testing remaining member functions..." << endl;
-    cout << "\tread: " << endl;
-    std::vector<Prof> courses = instance->read();
-    for (unsigned i = 0; i < courses.size(); i++)
-        cout << "\n\t\t" << courses[i].getId();
-    cout << endl;
+    cout << "\tread: ";
+    VectorPrinter::print(instance->read());
 
     // Done
     delete instance;

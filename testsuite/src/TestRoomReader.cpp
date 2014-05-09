@@ -1,9 +1,10 @@
-#include "TestRoomReader.h"
+#include "../include/TestRoomReader.h"
 #include "../include/TestRoom.h"
+#include "../include/VectorPrinter.h"
 #include "../../include/RoomReader.h"
 
 TestRoomReader::TestRoomReader(string valid, string invalid) :
-    TestFileReaders("TestRoomReader", valid, invalid) { }
+    TestFileReaders("RoomReader", valid, invalid) { }
 
 void TestRoomReader::runTest(string filename)
 {
@@ -42,11 +43,8 @@ void TestRoomReader::runTest(string filename)
     cout << "Re-creating RoomReader object..." << endl;
     instance = new RoomReader(filename);
     cout << "Testing remaining member functions..." << endl;
-    cout << "\tread: " << endl;
-    std::vector<Room> Rooms = instance->read();
-    for (unsigned i = 0; i < Rooms.size(); i++)
-        cout << "\n\t\t" << Rooms[i].getId();
-    cout << endl;
+    cout << "\tread: ";
+    VectorPrinter::print(instance->read());
 
     // Done
     delete instance;

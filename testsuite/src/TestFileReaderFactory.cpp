@@ -2,12 +2,13 @@
 #include "../include/TestCourseReader.h"
 #include "../include/TestProfReader.h"
 #include "../include/TestRoomReader.h"
+#include "../include/VectorPrinter.h"
 #include "../../include/FileReaderFactory.h"
 
 TestFileReaderFactory::TestFileReaderFactory(string validCourse,
         string invalidCourse, string validProf, string invalidProf,
         string validRoom, string invalidRoom) :
-    TestRunner("TestFileReaderFactory"),
+    TestRunner("FileReaderFactory"),
     _validCourse(validCourse),
     _invalidCourse(invalidCourse),
     _validProf(validProf),
@@ -55,21 +56,12 @@ void TestFileReaderFactory::testPass(void)
     cout << "Re-creating object..." << endl;
     instance = new FileReaderFactory();
     cout << "Testing remaining member functions..." << endl;
-    cout << "\tgetCourses: " << endl;
-    std::vector<Course> courses = instance->getCourses(_validCourse);
-    for (unsigned i = 0; i < courses.size(); i++)
-        cout << "\n\t\t" << courses[i].getId();
-    cout << endl;
-    cout << "\tgetProfs: " << endl;
-    std::vector<Prof> profs = instance->getProfs(_validProf);
-    for (unsigned i = 0; i < profs.size(); i++)
-        cout << "\n\t\t" << profs[i].getId();
-    cout << endl;
-    cout << "\tgetProfs: " << endl;
-    std::vector<Room> rooms = instance->getRooms(_validRoom);
-    for (unsigned i = 0; i < rooms.size(); i++)
-        cout << "\n\t\t" << rooms[i].getId();
-    cout << endl;
+    cout << "\tgetCourses: ";
+    VectorPrinter::print(instance->getCourses(_validCourse));
+    cout << "\tgetProfs: ";
+    VectorPrinter::print(instance->getProfs(_validProf));
+    cout << "\tgetRooms: ";
+    VectorPrinter::print(instance->getRooms(_validRoom));
 
     // Done
     delete instance;
@@ -95,21 +87,12 @@ void TestFileReaderFactory::testFail(void)
     instance = new FileReaderFactory();
 
     cout << "Testing remaining member functions..." << endl;
-    cout << "\tgetCourses: " << endl;
-    std::vector<Course> courses = instance->getCourses(_invalidCourse);
-    for (unsigned i = 0; i < courses.size(); i++)
-        cout << "\n\t\t" << courses[i].getId();
-    cout << endl;
-    cout << "\tgetProfs: " << endl;
-    std::vector<Prof> profs = instance->getProfs(_invalidProf);
-    for (unsigned i = 0; i < profs.size(); i++)
-        cout << "\n\t\t" << profs[i].getId();
-    cout << endl;
-    cout << "\tgetProfs: " << endl;
-    std::vector<Room> rooms = instance->getRooms(_invalidRoom);
-    for (unsigned i = 0; i < rooms.size(); i++)
-        cout << "\n\t\t" << rooms[i].getId();
-    cout << endl;
+    cout << "\tgetCourses: ";
+    VectorPrinter::print(instance->getCourses(_invalidCourse));
+    cout << "\tgetProfs: ";
+    VectorPrinter::print(instance->getProfs(_invalidProf));
+    cout << "\tgetRooms: ";
+    VectorPrinter::print(instance->getRooms(_invalidRoom));
 
     // Done
     delete instance;

@@ -1,9 +1,10 @@
 #include "../include/TestCourseReader.h"
 #include "../include/TestCourse.h"
+#include "../include/VectorPrinter.h"
 #include "../../include/CourseReader.h"
 
 TestCourseReader::TestCourseReader(string valid, string invalid) :
-    TestFileReaders("TestCourseReader", valid, invalid) { }
+    TestFileReaders("CourseReader", valid, invalid) { }
 
 void TestCourseReader::runTest(string filename)
 {
@@ -42,11 +43,8 @@ void TestCourseReader::runTest(string filename)
     cout << "Re-creating CourseReader object..." << endl;
     instance = new CourseReader(filename);
     cout << "Testing remaining member functions..." << endl;
-    cout << "\tread: " << endl;
-    std::vector<Course> courses = instance->read();
-    for (unsigned i = 0; i < courses.size(); i++)
-        cout << "\n\t\t" << courses[i].getId();
-    cout << endl;
+    cout << "\tread: ";
+    VectorPrinter::print(instance->read());
 
     // Done
     delete instance;
