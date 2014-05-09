@@ -10,7 +10,7 @@ class TestCourse : public TestRunner
 {
 public:
     /** Constructor. */
-    TestCourse(void) : TestRunner("TestCourse") { }
+    TestCourse(void) : TestRunner("Course") { }
 protected:
     virtual void testPass(void);
 };

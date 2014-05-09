@@ -7,7 +7,7 @@
 class TestRoom : public TestRunner
 {
 public:
-    TestRoom() : TestRunner("TestRoom") { }
+    TestRoom() : TestRunner("Room") { }
 protected:
     virtual void testPass(void);
 };

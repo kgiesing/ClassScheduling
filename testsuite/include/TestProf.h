@@ -9,7 +9,7 @@
 class TestProf : public TestRunner
 {
 public:
-    TestProf(void) : TestRunner("TestProf") { }
+    TestProf(void) : TestRunner("Prof") { }
 protected:
     virtual void testPass(void);
 };
