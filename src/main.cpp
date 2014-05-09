@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stdlib.h>
 #include <vector>
 #include <string>
 
@@ -7,6 +8,7 @@
 #include "../include/ReaderFactory.h"
 #include "../include/FileReaderFactory.h"
 #include "../include/ScheduleGenerator.h"
+#include "../include/ScoreCalculator.h"
 #include "../include/LinearScoreCalculator.h"
 #include "../include/WeightedScoreCalculator.h"
 #include "../include/GreedyScheduleGenerator.h"
@@ -22,9 +24,19 @@ int main(int argc, char* argv[])
   
   //names for the data files and output file,
   //will get from users by command-line interface.
-  std::string roomN, courseN, profN, outputN, delimiterN;
+  std::string roomN, courseN, profN, outputN;
+
+  //delimiter is a char value;
+  char delimiterN;
   bool newDelimiter = false;
 
+  //default timer for generator
+  lang time = 1000;
+
+  //default score calculator
+  bool defCal = true;
+  ScoreCalculator& calculator;
+  
   //default value for output file
   outputN = "schedule.txt"; 
 
@@ -38,16 +50,37 @@ int main(int argc, char* argv[])
 
   //if "-o output" appears at beginning, record the output file name 
   //if "-d delimiter" appears at beginning, record the new delimiter
+  //if "-t times" appears at beginning, record the new times
+  //if "-w" appears at beginning, use WeightedScoreCalculator
+  //if "-l" appears at beginning, use LinearScoreCalculator
   std::string c;
-  while((c = argv[i]) == "-o" || c == "-d")
+  while((c = argv[i]) == "-o" || c == "-d" || c == "-w" || c == "-l" || c == "-t")
     if (c == "-o") {
       outputN = argv[++i];
       i++;
-    } else {
+    } else if (c == "-d"){
       newDelimiter = true;
-      delimiterN = argv[++i];
+      delimiterN = argv[++i][0];
+      i++;
+    } else if (c == "-l"){
+      calculator = new LinearScoreCalculator();
+      defCal = false;
+      i++;
+    } else if (c == "-w"){
+      calculator = new WeightedScoreCalculator();
+      defCal = false;
+      i++;
+    } else {
+      //using atol from stdlib to convert char array to long
+      time = atol(argv[++i]);
       i++;
     }
+
+  //if user does not indicate calculator, linear score calculator
+  //will be used.
+
+  if(defCal)
+    calculator = new LinearScoreCalculator();
 
   //read three files' name in order, order might be changed.
   roomN = argv[i++];
@@ -83,13 +116,13 @@ int main(int argc, char* argv[])
 
   //Form the schedule by using greedy algorithm
   //Will be changed depends on implementation of GreedyScheduler
-  generator = new GreedyScheduleGenerator(roomV, profV, courseV);
+  generator = new GreedyScheduleGenerator(roomV, profV, courseV, time);
   schedule = generator->getSchedule();
   delete generator;
 
   //Try to optimize the schedule
   //Will be changed depends on implementation of GeneticScheduler
-  generator = new GeneticScheduleGenerator(schedule);
+  generator = new GeneticScheduleGenerator(calculator, schedule, time);
   schedule = generator->getSchedule();
   delete generator;
 
