@@ -10,8 +10,7 @@ public:
     /** Default constructor */
     TestConflictPreprocessor() : TestRunner("ConflictPreprocessor") { }
 protected:
-    // virtual void testPass(void);
-    // virtual void testFail(void);
+    virtual void testPass(void);
 };
 
 #endif // TESTCONFLICTPREPROCESSOR_H
