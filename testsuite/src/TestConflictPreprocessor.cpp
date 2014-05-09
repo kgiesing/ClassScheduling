@@ -5,7 +5,8 @@ void TestConflictPreprocessor::testPass(void)
 {
 
 }
-//*
+//*/
+/*
 void TestConflictPreprocessor::testFail(void)
 {
 
