@@ -5,6 +5,10 @@ At the command line when running the program:
 -Each entry in any one of these lists should be on its own line.
 -The delimiter that separates the fields of each entry on each list is by default a comma (",").
 --To change the delimiter to some newDelimiter, "-d newDelimiter" can be entered on the command line BEFORE the filenames.
+-The limitation of time that program will try to optimize is by default 1000
+--To change the time to new number, "-t newTime" can be entered on the command line BEFORE the filenames.
+-The score calculator that used to optimize is by default "LinearScoreCalculator"
+--To change the calculator, "-w" or "-l" can be entered on the command line BEFORE the filenames. "-w" is for WeightedScoreCalculator, "-l" is for LinearScoreCalculator.
 -The output file of the resulting schedule is by default "schedule.txt".
 --To change the file to some outputFile, "-o outputFile" can be entered on the command line before or after the filenames (but not in the middle of them).
 
