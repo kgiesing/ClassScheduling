@@ -47,7 +47,7 @@ Prof DataCreator::createProf(void)
             "Patel", "Rodriguez", "Singh", "Wong"};
     Prof p;
     // ID is simply an 8-digit number
-    stringstream ss;
+    std::stringstream ss;
     ss << (rand() % 99999999);
     p.setId(ss.str());
     // Randomly set first and last names
@@ -81,7 +81,7 @@ vector<Course> DataCreator::createVector(Course type, int members)
 {
     vector<Course> result;
     srand(time(NULL) + rand() % 1000);
-    int spread == members / 4;
+    int spread = members / 4;
     members += (rand() % spread) - spread / 2;
     for (int i = 0; i < members; i++)
         result.push_back(createCourse());
@@ -92,7 +92,7 @@ vector<Prof> DataCreator::createVector(Prof type, int members)
 {
     vector<Prof> result;
     srand(time(NULL) + rand() % 1000);
-    int spread == members / 4;
+    int spread = members / 4;
     members += (rand() % spread) - spread / 2;
     for (int i = 0; i < members; i++)
         result.push_back(createProf());
@@ -103,7 +103,7 @@ vector<Room> DataCreator::createVector(Room type, int members)
 {
     vector<Room> result;
     srand(time(NULL) + rand() % 1000);
-    int spread == members / 4;
+    int spread = members / 4;
     members += (rand() % spread) - spread / 2;
     for (int i = 0; i < members; i++)
         result.push_back(createRoom());
