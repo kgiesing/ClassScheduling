@@ -31,7 +31,7 @@ int main(int argc, char* argv[])
   bool newDelimiter = false;
 
   //default timer for generator
-  lang time = 1000;
+  long time = 1000;
 
   //default score calculator
   bool defCal = true;
