@@ -1,6 +1,10 @@
 #include <iostream>
 #include <string>
+#include "../include/TestConflictPreprocessor.h"
 #include "../include/TestFileReaderFactory.h"
+#include "../include/TestGeneticScheduleGenerator.h"
+#include "../include/TestGreedyScheduleGenerator.h"
+#include "../include/TestScheduleWriter.h"
 
 using namespace std;
 
@@ -15,11 +19,39 @@ const string INVALID_ROOMS   = "./res/rooms_ok.txt";
 
 int main()
 {
-    // Run tests on the FileReaderFactory
-    TestFileReaderFactory* reader = new TestFileReaderFactory(VALID_COURSES,
-            INVALID_COURSES, VALID_PROFS, INVALID_PROFS, VALID_ROOMS,
-            INVALID_ROOMS);
-    reader->runPassTests();
-    reader->runFailTests();
-    delete reader;
+    TestRunner* instance;
+
+    // Run tests on FileReaderFactory
+    instance = new TestFileReaderFactory(VALID_COURSES, INVALID_COURSES,
+            VALID_PROFS, INVALID_PROFS, VALID_ROOMS, INVALID_ROOMS);
+    instance->runPassTests();
+    instance->runFailTests();
+    delete instance;
+
+    // Run tests on ConflictPreprocessor
+    instance = new  TestConflictPreprocessor();
+    instance->runPassTests();
+    instance->runFailTests();
+    delete instance;
+
+    // Run tests on the GreedyScheduleGenerator
+    instance = new TestGreedyScheduleGenerator();
+    instance->runPassTests();
+    instance->runFailTests();
+    delete instance;
+
+    // Run tests on the GeneticScheduleGenerator
+    instance = new TestGeneticScheduleGenerator();
+    instance->runPassTests();
+    instance->runFailTests();
+    delete instance;
+
+    // Run tests on the ScheduleWriter
+    instance = new  TestScheduleWriter();
+    instance->runPassTests();
+    instance->runFailTests();
+    delete instance;
+
+    // Done
+    return 0;
 }
