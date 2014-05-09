@@ -25,7 +25,7 @@ public:
      * The number of objects is randomized; the second parameter is only the
      * suggested size of the vector to create.
      * @param Object used as type for overloading. Otherwise ignored.
-     * @param Maximum number of members to create. Default 20.
+     * @param Suggested number of members to create. Default 20.
      * @return std::vector of random Course objects.
      */
     static vector<Course> createVector(Course, int = 20);
@@ -34,7 +34,7 @@ public:
      * The number of objects is randomized; the second parameter is only the
      * suggested size of the vector to create.
      * @param Object used as type for overloading. Otherwise ignored.
-     * @param Maximum number of members to create. Default 20.
+     * @param Suggested number of members to create. Default 20.
      * @return std::vector of random Prof objects.
      */
     static vector<Prof> createVector(Prof, int = 20);
@@ -43,7 +43,7 @@ public:
      * The number of objects is randomized; the second parameter is only the
      * suggested size of the vector to create.
      * @param Object used as type for overloading. Otherwise ignored.
-     * @param Maximum number of members to create. Default 20.
+     * @param Suggested number of members to create. Default 20.
      * @return std::vector of random Room objects.
      */
     static vector<Room> createVector(Room, int = 20);
