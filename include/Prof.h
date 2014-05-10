@@ -37,7 +37,7 @@ public:
      * Sets the first name of the professor.
      * @param The first name of the professor.
      */
-    void setFirstName(const std::string& firstName) { _firstName = _firstName; }
+    void setFirstName(const std::string& firstName) { _firstName = firstName; }
     /**
      * Sets the last name of the professor.
      * @param The last name of the professor.
