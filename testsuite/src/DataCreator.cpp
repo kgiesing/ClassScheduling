@@ -37,6 +37,7 @@ Course DataCreator::createCourse(void)
             newType = (type + rand()) % 9;
         conflicts.insert(abbrs[newType] + "-" + nums[level]);
     }
+    c.setConflicts(conflicts);
 
     return c;
 }
