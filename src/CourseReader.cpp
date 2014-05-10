@@ -56,7 +56,7 @@ vector<Course> CourseReader::read()
     file.close();
 
     // Convert to vector sorted in descending order
-    vector<Course> output(courses.size());
+    vector<Course> output;
     set<Course>::reverse_iterator rev;
     for (rev = courses.rbegin(); rev != courses.rend(); ++rev)
         output.push_back(*rev);
