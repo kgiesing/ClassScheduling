@@ -83,34 +83,37 @@ Room DataCreator::createRoom(void)
 
 vector<Course> DataCreator::createVector(Course type, int members)
 {
-    vector<Course> result;
+    set<Course> sorted;
     srand(time(NULL) + rand() % 1000);
     int spread = members / 4;
     members += (rand() % spread) - spread / 2;
     for (int i = 0; i < members; i++)
-        result.push_back(createCourse());
+        sorted.insert(createCourse());
+    vector<Course> result(sorted.begin(), sorted.end());
     return result;
 }
 
 vector<Prof> DataCreator::createVector(Prof type, int members)
 {
-    vector<Prof> result;
+    set<Prof> sorted;
     srand(time(NULL) + rand() % 1000);
     int spread = members / 4;
     members += (rand() % spread) - spread / 2;
     for (int i = 0; i < members; i++)
-        result.push_back(createProf());
+        sorted.insert(createProf());
+    vector<Prof> result(sorted.begin(), sorted.end());
     return result;
 }
 
 vector<Room> DataCreator::createVector(Room type, int members)
 {
-    vector<Room> result;
+    set<Room> sorted;
     srand(time(NULL) + rand() % 1000);
     int spread = members / 4;
     members += (rand() % spread) - spread / 2;
     for (int i = 0; i < members; i++)
-        result.push_back(createRoom());
+        sorted.insert(createRoom());
+    vector<Room> result(sorted.begin(), sorted.end());
     return result;
 }
 bool DataCreator::createVectorFile(string filename, Course c, int members)
