@@ -6,6 +6,9 @@ void ConflictPreprocessor::preprocess(vector<Course>& courses)
     {
         for (unsigned j = 0; j < courses.size(); j++)
         {
+            // A course should not conflict with itself
+            if (i == j)
+                continue;
             // Are they taught by the same professor?
             if (courses[j].getProfId() == courses[i].getProfId())
             {
