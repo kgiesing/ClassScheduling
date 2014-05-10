@@ -52,7 +52,7 @@ Prof DataCreator::createProf(void)
     Prof p;
     // ID is simply an 8-digit number
     std::stringstream ss;
-    ss << (rand() % 9999999) + 10000000 * (rand() % 9 + 1);
+    ss << (rand() % 99999999);
     p.setId(ss.str());
     // Randomly set first and last names
     p.setFirstName(fnames[rand() % 10]);
