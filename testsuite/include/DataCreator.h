@@ -47,6 +47,40 @@ public:
      * @return std::vector of random Room objects.
      */
     static vector<Room> createVector(Room, int = 20);
+
+    /**
+     * Creates a CSV files from a vector of a specific size, filled with
+     * random Course objects.
+     * The number of objects is randomized; the second parameter is only the
+     * suggested size of the vector to create.
+     * @param File name, including path.
+     * @param Object used as type for overloading. Otherwise ignored.
+     * @param Suggested number of members to create. Default 20.
+     * @return true if file creation was successful; false otherwise.
+     */
+    static bool createVectorFile(string, Course, int = 20);
+    /**
+     * Creates a CSV files from a vector of a specific size, filled with
+     * random Prof objects.
+     * The number of objects is randomized; the second parameter is only the
+     * suggested size of the vector to create.
+     * @param File name, including path.
+     * @param Object used as type for overloading. Otherwise ignored.
+     * @param Suggested number of members to create. Default 20.
+     * @return true if file creation was successful; false otherwise.
+     */
+    static bool createVectorFile(string, Prof, int = 20);
+    /**
+     * Creates a CSV files from a vector of a specific size, filled with
+     * random Room objects.
+     * The number of objects is randomized; the second parameter is only the
+     * suggested size of the vector to create.
+     * @param File name, including path.
+     * @param Object used as type for overloading. Otherwise ignored.
+     * @param Suggested number of members to create. Default 20.
+     * @return true if file creation was successful; false otherwise.
+     */
+    static bool createVectorFile(string, Room, int = 20);
 private:
     /** Private constructor */
     DataCreator(void) { }

@@ -1,6 +1,7 @@
 #include "../include/DataCreator.h"
 #include <cstdlib> // for random number generation
 #include <ctime>   // for seeing generator with time
+#include <fstream> // for creating files
 #include <sstream> // for converting int to string
 
 Course DataCreator::createCourse(void)
@@ -111,4 +112,65 @@ vector<Room> DataCreator::createVector(Room type, int members)
     for (int i = 0; i < members; i++)
         result.push_back(createRoom());
     return result;
+}
+bool DataCreator::createVectorFile(string filename, Course c, int members)
+{
+    std::ofstream out;
+    out.open(filename.c_str());
+    if (!out.is_open())
+        return false;
+    vector<Course> courses = createVector(c, members);
+    for (unsigned i = 0; i < courses.size(); i++)
+    {
+        out << courses[i].getId() << ","
+            << courses[i].getName() << ","
+            << courses[i].getProfId() << ","
+            << courses[i].getEnrolled() << ","
+            << courses[i].getTimeBlocks();
+        set<string> conflicts = courses[i].getConflicts();
+        if (conflicts.size() == 0)
+            out << ",";
+        else
+        {
+            set<string>::iterator it;
+            for (it = conflicts.begin(); it != conflicts.end(); ++it)
+                out << "," << (*it);
+        }
+        out << std::endl;
+    }
+    out.close();
+    return true;
+}
+
+bool DataCreator::createVectorFile(string filename, Prof p, int members)
+{
+    std::ofstream out;
+    out.open(filename.c_str());
+    if (!out.is_open())
+        return false;
+    vector<Prof> profs = createVector(p, members);
+    for (unsigned i = 0; i < profs.size(); i++)
+    {
+        out << profs[i].getId() << ","
+            << profs[i].getFirstName() << ","
+            << profs[i].getLastName() << std::endl;
+    }
+    out.close();
+    return true;
+}
+
+bool DataCreator::createVectorFile(string filename, Room r, int members)
+{
+    std::ofstream out;
+    out.open(filename.c_str());
+    if (!out.is_open())
+        return false;
+    vector<Room> rooms = createVector(r, members);
+    for (unsigned i = 0; i < rooms.size(); i++)
+    {
+        out << rooms[i].getId() << ","
+            << rooms[i].getCapacity() << std::endl;
+    }
+    out.close();
+    return true;
 }
