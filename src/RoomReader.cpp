@@ -37,7 +37,7 @@ vector<Room> RoomReader::read()
     file.close();
 
     // Convert to vector sorted in descending order
-    vector<Room> output(rooms.size());
+    vector<Room> output;
     set<Room>::reverse_iterator rev;
     for (rev = rooms.rbegin(); rev != rooms.rend(); ++rev)
         output.push_back(*rev);
