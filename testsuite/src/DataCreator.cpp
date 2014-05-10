@@ -13,6 +13,8 @@ Course DataCreator::createCourse(void)
     string levels[] = {"Beginning", "Introductory", "Intermediate",
             "Advanced"};
     string nums[] = {"110", "220", "340", "440"};
+    string profIds[] = {"12345678", "23456781", "34567812", "45678123",
+            "56781234", "67812345", "78123456", "81234567"};
     // Generate random course
     int type = rand() % 9;
     int level = rand() % 4;
@@ -20,7 +22,7 @@ Course DataCreator::createCourse(void)
     c.setId(abbrs[type] + "-" + nums[level]);
     c.setName(levels[level] + " " + names[type]);
     // Note that there is NO guarantee that this Prof exists!
-    c.setProfId(createProf().getId());
+    c.setProfId(profIds[rand() % 8]);
     c.setEnrolled(rand() % 40);
 
     // Create some random conflicts
