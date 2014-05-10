@@ -20,7 +20,8 @@ public:
      * Constructor.
      * @param Professor about which we are holding information.
      */
-    ProfInfo (const Prof& prof) : _prof(prof) { }
+    ProfInfo (const Prof& prof) : _prof(prof), _courses(0), _daysOnCampus(0),
+            _timeBlocks(0), _score(0.0) { }
     /**
      * Returns the number of days this professor spends on campus.
      * @return The number of days this professor spends on campus.
