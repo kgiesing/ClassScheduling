@@ -6,7 +6,7 @@ Room::Room(const std::string& id, int capacity)
 int Room::compare(const Room& rhs) const
 {
     // Check ID's
-    if (_id.compare(rhs._id) == 0)
+    if (_id == rhs._id)
         return 0;
     // ID's don't match; does capacity?
     if (_capacity == rhs._capacity)

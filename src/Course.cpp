@@ -11,7 +11,7 @@ Course::Course(const string& id, const string& name, const string& profId,
 int Course::compare(const Course& rhs) const
 {
     // Check ID's
-    if (_id.compare(rhs._id) == 0)
+    if (_id == rhs._id)
         return 0;
     // ID's don't match; does enrollment?
     if (_enrolled == rhs._enrolled)

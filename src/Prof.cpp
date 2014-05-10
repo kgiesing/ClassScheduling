@@ -7,7 +7,7 @@ Prof::Prof(const std::string& id, const std::string& firstName,
 int Prof::compare(const Prof& rhs) const
 {
     // Check ID's
-    if (_id.compare(rhs._id) == 0)
+    if (_id == rhs._id)
         return 0;
     // ID's don't match; does last name?
     if (_lastName.compare(rhs._lastName) == 0)
