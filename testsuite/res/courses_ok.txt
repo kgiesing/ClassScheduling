@@ -1,6 +1,48 @@
-CS105-1,Introduction to Computer Concepts,S3158A,35,2,
-CS105-2,Introduction to Computer Concepts,S3158B,32,2,
-CS108-1,An Introduction to Python,S3183,26,2,CS105-1,CS105-2
-CS110-1,Introduction to Computing,S3176,29,2,
-CS110-2,Introduction to Computing,S3158B,37,2,
-CS110-3,Introduction to Computing,S3176,40,2,
+MUS-340,Intermediate Music,45678123,0,2,
+MATH-340,Intermediate Mathematics,23456781,9,2,PHYS-340
+ART-440,Advanced Art,34567812,15,2,CHEM-440
+CS-440,Advanced Computer Science,12345678,18,2,
+CHEM-340,Intermediate Chemistry,34567812,16,2,MATH-340
+MATH-340,Intermediate Mathematics,56781234,32,2,
+MUS-220,Introductory Music,45678123,38,2,FILM-220
+PHYS-220,Introductory Physics,45678123,4,2,LIT-220
+CS-440,Advanced Computer Science,12345678,18,2,LIT-440
+FILM-220,Introductory Film,23456781,33,2,CHEM-220
+LIT-440,Advanced Literature,23456781,37,2,FILM-440
+ART-110,Beginning Art,56781234,20,2,MATH-110
+BIO-440,Advanced Biology,78123456,27,2,
+MATH-110,Beginning Mathematics,12345678,4,2,FILM-110
+FILM-340,Intermediate Film,34567812,1,2,CHEM-340
+ART-220,Introductory Art,12345678,28,2,LIT-220
+MATH-340,Intermediate Mathematics,78123456,33,2,ART-340
+BIO-340,Intermediate Biology,12345678,31,2,
+LIT-340,Intermediate Literature,12345678,5,2,ART-340
+BIO-340,Intermediate Biology,67812345,2,2,FILM-340
+PHYS-220,Introductory Physics,67812345,4,2,
+CS-220,Introductory Computer Science,67812345,10,2,MUS-220
+PHYS-220,Introductory Physics,78123456,6,2,
+FILM-440,Advanced Film,45678123,17,2,CS-440
+LIT-440,Advanced Literature,23456781,35,2,FILM-440
+LIT-110,Beginning Literature,23456781,9,2,PHYS-110
+BIO-110,Beginning Biology,56781234,21,2,
+CS-440,Advanced Computer Science,45678123,19,2,ART-440
+MUS-440,Advanced Music,45678123,25,2,PHYS-440
+FILM-440,Advanced Film,81234567,0,2,LIT-440
+CS-340,Intermediate Computer Science,23456781,35,2,
+PHYS-110,Beginning Physics,45678123,11,2,CS-110
+FILM-340,Intermediate Film,34567812,20,2,
+FILM-440,Advanced Film,34567812,14,2,PHYS-440
+ART-220,Introductory Art,81234567,1,2,PHYS-220
+PHYS-110,Beginning Physics,23456781,27,2,BIO-110
+CHEM-440,Advanced Chemistry,12345678,32,2,ART-440
+BIO-440,Advanced Biology,78123456,36,2,ART-440
+FILM-340,Intermediate Film,67812345,12,2,
+ART-110,Beginning Art,12345678,1,2,
+BIO-340,Intermediate Biology,56781234,18,2,
+CHEM-220,Introductory Chemistry,81234567,8,2,PHYS-220
+BIO-110,Beginning Biology,12345678,8,2,FILM-110
+MATH-110,Beginning Mathematics,78123456,32,2,BIO-110
+ART-220,Introductory Art,12345678,13,2,CHEM-220
+ART-440,Advanced Art,23456781,1,2,
+LIT-440,Advanced Literature,78123456,23,2,ART-440
+CS-340,Intermediate Computer Science,56781234,32,2,PHYS-340
