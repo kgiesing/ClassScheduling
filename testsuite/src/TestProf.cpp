@@ -34,6 +34,36 @@ void TestProf::testPass(void)
     cout << "\tgetId: " << instance->getId() << endl;
     cout << "\tgetFirstName: " << instance->getFirstName() << endl;
     cout << "\tgetLastName: " << instance->getLastName() << endl;
-    cout << endl;
+
+    // Test comparison operators
+    cout << "Creating second object to test comparison operators..." << endl;
+    Prof second(instance->getId(), "Greg", "Deer");
+    cout << "Second object:" << endl;
+    cout << "\tgetId: " << second.getId() << endl;
+    cout << "\tgetFirstName: " << second.getFirstName() << endl;
+    cout << "\tgetLastName: " << second.getLastName() << endl;
+
+    // Output result of comparison operators
+    cout << "Comparisons:" << endl;
+    cout << "\tfirst == second returns: " << (*instance == second) << endl;
+    cout << "\tfirst != second returns: " << (*instance != second) << endl;
+    cout << "\tfirst <  second returns: " << (*instance < second) << endl;
+    cout << "\tfirst <= second returns: " << (*instance <= second) << endl;
+    cout << "\tfirst >  second returns: " << (*instance > second) << endl;
+    cout << "\tfirst >= second returns: " << (*instance >= second) << endl;
+
+    cout << "Modifying second object to test comparison operators..." << endl;
+    second.setId("15263748");
+    cout << "\tSecond object ID is now:" << second.getId() << endl;
+
+    // Output result of comparison operators
+    cout << "Comparisons:" << endl;
+    cout << "\tfirst == second returns: " << (*instance == second) << endl;
+    cout << "\tfirst != second returns: " << (*instance != second) << endl;
+    cout << "\tfirst <  second returns: " << (*instance < second) << endl;
+    cout << "\tfirst <= second returns: " << (*instance <= second) << endl;
+    cout << "\tfirst >  second returns: " << (*instance > second) << endl;
+    cout << "\tfirst >= second returns: " << (*instance >= second) << endl;
+
     delete instance;
 }

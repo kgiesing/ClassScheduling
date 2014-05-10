@@ -14,7 +14,8 @@ void TestCourse::testPass(void)
     // Create a fake course with fake conflicts
     conflicts.insert("CS-210");
     conflicts.insert("CS-220");
-    instance = new Course("CS-240", "Programming in C", "012345678", 30, 2, conflicts);
+    instance = new Course("CS-240", "Programming in C", "012345678", 30, 2,
+                          conflicts);
     cout << "Successfully created Course object with data" << endl;
 
     // Test accessors
@@ -52,8 +53,45 @@ void TestCourse::testPass(void)
     cout << "\tgetConflicts: ";
     conflicts = instance->getConflicts();
     for (it = conflicts.begin(); it != conflicts.end(); ++it)
-        cout << "\n\t\t" << (*it);
+        cout << (*it) << " ";
     cout << endl;
+
+    // Test comparison operators
+    cout << "Creating second object to test comparison operators..." << endl;
+    Course second(instance->getId(), "Compilers II: Compiler Boogaloo",
+                  "456780123", 25, 4, conflicts);
+    cout << "Second object:" << endl;
+    cout << "\tgetId: " << second.getId() << endl;
+    cout << "\tgetName: " << second.getName() << endl;
+    cout << "\tgetEnrolled: " << second.getEnrolled() << endl;
+    cout << "\tgetProfId: " << second.getProfId() << endl;
+    cout << "\tgetConflicts: ";
+    conflicts = second.getConflicts();
+    for (it = conflicts.begin(); it != conflicts.end(); ++it)
+        cout << (*it) << " ";
+    cout << endl;
+
+    // Output result of comparison operators
+    cout << "Comparisons:" << endl;
+    cout << "\tfirst == second returns: " << (*instance == second) << endl;
+    cout << "\tfirst != second returns: " << (*instance != second) << endl;
+    cout << "\tfirst <  second returns: " << (*instance < second) << endl;
+    cout << "\tfirst <= second returns: " << (*instance <= second) << endl;
+    cout << "\tfirst >  second returns: " << (*instance > second) << endl;
+    cout << "\tfirst >= second returns: " << (*instance >= second) << endl;
+
+    cout << "Modifying second object to test comparison operators..." << endl;
+    second.setId("CS-444");
+    cout << "\tSecond object ID is now:" << second.getId() << endl;
+
+    // Output result of comparison operators
+    cout << "Comparisons:" << endl;
+    cout << "\tfirst == second returns: " << (*instance == second) << endl;
+    cout << "\tfirst != second returns: " << (*instance != second) << endl;
+    cout << "\tfirst <  second returns: " << (*instance < second) << endl;
+    cout << "\tfirst <= second returns: " << (*instance <= second) << endl;
+    cout << "\tfirst >  second returns: " << (*instance > second) << endl;
+    cout << "\tfirst >= second returns: " << (*instance >= second) << endl;
 
     // Done
     delete instance;

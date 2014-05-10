@@ -31,5 +31,35 @@ void TestRoom::testPass(void)
     cout << "\tgetId: " << instance->getId() << endl;
     cout << "\tgetCapacity: " << instance->getCapacity() << endl;
     cout << endl;
+
+    // Test comparison operators
+    cout << "Creating second object to test comparison operators..." << endl;
+    Room second(instance->getId(), 30);
+    cout << "Second object:" << endl;
+    cout << "\tgetId: " << second.getId() << endl;
+    cout << "\tgetCapacity: " << second.getCapacity() << endl;
+
+    // Output result of comparison operators
+    cout << "Comparisons:" << endl;
+    cout << "\tfirst == second returns: " << (*instance == second) << endl;
+    cout << "\tfirst != second returns: " << (*instance != second) << endl;
+    cout << "\tfirst <  second returns: " << (*instance < second) << endl;
+    cout << "\tfirst <= second returns: " << (*instance <= second) << endl;
+    cout << "\tfirst >  second returns: " << (*instance > second) << endl;
+    cout << "\tfirst >= second returns: " << (*instance >= second) << endl;
+
+    cout << "Modifying second object to test comparison operators..." << endl;
+    second.setId("M-02-666");
+    cout << "\tSecond object ID is now:" << second.getId() << endl;
+
+    // Output result of comparison operators
+    cout << "Comparisons:" << endl;
+    cout << "\tfirst == second returns: " << (*instance == second) << endl;
+    cout << "\tfirst != second returns: " << (*instance != second) << endl;
+    cout << "\tfirst <  second returns: " << (*instance < second) << endl;
+    cout << "\tfirst <= second returns: " << (*instance <= second) << endl;
+    cout << "\tfirst >  second returns: " << (*instance > second) << endl;
+    cout << "\tfirst >= second returns: " << (*instance >= second) << endl;
+
     delete instance;
 }
