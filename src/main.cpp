@@ -7,6 +7,7 @@
 #include "../include/Schedule.h"
 #include "../include/ReaderFactory.h"
 #include "../include/FileReaderFactory.h"
+#include "../include/ConflictPreprocessor.h"
 #include "../include/ScheduleGenerator.h"
 #include "../include/ScoreCalculator.h"
 #include "../include/LinearScoreCalculator.h"
@@ -40,9 +41,9 @@ int main(int argc, char* argv[])
   //default value for output file
   outputN = "schedule.txt"; 
 
-  if(argc == 1)
+  if(argc < 4)
     {
-      cout << "No arguments are typed in" << endl;
+      cout << "No enough arguments are typed in" << endl;
       return 0;
     }
 
@@ -111,6 +112,9 @@ int main(int argc, char* argv[])
   profV = reader->getProfs(profN);
   courseV = reader->getCourses(courseN);
   delete reader;
+
+  //add conflict
+  ConflictPreprocessor::preprocess(courseV);
   
   ScheduleGenerator* generator;
 
