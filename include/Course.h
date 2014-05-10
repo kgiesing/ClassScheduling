@@ -103,9 +103,9 @@ public:
 private:
     string _id;
     string _name;
+    string _profId;
     int _enrolled;
     int _timeBlocks;
-    string _profId;
     set<string> _conflicts;
     int compare(const Course& rhs) const;
 };
