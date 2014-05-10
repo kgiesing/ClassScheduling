@@ -14,7 +14,7 @@ void TestCourse::testPass(void)
     // Create a fake course with fake conflicts
     conflicts.insert("CS-210");
     conflicts.insert("CS-220");
-    instance = new Course("CS-240", "Programming in C", 30, "012345678", conflicts);
+    instance = new Course("CS-240", "Programming in C", "012345678", 30, 2, conflicts);
     cout << "Successfully created Course object with data" << endl;
 
     // Test accessors

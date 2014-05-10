@@ -24,12 +24,13 @@ public:
      * Constructor.
      * @param Course ID.
      * @param Course name.
-     * @param Number of students enrolled in the course.
      * @param ID of professor who teaches the course.
+     * @param Number of students enrolled in the course.
+     * @param Number of time blocks required by this course.
      * @param List of conflicting courses.
      */
-    Course(const string& id, const string& name, int enrolled,
-           const string& profId, const set<string>& conflicts);
+    Course(const string& id, const string& name, const string& profId,
+           int enrolled, int timeBlocks, const set<string>& conflicts);
     /**
      * Returns the number of students enrolled in the course.
      * @return The number of students enrolled in the course.
@@ -63,6 +64,11 @@ public:
      */
     const string& getName() const { return _name; }
     /**
+     * Returns the number of time blocks this course requires.
+     * @return The number of time blocks this course requires.
+     */
+    int getTimeBlocks(void) const { return _timeBlocks; }
+    /**
      * Sets the number of students enrolled in the course.
      * @param The number of students enrolled in the course.
      */
@@ -89,10 +95,16 @@ public:
      * @param The name of this course.
      */
     void setName(const string& name) { _name = name; }
+    /**
+     * Sets the number of time blocks this course requires.
+     * @param The number of time blocks this course requires.
+     */
+    void setTimeBlocks(int timeBlocks) { _timeBlocks = timeBlocks; }
 private:
     string _id;
     string _name;
     int _enrolled;
+    int _timeBlocks;
     string _profId;
     set<string> _conflicts;
     int compare(const Course& rhs) const;

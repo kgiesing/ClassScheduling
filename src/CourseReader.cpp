@@ -20,6 +20,7 @@ vector<Course> CourseReader::read()
     string profId;
     string temp;
     int enrolled;
+    int timeBlocks;
     string conflict;
     set<string> conflicts;
     set<Course> courses;
@@ -38,6 +39,9 @@ vector<Course> CourseReader::read()
         // Stream enrolled to int, then discard chars before delimiter
         file >> enrolled;
         getline(file, temp, this->getDelimiter());
+        // Stream timeBlocks to int, then discard chars before delimiter
+        file >> timeBlocks;
+        getline(file, temp, this->getDelimiter());
         // The rest of the values until end-of-line are conflicts
         getline(file, temp);
         stringstream ss(temp);
@@ -46,7 +50,7 @@ vector<Course> CourseReader::read()
             conflicts.insert(conflict);
         }
         // Construct the object, add it to the set
-        Course c(id, name, enrolled, profId, conflicts);
+        Course c(id, name, profId, enrolled, timeBlocks, conflicts);
         courses.insert(c);
     }
     file.close();
