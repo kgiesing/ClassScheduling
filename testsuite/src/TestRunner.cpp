@@ -41,15 +41,18 @@ void TestRunner::runFailTests(void)
 
 void TestRunner::preTest(bool)
 {
-    cout << "[No sub-component tests written for " << this->getComponent() << "]" << endl;
+    cout << "\t[No sub-component tests written for " << this->getComponent()
+         << "]" << endl;
 }
 
 void TestRunner::testPass(void)
 {
-    cout << "[No pass tests written for " << this->getComponent() << "]" << endl;
+    cout << "\t[No pass tests written for " << this->getComponent() << "]"
+         << endl;
 }
 
 void TestRunner::testFail(void)
 {
-    cout << "[No fail tests written for " << this->getComponent() << "]" << endl;
+    cout << "\t[No fail tests written for " << this->getComponent() << "]"
+         << endl;
 }

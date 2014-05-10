@@ -5,6 +5,7 @@
 #include "../include/TestGeneticScheduleGenerator.h"
 #include "../include/TestGreedyScheduleGenerator.h"
 #include "../include/TestScheduleWriter.h"
+#include "../include/TestScoreCalculators.h"
 
 using namespace std;
 
@@ -36,6 +37,12 @@ int main()
 
     // Run tests on the GreedyScheduleGenerator
     instance = new TestGreedyScheduleGenerator();
+    instance->runPassTests();
+    instance->runFailTests();
+    delete instance;
+
+    // This should be in Genetic, but run here for now...
+    instance = new TestScoreCalculators();
     instance->runPassTests();
     instance->runFailTests();
     delete instance;

@@ -6,8 +6,13 @@
 void TestProfInfo::testPass(void)
 {
     // Create a fake object
-    ProfInfo* instance = new ProfInfo(DataCreator::createProf());
-    cout << "Successfully created ProfInfo object with data" << endl;
+    Prof p = DataCreator::createProf();
+    ProfInfo* instance = new ProfInfo(p);
+    cout << "Successfully created ProfInfo object with Prof data:" << endl;
+    cout << "\tProf: {ID:" << p.getId()
+         << ", first:" << p.getFirstName()
+         << ", last:" << p.getLastName()
+         << "}" << endl;
 
     // Test accessors
     cout << "Testing accessors..." << endl;

@@ -1,7 +1,7 @@
 #ifndef TESTSCORECALCULATORS_H
 #define TESTSCORECALCULATORS_H
 
-#include "../include/TestRunner.h"
+#include "TestRunner.h"
 
 class TestScoreCalculators : public TestRunner
 {
@@ -9,7 +9,8 @@ public:
     /** Default constructor */
     TestScoreCalculators() : TestRunner("ScoreCalculator") { }
 protected:
-    // virtual void testPass(void);
+    // virtual void preTest(bool);
+    virtual void testPass(void);
     // virtual void testFail(void);
 };
 
