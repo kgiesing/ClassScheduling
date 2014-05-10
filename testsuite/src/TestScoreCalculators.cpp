@@ -28,6 +28,10 @@ void TestScoreCalculators::testPass(void)
 
     // This ProfInfo differs only in number of days on campus
     Prof prof2 = DataCreator::createProf();
+    cout << "Prof prof2: {ID:" << prof2.getId()
+         << ", first:" << prof2.getFirstName()
+         << ", last:" << prof2.getLastName()
+         << "}" << endl;
     ProfInfo p2(prof2);
     p2.setDaysOnCampus(4);
     p2.setNumCourses(3);
