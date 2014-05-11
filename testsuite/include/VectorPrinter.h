@@ -45,6 +45,22 @@ public:
      * @param std::ostream to output Room vector; defaults to std::cout
      */
     static void print(const vector<Room>&, string="", ostream& = cout);
+    /**
+     * Prints a vector of TimeBlock enum values to an output stream.
+     * @param std::vector of TimeBlock enum values to print
+     * @param std::string to print before every new line
+     * @param std::ostream to output TimeBlock enum values;
+     *        defaults to std::cout
+     */
+    static void print(const vector<TimeBlock>&, string="", ostream& = cout);
+    /**
+     * Prints a vector of Weekday enum values to an output stream.
+     * @param std::vector of Weekday enum values to print
+     * @param std::string to print before every new line
+     * @param std::ostream to output Weekday enum values;
+     *        defaults to std::cout
+     */
+    static void print(const vector<Weekdays>&, string="", ostream& = cout);
 private:
     /** Private constructor */
     VectorPrinter() { }

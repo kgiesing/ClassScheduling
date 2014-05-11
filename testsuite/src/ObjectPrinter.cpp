@@ -40,3 +40,64 @@ void ObjectPrinter::print(const Room& r, string prefix, ostream& out)
         << ", Capacity:"<< r.getCapacity()
         << "}\n";
 }
+
+void ObjectPrinter::print(TimeBlock t, string prefix, ostream& out)
+{
+    switch(t)
+    {
+    case START_08_00:
+        out << "8:00am-9:15am";
+        break;
+    case START_09_30:
+        out << "9:30am-10:45am";
+        break;
+    case START_11_00:
+        out << "11:00am-12:15pm";
+        break;
+    case START_12_30:
+        out << "12:30pm-1:45pm";
+        break;
+    case START_14_00:
+        out << "2:00pm-3:15pm";
+        break;
+    case START_15_30:
+        out << "3:30pm-4:45pm";
+        break;
+    case START_17_00:
+        out << "5:00pm-6:15pm";
+        break;
+    case START_18_30:
+        out << "6:30pm-7:45pm";
+        break;
+    case START_20_00:
+        out << "8:00pm-9:15pm";
+        break;
+    case TIMEBLOCK_SIZE:    //shouldn't get here!
+        out << "SIZE";
+    }
+}
+
+void ObjectPrinter::print(Weekdays w, string prefix, ostream& out)
+{
+    switch(w)
+    {
+    case MON:
+        out << "Monday";
+        break;
+    case TUES:
+        out << "Tuesday";
+        break;
+    case WED:
+        out << "Wednesday";
+        break;
+    case THURS:
+        out << "Thursday";
+        break;
+    case FRI:
+        out << "Friday";
+        break;
+    case WEEKDAYS_SIZE:
+        out << "SIZE";
+    }
+}
+
