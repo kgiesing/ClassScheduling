@@ -17,9 +17,31 @@ enum Weekdays {
 };
 
 /**
- * Overwrite stream output.
+ * Overwrite stream output for Weekdays.
  */
 
-std::ostream& operator<<(std::ostream& out, const Weekdays value);
+std::ostream& operator<<(std::ostream& out, const Weekdays value) {
+	switch(value) {
+		case MON:
+			out << "Monday";
+			break;
+		case TUES:
+			out << "Tuesday";
+			break;
+		case WED:
+			out << "Wednesday";
+			break;
+		case THURS:
+			out << "Thursday";
+			break;
+		case FRI:
+			out << "Friday";
+			break;
+		case WEEKDAYS_SIZE:	//shouldn't get here!
+			out << "Dummy";
+	}
+	
+	return out;
+}
 
 #endif // WEEKDAYS_H

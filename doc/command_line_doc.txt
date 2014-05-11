@@ -22,4 +22,4 @@ The output is as follows:
 
 -The schedule is partitioned by every weekday and time of day combination, in a natural order.
 -For every weekday and time of day, all the courses meeting at that time are listed, one course per line.
---Each line has the course name, the room ID, the professor teaching it, the number of enrolled student, and the room's capacity, separated by the delimiter.
+--Each line has the course name, the room ID, the ID of the professor teaching it, the number of enrolled student, and the room's capacity, separated by the delimiter.
