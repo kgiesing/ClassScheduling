@@ -22,7 +22,7 @@ using std::endl;
 int main(int argc, char* argv[])
 {
   Schedule* schedule;
-  
+
   //names for the data files and output file,
   //will get from users by command-line interface.
   std::string roomN, courseN, profN, outputN;
@@ -34,12 +34,12 @@ int main(int argc, char* argv[])
   //default timer for generator
   long time = 1000;
 
-  //default score calculator
+  //score calculator selector
   bool defCal = true;
-  ScoreCalculator& calculator;
-  
+  ScoreCalculator* calculator;
+
   //default value for output file
-  outputN = "schedule.txt"; 
+  outputN = "schedule.txt";
 
   if(argc < 4)
     {
@@ -49,7 +49,7 @@ int main(int argc, char* argv[])
 
   int i = 1;
 
-  //if "-o output" appears at beginning, record the output file name 
+  //if "-o output" appears at beginning, record the output file name
   //if "-d delimiter" appears at beginning, record the new delimiter
   //if "-t times" appears at beginning, record the new times
   //if "-w" appears at beginning, use WeightedScoreCalculator
@@ -64,11 +64,8 @@ int main(int argc, char* argv[])
       delimiterN = argv[++i][0];
       i++;
     } else if (c == "-l"){
-      calculator = new LinearScoreCalculator();
-      defCal = false;
       i++;
     } else if (c == "-w"){
-      calculator = new WeightedScoreCalculator();
       defCal = false;
       i++;
     } else {
@@ -76,12 +73,6 @@ int main(int argc, char* argv[])
       time = atol(argv[++i]);
       i++;
     }
-
-  //if user does not indicate calculator, linear score calculator
-  //will be used.
-
-  if(defCal)
-    calculator = new LinearScoreCalculator();
 
   //read three files' name in order, order might be changed.
   roomN = argv[i++];
@@ -98,16 +89,16 @@ int main(int argc, char* argv[])
   std::vector<Room> roomV;
   std::vector<Prof> profV;
   std::vector<Course> courseV;
-  
+
   //Read the data
   ReaderFactory* reader;
-  
+
   //set delimiter if necessary
-  if(newDelimiter) 
+  if(newDelimiter)
     reader = new FileReaderFactory(delimiterN);
   else
     reader = new FileReaderFactory();
-  
+
   roomV = reader->getRooms(roomN);
   profV = reader->getProfs(profN);
   courseV = reader->getCourses(courseN);
@@ -115,7 +106,7 @@ int main(int argc, char* argv[])
 
   //add conflict
   ConflictPreprocessor::preprocess(courseV);
-  
+
   ScheduleGenerator* generator;
 
   //Form the schedule by using greedy algorithm
@@ -124,17 +115,26 @@ int main(int argc, char* argv[])
   schedule = generator->getSchedule();
   delete generator;
 
+
+  //if user does not indicate calculator, linear score calculator
+  //will be used.
+  if(defCal)
+    calculator = new LinearScoreCalculator();
+  else
+    calculator = new WeightedScoreCalculator();
+
   //Try to optimize the schedule
   //Will be changed depends on implementation of GeneticScheduler
-  generator = new GeneticScheduleGenerator(calculator, schedule, time);
+  generator = new GeneticScheduleGenerator(*calculator, schedule, time);
   schedule = generator->getSchedule();
   delete generator;
+  delete calculator;
 
   //Write schedule
   //Will be changed denpends on implementation of ScheduleWriter
   ScheduleWriter writer(outputN);
   writer.setContents(schedule);
   writer.write();
-  
+
   return 0;
 }
