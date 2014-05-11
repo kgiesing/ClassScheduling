@@ -20,10 +20,10 @@ void ScheduleWriter::setContents(Schedule *contents) {
 void ScheduleWriter::write() {
 	ofstream file;
 	
-	file.open(this->getFileName().c_str());
+	file.open(this->getFilename().c_str());
 	
-	for(int w = MON; w != WEEKDAYS_SIZE; w++) {
-		for(int t = START_08_00; t != TIMEBLOCK_SIZE; t++) {
+	for(Weekdays w = MON; w < WEEKDAYS_SIZE; w++) {
+		for(TimeBlock t = START_08_00; t < TIMEBLOCK_SIZE; t++) {
 			file << w << " at " << t << ":\n\n";
 			vector<Course> courses = _contents->getCoursesAt(w, t);
 			
@@ -32,7 +32,7 @@ void ScheduleWriter::write() {
 				file << courses[i].getId() << _delimiter
 					 << courses[i].getName() << _delimiter
 					 << r.getId() << _delimiter
-					 << _contents->getProf(courses[i]) << _delimiter
+					 << (_contents->getProf(courses[i])).getId() << _delimiter
 					 << courses[i].getEnrolled() << _delimiter
 					 << r.getCapacity() << "\n";
 			}
