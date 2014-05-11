@@ -1,4 +1,5 @@
 #include "../include/TestRunner.h"
+#include <exception>
 
 void TestRunner::runPassTests(void)
 {
@@ -12,6 +13,11 @@ void TestRunner::runPassTests(void)
         cout << "Running pass tests for " << this->getComponent() << "...\n";
         this->testPass();
         cout << "Pass tests for " << this->getComponent() << " complete.\n\n";
+    }
+    catch (std::exception& e)
+    {
+        cerr << "Pass test exception in " << this->getComponent()
+             << ":\n\t" << e.what() << endl;
     }
     catch (...)
     {
@@ -31,6 +37,11 @@ void TestRunner::runFailTests(void)
         cout << "Running fail tests for " << this->getComponent() << "...\n";
         this->testFail();
         cout << "Fail tests for " << this->getComponent() << " complete.\n\n";
+    }
+    catch (std::exception& e)
+    {
+        cerr << "Fail test exception in " << this->getComponent()
+             << ":\n\t" << e.what() << endl;
     }
     catch (...)
     {
