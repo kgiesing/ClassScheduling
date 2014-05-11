@@ -8,7 +8,7 @@ void VectorPrinter::print(const vector<Course>& vec, string prefix,
 {
     if (vec.size() == 0)
     {
-        out << prefix << "<empty>";
+        out << prefix << "<empty>" << endl;
         return;
     }
     for(unsigned i = 0; i < vec.size(); i++)
@@ -23,7 +23,7 @@ void VectorPrinter::print(const vector<Prof>& vec, string prefix,
 {
     if (vec.size() == 0)
     {
-        out << prefix << "<empty>";
+        out << prefix << "<empty>" << endl;
         return;
     }
     for(unsigned i = 0; i < vec.size(); i++)
@@ -38,7 +38,7 @@ void VectorPrinter::print(const vector<ProfInfo>& vec, string prefix,
 {
     if (vec.size() == 0)
     {
-        out << prefix << "<empty>";
+        out << prefix << "<empty>" << endl;
         return;
     }
     for(unsigned i = 0; i < vec.size(); i++)
@@ -53,7 +53,7 @@ void VectorPrinter::print(const vector<Room>& vec, string prefix,
 {
     if (vec.size() == 0)
     {
-        out << prefix << "<empty>";
+        out << prefix << "<empty>" << endl;
         return;
     }
     for(unsigned i = 0; i < vec.size(); i++)
@@ -67,7 +67,7 @@ void VectorPrinter::print(const vector<TimeBlock>& vec, string prefix,
 {
     if (vec.size() == 0)
     {
-        out << prefix << "<empty>";
+        out << prefix << "<empty>" << endl;
         return;
     }
     out << prefix << "TimeBlock: {";
@@ -85,7 +85,7 @@ void VectorPrinter::print(const vector<Weekdays>& vec, string prefix,
 {
     if (vec.size() == 0)
     {
-        out << prefix << "<empty>";
+        out << prefix << "<empty>" << endl;
         return;
     }
     out << prefix << "Weekdays: {";

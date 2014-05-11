@@ -4,7 +4,7 @@ using std::endl;
 
 void ObjectPrinter::print(const Course& c, string prefix, ostream& out)
 {
-    out << prefix << "Course {ID:\"" << c.getId() << "\",\n"
+    out << "Course {ID:\"" << c.getId() << "\",\n"
         << prefix << "        Name:\""<< c.getName() << "\",\n"
         << prefix << "        Enrolled:"<< c.getEnrolled() << ",\n"
         << prefix << "        Prof ID:\""<< c.getProfId() << "\",\n"
@@ -18,7 +18,7 @@ void ObjectPrinter::print(const Course& c, string prefix, ostream& out)
 
 void ObjectPrinter::print(const Prof& p, string prefix, ostream& out)
 {
-    out << prefix << "Prof {ID:" << p.getId()
+    out << "Prof {ID:" << p.getId()
         << ", First:"<< p.getFirstName()
         << ", Last:"<< p.getLastName()
         << "}\n";
@@ -26,7 +26,7 @@ void ObjectPrinter::print(const Prof& p, string prefix, ostream& out)
 
 void ObjectPrinter::print(const ProfInfo& pi, string prefix, ostream& out)
 {
-    out << prefix << "ProfInfo {DaysOnCampus:" << pi.getDaysOnCampus()
+    out << "ProfInfo {DaysOnCampus:" << pi.getDaysOnCampus()
         << ", NumCourses:"<< pi.getNumCourses()
         << ", Score:"<< pi.getScore() << endl
         << prefix << "          getProf:";
@@ -36,7 +36,7 @@ void ObjectPrinter::print(const ProfInfo& pi, string prefix, ostream& out)
 
 void ObjectPrinter::print(const Room& r, string prefix, ostream& out)
 {
-    out << prefix << "Room {ID:" << r.getId()
+    out << "Room {ID:" << r.getId()
         << ", Capacity:"<< r.getCapacity()
         << "}\n";
 }
