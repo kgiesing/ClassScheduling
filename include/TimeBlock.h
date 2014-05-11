@@ -2,6 +2,8 @@
 #ifndef TIMEBLOCK_H
 #define TIMEBLOCK_H
 
+#include <iostream>
+
 /**
  * Enumeration of daily time blocks. The final value is a "dummy value"
  * that represents the "size" of the enum; it is for iterating through the
@@ -24,7 +26,7 @@ enum TimeBlock {
  * Overwrite stream output for TimeBlocks.
  */
 
-std::ostream& operator<<(std::ostream& out, const TimeBlock value) {
+inline std::ostream& operator<<(std::ostream& out, const TimeBlock value) {
 	switch(value) {
 		case START_08_00:
 			out << "8:00-9:15 AM";
