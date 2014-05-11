@@ -16,6 +16,7 @@ vector<Room> RoomReader::read()
     string id;
     string temp;
     int capacity;
+    set<string> ids;
     set<Room> rooms;
 
     file.open(this->getFilename().c_str());
@@ -27,20 +28,25 @@ vector<Room> RoomReader::read()
     while (!file.eof())
     {
         getline(file, id, this->getDelimiter());
+        // Skip blank lines
+        if (id.empty())
+            continue;
         // Stream capacity as int, then discard chars before newline
+        capacity = 0;
         file >> capacity;
-        getline(file, temp);
+        getline(file, temp, '\n');
         // Construct the object, add it to the set
         Room r(id, capacity);
-        rooms.insert(r);
+        if (ids.find(id) == ids.end())
+        {
+            rooms.insert(r);
+            ids.insert(id);
+        }
     }
     file.close();
 
     // Convert to vector sorted in descending order
-    vector<Room> output;
-    set<Room>::reverse_iterator rev;
-    for (rev = rooms.rbegin(); rev != rooms.rend(); ++rev)
-        output.push_back(*rev);
+    vector<Room> output(rooms.rbegin(), rooms.rend());
     return output;
 }
 

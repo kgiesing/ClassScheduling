@@ -16,6 +16,7 @@ vector<Prof> ProfReader::read()
     string id;
     string fname;
     string lname;
+    set<string> ids;
     set<Prof> profs;
 
     file.open(this->getFilename().c_str());
@@ -27,11 +28,18 @@ vector<Prof> ProfReader::read()
     while (!file.eof())
     {
         getline(file, id, this->getDelimiter());
+        // Skip blank lines
+        if (id.empty())
+            continue;
         getline(file, lname, this->getDelimiter());
-        getline(file, fname);
+        getline(file, fname,  '\n');
         // Construct the object, add it to the set
         Prof p(id, fname, lname);
-        profs.insert(p);
+        if (ids.find(id) == ids.end())
+        {
+            profs.insert(p);
+            ids.insert(id);
+        }
     }
     file.close();
     // Convert to vector and return
