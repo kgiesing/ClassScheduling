@@ -15,7 +15,8 @@
  */
 class Schedule {
 public:
-	Schedule(std::vector < Room >, std::vector < Prof > );
+	Schedule(std::vector < Room >, std::vector < Prof >, std::vector < Course > );
+	Schedule(const Schedule& schedule);
 	std::map < Room, std::vector < std::vector < Course > > > getSchedule();
 	bool setCourse(const Course&, const Room&, Weekdays, TimeBlock, int);
 	Course getCourse(const Room&, Weekdays, TimeBlock);
@@ -28,9 +29,15 @@ public:
 	double getScore() { return _score; }
 	Prof getProf(string);
 	Prof getProf(Course);
+	std::vector<Course> getCoursesTaughtBy(Prof&);
+	std::vector<Course> getCoursesOnGivenDayTaughtBy(Prof&, Weekdays);
+	std::vector<Room> getRooms();
+	std::map<string, Prof> getProfs();
 private:
 	std::map < Room, std::vector < std::vector < Course > > > _schedule;
 	std::map < std::string, Prof > _professors;
+	std::map < std::string, Course > _courses;
+	std::vector<Room> _rooms;
 	double _score;
 };
 

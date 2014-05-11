@@ -9,18 +9,22 @@ using namespace std;
 /**
  * Constructor for the schedule. Creates the empty schedule
  */
-Schedule::Schedule(vector < Room > rooms, vector < Prof > prof){
-	for(int i = 0; i < prof.size(); i++){
+Schedule::Schedule(vector < Room > rooms, vector < Prof > prof, vector < Course > courses){
+	_rooms = rooms;
+	for(unsigned int i = 0; i < prof.size(); i++){
 			_professors.insert(make_pair(prof.at(i).getId(), prof.at(i)));
 	}
+	for (unsigned int i = 0; i < courses.size(); i++){
+		_courses.insert(make_pair(courses.at(i).getId(), courses.at(i)));
+	}
 	_score = -1;
-	for (int i = 0; i < rooms.size(); i++){
+	for (unsigned int i = 0; i < _rooms.size(); i++){
 		vector < vector < Course > > dayVector;
-		dayVector.resize(WED);
-		for (int j = 0; j < dayVector.size(); j++){
+		dayVector.resize(WEEKDAYS_SIZE);
+		for (unsigned int j = 0; j < dayVector.size(); j++){
 			dayVector.at(j).resize(TIMEBLOCK_SIZE);
 		}
-		_schedule.insert(make_pair(rooms.at(i), dayVector));
+		_schedule.insert(make_pair(_rooms.at(i), dayVector));
 	}
 }
 
@@ -29,6 +33,12 @@ bool Schedule::setCourse(const Course& course, const Room& room, Weekdays firstM
 		return false;
 	}
 	_schedule.at(room).at(firstMeeting).at(timeBlock) = course;
+
+	switch (numberOfMeetings){
+	case 2:
+		_schedule.at(room).at((TimeBlock)(firstMeeting + 2)).at(timeBlock) = course;
+		break;
+	}
 	return true;
 }
 
@@ -57,8 +67,8 @@ TimeBlock Schedule::getTimeFor(const Course& course){
 	for (it iterator = _schedule.begin(); iterator != _schedule.end(); iterator++){
 		Room rr = iterator->first;
 		vector < vector < Course > > vec = iterator->second;
-		for (int i = 0; i < vec.size(); i++){
-			for (int j = 0; j < vec.at(i).size(); j++){
+		for (unsigned int i = 0; i < vec.size(); i++){
+			for (unsigned int j = 0; j < vec.at(i).size(); j++){
 				if (course == getCourse(rr, (Weekdays)i, (TimeBlock)j)){
 					return (TimeBlock)j;
 				}
@@ -74,8 +84,8 @@ Room Schedule::getRoomFor(const Course& course){
 	for (it iterator = _schedule.begin(); iterator != _schedule.end(); iterator++){
 		Room rr = iterator->first;
 		vector < vector < Course > > vec = iterator->second;
-		for (int i = 0; i < vec.size(); i++){
-			for (int j = 0; j < vec.at(i).size(); j++){
+		for (unsigned int i = 0; i < vec.size(); i++){
+			for (unsigned int j = 0; j < vec.at(i).size(); j++){
 				if (course == getCourse(rr, (Weekdays)i, (TimeBlock)j)){
 					return rr;
 				}
@@ -93,17 +103,17 @@ vector < Weekdays > Schedule::getWeekdaysFor(const Course& course){
 	for (it iterator = _schedule.begin(); iterator != _schedule.end(); iterator++){
 		Room rr = iterator->first;
 		vector < vector < Course > > vec = iterator->second;
-		for (int i = 0; i < vec.size(); i++){
-			for (int j = 0; j < vec.at(i).size(); j++){
+		for (unsigned int i = 0; i < vec.size(); i++){
+			for (unsigned int j = 0; j < vec.at(i).size(); j++){
 				if (course == getCourse(rr, (Weekdays)i, (TimeBlock)j)){
 					weekdays.push_back((Weekdays)i);
 				}
 			}
 		}
 	}
-	if (!weekdays.empty()){
+	/*if (!weekdays.empty()){
 		weekdays.push_back((Weekdays)(weekdays.back() + 2));
-	}
+	}*/
 	//returns empty vector if the class is not scheduled
 	return weekdays;
 }
@@ -131,3 +141,38 @@ Prof Schedule::getProf(Course c){
 map < Room, vector < vector < Course > > > Schedule::getSchedule(){
 	return _schedule;
 }
+
+Schedule::Schedule(const Schedule& schedule){
+	_schedule = schedule._schedule;
+	_professors = schedule._professors;
+	_courses = schedule._courses;
+	_rooms = schedule._rooms;
+	_score = schedule._score;
+}
+
+vector<Room> Schedule::getRooms(){
+	return _rooms;
+}
+
+map <string, Prof> Schedule::getProfs(){
+	return _professors;
+}
+
+vector <Course> Schedule::getCoursesTaughtBy(Prof& prof){
+	typedef map<string, Course>::iterator iterator;
+	vector <Course> courseVec;
+	for (iterator it = _courses.begin(); it != _courses.end(); it++)
+	{
+		if (prof == getProf(it->second.getProfId())){
+			courseVec.push_back(it->second);
+		}
+	}
+	return courseVec;
+}
+
+//vector<Course> Schedule::getCoursesOnGivenDayTaughtBy(Prof& prof, Weekdays weekday){
+//	vector<Course> profCourses = getCoursesTaughtBy(prof);
+//	for (int i = 0; i < profCourses.size(); i++){
+//		if (get)
+//	}
+//}
