@@ -22,9 +22,12 @@ void ScheduleWriter::write() {
 	
 	file.open(this->getFilename().c_str());
 	
-	for(int w = MON; w < WEEKDAYS_SIZE; w++) {
-		for(int t = START_08_00; t < TIMEBLOCK_SIZE; t++) {
-			file << ((Weekdays) w) << " at " << ((TimeBlock) t) << ":\n\n";
+	for(int weekday = MON; weekday < WEEKDAYS_SIZE; weekday++) {
+		Weekdays w = (Weekdays) weekday;
+		for(int block = START_08_00; block < TIMEBLOCK_SIZE; block++) {
+			TimeBlock t = (TimeBlock) block;
+			
+			file << w << " at " << t << ":\n\n";
 			vector<Course> courses = _contents->getCoursesAt(w, t);
 			
 			for(int i = 0; i < courses.size(); i++) {
