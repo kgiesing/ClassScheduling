@@ -1,44 +1,40 @@
-#include "VectorPrinter.h"
+#include "../include/VectorPrinter.h"
+#include "../include/ObjectPrinter.h"
 
 using std::endl;
 
-void VectorPrinter::print(const vector<Course>& courses, ostream& out)
+void VectorPrinter::print(const vector<Course>& vec, string prefix, ostream& out)
 {
-    set<string>::iterator it;
-    for(unsigned i = 0; i < courses.size(); i++)
+    for(unsigned i = 0; i < vec.size(); i++)
     {
-        out << "\n\tCourse: {ID:" << courses[i].getId() << ","
-            << "\n\t         Name:"<< courses[i].getName() << ","
-            << "\n\t         Enrolled:"<< courses[i].getEnrolled() << ","
-            << "\n\t         Prof ID:"<< courses[i].getProfId() << ","
-            << "\n\t         Conflicts:";
-        set<string> conflicts = courses[i].getConflicts();
-        for (it = conflicts.begin(); it != conflicts.end(); ++it)
-            out << (*it) << " ";
-        out << "\n\t        }";
+        ObjectPrinter::print(vec[i], prefix, out);
     }
     out << endl;
 }
 
-void VectorPrinter::print(const vector<Prof>& profs, ostream& out)
+void VectorPrinter::print(const vector<Prof>& vec, string prefix, ostream& out)
 {
-    for(unsigned i = 0; i < profs.size(); i++)
+    for(unsigned i = 0; i < vec.size(); i++)
     {
-        out << "\n\tProf: {ID:" << profs[i].getId()
-            << ", First:"<< profs[i].getFirstName()
-            << ", Last:"<< profs[i].getLastName()
-            << "}";
+        ObjectPrinter::print(vec[i], prefix, out);
     }
     out << endl;
 }
 
-void VectorPrinter::print(const vector<Room>& rooms, ostream& out)
+void VectorPrinter::print(const vector<ProfInfo>& vec, string prefix, ostream& out)
 {
-    for(unsigned i = 0; i < rooms.size(); i++)
+    for(unsigned i = 0; i < vec.size(); i++)
     {
-        out << "\n\tRoom: {ID:" << rooms[i].getId()
-            << ", Capacity:"<< rooms[i].getCapacity()
-            << "}";
+        ObjectPrinter::print(vec[i], prefix, out);
+    }
+    out << endl;
+}
+
+void VectorPrinter::print(const vector<Room>& vec, string prefix, ostream& out)
+{
+    for(unsigned i = 0; i < vec.size(); i++)
+    {
+        ObjectPrinter::print(vec[i], prefix, out);
     }
     out << endl;
 }

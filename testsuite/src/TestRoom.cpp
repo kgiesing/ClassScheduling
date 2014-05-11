@@ -1,4 +1,5 @@
 #include "../include/TestRoom.h"
+#include "../include/ObjectPrinter.h"
 #include "../../include/Room.h"
 
 void TestRoom::testPass(void)
@@ -27,17 +28,14 @@ void TestRoom::testPass(void)
     cout << endl;
 
     // Output values after mutating
-    cout << "Values after mutating:" << endl;
-    cout << "\tgetId: " << instance->getId() << endl;
-    cout << "\tgetCapacity: " << instance->getCapacity() << endl;
-    cout << endl;
+    cout << "Object after mutating:" << endl;
+    ObjectPrinter::print(*instance, "\t");
 
     // Test comparison operators
     cout << "Creating second object to test comparison operators..." << endl;
     Room second(instance->getId(), 30);
     cout << "Second object:" << endl;
-    cout << "\tgetId: " << second.getId() << endl;
-    cout << "\tgetCapacity: " << second.getCapacity() << endl;
+    ObjectPrinter::print(second, "\t");
 
     // Output result of comparison operators
     cout << "Comparisons:" << endl;

@@ -1,4 +1,5 @@
-#include "TestCourse.h"
+#include "../include/TestCourse.h"
+#include "../include/ObjectPrinter.h"
 #include "../../include/Course.h"
 
 void TestCourse::testPass(void)
@@ -45,31 +46,15 @@ void TestCourse::testPass(void)
     cout << endl;
 
     // Output values after mutating
-    cout << "Values after mutating:" << endl;
-    cout << "\tgetId: " << instance->getId() << endl;
-    cout << "\tgetName: " << instance->getName() << endl;
-    cout << "\tgetEnrolled: " << instance->getEnrolled() << endl;
-    cout << "\tgetProfId: " << instance->getProfId() << endl;
-    cout << "\tgetConflicts: ";
-    conflicts = instance->getConflicts();
-    for (it = conflicts.begin(); it != conflicts.end(); ++it)
-        cout << (*it) << " ";
-    cout << endl;
+    cout << "Object after mutating:" << endl;
+    ObjectPrinter::print(*instance, "\t");
 
     // Test comparison operators
     cout << "Creating second object to test comparison operators..." << endl;
     Course second(instance->getId(), "Compilers II: Compiler Boogaloo",
                   "456780123", 25, 4, conflicts);
     cout << "Second object:" << endl;
-    cout << "\tgetId: " << second.getId() << endl;
-    cout << "\tgetName: " << second.getName() << endl;
-    cout << "\tgetEnrolled: " << second.getEnrolled() << endl;
-    cout << "\tgetProfId: " << second.getProfId() << endl;
-    cout << "\tgetConflicts: ";
-    conflicts = second.getConflicts();
-    for (it = conflicts.begin(); it != conflicts.end(); ++it)
-        cout << (*it) << " ";
-    cout << endl;
+    ObjectPrinter::print(second, "\t");
 
     // Output result of comparison operators
     cout << "Comparisons:" << endl;
@@ -82,7 +67,7 @@ void TestCourse::testPass(void)
 
     cout << "Modifying second object to test comparison operators..." << endl;
     second.setId("CS-444");
-    cout << "\tSecond object ID is now:" << second.getId() << endl;
+    cout << "\tSecond object ID is now: " << second.getId() << endl;
 
     // Output result of comparison operators
     cout << "Comparisons:" << endl;

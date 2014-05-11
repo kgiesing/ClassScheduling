@@ -46,8 +46,8 @@ void TestRoomReader::runTest(string filename)
     cout << "Re-creating RoomReader object..." << endl;
     instance = new RoomReader(filename);
     cout << "Testing remaining member functions..." << endl;
-    cout << "\tread: ";
-    VectorPrinter::print(instance->read());
+    cout << "\tread:" << endl;
+    VectorPrinter::print(instance->read(), "\t");
 
     // Done
     delete instance;

@@ -1,5 +1,6 @@
 #include "../include/TestScoreCalculators.h"
 #include "../include/DataCreator.h"
+#include "../include/ObjectPrinter.h"
 #include "../../include/LinearScoreCalculator.h"
 #include "../../include/WeightedScoreCalculator.h"
 #include "../../include/Prof.h"
@@ -11,37 +12,25 @@ void TestScoreCalculators::testPass(void)
 
     // Create some fake data for testing
     Prof prof1 = DataCreator::createProf();
-    cout << "Prof prof1: {ID:" << prof1.getId()
-         << ", first:" << prof1.getFirstName()
-         << ", last:" << prof1.getLastName()
-         << "}" << endl;
+    cout << "prof1:" << endl;
+    ObjectPrinter::print(prof1);
     ProfInfo p1(prof1);
     p1.setDaysOnCampus(2);
     p1.setNumCourses(3);
     p1.setTotalTime(32);
-    cout << "ProfInfo p1: {\n"
-         << "              days on campus:" << p1.getDaysOnCampus() << ",\n"
-         << "              total time on campus:" << p1.getTotalTime() << ",\n"
-         << "              number of courses:" << p1.getNumCourses() << endl
-         << "             }"
-         << endl;
+    cout << "p1:" << endl;
+    ObjectPrinter::print(p1, "   ");
 
     // This ProfInfo differs only in number of days on campus
     Prof prof2 = DataCreator::createProf();
-    cout << "Prof prof2: {ID:" << prof2.getId()
-         << ", first:" << prof2.getFirstName()
-         << ", last:" << prof2.getLastName()
-         << "}" << endl;
+    cout << "prof2:" << endl;
+    ObjectPrinter::print(prof2);
     ProfInfo p2(prof2);
     p2.setDaysOnCampus(4);
     p2.setNumCourses(3);
     p2.setTotalTime(32);
-    cout << "ProfInfo p2: {\n"
-         << "              days on campus:" << p2.getDaysOnCampus() << ",\n"
-         << "              total time on campus:" << p2.getTotalTime() << ",\n"
-         << "              number of courses:" << p2.getNumCourses() << endl
-         << "             }"
-         << endl;
+    cout << "p2:" << endl;
+    ObjectPrinter::print(p2, "   ");
 
     // Test the weighted version
     sc = new WeightedScoreCalculator();

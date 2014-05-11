@@ -46,8 +46,8 @@ void TestCourseReader::runTest(string filename)
     cout << "Re-creating CourseReader object..." << endl;
     instance = new CourseReader(filename);
     cout << "Testing remaining member functions..." << endl;
-    cout << "\tread: ";
-    VectorPrinter::print(instance->read());
+    cout << "\tread:" << endl;
+    VectorPrinter::print(instance->read(), "\t");
 
     // Done
     delete instance;

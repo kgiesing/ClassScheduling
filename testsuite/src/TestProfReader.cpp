@@ -46,8 +46,8 @@ void TestProfReader::runTest(string filename)
     cout << "Re-creating ProfReader object..." << endl;
     instance = new ProfReader(filename);
     cout << "Testing remaining member functions..." << endl;
-    cout << "\tread: ";
-    VectorPrinter::print(instance->read());
+    cout << "\tread:" << endl;
+    VectorPrinter::print(instance->read(), "\t");
 
     // Done
     delete instance;

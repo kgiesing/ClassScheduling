@@ -39,18 +39,18 @@ void TestFileReaderFactory::testPass(void)
     instance = new FileReaderFactory();
     // Test accessors
     cout << "Testing accessors..." << endl;
-    cout << "\tgetId: " << instance->getDelimiter() << endl;
+    cout << "\tgetDelimiter: " << instance->getDelimiter() << endl;
     cout << endl;
 
     // Test mutators
     cout << "Testing mutators..." << endl;
-    cout << "\tsetId(\"CS-450\")... " << endl;
+    cout << "\tsetDelimiter(\'X\')... " << endl;
     instance->setDelimiter('X');
     cout << endl;
 
     // Output values after mutating
     cout << "Values after mutating:" << endl;
-    cout << "\tgetId: " << instance->getDelimiter() << endl;
+    cout << "\tgetDelimiter: " << instance->getDelimiter() << endl;
     cout << endl;
 
     delete instance;
@@ -59,12 +59,12 @@ void TestFileReaderFactory::testPass(void)
     cout << "Re-creating object..." << endl;
     instance = new FileReaderFactory();
     cout << "Testing remaining member functions..." << endl;
-    cout << "\tgetCourses: ";
-    VectorPrinter::print(instance->getCourses(_validCourse));
-    cout << "\tgetProfs: ";
-    VectorPrinter::print(instance->getProfs(_validProf));
-    cout << "\tgetRooms: ";
-    VectorPrinter::print(instance->getRooms(_validRoom));
+    cout << "\tgetCourses: " << endl;
+    VectorPrinter::print(instance->getCourses(_validCourse), "\t");
+    cout << "\tgetProfs: " << endl;
+    VectorPrinter::print(instance->getProfs(_validProf), "\t");
+    cout << "\tgetRooms: " << endl;
+    VectorPrinter::print(instance->getRooms(_validRoom), "\t");
 
     // Done
     delete instance;
@@ -72,30 +72,18 @@ void TestFileReaderFactory::testPass(void)
 
 void TestFileReaderFactory::testFail(void)
 {
-    TestFileReaders* reader;
     FileReaderFactory* instance;
-
-    // Test the Readers first
-    reader = new TestCourseReader(_validCourse, _invalidCourse);
-    reader->runFailTests();
-    delete reader;
-    reader = new TestProfReader(_validProf, _invalidProf);
-    reader->runFailTests();
-    delete reader;
-    reader = new TestRoomReader(_validRoom, _invalidRoom);
-    reader->runFailTests();
-    delete reader;
 
     // Run tests on the factory
     instance = new FileReaderFactory();
 
     cout << "Testing remaining member functions..." << endl;
-    cout << "\tgetCourses: ";
-    VectorPrinter::print(instance->getCourses(_invalidCourse));
-    cout << "\tgetProfs: ";
-    VectorPrinter::print(instance->getProfs(_invalidProf));
-    cout << "\tgetRooms: ";
-    VectorPrinter::print(instance->getRooms(_invalidRoom));
+    cout << "\tgetCourses:" << endl;
+    VectorPrinter::print(instance->getCourses(_invalidCourse), "\t");
+    cout << "\tgetProfs:" << endl;
+    VectorPrinter::print(instance->getProfs(_invalidProf), "\t");
+    cout << "\tgetRooms:" << endl;
+    VectorPrinter::print(instance->getRooms(_invalidRoom), "\t");
 
     // Done
     delete instance;

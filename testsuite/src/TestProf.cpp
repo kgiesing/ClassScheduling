@@ -1,4 +1,5 @@
 #include "../include/TestProf.h"
+#include "../include/ObjectPrinter.h"
 #include "../../include/Prof.h"
 
 void TestProf::testPass(void)
@@ -30,18 +31,14 @@ void TestProf::testPass(void)
     cout << endl;
 
     // Output values after mutating
-    cout << "Values after mutating:" << endl;
-    cout << "\tgetId: " << instance->getId() << endl;
-    cout << "\tgetFirstName: " << instance->getFirstName() << endl;
-    cout << "\tgetLastName: " << instance->getLastName() << endl;
+    cout << "Object after mutating:" << endl;
+    ObjectPrinter::print(*instance, "\t");
 
     // Test comparison operators
     cout << "Creating second object to test comparison operators..." << endl;
     Prof second(instance->getId(), "Greg", "Deer");
     cout << "Second object:" << endl;
-    cout << "\tgetId: " << second.getId() << endl;
-    cout << "\tgetFirstName: " << second.getFirstName() << endl;
-    cout << "\tgetLastName: " << second.getLastName() << endl;
+    ObjectPrinter::print(second, "\t");
 
     // Output result of comparison operators
     cout << "Comparisons:" << endl;
