@@ -2,6 +2,8 @@
 #ifndef WEEKDAYS_H
 #define WEEKDAYS_H
 
+#include <iostream>
+
 /**
  * Enumeration of the days of the week. The final value is a "dummy value"
  * that represents the "size" of the enum; it is for iterating through the
@@ -20,7 +22,7 @@ enum Weekdays {
  * Overwrite stream output for Weekdays.
  */
 
-std::ostream& operator<<(std::ostream& out, const Weekdays value) {
+inline std::ostream& operator<<(std::ostream& out, const Weekdays value) {
 	switch(value) {
 		case MON:
 			out << "Monday";
