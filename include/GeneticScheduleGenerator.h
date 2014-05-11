@@ -13,11 +13,15 @@ class GeneticScheduleGenerator : public ScheduleGenerator {
 public:
   GeneticScheduleGenerator(ScoreCalculator&, Schedule*, long);
   Schedule* getSchedule(void);
+  Schedule* _schedule;
 private:
+	double calculateScore(map < string, Prof >, Schedule*);
   void optimize ();
+  std::map<string, ProfInfo> profInfoMap;
   ScoreCalculator& _sc;
   map<string, double> _scores;
-  Schedule* _schedule;
+  
+  
 };
 
 #endif // GENETICSCHEDULEGENERATOR_H
