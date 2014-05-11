@@ -81,6 +81,13 @@ public:
      * @return true if file creation was successful; false otherwise.
      */
     static bool createVectorFile(string, Room, int = 20);
+    /**
+     * Loads the vector of Course objects with random Prof ID's from the
+     * vector of Prof objects.
+     * @param Mutable vector of Course objects.
+     * @param Constant vector of Prof objects.
+     */
+    static void loadProfs(vector<Course>&, const vector<Prof>&);
 private:
     /** Private constructor */
     DataCreator(void) { }

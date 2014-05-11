@@ -177,3 +177,14 @@ bool DataCreator::createVectorFile(string filename, Room r, int members)
     out.close();
     return true;
 }
+
+void DataCreator::loadProfs(vector<Course>& courses, const vector<Prof>& profs)
+{
+    int profIndex;
+    for (unsigned i = 0; i < courses.size(); i++)
+    {
+        profIndex = rand() % profs.size();
+        courses[i].setProfId(profs[profIndex].getId());
+    }
+}
+
