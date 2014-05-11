@@ -19,7 +19,7 @@ LIB =
 LDFLAGS = 
 
 INC_DEBUG = $(INC) -Iinclude -I../include -Itestsuite/include
-CFLAGS_DEBUG = $(CFLAGS) -g
+CFLAGS_DEBUG =  -g -static-libgcc -static-libstdc++ $(CFLAGS)
 RESINC_DEBUG = $(RESINC)
 RCFLAGS_DEBUG = $(RCFLAGS)
 LIBDIR_DEBUG = $(LIBDIR)
@@ -29,7 +29,7 @@ OBJDIR_DEBUG = obj/Debug
 DEP_DEBUG = 
 OUT_DEBUG = bin/Debug/ClassSchedulingTests
 
-OBJ_DEBUG = $(OBJDIR_DEBUG)/src/main.o $(OBJDIR_DEBUG)/src/VectorPrinter.o $(OBJDIR_DEBUG)/src/TestScoreCalculators.o $(OBJDIR_DEBUG)/src/TestScheduleWriter.o $(OBJDIR_DEBUG)/src/TestSchedule.o $(OBJDIR_DEBUG)/src/TestRunner.o $(OBJDIR_DEBUG)/src/TestRoomReader.o $(OBJDIR_DEBUG)/src/TestRoom.o $(OBJDIR_DEBUG)/src/TestProfReader.o $(OBJDIR_DEBUG)/src/TestProfInfo.o $(OBJDIR_DEBUG)/src/TestProf.o $(OBJDIR_DEBUG)/src/TestGreedyScheduleGenerator.o $(OBJDIR_DEBUG)/src/TestGeneticScheduleGenerator.o $(OBJDIR_DEBUG)/src/TestFileReaderFactory.o $(OBJDIR_DEBUG)/src/TestCourseReader.o $(OBJDIR_DEBUG)/src/TestCourse.o $(OBJDIR_DEBUG)/src/TestConflictPreprocessor.o $(OBJDIR_DEBUG)/src/DataCreator.o $(OBJDIR_DEBUG)/__/src/WeightedScoreCalculator.o $(OBJDIR_DEBUG)/__/src/RoomReader.o $(OBJDIR_DEBUG)/__/src/Room.o $(OBJDIR_DEBUG)/__/src/ProfReader.o $(OBJDIR_DEBUG)/__/src/Prof.o $(OBJDIR_DEBUG)/__/src/LinearScoreCalculator.o $(OBJDIR_DEBUG)/__/src/FileReaderFactory.o $(OBJDIR_DEBUG)/__/src/CourseReader.o $(OBJDIR_DEBUG)/__/src/Course.o $(OBJDIR_DEBUG)/__/src/ConflictPreprocessor.o
+OBJ_DEBUG = $(OBJDIR_DEBUG)/src/main.o $(OBJDIR_DEBUG)/src/VectorPrinter.o $(OBJDIR_DEBUG)/src/TestScoreCalculators.o $(OBJDIR_DEBUG)/src/TestScheduleWriter.o $(OBJDIR_DEBUG)/src/TestSchedule.o $(OBJDIR_DEBUG)/src/TestRunner.o $(OBJDIR_DEBUG)/src/TestRoomReader.o $(OBJDIR_DEBUG)/src/TestRoom.o $(OBJDIR_DEBUG)/src/TestProfReader.o $(OBJDIR_DEBUG)/src/TestProfInfo.o $(OBJDIR_DEBUG)/src/TestProf.o $(OBJDIR_DEBUG)/src/TestGreedyScheduleGenerator.o $(OBJDIR_DEBUG)/src/TestGeneticScheduleGenerator.o $(OBJDIR_DEBUG)/src/TestFileReaderFactory.o $(OBJDIR_DEBUG)/src/TestCourseReader.o $(OBJDIR_DEBUG)/src/TestCourse.o $(OBJDIR_DEBUG)/src/TestConflictPreprocessor.o $(OBJDIR_DEBUG)/src/ObjectPrinter.o $(OBJDIR_DEBUG)/src/DataCreator.o $(OBJDIR_DEBUG)/__/src/WeightedScoreCalculator.o $(OBJDIR_DEBUG)/__/src/RoomReader.o $(OBJDIR_DEBUG)/__/src/Room.o $(OBJDIR_DEBUG)/__/src/ProfReader.o $(OBJDIR_DEBUG)/__/src/Prof.o $(OBJDIR_DEBUG)/__/src/LinearScoreCalculator.o $(OBJDIR_DEBUG)/__/src/FileReaderFactory.o $(OBJDIR_DEBUG)/__/src/CourseReader.o $(OBJDIR_DEBUG)/__/src/Course.o $(OBJDIR_DEBUG)/__/src/ConflictPreprocessor.o
 
 all: debug
 
@@ -97,6 +97,9 @@ $(OBJDIR_DEBUG)/src/TestCourse.o: src/TestCourse.cpp
 
 $(OBJDIR_DEBUG)/src/TestConflictPreprocessor.o: src/TestConflictPreprocessor.cpp
 	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c src/TestConflictPreprocessor.cpp -o $(OBJDIR_DEBUG)/src/TestConflictPreprocessor.o
+
+$(OBJDIR_DEBUG)/src/ObjectPrinter.o: src/ObjectPrinter.cpp
+	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c src/ObjectPrinter.cpp -o $(OBJDIR_DEBUG)/src/ObjectPrinter.o
 
 $(OBJDIR_DEBUG)/src/DataCreator.o: src/DataCreator.cpp
 	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c src/DataCreator.cpp -o $(OBJDIR_DEBUG)/src/DataCreator.o
