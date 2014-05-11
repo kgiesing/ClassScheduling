@@ -3,10 +3,14 @@
 
 double WeightedScoreCalculator::operator() (ProfInfo& pi)
 {
+    double score;
     // Calculate score using Dzmitry's formula:
     // totalTimeOnCampus * 3^numberOfDaysOnCampus / numberOfClasses
-    double score = pi.getTotalTime() * pow(3.0, pi.getDaysOnCampus())
-            / pi.getNumCourses();
+    if (0 == pi.getNumCourses())
+        score = 0;
+    else
+        score = pi.getTotalTime() * pow(3.0, pi.getDaysOnCampus())
+                / pi.getNumCourses();
     pi.setScore(score);
     return score;
 }
