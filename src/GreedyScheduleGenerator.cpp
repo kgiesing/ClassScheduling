@@ -8,7 +8,7 @@
 using namespace std;
 
 Schedule* GreedyScheduleGenerator::getSchedule() {
-	Schedule* schedule = new Schedule(_rooms);
+	Schedule* schedule = new Schedule(_rooms, _profs, _courses);
 
 	while (_courses.size() != 0) {
 		int availableWeekday = NOT_AVAILABLE;
