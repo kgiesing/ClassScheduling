@@ -1,6 +1,26 @@
-CS105-1,Introduction to Computer Concepts,S3158A,35,2,
-CS105-2,Introduction to Computer Concepts,S3158B,32,2,
-CS108-1,An Introduction to Python,S3183,26,2,CS105-1,CS105-2
-CS110-1,Introduction to Computing,S3176,29,2,
-CS110-2,Introduction to Computing,S3158B,37,2,
-CS110-3,Introduction to Computing,S3176,40,2,
+ART-110,Beginning Art,90027415,30,2,LIT-110,MUS-110
+ART-220,Introductory Art,90027415,25,2,
+ART-340,Intermediate Art,70015471,31,2,LIT-340
+ART-440,Advanced Art,70015471,30,2,
+BIO-340,Intermediate Biology,40002074,31,2,CHEM-340
+BIO-440,Advanced Biology,40002074,18,2,CHEM-440
+CHEM-110,Beginning Chemistry,10007011,32,2,MATH-110
+CHEM-220,Introductory Chemistry,10018714,21,2,MATH-220
+CHEM-340,Intermediate Chemistry,10021046,29,2,BIO-340
+CHEM-440,Advanced Chemistry,30013699,27,2,BIO-440
+CS-110,Beginning Computer Science,30030785,25,2,MATH-110
+CS-220,Introductory Computer Science,50032452,25,2,MATH-110
+CS-340,Intermediate Computer Science,50032452,22,2,MATH-340
+CS-440,Advanced Computer Science,30013699,22,2,MATH-340
+FILM-110,Beginning Film,10007011,27,2,MATH-340
+FILM-220,Introductory Film,10009521,27,2,MATH-340
+LIT-110,Beginning Literature,70015471,37,2,ART-110,MUS-110
+LIT-340,Intermediate Literature,70027724,20,2,ART-340
+MATH-110,Beginning Mathematics,30030785,28,2,CHEM-110,CS-110
+MATH-340,Intermediate Mathematics,60032227,18,2,CHEM-340,CS-340,PHYS-340
+MATH-440,Advanced Mathematics,60032227,18,2,
+MUS-110,Beginning Music,70027467,25,2,ART-110,LIT-110
+MUS-340,Intermediate Music,70027467,17,2,
+MUS-440,Advanced Music,60020983,18,2,
+PHYS-220,Introductory Physics,10018714,32,2,MAT-220
+PHYS-340,Intermediate Physics,10021046,21,2,MAT-340
