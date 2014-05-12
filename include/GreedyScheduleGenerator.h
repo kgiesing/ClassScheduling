@@ -23,6 +23,7 @@ private:
 	static const int AVAILABLE_TUE_THU = 2;
 	static const int NOT_AVAILABLE = 0;
 	int getAvailableWeekday(Schedule& schedule, Room& room, TimeBlock time);
+	bool isConflict(Schedule& schedule, Weekdays day, TimeBlock time, Course& course);
 };
 
 #endif // GREEDYSCHEDULEGENERATOR_H
