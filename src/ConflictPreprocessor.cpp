@@ -2,10 +2,16 @@
 
 void ConflictPreprocessor::preprocess(vector<Course>& courses)
 {
+    // Optimization: Skip courses whose conflicts we have already processed
+    vector< vector<bool> > checked(courses.size(), vector<bool>(courses.size()));
     for (unsigned i = 0; i < courses.size(); i++)
     {
+
         for (unsigned j = 0; j < courses.size(); j++)
         {
+            // If we have already checked this course previously, skip it
+            if (checked[i][j])
+                continue;
             // A course should not conflict with itself
             if (i == j)
                 continue;
@@ -16,6 +22,9 @@ void ConflictPreprocessor::preprocess(vector<Course>& courses)
                 courses[i].getConflicts().insert(courses[j].getId());
                 courses[j].getConflicts().insert(courses[i].getId());
             }
+            // Signify that we have checked the courses
+            checked[i][j] = true;
+            checked[j][i] = true;
         }
     }
 }
