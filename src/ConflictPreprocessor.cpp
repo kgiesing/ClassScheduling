@@ -6,7 +6,6 @@ void ConflictPreprocessor::preprocess(vector<Course>& courses)
     vector< vector<bool> > checked(courses.size(), vector<bool>(courses.size()));
     for (unsigned i = 0; i < courses.size(); i++)
     {
-
         for (unsigned j = 0; j < courses.size(); j++)
         {
             // If we have already checked this course previously, skip it
@@ -15,6 +14,17 @@ void ConflictPreprocessor::preprocess(vector<Course>& courses)
             // A course should not conflict with itself
             if (i == j)
                 continue;
+
+            // Are the conflicts reciprocal?
+            set<string> ci = courses[i].getConflicts();
+            set<string> cj = courses[i].getConflicts();
+            if (ci.find(courses[j].getId()) != ci.end()
+                || cj.find(courses[i].getId()) != cj.end())
+            {
+                // Add to conflicts, for both courses
+                courses[i].getConflicts().insert(courses[j].getId());
+                courses[j].getConflicts().insert(courses[i].getId());
+            }
             // Are they taught by the same professor?
             if (courses[j].getProfId() == courses[i].getProfId())
             {
