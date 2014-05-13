@@ -6,7 +6,7 @@
 #include "../include/TimeBlock.h"
 #include <iostream>
 
-GeneticScheduleGenerator::GeneticScheduleGenerator(ScoreCalculator& sc, Schedule* schedule, long timeout )
+GeneticScheduleGenerator::GeneticScheduleGenerator(ScoreCalculator& sc, Schedule schedule, long timeout )
 	: ScheduleGenerator(timeout) , _sc(sc) {
 		_schedule = schedule;
 }
@@ -14,7 +14,6 @@ GeneticScheduleGenerator::GeneticScheduleGenerator(ScoreCalculator& sc, Schedule
 double GeneticScheduleGenerator::calculateScore(map<string, Prof> professors, Schedule* schedule){
 	double score = 0;
 	typedef map < string, Prof>::iterator it;
-	//map<string, ProfInfo> profInfoMap;
 	for (it iterator = professors.begin(); iterator != professors.end(); iterator++){
 		ProfInfo pi(iterator->second);
 		vector<Course> taughtOnMonday;
@@ -128,28 +127,25 @@ double GeneticScheduleGenerator::calculateScore(map<string, Prof> professors, Sc
 }
 
 Schedule* GeneticScheduleGenerator::getSchedule(){
-	Schedule* bestSchedule = _schedule;
-	Schedule _changedSc = *_schedule;
-	Schedule *_changedSchedule = &_changedSc;
-	map<string, Prof> professors = bestSchedule->getProfs();
+	Schedule bestSchedule = _schedule;
 	
-	bestSchedule->setScore(calculateScore(professors, bestSchedule));
-	/*typedef map < Room, vector < vector < Course > > >::iterator itRooms;
-	for (it iterator = professors.begin(); iterator != professors.end(); iterator++){
-		ProfInfo pi(iterator->first);
-		for (itRooms itr = bestSchedule->getSchedule().begin(); itr != bestSchedule->getSchedule().end(); itr++){
-			for (int i = 0; i < itr->second.size(); i++){
+	return &bestSchedule;
+}
 
-			}
-		}
-	}*/
+Schedule GeneticScheduleGenerator::optimize(){
+	Schedule bestSchedule = _schedule;
+	Schedule _changedSchedule = _schedule;
+	map<string, Prof> professors = bestSchedule.getProfs();
+
+	bestSchedule.setScore(calculateScore(professors, &bestSchedule));
+	
 	srand(time(NULL));
-	vector<Room> rooms = _schedule->getRooms();
+	vector<Room> rooms = bestSchedule.getRooms();
 	int numberOfRooms = rooms.size();
 	Room room1, room2;
 	Weekdays day1, day2;
 	TimeBlock time1, time2;
-	
+
 	long endTime = time(0) + getTimeout();
 	int counter = 0;
 	do{
@@ -160,53 +156,26 @@ Schedule* GeneticScheduleGenerator::getSchedule(){
 		day2 = (Weekdays)(rand() % WED);
 		time1 = (TimeBlock)(rand() % TIMEBLOCK_SIZE);
 		time2 = (TimeBlock)(rand() % TIMEBLOCK_SIZE);
-		if (_changedSchedule->getCourse(room1, day1, time1).getEnrolled() > room2.getCapacity() ||
-			_changedSchedule->getCourse(room2, day2, time2).getEnrolled() > room1.getCapacity() ||
-			_changedSchedule->getCourse(room2, day2, time2) == _changedSchedule->getCourse(room1, day1, time1))
+		if (_changedSchedule.getCourse(room1, day1, time1).getEnrolled() > room2.getCapacity() ||
+			_changedSchedule.getCourse(room2, day2, time2).getEnrolled() > room1.getCapacity() ||
+			_changedSchedule.getCourse(room2, day2, time2) == _changedSchedule.getCourse(room1, day1, time1))
 		{
 			continue;
 		}
 		else
 		{
-			bestSchedule = _schedule;
-			/*string profId1 = _changedSchedule->getCourse(room1, day1, time1).getProfId();
-			string profId2 = _changedSchedule->getCourse(room2, day2, time2).getProfId();
-			
-			ProfInfo* profInfo1;
-			ProfInfo* profInfo2;
-			double scoreProf1 = 0;
-			double scoreProf2 = 0;
-			map<string, Prof> changedProfs;
-			if (profId1 != ""){
-				*profInfo1 = profInfoMap.at(profId1);
-				scoreProf1 = profInfo1->getScore();
-				changedProfs.insert(make_pair(profId1, professors.at(profId1)));
-			}
-			if (profId2 != ""){
-				*profInfo2 = profInfoMap.at(profId2);
-				scoreProf2 = profInfo2->getScore();
-				changedProfs.insert(make_pair(profId2, professors.at(profId2)));
-			}
+			_changedSchedule.swapCourses(room1, day1, time1, room2, day2, time2);
+			double newScore = calculateScore(professors, &_changedSchedule);
 
-			
-			double currentScore = _changedSchedule->getScore() - scoreProf1 - scoreProf2;*/
-			
-			
-			_changedSchedule->swapCourses(room1, day1, time1, room2, day2, time2);
-			double newScore = calculateScore(professors, _changedSchedule);
-
-			if (bestSchedule->getScore() > newScore){
-				_schedule = _changedSchedule;
-				_schedule->setScore(newScore);
+			if (bestSchedule.getScore() > newScore){
+				bestSchedule = _changedSchedule;
+				bestSchedule.setScore(newScore);
 			}
 		}
-		
+
 	} while (time(0) < endTime);
 	std::cout << "counter: " << counter << endl;
-	return _schedule;
+	return bestSchedule;
 }
 
-void GeneticScheduleGenerator::optimize(){
-
-}
 

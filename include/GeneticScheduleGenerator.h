@@ -11,12 +11,12 @@ using namespace std;
 
 class GeneticScheduleGenerator : public ScheduleGenerator {
 public:
-  GeneticScheduleGenerator(ScoreCalculator&, Schedule*, long);
+  GeneticScheduleGenerator(ScoreCalculator&, Schedule, long);
   Schedule* getSchedule(void);
-  Schedule* _schedule;
+  Schedule _schedule;
+  Schedule optimize(void);
 private:
 	double calculateScore(map < string, Prof >, Schedule*);
-  void optimize ();
   std::map<string, ProfInfo> profInfoMap;
   ScoreCalculator& _sc;
   map<string, double> _scores;

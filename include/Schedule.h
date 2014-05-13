@@ -15,6 +15,7 @@
  */
 class Schedule {
 public:
+	Schedule(){}
 	Schedule(std::vector < Room >, std::vector < Prof >, std::vector < Course > );
 	Schedule(const Schedule& schedule);
 	std::map < Room, std::vector < std::vector < Course > > > getSchedule();
