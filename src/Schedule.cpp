@@ -170,6 +170,15 @@ vector <Course> Schedule::getCoursesTaughtBy(Prof& prof){
 	return courseVec;
 }
 
+
+Schedule& Schedule::operator=(const Schedule& rhs){
+	_rooms = rhs._rooms;
+	_courses = rhs._courses;
+	_professors = rhs._professors;
+	_schedule = rhs._schedule;
+	_score = rhs._score;
+	return *this;
+}
 //vector<Course> Schedule::getCoursesOnGivenDayTaughtBy(Prof& prof, Weekdays weekday){
 //	vector<Course> profCourses = getCoursesTaughtBy(prof);
 //	for (int i = 0; i < profCourses.size(); i++){
