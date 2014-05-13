@@ -10,9 +10,9 @@ public:
     /** Default constructor */
     TestGreedyScheduleGenerator() : TestRunner("GreedyScheduleGenerator") { }
 protected:
-    virtual void preTest(bool);
-    // virtual void testPass(void);
-    // virtual void testFail(void);
+    // virtual void preTest(bool);
+    virtual void testPass(void);
+    virtual void testFail(void);
 };
 
 #endif // TESTGREEDYSCHEDULEGENERATOR_H

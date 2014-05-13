@@ -1,4 +1,5 @@
-#include "ObjectPrinter.h"
+#include "../include/ObjectPrinter.h"
+#include "../include/VectorPrinter.h"
 
 using std::endl;
 
@@ -39,6 +40,42 @@ void ObjectPrinter::print(const Room& r, string prefix, ostream& out)
     out << "Room {ID:" << r.getId()
         << ", Capacity:"<< r.getCapacity()
         << "}\n";
+}
+
+void ObjectPrinter::print(Schedule& s, string prefix, ostream& out)
+{
+    out << "Schedule:\n";
+    for(int weekday = MON; weekday < WEEKDAYS_SIZE; weekday++)
+    {
+        Weekdays w = (Weekdays) weekday;
+        for(int block = START_08_00; block < TIMEBLOCK_SIZE; block++)
+        {
+            TimeBlock t = (TimeBlock) block;
+            out << prefix;
+            print(w, prefix, out);
+            out << " @ ";
+            print(t, prefix, out);
+            out << ":" << endl;
+            out << prefix << "--------------------" << endl;
+            vector<Course> courses = s.getCoursesAt(w, t);
+            if(courses.size() > 0)
+            {
+                for(unsigned i = 0; i < courses.size(); i++)
+                {
+                    Room r = s.getRoomFor(courses[i]);
+                    out << prefix;
+                    print(r, prefix, out);
+                    out << prefix;
+                    print(courses[i], prefix, out);
+                }
+            }
+            else
+            {
+                out << prefix << "<no courses>" << endl;
+            }
+            out << endl;
+        }
+    }
 }
 
 void ObjectPrinter::print(TimeBlock t, string prefix, ostream& out)

@@ -7,6 +7,7 @@
 #include "../include/Prof.h"
 #include "../include/ProfInfo.h"
 #include "../include/Room.h"
+#include "../include/Schedule.h"
 #include "../include/TimeBlock.h"
 #include "../include/Weekdays.h"
 
@@ -21,6 +22,7 @@ public:
     static void print(const Prof&,     string="", ostream& = cout);
     static void print(const ProfInfo&, string="", ostream& = cout);
     static void print(const Room&,     string="", ostream& = cout);
+    static void print(      Schedule&, string="", ostream& = cout);
     static void print(TimeBlock,       string="", ostream& = cout);
     static void print(Weekdays,        string="", ostream& = cout);
 private:
