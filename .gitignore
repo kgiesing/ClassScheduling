@@ -21,3 +21,4 @@ doxygen/
 /*.cbp
 /*.layout
 *.depend
+ClassScheduling.exe
