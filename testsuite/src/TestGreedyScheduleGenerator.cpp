@@ -24,7 +24,7 @@ void TestGreedyScheduleGenerator::testPass(void)
     cout << "\tgetTimeout: " << instance->getTimeout() << endl;
     cout << "\tgetSchedule: " << endl;
     Schedule* s = instance->getSchedule();
-    ObjectPrinter::print(s, "\t");
+    ObjectPrinter::print(*s, "\t");
     delete s;
 
     delete instance;
@@ -34,6 +34,7 @@ void TestGreedyScheduleGenerator::testFail(void)
 {
     // Fail test the greedy schedule generator.
     GreedyScheduleGenerator* instance;
+    Schedule* s;
 
     vector<Course> courses = DataCreator::createVector(DataCreator::createCourse(), 50);
     vector<Prof> profs = DataCreator::createVector(DataCreator::createProf());
@@ -45,8 +46,8 @@ void TestGreedyScheduleGenerator::testFail(void)
     instance = new GreedyScheduleGenerator(rooms, profs, courses, time(NULL));
     cout << "Successfully created GreedyScheduleGenerator object with invalid data" << endl;
     cout << "\tgetSchedule: " << endl;
-    Schedule* s = instance->getSchedule();
-    ObjectPrinter::print(s, "\t");
+    s = instance->getSchedule();
+    ObjectPrinter::print(*s, "\t");
     delete s;
     delete instance;
 
@@ -60,8 +61,8 @@ void TestGreedyScheduleGenerator::testFail(void)
     instance = new GreedyScheduleGenerator(rooms, profs, courses, time(NULL));
     cout << "Successfully created GreedyScheduleGenerator object with invalid data" << endl;
     cout << "\tgetSchedule: " << endl;
-    Schedule* s = instance->getSchedule();
-    ObjectPrinter::print(s, "\t");
+    s = instance->getSchedule();
+    ObjectPrinter::print(*s, "\t");
     delete s;
     delete instance;
 
@@ -74,8 +75,8 @@ void TestGreedyScheduleGenerator::testFail(void)
     instance = new GreedyScheduleGenerator(rooms, profs, courses, time(NULL));
     cout << "Successfully created GreedyScheduleGenerator object with invalid data" << endl;
     cout << "\tgetSchedule: " << endl;
-    Schedule* s = instance->getSchedule();
-    ObjectPrinter::print(s, "\t");
+    s = instance->getSchedule();
+    ObjectPrinter::print(*s, "\t");
     delete s;
     delete instance;
 }
