@@ -130,7 +130,7 @@ vector<Course> DataCreator::createVector(Course type, int members)
     members += (rand() % spread) - spread / 2;
     for (int i = 0; i < members; i++)
         sorted.insert(createCourse());
-    vector<Course> result(sorted.begin(), sorted.end());
+    vector<Course> result(sorted.rbegin(), sorted.rend());
     return result;
 }
 
@@ -154,7 +154,7 @@ vector<Room> DataCreator::createVector(Room type, int members)
     members += (rand() % spread) - spread / 2;
     for (int i = 0; i < members; i++)
         sorted.insert(createRoom());
-    vector<Room> result(sorted.begin(), sorted.end());
+    vector<Room> result(sorted.rbegin(), sorted.rend());
     return result;
 }
 bool DataCreator::createVectorFile(string filename, Course c, int members)
