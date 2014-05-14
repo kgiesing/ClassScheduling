@@ -35,17 +35,17 @@ public:
      * Returns the number of students enrolled in the course.
      * @return The number of students enrolled in the course.
      */
-    const int& getEnrolled() const { return _enrolled; }
+    const int getEnrolled() const { return _enrolled; }
     /**
      * Returns the course ID.
      * @return The course ID.
      */
-    const string& getId() const { return _id; }
+    const string getId() const { return _id; }
     /**
      * Returns the ID of the professor who teaches this course.
      * @return The ID of the professor who teaches this course.
      */
-    const string& getProfId() const { return _profId; }
+    const string getProfId() const { return _profId; }
     /**
      * Returns the ID's of the courses that conflict with this course.
      * @return A constant vector containing the ID's of the courses that
@@ -62,7 +62,7 @@ public:
      * Returns the name of this course.
      * @return The name of this course.
      */
-    const string& getName() const { return _name; }
+    const string getName() const { return _name; }
     /**
      * Returns the number of time blocks this course requires.
      * @return The number of time blocks this course requires.

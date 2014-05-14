@@ -20,12 +20,12 @@ public:
      * Returns the room capacity.
      * @return Constant reference to the room capacity.
      */
-    const int& getCapacity() const { return _capacity; }
+    const int getCapacity() const { return _capacity; }
     /**
      * Returns the room ID.
      * @return Constant reference to the room ID.
      */
-    const std::string& getId() const { return _id; }
+    const std::string getId() const { return _id; }
     /**
      * Sets the room capacity.
      * @return Constant reference to the room capacity.

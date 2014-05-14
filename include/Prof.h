@@ -22,17 +22,17 @@ public:
      * Returns the first name of the professor.
      * @return The first name of the professor.
      */
-    const std::string& getFirstName() const { return _firstName; }
+    const std::string getFirstName() const { return _firstName; }
     /**
      * Returns the last name of the professor.
      * @return The last name of the professor.
      */
-    const std::string& getLastName() const { return _lastName; }
+    const std::string getLastName() const { return _lastName; }
     /**
      * Returns the id of the professor.
      * @return The id of the professor.
      */
-    const std::string& getId() const { return _id; }
+    const std::string getId() const { return _id; }
     /**
      * Sets the first name of the professor.
      * @param The first name of the professor.
