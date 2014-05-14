@@ -23,7 +23,9 @@ void TestGreedyScheduleGenerator::testPass(void)
     cout << "Testing accessors:" << endl;
     cout << "\tgetTimeout: " << instance->getTimeout() << endl;
     cout << "\tgetSchedule: " << endl;
-    ObjectPrinter::print(*(instance->getSchedule()), "\t");
+    Schedule* s = instance->getSchedule();
+    ObjectPrinter::print(s, "\t");
+    delete s;
 
     delete instance;
 }
@@ -43,7 +45,9 @@ void TestGreedyScheduleGenerator::testFail(void)
     instance = new GreedyScheduleGenerator(rooms, profs, courses, time(NULL));
     cout << "Successfully created GreedyScheduleGenerator object with invalid data" << endl;
     cout << "\tgetSchedule: " << endl;
-    ObjectPrinter::print(*(instance->getSchedule()), "\t");
+    Schedule* s = instance->getSchedule();
+    ObjectPrinter::print(s, "\t");
+    delete s;
     delete instance;
 
     // Test invalid enrollment
@@ -56,7 +60,9 @@ void TestGreedyScheduleGenerator::testFail(void)
     instance = new GreedyScheduleGenerator(rooms, profs, courses, time(NULL));
     cout << "Successfully created GreedyScheduleGenerator object with invalid data" << endl;
     cout << "\tgetSchedule: " << endl;
-    ObjectPrinter::print(*(instance->getSchedule()), "\t");
+    Schedule* s = instance->getSchedule();
+    ObjectPrinter::print(s, "\t");
+    delete s;
     delete instance;
 
     // Test invalid number of courses
@@ -68,7 +74,9 @@ void TestGreedyScheduleGenerator::testFail(void)
     instance = new GreedyScheduleGenerator(rooms, profs, courses, time(NULL));
     cout << "Successfully created GreedyScheduleGenerator object with invalid data" << endl;
     cout << "\tgetSchedule: " << endl;
-    ObjectPrinter::print(*(instance->getSchedule()), "\t");
+    Schedule* s = instance->getSchedule();
+    ObjectPrinter::print(s, "\t");
+    delete s;
     delete instance;
 }
 
