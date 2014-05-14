@@ -1,6 +1,12 @@
 #include "../include/TestGeneticScheduleGenerator.h"
+#include "../include/DataCreator.h"
+#include "../include/ObjectPrinter.h"
 #include "../include/TestProfInfo.h"
 #include "../include/TestScoreCalculators.h"
+#include "../../include/GeneticScheduleGenerator.h"
+#include "../../include/LinearScoreCalculator.h"
+#include "../../include/WeightedScoreCalculator.h"
+#include <ctime>
 
 void TestGeneticScheduleGenerator::preTest(bool isPass)
 {
@@ -13,5 +19,33 @@ void TestGeneticScheduleGenerator::preTest(bool isPass)
     // Test the ScoreCalculator classes here
     instance = new TestScoreCalculators();
     isPass ? instance->runPassTests() : instance->runFailTests();
+    delete instance;
+}
+
+void TestGeneticScheduleGenerator::testPass(void)
+{
+    // Test the greedy schedule generator.
+    GeneticScheduleGenerator* instance;
+    Schedule* sp;
+    ScoreCalculator* sc;
+
+    // Instantiate new Schedule
+    cout << "Creating data for GeneticScheduleGenerator constructor..." << endl;
+    Schedule s = DataCreator::createSchedule();
+    sc = new WeightedScoreCalculator();
+    cout << "\tScoreCalculator: WeightedScoreCalculator" << endl
+         << "\tSchedule:" << endl;
+    ObjectPrinter::print(s, "\t");
+    instance = new GeneticScheduleGenerator(*sc, s, time(NULL));
+    cout << "Successfully created GeneticScheduleGenerator object with data" << endl;
+
+    // Test accessors
+    cout << "Testing accessors:" << endl;
+    cout << "\tgetTimeout: " << instance->getTimeout() << endl;
+    cout << "\tgetSchedule: " << endl;
+    sp = instance->getSchedule();
+    ObjectPrinter::print(*sp, "\t");
+    delete sc;
+    delete sp;
     delete instance;
 }

@@ -12,7 +12,7 @@ public:
         TestRunner("GeneticScheduleGenerator") { }
 protected:
     virtual void preTest(bool);
-    // virtual void testPass(void);
+    virtual void testPass(void);
     // virtual void testFail(void);
 };
 
