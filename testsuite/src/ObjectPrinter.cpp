@@ -76,6 +76,7 @@ void ObjectPrinter::print(Schedule& s, string prefix, ostream& out)
             out << endl;
         }
     }
+    out << prefix << "Score: " << s.getScore() << endl;
 }
 
 void ObjectPrinter::print(TimeBlock t, string prefix, ostream& out)
