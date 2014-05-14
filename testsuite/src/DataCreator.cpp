@@ -80,6 +80,47 @@ Room DataCreator::createRoom(void)
     return r;
 }
 
+Schedule DataCreator::createSchedule(void)
+{
+    // Make sure there are few Courses and Profs, and lots of Rooms
+    vector<Course> courses = DataCreator::createVector(DataCreator::createCourse(), 10);
+    vector<Prof> profs = DataCreator::createVector(DataCreator::createProf(), 5);
+    vector<Room> rooms = DataCreator::createVector(DataCreator::createRoom());
+    DataCreator::loadProfs(courses, profs);
+
+    // Create the Schedule object.
+    Schedule s(rooms, profs, courses);
+
+    // Go through the Courses, and schedule them.
+    int day = 0;
+    int time = 0;
+    int idxRooms = 0;
+    for (int c = 0; c < courses.size(); c++)
+    {
+        bool ok = false;
+        while (!ok)
+        {
+            int orig = ++idxRooms;
+            while (orig != idxRooms && rooms[idxRooms].getCapacity() < courses[c].getEnrolled())
+                idxRooms = (idxRooms + 1) % rooms.size();
+            if (orig = idxRooms) // Capacity is greater than any room
+                courses[c].setEnrolled(1); // Set to minimum enrollment
+            else
+            {
+                Weekdays wd = static_cast<Weekdays>(day);
+                TimeBlock tb = static_cast<TimeBlock>(time);
+                ok = s.setCourse(courses[c], rooms[idxRooms], wd, tb, courses[c].getTimeBlocks());
+                time++;
+                if (time > TIMEBLOCK_SIZE)
+                {
+                    time = 0;
+                    day = (day + 1) % WEEKDAYS_SIZE;
+                }
+            }
+        }
+    }
+    return s;
+}
 
 vector<Course> DataCreator::createVector(Course type, int members)
 {

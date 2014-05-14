@@ -1,9 +1,10 @@
 #ifndef DATACREATOR_H
 #define DATACREATOR_H
 
-#include "../include/Course.h"
-#include "../include/Prof.h"
-#include "../include/Room.h"
+#include "../../include/Course.h"
+#include "../../include/Prof.h"
+#include "../../include/Room.h"
+#include "../../include/Schedule.h"
 #include <vector>
 
 using std::vector;
@@ -20,6 +21,8 @@ public:
     static Prof createProf(void);
     /** Creates a random Room object. */
     static Room createRoom(void);
+    /** Creates a random (possibly invalid) Schedule object. */
+    static Schedule createSchedule(void);
     /**
      * Creates a vector of a specific size, filled with random Course objects.
      * The number of objects is randomized; the second parameter is only the
@@ -47,7 +50,6 @@ public:
      * @return std::vector of random Room objects.
      */
     static vector<Room> createVector(Room, int = 20);
-
     /**
      * Creates a CSV files from a vector of a specific size, filled with
      * random Course objects.
