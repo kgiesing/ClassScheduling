@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <vector>
 #include <string>
+#include <time.h>
 
 // Including these so they'll be built
 #include "../include/Schedule.h"
@@ -19,6 +20,23 @@
 using std::cout;
 using std::endl;
 
+/**
+ * Class Schedule main loop
+ *  
+ * This software simulates creating an optimal class schedule
+ * based on matching courses to rooms and professors, such that every 
+ * course has a room with the proper capacity, and the amount of time 
+ * professors spend on campus is minimized.
+ * 
+ * This program uses command line interface, users can read the file
+ * "command_line_doc.txt" to get more details about options.
+ *
+ * main loop will first create readers to read data from the file which 
+ * provided by users. Then a crude schedule will be formed by greedy 
+ * algorithm. After it, the schedule will be optimized by using genetic 
+ * algorithm. Finally, schedule will be save in the file that users specify,
+ * or by default "schedule.txt". 
+ */
 int main(int argc, char* argv[])
 {
   Schedule* schedule;
@@ -32,7 +50,8 @@ int main(int argc, char* argv[])
   bool newDelimiter = false;
 
   //default timer for generator
-  long time = 1000;
+  long t = time(NULL);
+  long addTime = 60;
 
   //score calculator selector
   bool defCal = true;
@@ -70,7 +89,7 @@ int main(int argc, char* argv[])
       i++;
     } else {
       //using atol from stdlib to convert char array to long
-      time = atol(argv[++i]);
+      addTime = atol(argv[++i]) * 60;
       i++;
     }
 
@@ -111,7 +130,8 @@ int main(int argc, char* argv[])
 
   //Form the schedule by using greedy algorithm
   //Will be changed depends on implementation of GreedyScheduler
-  generator = new GreedyScheduleGenerator(roomV, profV, courseV, time);
+  t += addTime;
+  generator = new GreedyScheduleGenerator(roomV, profV, courseV, t);
   schedule = generator->getSchedule();
   delete generator;
 
@@ -125,7 +145,7 @@ int main(int argc, char* argv[])
 
   //Try to optimize the schedule
   //Will be changed depends on implementation of GeneticScheduler
-  generator = new GeneticScheduleGenerator(*calculator, schedule, time);
+  generator = new GeneticScheduleGenerator(*calculator, *schedule, t);
   schedule = generator->getSchedule();
   delete generator;
   delete calculator;
@@ -135,6 +155,7 @@ int main(int argc, char* argv[])
   ScheduleWriter writer(outputN);
   writer.setContents(schedule);
   writer.write();
+  delete schedule;
 
   return 0;
 }
