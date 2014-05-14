@@ -137,7 +137,6 @@ Prof Schedule::getProf(Course c){
 
 
 
-
 map < Room, vector < vector < Course > > > Schedule::getSchedule(){
 	return _schedule;
 }
@@ -169,7 +168,6 @@ vector <Course> Schedule::getCoursesTaughtBy(Prof& prof){
 	}
 	return courseVec;
 }
-
 
 Schedule& Schedule::operator=(const Schedule& rhs){
 	_rooms = rhs._rooms;
