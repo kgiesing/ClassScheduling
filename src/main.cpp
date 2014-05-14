@@ -181,7 +181,7 @@ int main(int argc, char* argv[])
 
   //Try to optimize the schedule
   //Will be changed depends on implementation of GeneticScheduler
-  generator = new GeneticScheduleGenerator(*calculator, *schedule, t);
+  generator = new GeneticScheduleGenerator(*calculator, schedule, t);
   schedule = generator->getSchedule();
   delete generator;
   delete calculator;
