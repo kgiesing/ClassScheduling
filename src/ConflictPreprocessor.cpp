@@ -17,7 +17,7 @@ void ConflictPreprocessor::preprocess(vector<Course>& courses)
 
             // Are the conflicts reciprocal?
             set<string> ci = courses[i].getConflicts();
-            set<string> cj = courses[i].getConflicts();
+            set<string> cj = courses[j].getConflicts();
             if (ci.find(courses[j].getId()) != ci.end()
                 || cj.find(courses[i].getId()) != cj.end())
             {
