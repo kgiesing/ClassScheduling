@@ -103,7 +103,7 @@ Schedule DataCreator::createSchedule(void)
             int orig = idxRooms++;
             while (orig != idxRooms && rooms[idxRooms].getCapacity() < courses[c].getEnrolled())
                 idxRooms = (idxRooms + 1) % rooms.size();
-            if (orig = idxRooms) // Capacity is greater than any room
+            if (orig == idxRooms) // Capacity is greater than any room
                 courses[c].setEnrolled(1); // Set to minimum enrollment
             else
             {
