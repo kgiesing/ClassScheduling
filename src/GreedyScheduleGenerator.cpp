@@ -18,7 +18,11 @@ GreedyScheduleGenerator::GreedyScheduleGenerator(vector<Room>& rooms,
 {
     // Create a map of course ID's to course indexes, for finding conflicts
     for(unsigned i = 0; i < courses.size(); i++)
+    {
         _courseMap[courses[i].getId()] = i;
+        cout << "\n\tCourse map: " << courses[i].getId() << "=" << i;
+    }
+    cout << endl;
 }
 
 
@@ -71,7 +75,20 @@ Schedule* GreedyScheduleGenerator::getSchedule()
         // Schedule the conflicting courses
         set<string> conflicts = _courses[c].getConflicts();
         for(set<string>::iterator it = conflicts.begin(); it != conflicts.end(); it++)
-            scheduleConflict(_courseMap[*it], time);
+        {
+            // DEBUG
+            cout << "\n\tScheduling conflict: " << *it;
+            unsigned conflict;
+            try {
+                conflict = _courseMap.at(*it);
+                // DEBUG
+                cout << " @ " << conflict << " ?= " << _courses[conflict].getId();
+                scheduleConflict(conflict, time);
+            }
+            catch (...) {
+                cout << "\nBad course!";
+            }
+        }
         _isScheduled[c] = true;
     }
 
@@ -118,11 +135,15 @@ bool GreedyScheduleGenerator::findNextTime(const Room r, Weekdays& day,
 void GreedyScheduleGenerator::scheduleConflict(unsigned c, TimeBlock time)
 {
     // Starting at room with lowest possible capacity and work upwards
-    unsigned idxRoom = _rooms.size() - 1;
-    while(_rooms[idxRoom].getCapacity() >= _courses[c].getEnrolled())
+    unsigned idxRoom = 0;
+    while(idxRoom < _rooms.size() && _rooms[idxRoom].getCapacity() >= _courses[c].getEnrolled())
+    {
+        // DEBUG
+        cout << "\n\t\t" << idxRoom << ": " << _rooms[idxRoom].getCapacity() << " >= " << _courses[c].getEnrolled();
         idxRoom++;
+    }
     idxRoom--; // Went past it; back up one
-    if(idxRoom < 0)
+    if(idxRoom >= _rooms.size() || idxRoom < 0)
         throw "Cannot create valid schedule: courses are too large";
 
     // Schedule this course at a different time
