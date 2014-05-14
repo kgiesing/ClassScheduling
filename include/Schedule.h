@@ -34,7 +34,7 @@ public:
 	std::vector<Course> getCoursesOnGivenDayTaughtBy(Prof&, Weekdays);
 	std::vector<Room> getRooms();
 	std::map<string, Prof> getProfs();
-	Schedule& Schedule::operator=(const Schedule&);
+	Schedule& operator=(const Schedule&);
 private:
 	std::map < Room, std::vector < std::vector < Course > > > _schedule;
 	std::map < std::string, Prof > _professors;
