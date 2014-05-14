@@ -95,7 +95,7 @@ Schedule DataCreator::createSchedule(void)
     int day = 0;
     int time = 0;
     int idxRooms = 0;
-    for (int c = 0; c < courses.size(); c++)
+    for (unsigned c = 0; c < courses.size(); c++)
     {
         bool ok = false;
         while (!ok)
