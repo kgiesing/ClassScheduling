@@ -32,11 +32,31 @@ void TestGeneticScheduleGenerator::testPass(void)
     // Instantiate new Schedule
     cout << "Creating data for GeneticScheduleGenerator constructor..." << endl;
     Schedule s = DataCreator::createSchedule();
+    sp = &s;
     sc = new WeightedScoreCalculator();
-    cout << "\tScoreCalculator: WeightedScoreCalculator" << endl
-         << "\tSchedule:" << endl;
+    long done = time(NULL) + 60;
+    cout << "\tScoreCalculator: WeightedScoreCalculator\n\t";
     ObjectPrinter::print(s, "\t");
-    instance = new GeneticScheduleGenerator(*sc, s, time(NULL));
+    cout << "\tTimeout: " << done << endl;
+    instance = new GeneticScheduleGenerator(*sc, sp, done);
+    cout << "Successfully created GeneticScheduleGenerator object with data" << endl;
+
+    // Test accessors
+    cout << "Testing accessors:" << endl;
+    cout << "\tgetTimeout: " << instance->getTimeout() << endl;
+    cout << "\tgetSchedule: " << endl;
+    sp = instance->getSchedule();
+    ObjectPrinter::print(*sp, "\t");
+    delete sc;
+    delete sp;
+    delete instance;
+
+    // Instantiate new Schedule
+    cout << "Testing same data with different ScoreCalculator..." << endl;
+    sp = &s;
+    sc = new LinearScoreCalculator();
+    cout << "\tScoreCalculator: LinearScoreCalculator" << endl;
+    instance = new GeneticScheduleGenerator(*sc, sp, done);
     cout << "Successfully created GeneticScheduleGenerator object with data" << endl;
 
     // Test accessors
