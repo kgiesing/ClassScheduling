@@ -46,12 +46,12 @@ void TestSchedule::testPass(void)
     ObjectPrinter::print(instance->getRoomFor(c));
     cout << "\tgetRoomFor(c2): ";
     ObjectPrinter::print(instance->getRoomFor(c));
-    cout << "\tgetScore(): " << instance->getScore();
+    cout << "\n\tgetScore(): " << instance->getScore();
     cout << "\n\tgetTimeFor(c): ";
     ObjectPrinter::print(instance->getTimeFor(c));
-    cout << "\n\ntgetTimeFor(c2): ";
+    cout << "\n\tgetTimeFor(c2): ";
     ObjectPrinter::print(instance->getTimeFor(c2));
-    cout << "\tgetWeekdaysFor(c): " << endl << "\t";
+    cout << "\n\tgetWeekdaysFor(c): " << endl << "\t";
     VectorPrinter::print(instance->getWeekdaysFor(c), "\t");
     cout << "\tgetWeekdaysFor(c2): " << endl << "\t";
     VectorPrinter::print(instance->getWeekdaysFor(c2), "\t");
@@ -89,7 +89,7 @@ void TestSchedule::testPass(void)
     ObjectPrinter::print(instance->getRoomFor(c));
     cout << "\tgetRoomFor(c2): ";
     ObjectPrinter::print(instance->getRoomFor(c));
-    cout << "\tgetScore(): " << instance->getScore();
+    cout << "\n\tgetScore(): " << instance->getScore();
     cout << "\n\tgetTimeFor(c): ";
     ObjectPrinter::print(instance->getTimeFor(c));
     cout << "\n\tgetTimeFor(c2): ";
