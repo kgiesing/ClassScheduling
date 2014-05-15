@@ -18,10 +18,13 @@ GeneticScheduleGenerator::GeneticScheduleGenerator(ScoreCalculator& sc,
 Schedule* GeneticScheduleGenerator::getSchedule()
 {
     // Declare variables
+    bool ok;
     Course c1, c2;
     Room room1, room2;
     Weekdays day1, day2;
     TimeBlock time1, time2;
+    set<string> conflicts1, conflicts2;
+    vector<Course> others1, others2;
 
     // DEBUG
     cout << "\nCalculating current score...";
@@ -52,6 +55,31 @@ Schedule* GeneticScheduleGenerator::getSchedule()
         if(room1.getCapacity() < c2.getEnrolled())
             continue;
         if(room2.getCapacity() < c1.getEnrolled())
+            continue;
+        // Make sure courses don't conflict with each other
+        conflicts1 = c1.getConflicts();
+        conflicts2 = c2.getConflicts();
+        if (conflicts1.find(c2.getId()) != conflicts1.end())
+            continue;
+        if (conflicts2.find(c1.getId()) != conflicts2.end())
+            continue;
+        // Make sure other scheduled courses don't conflict
+        others1 = _schedule->getCoursesAt(day1, time1);
+        others2 = _schedule->getCoursesAt(day2, time2);
+        ok = true;
+        for (int i = 0; i < others1.size(); i++)
+        {
+            if (conflicts2.find(others1[i].getId()) != conflicts2.end())
+                ok = false;
+        }
+        if (!ok)
+            continue;
+        for (int i = 0; i < others2.size(); i++)
+        {
+            if (conflicts1.find(others2[i].getId()) != conflicts1.end())
+                ok = false;
+        }
+        if (!ok)
             continue;
 
         cout << "."; // To show the user we're still working...
