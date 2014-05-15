@@ -11,17 +11,17 @@ using namespace std;
  */
 Schedule::Schedule(vector < Room > rooms, vector < Prof > prof, vector < Course > courses){
 	_rooms = rooms;
-	for(unsigned int i = 0; i < prof.size(); i++){
+	for(unsigned i = 0; i < prof.size(); i++){
 			_professors.insert(make_pair(prof.at(i).getId(), prof.at(i)));
 	}
-	for (unsigned int i = 0; i < courses.size(); i++){
+	for (unsigned i = 0; i < courses.size(); i++){
 		_courses.insert(make_pair(courses.at(i).getId(), courses.at(i)));
 	}
 	_score = -1;
-	for (unsigned int i = 0; i < _rooms.size(); i++){
+	for (unsigned i = 0; i < _rooms.size(); i++){
 		vector < vector < Course > > dayVector;
 		dayVector.resize(WEEKDAYS_SIZE);
-		for (unsigned int j = 0; j < dayVector.size(); j++){
+		for (unsigned j = 0; j < dayVector.size(); j++){
 			dayVector.at(j).resize(TIMEBLOCK_SIZE);
 		}
 		_schedule.insert(make_pair(_rooms.at(i), dayVector));
@@ -67,8 +67,8 @@ TimeBlock Schedule::getTimeFor(const Course& course){
 	for (it iterator = _schedule.begin(); iterator != _schedule.end(); iterator++){
 		Room rr = iterator->first;
 		vector < vector < Course > > vec = iterator->second;
-		for (unsigned int i = 0; i < vec.size(); i++){
-			for (unsigned int j = 0; j < vec.at(i).size(); j++){
+		for (unsigned i = 0; i < vec.size(); i++){
+			for (unsigned j = 0; j < vec.at(i).size(); j++){
 				if (course == getCourse(rr, (Weekdays)i, (TimeBlock)j)){
 					return (TimeBlock)j;
 				}
@@ -84,8 +84,8 @@ Room Schedule::getRoomFor(const Course& course){
 	for (it iterator = _schedule.begin(); iterator != _schedule.end(); iterator++){
 		Room rr = iterator->first;
 		vector < vector < Course > > vec = iterator->second;
-		for (unsigned int i = 0; i < vec.size(); i++){
-			for (unsigned int j = 0; j < vec.at(i).size(); j++){
+		for (unsigned i = 0; i < vec.size(); i++){
+			for (unsigned j = 0; j < vec.at(i).size(); j++){
 				if (course == getCourse(rr, (Weekdays)i, (TimeBlock)j)){
 					return rr;
 				}
@@ -103,8 +103,8 @@ vector < Weekdays > Schedule::getWeekdaysFor(const Course& course){
 	for (it iterator = _schedule.begin(); iterator != _schedule.end(); iterator++){
 		Room rr = iterator->first;
 		vector < vector < Course > > vec = iterator->second;
-		for (unsigned int i = 0; i < vec.size(); i++){
-			for (unsigned int j = 0; j < vec.at(i).size(); j++){
+		for (unsigned i = 0; i < vec.size(); i++){
+			for (unsigned j = 0; j < vec.at(i).size(); j++){
 				if (course == getCourse(rr, (Weekdays)i, (TimeBlock)j)){
 					weekdays.push_back((Weekdays)i);
 				}
@@ -134,8 +134,6 @@ Prof Schedule::getProf(string id){
 Prof Schedule::getProf(Course c){
 	return _professors.at(c.getProfId());
 }
-
-
 
 map < Room, vector < vector < Course > > > Schedule::getSchedule(){
 	return _schedule;
@@ -177,9 +175,3 @@ Schedule& Schedule::operator=(const Schedule& rhs){
 	_score = rhs._score;
 	return *this;
 }
-//vector<Course> Schedule::getCoursesOnGivenDayTaughtBy(Prof& prof, Weekdays weekday){
-//	vector<Course> profCourses = getCoursesTaughtBy(prof);
-//	for (int i = 0; i < profCourses.size(); i++){
-//		if (get)
-//	}
-//}
