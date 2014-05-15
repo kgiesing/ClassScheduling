@@ -39,6 +39,14 @@ public:
      */
     static void print(const map<string, ProfInfo>&, string="", ostream& = cout);
     /**
+     * Prints a map of string-to-pointers-to-ProfInfo objects to an output
+     * stream.
+     * @param std::map<string, Course> to print
+     * @param std::string to print before every new line
+     * @param std::ostream to output Prof map; defaults to std::cout
+     */
+    static void print(const map<string, ProfInfo*>&, string="", ostream& = cout);
+    /**
      * Prints a map of string-to-Room objects to an output stream.
      * @param std::map<string, Course> to print
      * @param std::string to print before every new line
