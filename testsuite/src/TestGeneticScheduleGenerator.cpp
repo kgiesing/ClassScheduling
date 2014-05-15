@@ -28,13 +28,14 @@ void TestGeneticScheduleGenerator::testPass(void)
     GeneticScheduleGenerator* instance;
     Schedule* sp;
     ScoreCalculator* sc;
+    long numSeconds = 10; // Change for shorter test times
 
     // Instantiate new Schedule
     cout << "Creating data for GeneticScheduleGenerator constructor..." << endl;
     Schedule s = DataCreator::createSchedule();
     sp = &s;
     sc = new WeightedScoreCalculator();
-    long done = time(NULL) + 60;
+    long done = time(NULL) + numSeconds;
     cout << "\tScoreCalculator: WeightedScoreCalculator\n\t";
     ObjectPrinter::print(s, "\t");
     cout << "\tTimeout: " << done << endl;
