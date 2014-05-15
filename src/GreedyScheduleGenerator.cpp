@@ -53,8 +53,7 @@ Schedule* GreedyScheduleGenerator::getSchedule()
         if (_rooms[idxRoom].getCapacity() < _courses[c].getEnrolled())
             throw runtime_error("Cannot create valid schedule: courses are too large");
 
-        _schedule->setCourse(_courses[c], _rooms[idxRoom], day, time,
-                _courses[c].getTimeBlocks());
+        _schedule->setCourse(_courses[c], _rooms[idxRoom], day, time);
         // Schedule the conflicting courses
         set<string> conflicts = _courses[c].getConflicts();
         for(set<string>::iterator it = conflicts.begin(); it != conflicts.end(); it++)
@@ -133,7 +132,6 @@ void GreedyScheduleGenerator::scheduleConflict(unsigned c, TimeBlock time)
     if (full)
         throw runtime_error("Cannot create valid schedule: all rooms full");
 
-    _schedule->setCourse(_courses[c], _rooms[idxRoom], day, time,
-                         _courses[c].getTimeBlocks());
+    _schedule->setCourse(_courses[c], _rooms[idxRoom], day, time);
     _isScheduled[c] = true;
 }

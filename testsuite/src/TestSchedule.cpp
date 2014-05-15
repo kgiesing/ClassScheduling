@@ -65,9 +65,9 @@ void TestSchedule::testPass(void)
     // Test mutators
     cout << "Testing mutators..." << endl;
     cout << "\tsetCourse(c, rooms[0], MON, START_08_00, 2): "
-         << instance->setCourse(c, rooms[0], MON, START_08_00, 2) << endl;
+         << instance->setCourse(c, rooms[0], MON, START_08_00) << endl;
     cout << "\tsetCourse(c2, rooms[1], TUES, START_14_00, 2): "
-         << instance->setCourse(c2, rooms[1], TUES, START_14_00, 2) << endl;
+         << instance->setCourse(c2, rooms[1], TUES, START_14_00) << endl;
     cout << "\tsetScore(100.0)..." << endl;
     instance->setScore(100.0);
     cout << "\tswapCourses(rooms[0], MON, START_08_00, rooms[1], TUES,"
@@ -128,7 +128,7 @@ void TestSchedule::testPass(void)
                      << ", " << rooms[idxRooms].getId()
                      << ", " << wd << ", " << tb
                      << ", " << courses[c].getTimeBlocks() << "): ";
-                ok = instance->setCourse(courses[c], rooms[idxRooms], wd, tb, courses[c].getTimeBlocks());
+                ok = instance->setCourse(courses[c], rooms[idxRooms], wd, tb);
                 cout << ok << endl;
                 time++;
                 if (time >= TIMEBLOCK_SIZE)
@@ -194,10 +194,10 @@ void TestSchedule::testFail(void)
     // Test mutators
     cout << "Testing mutators..." << endl;
     cout << "\tsetCourse(c, rooms[0], WEEKDAYS_SIZE, START_08_00, 2): "
-         << instance->setCourse(c, rooms[0], WEEKDAYS_SIZE, START_08_00, 2)
+         << instance->setCourse(c, rooms[0], WEEKDAYS_SIZE, START_08_00)
          << endl;
     cout << "\tsetCourse(c, rooms[1], TUES, TIMEBLOCK_SIZE, 2): "
-         << instance->setCourse(c, rooms[1], TUES, TIMEBLOCK_SIZE, 2) << endl;
+         << instance->setCourse(c, rooms[1], TUES, TIMEBLOCK_SIZE) << endl;
     cout << "\tswapCourses(rooms[0], WEEKDAYS_SIZE, START_08_00, rooms[1], TUES,"
          << endl << "\t            TIMEBLOCK_SIZE)..." << endl;
     instance->swapCourses(rooms[0], WEEKDAYS_SIZE, START_08_00, rooms[1], TUES,
