@@ -266,7 +266,7 @@ Schedule* GeneticScheduleGenerator::getSchedule(){
 	Weekdays day1, day2;
 	TimeBlock time1, time2;
 	
-	long endTime = time(0) + getTimeout();
+	long endTime = getTimeout();
 	do{
 		Schedule* _changedSchedule = new Schedule(*bestSchedule);
 
