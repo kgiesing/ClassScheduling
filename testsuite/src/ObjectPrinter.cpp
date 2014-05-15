@@ -29,6 +29,7 @@ void ObjectPrinter::print(const ProfInfo& pi, string prefix, ostream& out)
 {
     out << "ProfInfo {DaysOnCampus:" << pi.getDaysOnCampus()
         << ", NumCourses:"<< pi.getNumCourses()
+        << ", TotalTime:"<< pi.getTotalTime()
         << ", Score:"<< pi.getScore() << endl
         << prefix << "          getProf:";
     print(pi.getProf());
