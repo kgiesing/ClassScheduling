@@ -21,4 +21,8 @@ doxygen/
 /*.cbp
 /*.layout
 *.depend
-ClassScheduling.exe
+# KG ignore compiled Windows executables
+*.exe
+# KG ignore dynamically generate fail test files
+/testsuite/res/*_fail.txt
+
