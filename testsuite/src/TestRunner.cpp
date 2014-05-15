@@ -16,12 +16,16 @@ void TestRunner::runPassTests(void)
     }
     catch (std::exception& e)
     {
-        cerr << "Pass test exception in " << this->getComponent()
-             << ":\n\t" << e.what() << endl;
+        cerr << endl << "****************************************"
+             << endl << "Pass test exception in " << this->getComponent()
+             << ":\n\t" << e.what()
+             << endl << "****************************************" << endl;
     }
     catch (...)
     {
-        cerr << "Pass test exception in " << this->getComponent() << endl;
+        cerr << endl << "****************************************"
+             << endl << "Pass test exception in " << this->getComponent()
+             << endl << "****************************************" << endl;
     }
 }
 
@@ -40,12 +44,16 @@ void TestRunner::runFailTests(void)
     }
     catch (std::exception& e)
     {
-        cerr << "Fail test exception in " << this->getComponent()
-             << ":\n\t" << e.what() << endl;
+        cerr << endl << "****************************************"
+             << endl << "Fail test exception in " << this->getComponent()
+             << ":\n\t" << e.what()
+             << endl << "****************************************" << endl;
     }
     catch (...)
     {
-        cerr << "Fail test exception in " << this->getComponent() << endl;
+        cerr << endl << "****************************************"
+             << endl << "Fail test exception in " << this->getComponent()
+             << endl << "****************************************" << endl;
     }
 
 }

@@ -1,5 +1,6 @@
 #include "../include/TestSchedule.h"
 #include "../include/DataCreator.h"
+#include "../include/MapPrinter.h"
 #include "../include/ObjectPrinter.h"
 #include "../include/VectorPrinter.h"
 #include "../../include/Schedule.h"
@@ -15,7 +16,10 @@ void TestSchedule::testPass(void)
 
     // Instantiate new Schedule
     instance = new Schedule(rooms, profs, courses);
-    cout << "Successfully created Schedule object with data" << endl;
+    cout << "Successfully created Schedule object with data:" << endl;
+    VectorPrinter::print(profs);
+    VectorPrinter::print(courses);
+    VectorPrinter::print(rooms);
 
     // Choose a course as a test parameter
     Course c  = courses[10];
@@ -42,6 +46,8 @@ void TestSchedule::testPass(void)
     ObjectPrinter::print(instance->getProf(c2));
     cout << "\tgetProf(\"" << profs[0].getId() << "\"): ";
     ObjectPrinter::print(instance->getProf(profs[0].getId()));
+    cout << "\tgetProfs(): ";
+    MapPrinter::print(instance->getProfs(), "\t");
     cout << "\tgetRoomFor(c): ";
     ObjectPrinter::print(instance->getRoomFor(c));
     cout << "\tgetRoomFor(c2): ";

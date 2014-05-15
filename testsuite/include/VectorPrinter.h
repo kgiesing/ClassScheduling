@@ -1,10 +1,10 @@
 #ifndef VECTORPRINTER_H
 #define VECTORPRINTER_H
 
-#include "../include/Course.h"
-#include "../include/Prof.h"
-#include "../include/ProfInfo.h"
-#include "../include/Room.h"
+#include "../../include/Course.h"
+#include "../../include/Prof.h"
+#include "../../include/ProfInfo.h"
+#include "../../include/Room.h"
 #include <iostream>
 #include <string>
 #include <vector>
