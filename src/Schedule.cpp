@@ -35,16 +35,18 @@ bool Schedule::setCourse(const Course& course, const Room& room, Weekdays firstM
 	int numberOfTimeBlocks = course.getTimeBlocks();
 	switch (numberOfTimeBlocks){
 	case 2:
-		if (firstMeeting > TUES){
+		if (firstMeeting > THURS){
 			return false;
 		}
-		break;
+		if (firstMeeting > TUES){
+			firstMeeting = (Weekdays)(firstMeeting - 2);
+		}
 	}
 	_schedule.at(room).at(firstMeeting).at(timeBlock) = course;
 
 	switch (numberOfTimeBlocks){
 	case 2:
-		_schedule.at(room).at((TimeBlock)(firstMeeting + 2)).at(timeBlock) = course;
+		_schedule.at(room).at((Weekdays)(firstMeeting + 2)).at(timeBlock) = course;
 		break;
 	}
 	return true;
