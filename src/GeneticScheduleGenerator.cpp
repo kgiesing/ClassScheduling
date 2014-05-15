@@ -30,6 +30,10 @@ Schedule* GeneticScheduleGenerator::getSchedule()
     cout << "\nCalculating current score...";
     // Calculate the score for the current schedule
     calculateScore(_schedule);
+    // DEBUG
+    cout << "\nCurrent score: " _schedule->getScore();
+
+    cout << "\nEvolving ";
     // Swap random courses until the time runs out
     srand(time(NULL));
     vector<Room> rooms = _schedule->getRooms();
@@ -42,45 +46,15 @@ Schedule* GeneticScheduleGenerator::getSchedule()
         time1 = static_cast<TimeBlock>(rand() % TIMEBLOCK_SIZE);
         time2 = static_cast<TimeBlock>(rand() % TIMEBLOCK_SIZE);
 
+        // Make sure swapped courses would obey constraints
+        if (!obeysConstraints(room1, day1, time1, room2, day2, time2))
+        {
+            cout << "x"; // "still-born"
+            continue;
+        }
         // Get courses to test
         c1 = _schedule->getCourse(room1, day1, time1);
-        c1 = _schedule->getCourse(room1, day1, time1);
-        // Don't swap the same courses (duh)
-        if(c1 == c2)
-            continue;
-        // Don't swap courses with the same Prof
-        if(c1.getProfId() == c2.getProfId())
-            continue;
-        // Don't swap courses if the rooms can't hold them
-        if(room1.getCapacity() < c2.getEnrolled())
-            continue;
-        if(room2.getCapacity() < c1.getEnrolled())
-            continue;
-        // Make sure courses don't conflict with each other
-        conflicts1 = c1.getConflicts();
-        conflicts2 = c2.getConflicts();
-        if (conflicts1.find(c2.getId()) != conflicts1.end())
-            continue;
-        if (conflicts2.find(c1.getId()) != conflicts2.end())
-            continue;
-        // Make sure other scheduled courses don't conflict
-        others1 = _schedule->getCoursesAt(day1, time1);
-        others2 = _schedule->getCoursesAt(day2, time2);
-        ok = true;
-        for (int i = 0; i < others1.size(); i++)
-        {
-            if (conflicts2.find(others1[i].getId()) != conflicts2.end())
-                ok = false;
-        }
-        if (!ok)
-            continue;
-        for (int i = 0; i < others2.size(); i++)
-        {
-            if (conflicts1.find(others2[i].getId()) != conflicts1.end())
-                ok = false;
-        }
-        if (!ok)
-            continue;
+        c2 = _schedule->getCourse(room2, day2, time2);
 
         cout << "."; // To show the user we're still working...
         // Generate a mutation
@@ -99,8 +73,10 @@ Schedule* GeneticScheduleGenerator::getSchedule()
             _schedule = temp;
 
             // DEBUG
-            cout << "\nFitter specimen found: " << _schedule->getScore();
+            cout << "v";
         }
+        else
+            cout << ".";
 
         // The "least fit" does not survive
         delete _mutation;
@@ -185,5 +161,46 @@ void GeneticScheduleGenerator::calculateScore(Schedule* s)
     }
     s->setScore(score);
 
+}
+
+bool GeneticScheduleGenerator::obeysConstraints(Room room1,
+        Weekdays day1, TimeBlock time1, Room room2, Weekdays day2,
+        TimeBlock time2)
+{
+    // Get courses to test
+    c1 = _schedule->getCourse(room1, day1, time1);
+    c2 = _schedule->getCourse(room2, day2, time2);
+    // Don't swap the same courses (duh)
+    if(c1 == c2)
+        return false;
+    // Don't swap courses with the same Prof
+    if(c1.getProfId() == c2.getProfId())
+        return false;
+    // Don't swap courses if the rooms can't hold them
+    if(room1.getCapacity() < c2.getEnrolled())
+        return false;
+    if(room2.getCapacity() < c1.getEnrolled())
+        return false;
+    // Make sure courses don't conflict with each other
+    conflicts1 = c1.getConflicts();
+    conflicts2 = c2.getConflicts();
+    if (conflicts1.find(c2.getId()) != conflicts1.end())
+        return false;
+    if (conflicts2.find(c1.getId()) != conflicts2.end())
+        return false;
+    // Make sure other scheduled courses don't conflict
+    others1 = _schedule->getCoursesAt(day1, time1);
+    others2 = _schedule->getCoursesAt(day2, time2);
+    for (int i = 0; i < others1.size(); i++)
+    {
+        if (conflicts2.find(others1[i].getId()) != conflicts2.end())
+            return false;
+    }
+    for (int i = 0; i < others2.size(); i++)
+    {
+        if (conflicts1.find(others2[i].getId()) != conflicts1.end())
+            return false;
+    }
+    return true;
 }
 
