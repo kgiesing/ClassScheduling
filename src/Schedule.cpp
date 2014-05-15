@@ -43,9 +43,6 @@ bool Schedule::setCourse(const Course& course, const Room& room, Weekdays firstM
 }
 
 Course Schedule::getCourse(const Room& room, Weekdays day, TimeBlock timeBlock){
-	vector < vector < Course > > vect = _schedule.at(room);
-	vector<Course> v = vect.at(day);
-	string id = v.at(timeBlock).getId();
 	return _schedule.at(room).at(day).at(timeBlock);
 }
 
