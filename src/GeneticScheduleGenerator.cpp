@@ -11,6 +11,8 @@ GeneticScheduleGenerator::GeneticScheduleGenerator(ScoreCalculator& sc,
         Schedule* schedule, long timeout)
     : ScheduleGenerator(timeout) , _sc(sc), _schedule(schedule)
 {
+    // DEBUG
+    cout << "\nConstructor:";
     // Load up the maps
     _info = new map<string, ProfInfo*>();
     map<string, Prof>::iterator it;
@@ -21,11 +23,15 @@ GeneticScheduleGenerator::GeneticScheduleGenerator(ScoreCalculator& sc,
         int numCourses = schedule->getCoursesTaughtBy(it->second).size();
         pi->setNumCourses(numCourses);
         (*_info)[it->first] = pi;
+        // DEBUG
+        cout << "\n\t<string, ProfInfo>:" << it->first << " " << pi->getScore() << endl;
     }
 }
 
 GeneticScheduleGenerator::~GeneticScheduleGenerator(void)
 {
+    // DEBUG
+    cout << "\nDestructor called...";
     // Delete the contents of the map
     map<string, ProfInfo*>::iterator it;
     for(it = _info->begin(); it != _info->end(); it++)
@@ -120,8 +126,6 @@ void GeneticScheduleGenerator::calculateScore(Schedule* s,
     map<string, Weekdays> lastDay;
     // Load them up
 
-    // DEBUG
-    cout << "\n\tCreating maps...";
     for (map<string, Prof>::iterator it = s->getProfs().begin();
             it != s->getProfs().end(); it++)
     {
@@ -133,23 +137,19 @@ void GeneticScheduleGenerator::calculateScore(Schedule* s,
     vector<Room> rooms = s->getRooms();
     for(unsigned r = 0; r < rooms.size(); r++)
     {
-        // DEBUG
-        cout << "\n\tIterating over room...";
-        for(int d = MON; d < WEEKDAYS_SIZE; d++)
+        for(int d = MON; d < END_OF_WEEK; d++)
         {
-            // DEBUG
-            cout << "\n\t\tIterating over day...";
             int todaysTime = 0;
             for(int t = START_08_00; t < TIMEBLOCK_SIZE; t++)
             {
-                // DEBUG
-                cout << "\n\t\tIterating over time...";
-                Weekdays wd = static_cast<Weekdays>(d);
+                 Weekdays wd = static_cast<Weekdays>(d);
                 TimeBlock tb = static_cast<TimeBlock>(t);
                 string pid = s->getCourse(rooms[r], wd, tb).getProfId();
-                if(pid == "")
+                if (pid == "")
                     continue; // No course scheduled
                 ProfInfo* pi = info[pid];
+                // DEBUG
+                cout << "\n\tOld score for " << pid << ":" << pi->getScore();
                 if(lastDay[pid] != wd)
                 {
                     // Another day
@@ -163,6 +163,8 @@ void GeneticScheduleGenerator::calculateScore(Schedule* s,
                 todaysTime = tb - firstTime[pid] + 1;
                 // Overwrite the score with the new information
                 pi->setScore(_sc(*pi));
+                // DEBUG
+                cout << "\n\tNew score for " << pid << ":" << _sc(*pi);
             }
         }
     }

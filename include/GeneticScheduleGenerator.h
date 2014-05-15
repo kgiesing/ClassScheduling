@@ -10,7 +10,6 @@
 using namespace std;
 
 class GeneticScheduleGenerator : public ScheduleGenerator
-
 {
 public:
     GeneticScheduleGenerator(ScoreCalculator&, Schedule*, long);
