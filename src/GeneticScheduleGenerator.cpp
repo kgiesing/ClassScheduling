@@ -5,27 +5,37 @@
 #include <time.h>
 #include <iostream>
 
-using std::pair;
+using std::make_pair;
+
+// DEBUG
+#include "../testsuite/include/MapPrinter.h"
 
 GeneticScheduleGenerator::GeneticScheduleGenerator(ScoreCalculator& sc,
         Schedule* schedule, long timeout)
     : ScheduleGenerator(timeout) , _sc(sc), _schedule(schedule)
 {
     // DEBUG
-    cout << "\nConstructor:";
+    cout << "\nConstructor:" << endl;
     // Load up the maps
     _info = new map<string, ProfInfo*>();
+    map<string, Prof> profs = schedule->getProfs();
     map<string, Prof>::iterator it;
-    for(it = schedule->getProfs().begin(); it != schedule->getProfs().end(); it++)
+    ProfInfo* pi;
+    for(it = profs.begin(); it != profs.end(); it++)
     {
-        ProfInfo* pi = new ProfInfo(it->second);
+        pi = new ProfInfo(it->second);
         // Get the number of courses taught from the schedule
         int numCourses = schedule->getCoursesTaughtBy(it->second).size();
         pi->setNumCourses(numCourses);
-        (*_info)[it->first] = pi;
+        _info->insert(make_pair(it->first, pi));
         // DEBUG
-        cout << "\n\t<string, ProfInfo>:" << it->first << " " << pi->getScore() << endl;
+        cout << "\tit->first: " << it->first << endl
+             << "\tit->second->getId(): " << it->second.getId()
+             << endl;
     }
+    // DEBUG
+    MapPrinter::print(schedule->getProfs(), "\t");
+    MapPrinter::print(*_info, "\t");
 }
 
 GeneticScheduleGenerator::~GeneticScheduleGenerator(void)
@@ -56,13 +66,13 @@ Schedule* GeneticScheduleGenerator::getSchedule()
     vector<Room> rooms = _schedule->getRooms();
     // DEBUG
     cout << "\nOptimizing";
-    while (time(NULL) < getTimeout())
+    while(time(NULL) < getTimeout())
     {
         cout << ".";
         room1 = rooms[rand() % rooms.size()];
         room2 = rooms[rand() % rooms.size()];
-        day1  = static_cast<Weekdays> (rand() % END_OF_WEEK);
-        day2  = static_cast<Weekdays> (rand() % END_OF_WEEK);
+        day1  = static_cast<Weekdays>(rand() % END_OF_WEEK);
+        day2  = static_cast<Weekdays>(rand() % END_OF_WEEK);
         time1 = static_cast<TimeBlock>(rand() % TIMEBLOCK_SIZE);
         time2 = static_cast<TimeBlock>(rand() % TIMEBLOCK_SIZE);
 
@@ -70,15 +80,15 @@ Schedule* GeneticScheduleGenerator::getSchedule()
         c1 = _schedule->getCourse(room1, day1, time1);
         c1 = _schedule->getCourse(room1, day1, time1);
         // Don't swap the same courses (duh)
-        if (c1 == c2)
+        if(c1 == c2)
             continue;
         // Don't swap courses with the same Prof
-        if (c1.getProfId() == c2.getProfId())
+        if(c1.getProfId() == c2.getProfId())
             continue;
         // Don't swap courses if the rooms can't hold them
-        if (room1.getCapacity() < c2.getEnrolled())
+        if(room1.getCapacity() < c2.getEnrolled())
             continue;
-        if (room2.getCapacity() < c1.getEnrolled())
+        if(room2.getCapacity() < c1.getEnrolled())
             continue;
 
         // Generate a mutation
@@ -90,13 +100,14 @@ Schedule* GeneticScheduleGenerator::getSchedule()
         for(it = _info->begin(); it != _info->end(); it++)
         {
             // Copy constructor
-            (*_mnfo)[it->first] = new ProfInfo(*it->second);
+            // (*_mnfo)[it->first] = new ProfInfo(*it->second);
+            _mnfo->insert(make_pair(it->first, new ProfInfo(*it->second)));
         }
         // Calculate the score with the mutation and the duplicate map
         calculateScore(_mutation, *_mnfo);
 
         // Keep the "most fit"
-        if (_mutation->getScore() < _schedule->getScore())
+        if(_mutation->getScore() < _schedule->getScore())
         {
             // Swap Schedules
             Schedule* temp = _mutation;
@@ -125,9 +136,8 @@ void GeneticScheduleGenerator::calculateScore(Schedule* s,
     // Create a map of professor ID's to the latest weekday
     map<string, Weekdays> lastDay;
     // Load them up
-
-    for (map<string, Prof>::iterator it = s->getProfs().begin();
-            it != s->getProfs().end(); it++)
+    map<string, Prof>::iterator it;
+    for(it = s->getProfs().begin(); it != s->getProfs().end(); it++)
     {
         firstTime[it->first] = TIMEBLOCK_SIZE;
         lastDay[it->first] = WEEKDAYS_SIZE;
@@ -142,14 +152,14 @@ void GeneticScheduleGenerator::calculateScore(Schedule* s,
             int todaysTime = 0;
             for(int t = START_08_00; t < TIMEBLOCK_SIZE; t++)
             {
-                 Weekdays wd = static_cast<Weekdays>(d);
+                Weekdays wd  = static_cast<Weekdays>(d);
                 TimeBlock tb = static_cast<TimeBlock>(t);
-                string pid = s->getCourse(rooms[r], wd, tb).getProfId();
-                if (pid == "")
+                string pid   = s->getCourse(rooms[r], wd, tb).getProfId();
+                if(pid == "")
                     continue; // No course scheduled
                 ProfInfo* pi = info[pid];
                 // DEBUG
-                cout << "\n\tOld score for " << pid << ":" << pi->getScore();
+                //cout << "\n\tOld score for " << pid << ":" << pi->getScore();
                 if(lastDay[pid] != wd)
                 {
                     // Another day
@@ -164,13 +174,13 @@ void GeneticScheduleGenerator::calculateScore(Schedule* s,
                 // Overwrite the score with the new information
                 pi->setScore(_sc(*pi));
                 // DEBUG
-                cout << "\n\tNew score for " << pid << ":" << _sc(*pi);
+                //cout << "\n\tNew score for " << pid << ":" << _sc(*pi);
             }
         }
     }
     // Calculate the total score for the Schedule
     map<string, ProfInfo*>::iterator itInfo;
-    for (itInfo = info.begin(); itInfo != info.end(); itInfo++)
+    for(itInfo = info.begin(); itInfo != info.end(); itInfo++)
         score += itInfo->second->getScore();
     s->setScore(score);
 }
