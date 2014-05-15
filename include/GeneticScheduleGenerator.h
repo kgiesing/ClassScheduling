@@ -24,7 +24,7 @@ private:
     map<string, ProfInfo*>* _mnfo; /**< mutation's version of _info */
     static const Weekdays END_OF_WEEK = WED;
     // Private methods
-    void calculateScore(Schedule*, map<string, ProfInfo*>&);
+    void calculateScore(Schedule*, map<string, ProfInfo*>);
     // Make this object singular
     GeneticScheduleGenerator(GeneticScheduleGenerator&);
     GeneticScheduleGenerator& operator=(const GeneticScheduleGenerator&);
