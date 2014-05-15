@@ -111,7 +111,7 @@ Schedule DataCreator::createSchedule(void)
                 TimeBlock tb = static_cast<TimeBlock>(time);
                 ok = s.setCourse(courses[c], rooms[idxRooms], wd, tb, courses[c].getTimeBlocks());
                 time++;
-                if (time > TIMEBLOCK_SIZE)
+                if (time >= TIMEBLOCK_SIZE)
                 {
                     time = 0;
                     day = (day + 1) % WEEKDAYS_SIZE;
