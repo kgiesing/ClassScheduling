@@ -9,19 +9,26 @@
 #include <string>
 using namespace std;
 
-class GeneticScheduleGenerator : public ScheduleGenerator {
+class GeneticScheduleGenerator : public ScheduleGenerator
+
+{
 public:
-  GeneticScheduleGenerator(ScoreCalculator&, Schedule*, long);
-  Schedule* getSchedule(void);
-  map < Room, vector < vector < Course > > > getScheduleMap();
+    GeneticScheduleGenerator(ScoreCalculator&, Schedule*, long);
+    ~GeneticScheduleGenerator(void);
+    Schedule * getSchedule(void);
 private:
-	Schedule* _schedule;
-	double calculateScore(Prof, Schedule*, double);
-	double calculateScore(map < string, Prof >, Schedule*);
-  
-  std::map<string, ProfInfo> profInfoMap;
-  ScoreCalculator& _sc;
-  map<string, double> _scores;
+    // Private member veriables
+    ScoreCalculator& _sc;
+    Schedule* _schedule;
+    Schedule* _mutation;
+    map<string, ProfInfo*>* _info; /**< professor ID to ProfInfo */
+    map<string, ProfInfo*>* _mnfo; /**< mutation's version of _info */
+    static const Weekdays END_OF_WEEK = WED;
+    // Private methods
+    void calculateScore(Schedule*, map<string, ProfInfo*>&);
+    // Make this object singular
+    GeneticScheduleGenerator(GeneticScheduleGenerator&);
+    GeneticScheduleGenerator& operator=(const GeneticScheduleGenerator&);
 };
 
 #endif // GENETICSCHEDULEGENERATOR_H

@@ -1,353 +1,174 @@
 #include "../include/GeneticScheduleGenerator.h"
-#include <cstdlib>
-#include <time.h>
-#include <algorithm>
 #include "../include/Weekdays.h"
 #include "../include/TimeBlock.h"
+#include <cstdlib>
+#include <time.h>
 #include <iostream>
 
-GeneticScheduleGenerator::GeneticScheduleGenerator(ScoreCalculator& sc, Schedule* schedule, long timeout )
-	: ScheduleGenerator(timeout) , _sc(sc) {
-		_schedule = schedule;
+using std::pair;
+
+GeneticScheduleGenerator::GeneticScheduleGenerator(ScoreCalculator& sc,
+        Schedule* schedule, long timeout)
+    : ScheduleGenerator(timeout) , _sc(sc), _schedule(schedule)
+{
+    // Load up the maps
+    _info = new map<string, ProfInfo*>();
+    map<string, Prof>::iterator it;
+    for(it = schedule->getProfs().begin(); it != schedule->getProfs().end(); it++)
+    {
+        ProfInfo* pi = new ProfInfo(it->second);
+        // Get the number of courses taught from the schedule
+        int numCourses = schedule->getCoursesTaughtBy(it->second).size();
+        pi->setNumCourses(numCourses);
+        (*_info)[it->first] = pi;
+    }
 }
 
-double GeneticScheduleGenerator::calculateScore(Prof prof, Schedule* schedule, double oldScoreProf){
-	double score = 0;
-	ProfInfo pi(prof);
-	vector<Course> taughtOnMonday;
-	vector<Course> taughtOnTuesday;
-	vector<Course> taughtOnWednesday;
-	vector<Course> taughtOnThursday;
-	vector<Course> taughtOnFriday;
-	vector<Course> coursesTaughtByProfessor = schedule->getCoursesTaughtBy(prof);
-	pi.setNumCourses(coursesTaughtByProfessor.size());
-	set <Weekdays> daysOnCampusSet;
-	for (unsigned int i = 0; i < coursesTaughtByProfessor.size(); i++){
-
-
-		vector<Weekdays> daysForCourse = schedule->getWeekdaysFor(coursesTaughtByProfessor.at(i));
-
-		for (unsigned int j = 0; j < daysForCourse.size(); j++){
-			daysOnCampusSet.insert(daysForCourse.at(j));
-			switch (daysForCourse.at(j)){
-			case MON:
-				taughtOnMonday.push_back(coursesTaughtByProfessor.at(i));
-				break;
-			case TUES:
-				taughtOnTuesday.push_back(coursesTaughtByProfessor.at(i));
-				break;
-			case WED:
-				taughtOnWednesday.push_back(coursesTaughtByProfessor.at(i));
-				break;
-			case THURS:
-				taughtOnThursday.push_back(coursesTaughtByProfessor.at(i));
-				break;
-			case FRI:
-				taughtOnFriday.push_back(coursesTaughtByProfessor.at(i));
-				break;
-			}
-		}
-		pi.setDaysOnCampus(daysOnCampusSet.size());
-
-	}
-	int min, max, total = 0;
-	if (taughtOnMonday.size() > 0){
-		min = max = schedule->getTimeFor(taughtOnMonday.at(0));
-		for (unsigned j = 1; j < taughtOnMonday.size(); j++){
-			if (schedule->getTimeFor(taughtOnMonday.at(j)) < min){
-				min = schedule->getTimeFor(taughtOnMonday.at(j));
-			}
-			if (schedule->getTimeFor(taughtOnMonday.at(j)) > max){
-				max = schedule->getTimeFor(taughtOnMonday.at(j));
-			}
-		}
-		total += max - min + 1;
-	}
-
-	if (taughtOnTuesday.size() > 0){
-		min = max = schedule->getTimeFor(taughtOnTuesday.at(0));
-		for (unsigned j = 1; j < taughtOnTuesday.size(); j++){
-			if (schedule->getTimeFor(taughtOnTuesday.at(j)) < min){
-				min = schedule->getTimeFor(taughtOnTuesday.at(j));
-			}
-			if (schedule->getTimeFor(taughtOnTuesday.at(j)) > max){
-				max = schedule->getTimeFor(taughtOnTuesday.at(j));
-			}
-		}
-		total += max - min + 1;
-	}
-
-	if (taughtOnWednesday.size() > 0){
-		min = max = schedule->getTimeFor(taughtOnWednesday.at(0));
-		for (unsigned j = 1; j < taughtOnWednesday.size(); j++){
-			if (schedule->getTimeFor(taughtOnWednesday.at(j)) < min){
-				min = schedule->getTimeFor(taughtOnWednesday.at(j));
-			}
-			if (schedule->getTimeFor(taughtOnWednesday.at(j)) > max){
-				max = schedule->getTimeFor(taughtOnWednesday.at(j));
-			}
-		}
-		total += max - min + 1;
-	}
-
-	if (taughtOnThursday.size() > 0){
-		min = max = schedule->getTimeFor(taughtOnThursday.at(0));
-		for (unsigned j = 1; j < taughtOnThursday.size(); j++){
-			if (schedule->getTimeFor(taughtOnThursday.at(j)) < min){
-				min = schedule->getTimeFor(taughtOnThursday.at(j));
-			}
-			if (schedule->getTimeFor(taughtOnThursday.at(j)) > max){
-				max = schedule->getTimeFor(taughtOnThursday.at(j));
-			}
-		}
-		total += max - min + 1;
-	}
-
-	if (taughtOnFriday.size() > 0){
-		min = max = schedule->getTimeFor(taughtOnFriday.at(0));
-		for (unsigned j = 1; j < taughtOnFriday.size(); j++){
-			if (schedule->getTimeFor(taughtOnFriday.at(j)) < min){
-				min = schedule->getTimeFor(taughtOnFriday.at(j));
-			}
-			if (schedule->getTimeFor(taughtOnFriday.at(j)) > max){
-				max = schedule->getTimeFor(taughtOnFriday.at(j));
-			}
-		}
-		total += max - min + 1;
-	}
-	pi.setTotalTime(total);
-	double profScore = _sc(pi);
-	if (profScore < oldScoreProf){
-		pi.setScore(profScore);
-	}
-	else{
-		pi.setScore(oldScoreProf);
-	}
-	profInfoMap.insert(make_pair(prof.getId(), pi));
-	return profScore;
-	
+GeneticScheduleGenerator::~GeneticScheduleGenerator(void)
+{
+    // Delete the contents of the map
+    map<string, ProfInfo*>::iterator it;
+    for(it = _info->begin(); it != _info->end(); it++)
+        delete it->second;
 }
 
-double GeneticScheduleGenerator::calculateScore(map<string, Prof> professors, Schedule* schedule){
-	double score = 0;
-	typedef map < string, Prof>::iterator it;
-	//map<string, ProfInfo> profInfoMap;
-	for (it iterator = professors.begin(); iterator != professors.end(); iterator++){
-		ProfInfo pi(iterator->second);
-		vector<Course> taughtOnMonday;
-		vector<Course> taughtOnTuesday;
-		vector<Course> taughtOnWednesday;
-		vector<Course> taughtOnThursday;
-		vector<Course> taughtOnFriday;
-		vector<Course> coursesTaughtByProfessor = schedule->getCoursesTaughtBy(iterator->second);
-		pi.setNumCourses(coursesTaughtByProfessor.size());
-		set <Weekdays> daysOnCampusSet;
-		for (unsigned int i = 0; i < coursesTaughtByProfessor.size(); i++){
+Schedule* GeneticScheduleGenerator::getSchedule()
+{
+    // Declare variables
+    Course c1, c2;
+    Room room1, room2;
+    Weekdays day1, day2;
+    TimeBlock time1, time2;
+    map<string, ProfInfo*>::iterator it;
 
+    // DEBUG
+    cout << "\nCalculating current score...";
+    // Calculate the score for the current schedule
+    calculateScore(_schedule, *_info);
+    // Swap random courses until the time runs out
+    srand(time(NULL));
+    vector<Room> rooms = _schedule->getRooms();
+    // DEBUG
+    cout << "\nOptimizing";
+    while (time(NULL) < getTimeout())
+    {
+        cout << ".";
+        room1 = rooms[rand() % rooms.size()];
+        room2 = rooms[rand() % rooms.size()];
+        day1  = static_cast<Weekdays> (rand() % END_OF_WEEK);
+        day2  = static_cast<Weekdays> (rand() % END_OF_WEEK);
+        time1 = static_cast<TimeBlock>(rand() % TIMEBLOCK_SIZE);
+        time2 = static_cast<TimeBlock>(rand() % TIMEBLOCK_SIZE);
 
-			vector<Weekdays> daysForCourse = schedule->getWeekdaysFor(coursesTaughtByProfessor.at(i));
+        // Get courses to test
+        c1 = _schedule->getCourse(room1, day1, time1);
+        c1 = _schedule->getCourse(room1, day1, time1);
+        // Don't swap the same courses (duh)
+        if (c1 == c2)
+            continue;
+        // Don't swap courses with the same Prof
+        if (c1.getProfId() == c2.getProfId())
+            continue;
+        // Don't swap courses if the rooms can't hold them
+        if (room1.getCapacity() < c2.getEnrolled())
+            continue;
+        if (room2.getCapacity() < c1.getEnrolled())
+            continue;
 
-			for (unsigned int j = 0; j < daysForCourse.size(); j++){
-				daysOnCampusSet.insert(daysForCourse.at(j));
-				switch (daysForCourse.at(j)){
-				case MON:
-					taughtOnMonday.push_back(coursesTaughtByProfessor.at(i));
-					break;
-				case TUES:
-					taughtOnTuesday.push_back(coursesTaughtByProfessor.at(i));
-					break;
-				case WED:
-					taughtOnWednesday.push_back(coursesTaughtByProfessor.at(i));
-					break;
-				case THURS:
-					taughtOnThursday.push_back(coursesTaughtByProfessor.at(i));
-					break;
-				case FRI:
-					taughtOnFriday.push_back(coursesTaughtByProfessor.at(i));
-					break;
-				}
-			}
-			pi.setDaysOnCampus(daysOnCampusSet.size());
+        // Generate a mutation
+        _mutation = new Schedule(*_schedule);
+        _mutation->swapCourses(room1, day1, time1, room2, day2, time2);
 
-		}
-		int min, max, total = 0;
-		if (taughtOnMonday.size() > 0){
-			min = max = schedule->getTimeFor(taughtOnMonday.at(0));
-			for (unsigned j = 1; j < taughtOnMonday.size(); j++){
-				if (schedule->getTimeFor(taughtOnMonday.at(j)) < min){
-					min = schedule->getTimeFor(taughtOnMonday.at(j));
-				}
-				if (schedule->getTimeFor(taughtOnMonday.at(j)) > max){
-					max = schedule->getTimeFor(taughtOnMonday.at(j));
-				}
-			}
-			total += max - min + 1;
-		}
+        // Duplicate the ProfInfo map
+        _mnfo = new map<string, ProfInfo*>();
+        for(it = _info->begin(); it != _info->end(); it++)
+        {
+            // Copy constructor
+            (*_mnfo)[it->first] = new ProfInfo(*it->second);
+        }
+        // Calculate the score with the mutation and the duplicate map
+        calculateScore(_mutation, *_mnfo);
 
-		if (taughtOnTuesday.size() > 0){
-			min = max = schedule->getTimeFor(taughtOnTuesday.at(0));
-			for (unsigned j = 1; j < taughtOnTuesday.size(); j++){
-				if (schedule->getTimeFor(taughtOnTuesday.at(j)) < min){
-					min = schedule->getTimeFor(taughtOnTuesday.at(j));
-				}
-				if (schedule->getTimeFor(taughtOnTuesday.at(j)) > max){
-					max = schedule->getTimeFor(taughtOnTuesday.at(j));
-				}
-			}
-			total += max - min + 1;
-		}
+        // Keep the "most fit"
+        if (_mutation->getScore() < _schedule->getScore())
+        {
+            // Swap Schedules
+            Schedule* temp = _mutation;
+            _mutation = _schedule;
+            _schedule = temp;
+            // Swap ProfInfo maps
+            map<string, ProfInfo*>* tmpMap = _mnfo;
+            _mnfo = _info;
+            _info = tmpMap;
+        }
 
-		if (taughtOnWednesday.size() > 0){
-			min = max = schedule->getTimeFor(taughtOnWednesday.at(0));
-			for (unsigned j = 1; j < taughtOnWednesday.size(); j++){
-				if (schedule->getTimeFor(taughtOnWednesday.at(j)) < min){
-					min = schedule->getTimeFor(taughtOnWednesday.at(j));
-				}
-				if (schedule->getTimeFor(taughtOnWednesday.at(j)) > max){
-					max = schedule->getTimeFor(taughtOnWednesday.at(j));
-				}
-			}
-			total += max - min + 1;
-		}
-
-		if (taughtOnThursday.size() > 0){
-			min = max = schedule->getTimeFor(taughtOnThursday.at(0));
-			for (unsigned j = 1; j < taughtOnThursday.size(); j++){
-				if (schedule->getTimeFor(taughtOnThursday.at(j)) < min){
-					min = schedule->getTimeFor(taughtOnThursday.at(j));
-				}
-				if (schedule->getTimeFor(taughtOnThursday.at(j)) > max){
-					max = schedule->getTimeFor(taughtOnThursday.at(j));
-				}
-			}
-			total += max - min + 1;
-		}
-
-		if (taughtOnFriday.size() > 0){
-			min = max = schedule->getTimeFor(taughtOnFriday.at(0));
-			for (unsigned j = 1; j < taughtOnFriday.size(); j++){
-				if (schedule->getTimeFor(taughtOnFriday.at(j)) < min){
-					min = schedule->getTimeFor(taughtOnFriday.at(j));
-				}
-				if (schedule->getTimeFor(taughtOnFriday.at(j)) > max){
-					max = schedule->getTimeFor(taughtOnFriday.at(j));
-				}
-			}
-			total += max - min + 1;
-		}
-		pi.setTotalTime(total);
-		double profScore = _sc(pi);
-		pi.setScore(profScore);
-		score += profScore;
-		profInfoMap.insert(make_pair(iterator->first, pi));
-	}
-	return score;
+        // The "least fit" does not survive
+        delete _mutation;
+        for(it = _info->begin(); it != _info->end(); it++)
+            delete it->second;
+    }
+    return _schedule;
 }
 
-Schedule* GeneticScheduleGenerator::getSchedule(){
-	Schedule* bestSchedule = new Schedule(*_schedule);
-	//Schedule *_changedSchedule = &_changedSc;
-	map<string, Prof> professors = bestSchedule->getProfs();
-	
-	bestSchedule->setScore(calculateScore(professors, bestSchedule));
-	/*typedef map < Room, vector < vector < Course > > >::iterator itRooms;
-	for (it iterator = professors.begin(); iterator != professors.end(); iterator++){
-		ProfInfo pi(iterator->first);
-		for (itRooms itr = bestSchedule->getSchedule().begin(); itr != bestSchedule->getSchedule().end(); itr++){
-			for (int i = 0; i < itr->second.size(); i++){
+void GeneticScheduleGenerator::calculateScore(Schedule* s,
+        map<string, ProfInfo*>& info)
+{
+    double score = 0;
+    // Create a map of professor ID's to first time on campus
+    map<string, TimeBlock> firstTime;
+    // Create a map of professor ID's to the latest weekday
+    map<string, Weekdays> lastDay;
+    // Load them up
 
-			}
-		}
-	}*/
-	srand(time(NULL));
-	vector<Room> rooms = bestSchedule->getRooms();
-	int numberOfRooms = rooms.size();
-	Room room1, room2;
-	Weekdays day1, day2;
-	TimeBlock time1, time2;
-	
-	long endTime = time(0) + getTimeout();
-	do{
-		Schedule* _changedSchedule = new Schedule(*bestSchedule);
+    // DEBUG
+    cout << "\n\tCreating maps...";
+    for (map<string, Prof>::iterator it = s->getProfs().begin();
+            it != s->getProfs().end(); it++)
+    {
+        firstTime[it->first] = TIMEBLOCK_SIZE;
+        lastDay[it->first] = WEEKDAYS_SIZE;
+    }
 
-		room1 = rooms.at(rand() % numberOfRooms);
-		room2 = rooms.at(rand() % numberOfRooms);
-		day1 = (Weekdays)(rand() % WED);
-		day2 = (Weekdays)(rand() % WED);
-		time1 = (TimeBlock)(rand() % TIMEBLOCK_SIZE);
-		time2 = (TimeBlock)(rand() % TIMEBLOCK_SIZE);
-		if (_changedSchedule->getCourse(room1, day1, time1).getEnrolled() > room2.getCapacity() ||
-			_changedSchedule->getCourse(room2, day2, time2).getEnrolled() > room1.getCapacity() ||
-			_changedSchedule->getCourse(room2, day2, time2) == _changedSchedule->getCourse(room1, day1, time1))
-		{
-			continue;
-		}
-		else
-		{
-			
-			_changedSchedule->swapCourses(room1, day1, time1, room2, day2, time2);
-
-			Course course1 = _changedSchedule->getCourse(room1, day1, time1);
-			Course course2 = _changedSchedule->getCourse(room2, day2, time2);
-			vector<Course> classesTaughtWithCourse1 = _changedSchedule->getCoursesAt(day1, time1);
-			vector<Course> classesTaughtWithCourse2 = _changedSchedule->getCoursesAt(day2, time2);
-
-			set<string> conflictsCourse1 = course1.getConflicts();
-			set<string> conflictsCourse2 = course2.getConflicts();
-			bool isConflicting = false;
-			for (int i = 0; i < classesTaughtWithCourse1.size(); i++){
-				if (conflictsCourse1.find(classesTaughtWithCourse1.at(i).getId()) != conflictsCourse1.end()){
-					isConflicting = true;
-					break;
-				}
-			}
-			if (!isConflicting){
-				for (int i = 0; i < classesTaughtWithCourse2.size(); i++){
-					if (conflictsCourse2.find(classesTaughtWithCourse2.at(i).getId()) != conflictsCourse2.end()){
-						isConflicting = true;
-						break;
-					}
-				}
-			}
-			if (isConflicting){
-				delete _changedSchedule;
-			} 
-			else{
-				string prof1Id = course1.getProfId();
-				string prof2Id = course2.getProfId();
-				if (prof2Id.empty()){
-					prof2Id = prof1Id;
-				}
-				else if (prof1Id.empty()){
-					prof1Id = prof2Id;
-				}
-				double oldScoreProf1 = profInfoMap.at(prof1Id).getScore();
-				double oldScoreProf2 = (prof1Id == prof2Id ? 0 : profInfoMap.at(prof2Id).getScore());
-				profInfoMap.erase(prof1Id);
-				profInfoMap.erase(prof2Id);
-				Prof prof1 = professors.at(prof1Id);
-				Prof prof2 = professors.at(prof2Id);
-
-
-				//following three lines of code calculate the score based on the professors of swaped classes
-				double newProf1Score = calculateScore(prof1, _changedSchedule, oldScoreProf1);
-				double newProf2Score = (prof1Id == prof2Id ? 0 : calculateScore(prof2, _changedSchedule, oldScoreProf2));
-				double newScore = bestSchedule->getScore() - oldScoreProf1 - oldScoreProf2 + newProf1Score + newProf2Score;
-				
-				//following line of code calculates the score based on the whole schedule
-				//double newScore = calculateScore(professors, _changedSchedule);
-
-				if (bestSchedule->getScore() > newScore){
-					delete bestSchedule;
-					bestSchedule = _changedSchedule;
-					bestSchedule->setScore(newScore);
-				}
-				else{
-					delete _changedSchedule;
-				}
-			}
-		}
-	} while (time(0) < endTime);
-	
-	return bestSchedule;
+    // Iterate over the entire schedule
+    vector<Room> rooms = s->getRooms();
+    for(unsigned r = 0; r < rooms.size(); r++)
+    {
+        // DEBUG
+        cout << "\n\tIterating over room...";
+        for(int d = MON; d < WEEKDAYS_SIZE; d++)
+        {
+            // DEBUG
+            cout << "\n\t\tIterating over day...";
+            int todaysTime = 0;
+            for(int t = START_08_00; t < TIMEBLOCK_SIZE; t++)
+            {
+                // DEBUG
+                cout << "\n\t\tIterating over time...";
+                Weekdays wd = static_cast<Weekdays>(d);
+                TimeBlock tb = static_cast<TimeBlock>(t);
+                string pid = s->getCourse(rooms[r], wd, tb).getProfId();
+                if(pid == "")
+                    continue; // No course scheduled
+                ProfInfo* pi = info[pid];
+                if(lastDay[pid] != wd)
+                {
+                    // Another day
+                    lastDay[pid] = wd;
+                    firstTime[pid] = tb;
+                    pi->setDaysOnCampus(pi->getDaysOnCampus() + 1);
+                    pi->setTotalTime(pi->getTotalTime() + todaysTime);
+                }
+                if(firstTime[pid] > tb)
+                    firstTime[pid] = tb;
+                todaysTime = tb - firstTime[pid] + 1;
+                // Overwrite the score with the new information
+                pi->setScore(_sc(*pi));
+            }
+        }
+    }
+    // Calculate the total score for the Schedule
+    map<string, ProfInfo*>::iterator itInfo;
+    for (itInfo = info.begin(); itInfo != info.end(); itInfo++)
+        score += itInfo->second->getScore();
+    s->setScore(score);
 }
