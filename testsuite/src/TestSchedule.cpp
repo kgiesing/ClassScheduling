@@ -46,12 +46,12 @@ void TestSchedule::testPass(void)
     ObjectPrinter::print(instance->getRoomFor(c));
     cout << "\tgetRoomFor(c2): ";
     ObjectPrinter::print(instance->getRoomFor(c));
-    cout << "\tgetScore(): " << instance->getScore();
+    cout << "\n\tgetScore(): " << instance->getScore();
     cout << "\n\tgetTimeFor(c): ";
     ObjectPrinter::print(instance->getTimeFor(c));
-    cout << "\n\ntgetTimeFor(c2): ";
+    cout << "\n\tgetTimeFor(c2): ";
     ObjectPrinter::print(instance->getTimeFor(c2));
-    cout << "\tgetWeekdaysFor(c): " << endl << "\t";
+    cout << "\n\tgetWeekdaysFor(c): " << endl << "\t";
     VectorPrinter::print(instance->getWeekdaysFor(c), "\t");
     cout << "\tgetWeekdaysFor(c2): " << endl << "\t";
     VectorPrinter::print(instance->getWeekdaysFor(c2), "\t");
@@ -89,7 +89,7 @@ void TestSchedule::testPass(void)
     ObjectPrinter::print(instance->getRoomFor(c));
     cout << "\tgetRoomFor(c2): ";
     ObjectPrinter::print(instance->getRoomFor(c));
-    cout << "\tgetScore(): " << instance->getScore();
+    cout << "\n\tgetScore(): " << instance->getScore();
     cout << "\n\tgetTimeFor(c): ";
     ObjectPrinter::print(instance->getTimeFor(c));
     cout << "\n\tgetTimeFor(c2): ";
@@ -150,22 +150,26 @@ void TestSchedule::testFail(void)
     instance = new Schedule(rooms, profs, courses);
     cout << "Successfully created Schedule object with data" << endl;
 
-    // Choose a course as a test parameter
+    // Choose test parameters
     Course c  = courses[10];
-    // Set course to invalid prof
     c.setProfId("INVALID");
     cout << "Course object passed as parameter:" << endl
          << "\tc: ";
     ObjectPrinter::print(c, "\t    ");
+    Room r = rooms[5];
+    r.setId("INVALID");
+    cout << "Room object passed as parameter:" << endl
+         << "\tr: ";
+    ObjectPrinter::print(r, "\t    ");
 
     // Test accessors
     cout << "Testing accessors with invalid values:" << endl;
-    cout << "\tgetCourse(rooms[0], WEEKDAYS_SIZE, START_08_00): " << endl << "\t";
+    cout << "\tgetCourse(" << rooms[0].getId() << ", WEEKDAYS_SIZE, START_08_00): " << endl << "\t";
     ObjectPrinter::print(instance->getCourse(rooms[0], WEEKDAYS_SIZE, START_08_00), "\t");
-    cout << "\tgetCourse(rooms[0], TUES, TIMEBLOCK_SIZE): " << endl << "\t";
+    cout << "\tgetCourse(" << rooms[0].getId() << ", TUES, TIMEBLOCK_SIZE): " << endl << "\t";
     ObjectPrinter::print(instance->getCourse(rooms[0], TUES, TIMEBLOCK_SIZE), "\t");
-    cout << "\tgetCourse(\"INVALID\", MON, START_08_00): " << endl << "\t";
-    ObjectPrinter::print(instance->ggetCourse("INVALID", MON, START_08_00), "\t");
+    cout << "\tgetCourse(" << r.getId() << ", MON, START_08_00): " << endl << "\t";
+    ObjectPrinter::print(instance->getCourse(r.getId(), MON, START_08_00), "\t");
     cout << "\tgetCoursesAt(MON, TIMEBLOCK_SIZE): " << endl << "\t";
     VectorPrinter::print(instance->getCoursesAt(MON, TIMEBLOCK_SIZE), "\t");
     cout << "\tgetCoursesAt(WEEKDAYS_SIZE, START_14_00): " << endl << "\t";
@@ -187,7 +191,7 @@ void TestSchedule::testFail(void)
          << instance->setCourse(c, rooms[0], WEEKDAYS_SIZE, START_08_00, 2)
          << endl;
     cout << "\tsetCourse(c, rooms[1], TUES, TIMEBLOCK_SIZE, 2): "
-         << instance->setCourse(c2, rooms[1], TUES, TIMEBLOCK_SIZE, 2) << endl;
+         << instance->setCourse(c, rooms[1], TUES, TIMEBLOCK_SIZE, 2) << endl;
     cout << "\tswapCourses(rooms[0], WEEKDAYS_SIZE, START_08_00, rooms[1], TUES,"
          << endl << "\t            TIMEBLOCK_SIZE)..." << endl;
     instance->swapCourses(rooms[0], WEEKDAYS_SIZE, START_08_00, rooms[1], TUES,
@@ -195,12 +199,12 @@ void TestSchedule::testFail(void)
 
     // Output values after mutating
     cout << "Object after mutating:" << endl;
-    cout << "\tgetCourse(rooms[0], WEEKDAYS_SIZE, START_08_00): " << endl << "\t";
+    cout << "\tgetCourse(" << rooms[0].getId() << ", WEEKDAYS_SIZE, START_08_00): " << endl << "\t";
     ObjectPrinter::print(instance->getCourse(rooms[0], WEEKDAYS_SIZE, START_08_00), "\t");
-    cout << "\tgetCourse(rooms[0], TUES, TIMEBLOCK_SIZE): " << endl << "\t";
+    cout << "\tgetCourse(" << rooms[0].getId() << ", TUES, TIMEBLOCK_SIZE): " << endl << "\t";
     ObjectPrinter::print(instance->getCourse(rooms[0], TUES, TIMEBLOCK_SIZE), "\t");
-    cout << "\tgetCourse(\"INVALID\", MON, START_08_00): " << endl << "\t";
-    ObjectPrinter::print(instance->ggetCourse("INVALID", MON, START_08_00), "\t");
+    cout << "\tgetCourse(" << r.getId() << ", MON, START_08_00): " << endl << "\t";
+    ObjectPrinter::print(instance->getCourse(r.getId(), MON, START_08_00), "\t");
     cout << "\tgetCoursesAt(MON, TIMEBLOCK_SIZE): " << endl << "\t";
     VectorPrinter::print(instance->getCoursesAt(MON, TIMEBLOCK_SIZE), "\t");
     cout << "\tgetCoursesAt(WEEKDAYS_SIZE, START_14_00): " << endl << "\t";
