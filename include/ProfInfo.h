@@ -36,7 +36,7 @@ public:
      * Returns the professor about which we are holding information.
      * @return Professor about which we are holding information.
      */
-    const Prof& getProf() const { return _prof; }
+    const Prof getProf() const { return _prof; }
     /**
      * @brief Returns the professor's score.
      * The score should be calculated using one of the subclasses of the
@@ -72,8 +72,8 @@ public:
      */
     void setTotalTime(unsigned timeBlocks) {_timeBlocks = timeBlocks; }
 private:
-    /** Read-only reference to the professor object */
-    const Prof& _prof;
+    /** Read-only copy of the professor object */
+    const Prof _prof;
     /** Total number of courses taught */
     unsigned _courses;
     /** TOtal number of days spent on campus */
