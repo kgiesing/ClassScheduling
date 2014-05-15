@@ -73,7 +73,7 @@ Schedule* GeneticScheduleGenerator::getSchedule()
             _schedule = temp;
 
             // DEBUG
-            cout << "v";
+            cout << "a";
         }
         else
             cout << ".";
