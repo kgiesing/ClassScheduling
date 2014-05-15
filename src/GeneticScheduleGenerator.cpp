@@ -18,20 +18,17 @@ GeneticScheduleGenerator::GeneticScheduleGenerator(ScoreCalculator& sc,
 Schedule* GeneticScheduleGenerator::getSchedule()
 {
     // Declare variables
-    bool ok;
     Course c1, c2;
     Room room1, room2;
     Weekdays day1, day2;
     TimeBlock time1, time2;
-    set<string> conflicts1, conflicts2;
-    vector<Course> others1, others2;
 
     // DEBUG
     cout << "\nCalculating current score...";
     // Calculate the score for the current schedule
     calculateScore(_schedule);
     // DEBUG
-    cout << "\nCurrent score: " _schedule->getScore();
+    cout << "\nCurrent score: " << _schedule->getScore();
 
     cout << "\nEvolving ";
     // Swap random courses until the time runs out
@@ -168,8 +165,8 @@ bool GeneticScheduleGenerator::obeysConstraints(Room room1,
         TimeBlock time2)
 {
     // Get courses to test
-    c1 = _schedule->getCourse(room1, day1, time1);
-    c2 = _schedule->getCourse(room2, day2, time2);
+    Course c1 = _schedule->getCourse(room1, day1, time1);
+    Course c2 = _schedule->getCourse(room2, day2, time2);
     // Don't swap the same courses (duh)
     if(c1 == c2)
         return false;
@@ -182,21 +179,21 @@ bool GeneticScheduleGenerator::obeysConstraints(Room room1,
     if(room2.getCapacity() < c1.getEnrolled())
         return false;
     // Make sure courses don't conflict with each other
-    conflicts1 = c1.getConflicts();
-    conflicts2 = c2.getConflicts();
+    set<string> conflicts1 = c1.getConflicts();
+    set<string> conflicts2 = c2.getConflicts();
     if (conflicts1.find(c2.getId()) != conflicts1.end())
         return false;
     if (conflicts2.find(c1.getId()) != conflicts2.end())
         return false;
     // Make sure other scheduled courses don't conflict
-    others1 = _schedule->getCoursesAt(day1, time1);
-    others2 = _schedule->getCoursesAt(day2, time2);
-    for (int i = 0; i < others1.size(); i++)
+    vector<Course> others1 = _schedule->getCoursesAt(day1, time1);
+    vector<Course> others2 = _schedule->getCoursesAt(day2, time2);
+    for (unsigned i = 0; i < others1.size(); i++)
     {
         if (conflicts2.find(others1[i].getId()) != conflicts2.end())
             return false;
     }
-    for (int i = 0; i < others2.size(); i++)
+    for (unsigned i = 0; i < others2.size(); i++)
     {
         if (conflicts1.find(others2[i].getId()) != conflicts1.end())
             return false;
