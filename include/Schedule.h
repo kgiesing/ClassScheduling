@@ -19,7 +19,7 @@ public:
 	Schedule(std::vector < Room >, std::vector < Prof >, std::vector < Course > );
 	Schedule(const Schedule& schedule);
 	std::map < Room, std::vector < std::vector < Course > > > getSchedule();
-	bool setCourse(const Course&, const Room&, Weekdays, TimeBlock, int);
+	bool setCourse(const Course&, const Room&, Weekdays, TimeBlock);
 	Course getCourse(const Room&, Weekdays, TimeBlock);
 	std::vector < Course > getCoursesAt(Weekdays, TimeBlock);
 	std::vector < Weekdays > getWeekdaysFor(const Course&);

@@ -28,13 +28,13 @@ Schedule::Schedule(vector < Room > rooms, vector < Prof > prof, vector < Course 
 	}
 }
 
-bool Schedule::setCourse(const Course& course, const Room& room, Weekdays firstMeeting, TimeBlock timeBlock, int numberOfMeetings){
+bool Schedule::setCourse(const Course& course, const Room& room, Weekdays firstMeeting, TimeBlock timeBlock){
 	if (course.getEnrolled() > room.getCapacity()){
 		return false;
 	}
 	_schedule.at(room).at(firstMeeting).at(timeBlock) = course;
 
-	switch (numberOfMeetings){
+	switch (course.getTimeBlocks()){
 	case 2:
 		_schedule.at(room).at((TimeBlock)(firstMeeting + 2)).at(timeBlock) = course;
 		break;
@@ -120,8 +120,8 @@ void Schedule::swapCourses(Room room1, Weekdays weekdays1, TimeBlock timeBlock1,
 	Course c1, c2;
 	c1 = getCourse(room1, weekdays1, timeBlock1);
 	c2 = getCourse(room2, weekdays2, timeBlock2);
-	setCourse(c2, room1, weekdays1, timeBlock1, 2);
-	setCourse(c1, room2, weekdays2, timeBlock2, 2);
+	setCourse(c2, room1, weekdays1, timeBlock1);
+	setCourse(c1, room2, weekdays2, timeBlock2);
 }
 
 Prof Schedule::getProf(string id){
