@@ -100,11 +100,16 @@ Schedule DataCreator::createSchedule(void)
         bool ok = false;
         while (!ok)
         {
-            int orig = idxRooms++;
-            while (orig != idxRooms && rooms[idxRooms].getCapacity() < courses[c].getEnrolled())
-                idxRooms = (idxRooms + 1) % rooms.size();
-            if (orig == idxRooms) // Capacity is greater than any room
-                courses[c].setEnrolled(1); // Set to minimum enrollment
+            if (rooms[idxRooms].getCapacity() < courses[c].getEnrolled())
+            {
+                int orig = idxRooms++;
+                while(rooms[idxRooms].getCapacity() < courses[c].getEnrolled()
+                        && orig != idxRooms)
+                    idxRooms = (idxRooms + 1) % rooms.size();
+                if(orig == idxRooms)  // All rooms too small; increase capacity
+                    rooms[idxRooms].setCapacity(courses[c].getEnrolled() + 1);
+
+            }
             else
             {
                 Weekdays wd = static_cast<Weekdays>(day);
