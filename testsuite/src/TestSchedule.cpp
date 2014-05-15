@@ -8,10 +8,11 @@
 void TestSchedule::testPass(void)
 {
     Schedule* instance;
+    Schedule* duplicate;
     // Create valid sample data for initialization
-    vector<Prof> profs = DataCreator::createVector(DataCreator::createProf());
-    vector<Room> rooms = DataCreator::createVector(DataCreator::createRoom());
-    vector<Course> courses = DataCreator::createVector(DataCreator::createCourse());
+    vector<Prof> profs = DataCreator::createVector(DataCreator::createProf(), 100);
+    vector<Room> rooms = DataCreator::createVector(DataCreator::createRoom(), 20);
+    vector<Course> courses = DataCreator::createVector(DataCreator::createCourse(), 300);
     DataCreator::loadProfs(courses, profs);
 
     // Instantiate new Schedule
@@ -65,9 +66,9 @@ void TestSchedule::testPass(void)
     // Test mutators
     cout << "Testing mutators..." << endl;
     cout << "\tsetCourse(c, rooms[0], MON, START_08_00, 2): "
-         << instance->setCourse(c, rooms[0], MON, START_08_00, 2) << endl;
+         << instance->setCourse(c, rooms[0], MON, START_08_00) << endl;
     cout << "\tsetCourse(c2, rooms[1], TUES, START_14_00, 2): "
-         << instance->setCourse(c2, rooms[1], TUES, START_14_00, 2) << endl;
+         << instance->setCourse(c2, rooms[1], TUES, START_14_00) << endl;
     cout << "\tsetScore(100.0)..." << endl;
     instance->setScore(100.0);
     cout << "\tswapCourses(rooms[0], MON, START_08_00, rooms[1], TUES,"
@@ -115,11 +116,16 @@ void TestSchedule::testPass(void)
         bool ok = false;
         while (!ok)
         {
-            int orig = idxRooms++;
-            while (orig != idxRooms && rooms[idxRooms].getCapacity() < courses[c].getEnrolled())
-                idxRooms = (idxRooms + 1) % rooms.size();
-            if (orig == idxRooms) // Capacity is greater than any room
-                courses[c].setEnrolled(1); // Set to minimum enrollment
+            if (rooms[idxRooms].getCapacity() < courses[c].getEnrolled())
+            {
+                int orig = idxRooms++;
+                while(rooms[idxRooms].getCapacity() < courses[c].getEnrolled()
+                        && orig != idxRooms)
+                    idxRooms = (idxRooms + 1) % rooms.size();
+                if(orig == idxRooms)  // All rooms too small; increase capacity
+                    rooms[idxRooms].setCapacity(courses[c].getEnrolled() + 1);
+
+            }
             else
             {
                 Weekdays wd = static_cast<Weekdays>(day);
@@ -128,17 +134,33 @@ void TestSchedule::testPass(void)
                      << ", " << rooms[idxRooms].getId()
                      << ", " << wd << ", " << tb
                      << ", " << courses[c].getTimeBlocks() << "): ";
-                ok = instance->setCourse(courses[c], rooms[idxRooms], wd, tb, courses[c].getTimeBlocks());
+                ok = instance->setCourse(courses[c], rooms[idxRooms], wd, tb);
                 cout << ok << endl;
                 time++;
                 if (time >= TIMEBLOCK_SIZE)
                 {
                     time = 0;
-                    day = (day + 1) % WEEKDAYS_SIZE;
+                    day++;
+                }
+                if (day >= WEEKDAYS_SIZE)
+                {
+                    time = 0;
+                    day = 0;
+                    idxRooms++;
                 }
             }
         }
     }
+    cout << "Successfully scheduled courses." << endl;
+
+    // Test copy constructor
+    cout << "Testing copy constructor..." << endl;
+    duplicate = new Schedule(*instance);
+    cout << "\tSuccessfully copied Schedule object" << endl
+         << "\tDeleting old Schedule..." << endl;
+    delete instance;
+    instance = duplicate;
+    cout << "Old Schedule deleted." << endl;
 
     // Done
     delete instance;
@@ -148,21 +170,21 @@ void TestSchedule::testFail(void)
 {
     Schedule* instance;
     // Create valid sample data for initialization
-    vector<Prof> profs = DataCreator::createVector(DataCreator::createProf());
-    vector<Room> rooms = DataCreator::createVector(DataCreator::createRoom());
-    vector<Course> courses = DataCreator::createVector(DataCreator::createCourse());
+    vector<Prof> profs = DataCreator::createVector(DataCreator::createProf(), 10);
+    vector<Room> rooms = DataCreator::createVector(DataCreator::createRoom(), 5);
+    vector<Course> courses = DataCreator::createVector(DataCreator::createCourse(), 100);
 
     // Instantiate new Schedule
     instance = new Schedule(rooms, profs, courses);
     cout << "Successfully created Schedule object with data" << endl;
 
     // Choose test parameters
-    Course c  = courses[10];
+    Course c  = courses[5];
     c.setProfId("INVALID");
     cout << "Course object passed as parameter:" << endl
          << "\tc: ";
     ObjectPrinter::print(c, "\t    ");
-    Room r = rooms[5];
+    Room r = rooms[1];
     r.setId("INVALID");
     cout << "Room object passed as parameter:" << endl
          << "\tr: ";
@@ -194,10 +216,10 @@ void TestSchedule::testFail(void)
     // Test mutators
     cout << "Testing mutators..." << endl;
     cout << "\tsetCourse(c, rooms[0], WEEKDAYS_SIZE, START_08_00, 2): "
-         << instance->setCourse(c, rooms[0], WEEKDAYS_SIZE, START_08_00, 2)
+         << instance->setCourse(c, rooms[0], WEEKDAYS_SIZE, START_08_00)
          << endl;
     cout << "\tsetCourse(c, rooms[1], TUES, TIMEBLOCK_SIZE, 2): "
-         << instance->setCourse(c, rooms[1], TUES, TIMEBLOCK_SIZE, 2) << endl;
+         << instance->setCourse(c, rooms[1], TUES, TIMEBLOCK_SIZE) << endl;
     cout << "\tswapCourses(rooms[0], WEEKDAYS_SIZE, START_08_00, rooms[1], TUES,"
          << endl << "\t            TIMEBLOCK_SIZE)..." << endl;
     instance->swapCourses(rooms[0], WEEKDAYS_SIZE, START_08_00, rooms[1], TUES,
@@ -228,6 +250,5 @@ void TestSchedule::testFail(void)
 
     // Done
     delete instance;
-
 }
 
