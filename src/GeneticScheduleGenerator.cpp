@@ -22,12 +22,12 @@ double GeneticScheduleGenerator::calculateScore(Prof prof, Schedule* schedule, d
 	vector<Course> coursesTaughtByProfessor = schedule->getCoursesTaughtBy(prof);
 	pi.setNumCourses(coursesTaughtByProfessor.size());
 	set <Weekdays> daysOnCampusSet;
-	for (unsigned int i = 0; i < coursesTaughtByProfessor.size(); i++){
+	for (unsigned i = 0; i < coursesTaughtByProfessor.size(); i++){
 
 
 		vector<Weekdays> daysForCourse = schedule->getWeekdaysFor(coursesTaughtByProfessor.at(i));
 
-		for (unsigned int j = 0; j < daysForCourse.size(); j++){
+		for (unsigned j = 0; j < daysForCourse.size(); j++){
 			daysOnCampusSet.insert(daysForCourse.at(j));
 			switch (daysForCourse.at(j)){
 			case MON:
@@ -295,14 +295,14 @@ Schedule* GeneticScheduleGenerator::getSchedule(){
 			set<string> conflictsCourse1 = course1.getConflicts();
 			set<string> conflictsCourse2 = course2.getConflicts();
 			bool isConflicting = false;
-			for (int i = 0; i < classesTaughtWithCourse1.size(); i++){
+			for (unsigned i = 0; i < classesTaughtWithCourse1.size(); i++){
 				if (conflictsCourse1.find(classesTaughtWithCourse1.at(i).getId()) != conflictsCourse1.end()){
 					isConflicting = true;
 					break;
 				}
 			}
 			if (!isConflicting){
-				for (int i = 0; i < classesTaughtWithCourse2.size(); i++){
+				for (unsigned i = 0; i < classesTaughtWithCourse2.size(); i++){
 					if (conflictsCourse2.find(classesTaughtWithCourse2.at(i).getId()) != conflictsCourse2.end()){
 						isConflicting = true;
 						break;
