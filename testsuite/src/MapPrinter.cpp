@@ -41,6 +41,18 @@ void MapPrinter::print(const map<string, ProfInfo>& m, string prefix,
     }
 }
 
+void MapPrinter::print(const map<string, ProfInfo*>& m, string prefix,
+                          ostream& out)
+{
+    map<string, ProfInfo*>::const_iterator it;
+    out << "map<string -> Prof>:" << endl;
+    for (it = m.begin(); it != m.end(); it++)
+    {
+        out << prefix << "  \"" << it->first << "\" -> ";
+        ObjectPrinter::print(*it->second, prefix, out);
+    }
+}
+
 void MapPrinter::print(const map<string, Room>& m, string prefix,
                           ostream& out)
 {
