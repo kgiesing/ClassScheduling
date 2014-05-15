@@ -284,66 +284,67 @@ Schedule* GeneticScheduleGenerator::getSchedule(){
 		}
 		else
 		{
-			
-			_changedSchedule->swapCourses(room1, day1, time1, room2, day2, time2);
 
-			Course course1 = _changedSchedule->getCourse(room1, day1, time1);
-			Course course2 = _changedSchedule->getCourse(room2, day2, time2);
-			vector<Course> classesTaughtWithCourse1 = _changedSchedule->getCoursesAt(day1, time1);
-			vector<Course> classesTaughtWithCourse2 = _changedSchedule->getCoursesAt(day2, time2);
+			if (_changedSchedule->swapCourses(room1, day1, time1, room2, day2, time2)){
 
-			set<string> conflictsCourse1 = course1.getConflicts();
-			set<string> conflictsCourse2 = course2.getConflicts();
-			bool isConflicting = false;
-			for (unsigned i = 0; i < classesTaughtWithCourse1.size(); i++){
-				if (conflictsCourse1.find(classesTaughtWithCourse1.at(i).getId()) != conflictsCourse1.end()){
-					isConflicting = true;
-					break;
-				}
-			}
-			if (!isConflicting){
-				for (unsigned i = 0; i < classesTaughtWithCourse2.size(); i++){
-					if (conflictsCourse2.find(classesTaughtWithCourse2.at(i).getId()) != conflictsCourse2.end()){
+				Course course1 = _changedSchedule->getCourse(room1, day1, time1);
+				Course course2 = _changedSchedule->getCourse(room2, day2, time2);
+				vector<Course> classesTaughtWithCourse1 = _changedSchedule->getCoursesAt(day1, time1);
+				vector<Course> classesTaughtWithCourse2 = _changedSchedule->getCoursesAt(day2, time2);
+
+				set<string> conflictsCourse1 = course1.getConflicts();
+				set<string> conflictsCourse2 = course2.getConflicts();
+				bool isConflicting = false;
+				for (unsigned i = 0; i < classesTaughtWithCourse1.size(); i++){
+					if (conflictsCourse1.find(classesTaughtWithCourse1.at(i).getId()) != conflictsCourse1.end()){
 						isConflicting = true;
 						break;
 					}
 				}
-			}
-			if (isConflicting){
-				delete _changedSchedule;
-			} 
-			else{
-				string prof1Id = course1.getProfId();
-				string prof2Id = course2.getProfId();
-				if (prof2Id.empty()){
-					prof2Id = prof1Id;
+				if (!isConflicting){
+					for (unsigned i = 0; i < classesTaughtWithCourse2.size(); i++){
+						if (conflictsCourse2.find(classesTaughtWithCourse2.at(i).getId()) != conflictsCourse2.end()){
+							isConflicting = true;
+							break;
+						}
+					}
 				}
-				else if (prof1Id.empty()){
-					prof1Id = prof2Id;
-				}
-				double oldScoreProf1 = profInfoMap.at(prof1Id).getScore();
-				double oldScoreProf2 = (prof1Id == prof2Id ? 0 : profInfoMap.at(prof2Id).getScore());
-				profInfoMap.erase(prof1Id);
-				profInfoMap.erase(prof2Id);
-				Prof prof1 = professors.at(prof1Id);
-				Prof prof2 = professors.at(prof2Id);
-
-
-				//following three lines of code calculate the score based on the professors of swaped classes
-				double newProf1Score = calculateScore(prof1, _changedSchedule, oldScoreProf1);
-				double newProf2Score = (prof1Id == prof2Id ? 0 : calculateScore(prof2, _changedSchedule, oldScoreProf2));
-				double newScore = bestSchedule->getScore() - oldScoreProf1 - oldScoreProf2 + newProf1Score + newProf2Score;
-				
-				//following line of code calculates the score based on the whole schedule
-				//double newScore = calculateScore(professors, _changedSchedule);
-
-				if (bestSchedule->getScore() > newScore){
-					delete bestSchedule;
-					bestSchedule = _changedSchedule;
-					bestSchedule->setScore(newScore);
+				if (isConflicting){
+					delete _changedSchedule;
 				}
 				else{
-					delete _changedSchedule;
+					string prof1Id = course1.getProfId();
+					string prof2Id = course2.getProfId();
+					if (prof2Id.empty()){
+						prof2Id = prof1Id;
+					}
+					else if (prof1Id.empty()){
+						prof1Id = prof2Id;
+					}
+					double oldScoreProf1 = profInfoMap.at(prof1Id).getScore();
+					double oldScoreProf2 = (prof1Id == prof2Id ? 0 : profInfoMap.at(prof2Id).getScore());
+					profInfoMap.erase(prof1Id);
+					profInfoMap.erase(prof2Id);
+					Prof prof1 = professors.at(prof1Id);
+					Prof prof2 = professors.at(prof2Id);
+
+
+					//following three lines of code calculate the score based on the professors of swaped classes
+					double newProf1Score = calculateScore(prof1, _changedSchedule, oldScoreProf1);
+					double newProf2Score = (prof1Id == prof2Id ? 0 : calculateScore(prof2, _changedSchedule, oldScoreProf2));
+					double newScore = bestSchedule->getScore() - oldScoreProf1 - oldScoreProf2 + newProf1Score + newProf2Score;
+
+					//following line of code calculates the score based on the whole schedule
+					//double newScore = calculateScore(professors, _changedSchedule);
+
+					if (bestSchedule->getScore() > newScore){
+						delete bestSchedule;
+						bestSchedule = _changedSchedule;
+						bestSchedule->setScore(newScore);
+					}
+					else{
+						delete _changedSchedule;
+					}
 				}
 			}
 		}

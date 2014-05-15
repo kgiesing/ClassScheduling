@@ -25,7 +25,7 @@ public:
 	std::vector < Weekdays > getWeekdaysFor(const Course&);
 	TimeBlock getTimeFor(const Course&);
 	Room getRoomFor(const Course&);
-	void swapCourses(Room, Weekdays, TimeBlock, Room, Weekdays, TimeBlock);
+	bool swapCourses(Room, Weekdays, TimeBlock, Room, Weekdays, TimeBlock);
 	void setScore (double score){ _score = score; }
 	double getScore() { return _score; }
 	Prof getProf(string);

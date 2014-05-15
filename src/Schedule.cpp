@@ -124,12 +124,19 @@ vector < Weekdays > Schedule::getWeekdaysFor(const Course& course){
 }
 
 // returns true if swap was successful, false otherwise
-void Schedule::swapCourses(Room room1, Weekdays weekdays1, TimeBlock timeBlock1, Room room2, Weekdays weekdays2, TimeBlock timeBlock2){
+bool Schedule::swapCourses(Room room1, Weekdays weekdays1, TimeBlock timeBlock1, Room room2, Weekdays weekdays2, TimeBlock timeBlock2){
 	Course c1, c2;
-	c1 = getCourse(room1, weekdays1, timeBlock1);
-	c2 = getCourse(room2, weekdays2, timeBlock2);
-	setCourse(c2, room1, weekdays1, timeBlock1);
-	setCourse(c1, room2, weekdays2, timeBlock2);
+	if (room1.getCapacity() < c2.getEnrolled() || room2.getCapacity() < c1.getEnrolled()){
+		return false;
+	}
+	else {
+		c1 = getCourse(room1, weekdays1, timeBlock1);
+		c2 = getCourse(room2, weekdays2, timeBlock2);
+		setCourse(c2, room1, weekdays1, timeBlock1);
+		setCourse(c1, room2, weekdays2, timeBlock2);
+		return true;
+	}
+
 }
 
 Prof Schedule::getProf(string id){
