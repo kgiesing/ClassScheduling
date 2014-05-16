@@ -26,3 +26,22 @@ doxygen/
 # KG ignore dynamically generate fail test files
 /testsuite/res/*_fail.txt
 
+*.opensdf
+*.sdf
+*.sln
+*.suo
+*.vcxproj
+*.filters
+*.user
+*.tlog
+*.manifest
+*.res
+*.ilk
+*.lastbuildstate
+*.ipch
+*.pdb
+*.obj
+*.cache
+*.rc
+*.idb
+*.log
