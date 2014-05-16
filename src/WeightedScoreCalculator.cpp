@@ -9,8 +9,11 @@ double WeightedScoreCalculator::operator() (ProfInfo& pi)
     if (0 == pi.getNumCourses())
         score = 0;
     else
-        score = pi.getTotalTime() * pow(3.0, pi.getDaysOnCampus())
-                / pi.getNumCourses();
+    {
+        // Necessary for MS compilers
+        double d = pi.getDaysOnCampus();
+        score = pi.getTotalTime() * pow(3.0, d) / pi.getNumCourses();
+    }
     pi.setScore(score);
     return score;
 }
