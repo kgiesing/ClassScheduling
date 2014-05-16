@@ -9,12 +9,13 @@
 template <typename T>
 class Writer {
 public:
+    /** Virtual destructor. */
+    virtual ~Writer(void) { }
     /**
      * Sets the writable contents of this object.
      * @param Contents to write.
      */
     virtual void setContents (T contents) = 0;
-
     /**
      * Writes the contents of this object.
      */

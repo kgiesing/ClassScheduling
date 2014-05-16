@@ -13,6 +13,8 @@ using std::string;
 template <typename T>
 class FileReader : public Reader<T> {
 public:
+    /** Virtual destructor. */
+    virtual ~FileReader(void) { }
     /**
      * Returns the file name.
      * @return string The file name.
@@ -37,6 +39,7 @@ public:
      */
     virtual void setDelimiter(char delim) { _delim = delim; }
 protected:
+    /** Protected constructor. */
     FileReader(string filename, char delim=',') : _filename(filename), _delim(delim) { }
 private:
     string _filename;

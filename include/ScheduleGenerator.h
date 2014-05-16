@@ -12,6 +12,8 @@ using std::vector;
  */
 class ScheduleGenerator {
 public:
+    /** Virtual destructor. */
+    virtual ~ScheduleGenerator(void) { }
     /**
      * Gets the Schedule object. Subclasses will use different algorithms to
      * generate an optimized schedule.

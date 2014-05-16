@@ -18,6 +18,8 @@ public:
      * @param Name of the component being tested.
      */
     TestRunner(string component) : _component(component) { }
+    /** Virtual destructor. */
+    virtual ~TestRunner(void) { }
     /** Returns the name of the component being tested. */
     virtual const string getComponent() const { return _component; }
     /**

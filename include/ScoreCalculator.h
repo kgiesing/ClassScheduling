@@ -10,7 +10,6 @@
  */
 class ScoreCalculator {
 public:
-
     /**
      * @brief Calculates the score for a professor.
      * The function operator will be passed a reference to a ProfInfo object.
@@ -22,6 +21,8 @@ public:
      *
      */
     virtual double operator()(ProfInfo&) = 0;
+    /** Virtual destructor. */
+    virtual ~ScoreCalculator(void) { }
 };
 
 #endif // SCORECALCULATOR_H
