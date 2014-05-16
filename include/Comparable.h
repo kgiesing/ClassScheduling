@@ -16,6 +16,8 @@ public:
     virtual bool operator<= (const T& rhs) const { return (*this == rhs) || (*this < rhs); }
     virtual bool operator> (const T& rhs) const { return this->compare(rhs) > 0; }
     virtual bool operator>= (const T& rhs) const { return (*this == rhs) || (*this > rhs); }
+    /** Virtual destructor. */
+    virtual ~Comparable(void) { }
 protected:
     /**
      * Compares this object to an object on the right hand side. Implementing

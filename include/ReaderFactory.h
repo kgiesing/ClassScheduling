@@ -19,6 +19,8 @@ using std::vector;
 class ReaderFactory
 {
 public:
+    /** Virtual destructor. */
+    virtual ~ReaderFactory(void) { }
     /**
      * Reads a vector of Course objects.
      * @param A string representing a path to a resource.
@@ -36,7 +38,7 @@ public:
     virtual vector<Room> getRooms(string) = 0;
 protected:
     /** Protected no-arg constructor. */
-    ReaderFactory() {}
+    ReaderFactory(void) { }
 };
 
 #endif // READERFACTORY_H
