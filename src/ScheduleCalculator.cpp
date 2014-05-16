@@ -44,6 +44,8 @@ double ScheduleCalculator::calculateScore(Schedule* s, ScoreCalculator& sc)
                 profId = s->getCourse(rooms[r], wd, tb).getProfId();
                 if(profId == "") // No course scheduled
                     continue;
+                if (info.find(profId) == info.end()) // Invalid ID!
+                    continue;
                 pi = info[profId];
                 if (lastDay[profId] != wd)
                 {
