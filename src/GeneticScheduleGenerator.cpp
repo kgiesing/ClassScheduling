@@ -246,6 +246,7 @@ double GeneticScheduleGenerator::calculateScore(map<string, Prof> professors, Sc
 
 Schedule* GeneticScheduleGenerator::getSchedule(){
 	Schedule* bestSchedule = new Schedule(*_schedule);
+	delete _schedule;
 	//Schedule *_changedSchedule = &_changedSc;
 	map<string, Prof> professors = bestSchedule->getProfs();
 	
