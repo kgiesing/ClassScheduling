@@ -13,6 +13,7 @@ class GeneticScheduleGenerator : public ScheduleGenerator
 {
 public:
     GeneticScheduleGenerator(ScoreCalculator&, Schedule*, long);
+    ~GeneticScheduleGenerator(void);
     Schedule * getSchedule(void);
 private:
     // Private member veriables

@@ -15,6 +15,13 @@ GeneticScheduleGenerator::GeneticScheduleGenerator(ScoreCalculator& sc,
         Schedule* schedule, long timeout)
     : ScheduleGenerator(timeout) , _sc(sc), _schedule(schedule) { }
 
+GeneticScheduleGenerator::~GeneticScheduleGenerator(void)
+{
+    // Delete the original schedule
+    // delete _schedule;
+}
+
+
 Schedule* GeneticScheduleGenerator::getSchedule()
 {
     // Declare variables
@@ -117,7 +124,7 @@ void GeneticScheduleGenerator::calculateScore(Schedule* s)
     // Iterate over the entire schedule
     for (unsigned r = 0; r < rooms.size(); r++)
     {
-        for int d = MON; d < END_OF_WEEK; d++)
+        for (int d = MON; d < END_OF_WEEK; d++)
         {
             for (int t = START_08_00; t < TIMEBLOCK_SIZE; t++)
             {
