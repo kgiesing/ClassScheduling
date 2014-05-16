@@ -18,6 +18,7 @@ GeneticScheduleGenerator::GeneticScheduleGenerator(ScoreCalculator& sc,
 Schedule* GeneticScheduleGenerator::getSchedule()
 {
     // Declare variables
+    Schedule* _fittest;
     Course c1, c2;
     Room room1, room2;
     Weekdays day1, day2;
@@ -32,6 +33,7 @@ Schedule* GeneticScheduleGenerator::getSchedule()
 
     cout << "\nEvolving ";
     // Swap random courses until the time runs out
+    _fittest = new Schedule(*_schedule);
     srand(time(NULL));
     vector<Room> rooms = _schedule->getRooms();
     while(time(NULL) < getTimeout())
@@ -50,24 +52,24 @@ Schedule* GeneticScheduleGenerator::getSchedule()
             continue;
         }
         // Get courses to test
-        c1 = _schedule->getCourse(room1, day1, time1);
-        c2 = _schedule->getCourse(room2, day2, time2);
+        c1 = _fittest->getCourse(room1, day1, time1);
+        c2 = _fittest->getCourse(room2, day2, time2);
 
         cout << "."; // To show the user we're still working...
         // Generate a mutation
-        _mutation = new Schedule(*_schedule);
+        _mutation = new Schedule(*_fittest);
         _mutation->swapCourses(room1, day1, time1, room2, day2, time2);
 
         // Calculate the score with the mutation and the duplicate map
         calculateScore(_mutation);
 
         // Keep the "most fit"
-        if(_mutation->getScore() < _schedule->getScore())
+        if(_mutation->getScore() < _fittest->getScore())
         {
             // Swap Schedules
             Schedule* temp = _mutation;
-            _mutation = _schedule;
-            _schedule = temp;
+            _mutation = _fittest;
+            _fittest = temp;
 
             // DEBUG
             cout << "a";
@@ -78,14 +80,16 @@ Schedule* GeneticScheduleGenerator::getSchedule()
         // The "least fit" does not survive
         delete _mutation;
     }
-    return _schedule;
+    // DEBUG
+    cout << endl;
+    return _fittest;
 }
 
 void GeneticScheduleGenerator::calculateScore(Schedule* s)
 {
     int addlTime = 0;
     double score = 0;
-    string pid;
+    string profId;
     ProfInfo* pi;
     TimeBlock tb;
     Weekdays wd;
@@ -98,7 +102,7 @@ void GeneticScheduleGenerator::calculateScore(Schedule* s)
     map<string, ProfInfo*>::iterator itInfo;
     vector<Room> rooms = s->getRooms();
 
-    for(it = profs.begin(); it != profs.end(); it++)
+    for (it = profs.begin(); it != profs.end(); it++)
     {
         firstTime.insert(make_pair(it->first, TIMEBLOCK_SIZE));
         lastTime.insert(make_pair(it->first, TIMEBLOCK_SIZE));
@@ -111,37 +115,37 @@ void GeneticScheduleGenerator::calculateScore(Schedule* s)
     }
 
     // Iterate over the entire schedule
-    for(unsigned r = 0; r < rooms.size(); r++)
+    for (unsigned r = 0; r < rooms.size(); r++)
     {
-        for(int d = MON; d < END_OF_WEEK; d++)
+        for int d = MON; d < END_OF_WEEK; d++)
         {
-            for(int t = START_08_00; t < TIMEBLOCK_SIZE; t++)
+            for (int t = START_08_00; t < TIMEBLOCK_SIZE; t++)
             {
                 wd  = static_cast<Weekdays>(d);
                 tb  = static_cast<TimeBlock>(t);
-                pid = s->getCourse(rooms[r], wd, tb).getProfId();
-                if(pid == "") // No course scheduled
+                profId = s->getCourse(rooms[r], wd, tb).getProfId();
+                if(profId == "") // No course scheduled
                     continue;
-                pi = info[pid];
-                if(lastDay[pid] != wd)
+                pi = info[profId];
+                if (lastDay[profId] != wd)
                 {
                     // Add a day
                     pi->setDaysOnCampus(pi->getDaysOnCampus() + 1);
-                    lastDay[pid] = wd;
+                    lastDay[profId] = wd;
                     // Reset times
-                    firstTime[pid] = TIMEBLOCK_SIZE;
-                    lastTime[pid]  = TIMEBLOCK_SIZE;
+                    firstTime[profId] = TIMEBLOCK_SIZE;
+                    lastTime[profId]  = TIMEBLOCK_SIZE;
                 }
-                if(firstTime[pid] > tb)
+                if (firstTime[profId] > tb)
                 {
                     addlTime = 1;
-                    firstTime[pid] = tb;
-                    lastTime[pid]  = tb;
+                    firstTime[profId] = tb;
+                    lastTime[profId]  = tb;
                 }
-                if(lastTime[pid] < tb)
+                if (lastTime[profId] < tb)
                 {
-                    addlTime = tb - lastTime[pid];
-                    lastTime[pid] = tb;
+                    addlTime = tb - lastTime[profId];
+                    lastTime[profId] = tb;
                 }
                 pi->setTotalTime(pi->getTotalTime() + addlTime);
                 // Overwrite the score with result from ScoreCalculator
