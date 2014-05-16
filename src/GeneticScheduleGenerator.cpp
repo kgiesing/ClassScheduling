@@ -247,19 +247,10 @@ double GeneticScheduleGenerator::calculateScore(map<string, Prof> professors, Sc
 Schedule* GeneticScheduleGenerator::getSchedule(){
 	Schedule* bestSchedule = new Schedule(*_schedule);
 	delete _schedule;
-	//Schedule *_changedSchedule = &_changedSc;
 	map<string, Prof> professors = bestSchedule->getProfs();
 	
 	bestSchedule->setScore(calculateScore(professors, bestSchedule));
-	/*typedef map < Room, vector < vector < Course > > >::iterator itRooms;
-	for (it iterator = professors.begin(); iterator != professors.end(); iterator++){
-		ProfInfo pi(iterator->first);
-		for (itRooms itr = bestSchedule->getSchedule().begin(); itr != bestSchedule->getSchedule().end(); itr++){
-			for (int i = 0; i < itr->second.size(); i++){
-
-			}
-		}
-	}*/
+	
 	srand(time(NULL));
 	vector<Room> rooms = bestSchedule->getRooms();
 	int numberOfRooms = rooms.size();
@@ -337,7 +328,6 @@ Schedule* GeneticScheduleGenerator::getSchedule(){
 
 					//following line of code calculates the score based on the whole schedule
 					//double newScore = calculateScore(professors, _changedSchedule);
-
 					if (bestSchedule->getScore() > newScore){
 						delete bestSchedule;
 						bestSchedule = _changedSchedule;
@@ -350,6 +340,5 @@ Schedule* GeneticScheduleGenerator::getSchedule(){
 			}
 		}
 	} while (time(0) < endTime);
-	
 	return bestSchedule;
 }
