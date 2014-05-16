@@ -2,6 +2,7 @@
 #include "../include/DataCreator.h"
 #include "../include/ObjectPrinter.h"
 #include "../include/TestProfInfo.h"
+#include "../include/TestScheduleCalculator.h"
 #include "../include/TestScoreCalculators.h"
 #include "../../include/GeneticScheduleGenerator.h"
 #include "../../include/LinearScoreCalculator.h"
@@ -18,6 +19,11 @@ void TestGeneticScheduleGenerator::preTest(bool isPass)
 
     // Test the ScoreCalculator classes here
     instance = new TestScoreCalculators();
+    isPass ? instance->runPassTests() : instance->runFailTests();
+    delete instance;
+
+    // Test the ScheduleCalculator class here
+    instance = new TestScheduleCalculator();
     isPass ? instance->runPassTests() : instance->runFailTests();
     delete instance;
 }
