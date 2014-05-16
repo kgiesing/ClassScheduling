@@ -272,6 +272,7 @@ Schedule* GeneticScheduleGenerator::getSchedule(){
 			_changedSchedule->getCourse(room2, day2, time2).getEnrolled() > room1.getCapacity() ||
 			_changedSchedule->getCourse(room2, day2, time2) == _changedSchedule->getCourse(room1, day1, time1))
 		{
+			delete _changedSchedule;
 			continue;
 		}
 		else
