@@ -4,6 +4,7 @@
 #include "../include/ObjectPrinter.h"
 #include "../include/VectorPrinter.h"
 #include "../../include/Schedule.h"
+#include <ctime>
 
 void TestSchedule::testPass(void)
 {
@@ -255,3 +256,112 @@ void TestSchedule::testFail(void)
     delete instance;
 }
 
+void TestSchedule::testStress(unsigned seconds)
+{
+    // Declare variables
+    Schedule instance;
+    time_t future;
+    unsigned long iterations;
+    Course course;
+    Prof prof;
+    Room room;
+    Weekdays day;
+    TimeBlock tb;
+    bool found;
+
+    // Create object
+    cout << "Creating object and finding least-efficient parameters..." << endl;
+    instance = DataCreator::createSchedule();
+    // Search through Schedule, last to first, to find first non-empty slot
+    vector<Room> rooms = instance.getRooms();
+    found = false;
+    for (unsigned r = rooms.size() - 1; r > 0 && !found; r--)
+    {
+        room = rooms[r];
+        for (int d = WEEKDAYS_SIZE - 1; d >= MON && !found; d--)
+        {
+            day = static_cast<Weekdays>(d);
+            for (int t = TIMEBLOCK_SIZE - 1; t >= START_08_00 && !found; t--)
+            {
+                tb = static_cast<TimeBlock>(t);
+                course = instance.getCourse(room, day, tb);
+                found = course.getId() != "";
+            }
+        }
+    }
+    prof = instance.getProf(course);
+
+    // Stress test getCoursesAt()
+    cout << "Stress testing getCoursesAt(" << course.getId() << ")..." << endl;
+    iterations = 0;
+    future = time(NULL) + seconds;
+    while (time(NULL) < future)
+    {
+        instance.getCoursesAt(day, tb);
+        iterations++;
+    }
+    cout << "\t" << iterations << " iterations in "
+         << seconds << " seconds" << endl;
+
+    // Stress test getCoursesAt()
+    cout << "Stress testing getCoursesTaughtBy(" << prof.getId() << ")..." << endl;
+    iterations = 0;
+    future = time(NULL) + seconds;
+    while (time(NULL) < future)
+    {
+        instance.getCoursesTaughtBy(prof);
+        iterations++;
+    }
+    cout << "\t" << iterations << " iterations in "
+         << seconds << " seconds" << endl;
+
+    /* Stress test getCoursesAt()
+    cout << "Stress testing getCoursesOnGivenDayTaughtBy("
+        << prof.getId() << ", " << day << ")..." << endl;
+    iterations = 0;
+    future = time(NULL) + seconds;
+    while (time(NULL) < future)
+    {
+        instance.getCoursesOnGivenDayTaughtBy(prof, day);
+        iterations++;
+    }
+    cout << "\t" << iterations << " iterations in "
+         << seconds << " seconds" << endl;
+     //*/
+
+    // Stress test getRoomFor()
+    cout << "Stress testing getRoomFor(" << course.getId() << ")..." << endl;
+    iterations = 0;
+    future = time(NULL) + seconds;
+    while (time(NULL) < future)
+    {
+        instance.getRoomFor(course);
+        iterations++;
+    }
+    cout << "\t" << iterations << " iterations in "
+         << seconds << " seconds" << endl;
+
+    // Stress test getTimeFor()
+    cout << "Stress testing getTimeFor(" << course.getId() << ")..." << endl;
+    iterations = 0;
+    future = time(NULL) + seconds;
+    while (time(NULL) < future)
+    {
+        instance.getTimeFor(course);
+        iterations++;
+    }
+    cout << "\t" << iterations << " iterations in "
+         << seconds << " seconds" << endl;
+
+    // Stress test getTimeFor()
+    cout << "Stress testing getWeekdaysFor(" << course.getId() << ")..." << endl;
+    iterations = 0;
+    future = time(NULL) + seconds;
+    while (time(NULL) < future)
+    {
+        instance.getWeekdaysFor(course);
+        iterations++;
+    }
+    cout << "\t" << iterations << " iterations in "
+         << seconds << " seconds" << endl;
+}
