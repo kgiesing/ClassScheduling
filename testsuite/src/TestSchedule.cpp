@@ -4,7 +4,6 @@
 #include "../include/ObjectPrinter.h"
 #include "../include/VectorPrinter.h"
 #include "../../include/Schedule.h"
-#include <ctime>
 
 void TestSchedule::testPass(void)
 {

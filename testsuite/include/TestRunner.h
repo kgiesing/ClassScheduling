@@ -2,6 +2,7 @@
 #define TESTRUNNER_H
 
 // Include these here, so subclasses won't have to.
+#include <ctime>
 #include <iostream>
 #include <string>
 
