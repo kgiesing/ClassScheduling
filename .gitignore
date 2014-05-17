@@ -45,3 +45,4 @@ doxygen/
 *.rc
 *.idb
 *.log
+*.unsuccessfulbuild
