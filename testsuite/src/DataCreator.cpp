@@ -82,10 +82,10 @@ Room DataCreator::createRoom(void)
 
 Schedule DataCreator::createSchedule(void)
 {
-    // Make sure there are few Courses and Profs, and lots of Rooms
-    vector<Course> courses = DataCreator::createVector(DataCreator::createCourse(), 10);
-    vector<Prof> profs = DataCreator::createVector(DataCreator::createProf(), 5);
-    vector<Room> rooms = DataCreator::createVector(DataCreator::createRoom());
+    // Create valid sample data for initialization
+    vector<Prof> profs = DataCreator::createVector(DataCreator::createProf(), 100);
+    vector<Room> rooms = DataCreator::createVector(DataCreator::createRoom(), 20);
+    vector<Course> courses = DataCreator::createVector(DataCreator::createCourse(), 300);
     DataCreator::loadProfs(courses, profs);
 
     // Create the Schedule object.
@@ -119,7 +119,13 @@ Schedule DataCreator::createSchedule(void)
                 if (time >= TIMEBLOCK_SIZE)
                 {
                     time = 0;
-                    day = (day + 1) % WEEKDAYS_SIZE;
+                    day++;
+                }
+                if (day >= WEEKDAYS_SIZE)
+                {
+                    time = 0;
+                    day = 0;
+                    idxRooms++;
                 }
             }
         }

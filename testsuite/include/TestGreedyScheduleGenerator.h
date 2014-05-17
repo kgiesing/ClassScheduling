@@ -13,6 +13,7 @@ protected:
     // virtual void preTest(bool);
     virtual void testPass(void);
     virtual void testFail(void);
+    virtual void testStress(unsigned);
 };
 
 #endif // TESTGREEDYSCHEDULEGENERATOR_H

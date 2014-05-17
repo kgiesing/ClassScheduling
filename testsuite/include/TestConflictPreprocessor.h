@@ -11,6 +11,7 @@ public:
     TestConflictPreprocessor() : TestRunner("ConflictPreprocessor") { }
 protected:
     virtual void testPass(void);
+    virtual void testStress(unsigned);
 };
 
 #endif // TESTCONFLICTPREPROCESSOR_H

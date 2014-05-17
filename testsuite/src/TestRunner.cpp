@@ -1,13 +1,19 @@
 #include "../include/TestRunner.h"
 #include <exception>
 
-void TestRunner::runPassTests(void)
+void TestRunner::runPassTests(bool runPre)
 {
-    cout << "Running pass tests for sub-components of "
-         << this->getComponent() << "...\n";
-    this->preTest(true);
-    cout << "Pass tests for sub-components of " << this->getComponent()
-         << " complete.\n\n";
+    if (runPre)
+    {
+        cout << "Running pass tests for sub-components of "
+             << this->getComponent() << "...\n";
+        this->preTest(true);
+        cout << "Pass tests for sub-components of " << this->getComponent()
+             << " complete.\n\n";
+    }
+    else
+        cout << "[Skipping pass tests for sub-components of "
+             << this->getComponent() << "]" << endl;
     try
     {
         cout << "Running pass tests for " << this->getComponent() << "...\n";
@@ -29,13 +35,19 @@ void TestRunner::runPassTests(void)
     }
 }
 
-void TestRunner::runFailTests(void)
+void TestRunner::runFailTests(bool runPre)
 {
-    cout << "Running fail tests for sub-components of "
-         << this->getComponent() << "...\n";
-    this->preTest(false);
-    cout << "Fail tests for sub-components of " << this->getComponent()
-         << " complete.\n\n";
+    if (runPre)
+    {
+        cout << "Running fail tests for sub-components of "
+             << this->getComponent() << "...\n";
+        this->preTest(false);
+        cout << "Fail tests for sub-components of " << this->getComponent()
+             << " complete.\n\n";
+    }
+    else
+        cout << "[Skipping fail tests for sub-components of "
+             << this->getComponent() << "]" << endl;
     try
     {
         cout << "Running fail tests for " << this->getComponent() << "...\n";
@@ -58,6 +70,32 @@ void TestRunner::runFailTests(void)
 
 }
 
+void TestRunner::runStressTests(unsigned seconds)
+{
+    // If seconds is zero, don't run tests at all
+    if (seconds <= 0)
+        return;
+    try
+    {
+        cout << "Running stress tests for " << this->getComponent() << "...\n";
+        this->testStress(seconds);
+        cout << "stress tests for " << this->getComponent() << " complete.\n\n";
+    }
+    catch (std::exception& e)
+    {
+        cerr << endl << "****************************************"
+             << endl << "Stress test exception in " << this->getComponent()
+             << ":\n\t" << e.what()
+             << endl << "****************************************" << endl;
+    }
+    catch (...)
+    {
+        cerr << endl << "****************************************"
+             << endl << "Stress test exception in " << this->getComponent()
+             << endl << "****************************************" << endl;
+    }
+}
+
 void TestRunner::preTest(bool)
 {
     cout << "\t[No sub-component tests written for " << this->getComponent()
@@ -74,4 +112,10 @@ void TestRunner::testFail(void)
 {
     cout << "\t[No fail tests written for " << this->getComponent() << "]"
          << endl;
+}
+
+void TestRunner::testStress(unsigned seconds)
+{
+    cout << "\t[No stress tests written for " << this->getComponent()
+         << "]" << endl;
 }

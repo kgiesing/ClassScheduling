@@ -81,3 +81,31 @@ void TestGreedyScheduleGenerator::testFail(void)
     delete instance;
 }
 
+void TestGreedyScheduleGenerator::testStress(unsigned seconds)
+{
+    // Declare variables
+    GreedyScheduleGenerator* instance;
+    Schedule* s;
+    time_t future;
+    unsigned long iterations;
+
+    cout << "Creating object and test data..." << endl;
+    vector<Course> courses = DataCreator::createVector(DataCreator::createCourse(), 50);
+    vector<Prof> profs = DataCreator::createVector(DataCreator::createProf());
+    vector<Room> rooms = DataCreator::createVector(DataCreator::createRoom());
+    DataCreator::loadProfs(courses, profs);
+    instance = new GreedyScheduleGenerator(rooms, profs, courses, time(NULL));
+
+    // Stress test getCoursesAt()
+    cout << "Stress testing getSchedule..." << endl;
+    iterations = 0;
+    future = time(NULL) + seconds;
+    while (time(NULL) < future)
+    {
+        s = instance->getSchedule();
+        delete s;
+        iterations++;
+    }
+    cout << "\t" << iterations << " iterations in "
+         << seconds << " seconds" << endl;
+}

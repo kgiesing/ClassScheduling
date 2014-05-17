@@ -23,3 +23,26 @@ void TestConflictPreprocessor::testPass(void)
     VectorPrinter::print(courses);
 }
 
+void TestConflictPreprocessor::testStress(unsigned seconds)
+{
+    // Declare variables
+    Schedule instance;
+    time_t future;
+    unsigned long iterations;
+
+    // Create object
+    cout << "Creating object and test data..." << endl;
+    vector<Course> courses = DataCreator::createVector(DataCreator::createCourse());
+
+    // Stress test preprocess()
+    cout << "Stress testing preprocess(courses)..." << endl;
+    iterations = 0;
+    future = time(NULL) + seconds;
+    while (time(NULL) < future)
+    {
+        ConflictPreprocessor::preprocess(courses);
+        iterations++;
+    }
+    cout << "\t" << iterations << " iterations in "
+         << seconds << " seconds" << endl;
+}
