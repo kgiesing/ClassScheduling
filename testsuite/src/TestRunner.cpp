@@ -70,6 +70,12 @@ void TestRunner::runFailTests(bool runPre)
 
 }
 
+void TestRunner::runEfficiencyTests(unsigned seconds)
+{
+    cout << "\t[No efficiency tests written for " << this->getComponent()
+         << "]" << endl;
+}
+
 void TestRunner::preTest(bool)
 {
     cout << "\t[No sub-component tests written for " << this->getComponent()

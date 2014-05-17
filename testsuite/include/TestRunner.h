@@ -36,6 +36,17 @@ public:
      * @param Whether to run the sub-component tests. Default is true.
      */
     virtual void runFailTests(bool = true);
+
+    /**
+     * Runs efficiency tests on this component.
+     * This test is for components with methods that will be called repeatedly.
+     * The test simply calls each method repeatedly until the number of seconds
+     * has elapsed, then outputs the results.
+     * Efficiency tests must be explicitly run on a component; it will not run
+     * efficiency tests on its sub-components.
+     * @param Number of seconds to run the test.
+     */
+    virtual void runEfficiencyTests(unsigned = 5);
 protected:
     /**
      * Hook for subclasses to run tests on their sub-components.
