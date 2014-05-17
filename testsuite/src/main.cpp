@@ -13,19 +13,25 @@ const string INVALID_COURSES = "./res/courses_fail.txt";
 const string INVALID_PROFS   = "./res/profs_fail.txt";
 const string INVALID_ROOMS   = "./res/rooms_fail.txt";
 
+// Function signatures
+void runTests(TestRunner*, bool, bool = true);
+
 /**
  * Main method for the test suite.
  * Accepts any of the following command-line arguments, in any order.
  * Passing no arguments results in tests being run for all components.
- * - -c: run tests on a specific class. If you use this argument, the next
+ * - -c: run tests on a specific Class. If you use this argument, the next
  *       argument passed must be the name of the class to test. Using this
  *       argument will override any other arguments.
- * - -i: run tests on the input component (Reader classes)
+ * - -i: run tests on the Input component (Reader classes)
  * - -n: run tests on the geNetic schedule generator
- * - -o: (lower-case "oh"): run tests on the output component (Writer)
- * - -p: run tests on the preprocessor component
+ * - -o: (lower-case "oh"): run tests on the Output component (Writer)
+ * - -p: run tests on the Preprocessor component
  * - -r: run tests on the gReedy schedule generator
- * - -s: run tests on the schedule object
+ * - -s: run tests on the Schedule object
+ * - -t: run sTress tests. These tests will be run on any of the components
+ *       that are tested. If you do not pass this argument, stress tests will
+ *       not be run at all.
  * (Note: the colon, ":", is not part of the argument.)
  * @param Argument count
  * @param Argument values
@@ -34,6 +40,7 @@ const string INVALID_ROOMS   = "./res/rooms_fail.txt";
 int main(int argc, char* argv[])
 {
     TestRunner* instance = 0;
+    bool stress = false;
 
     // Parse the command line arguments
     set<string> args;
@@ -49,7 +56,10 @@ int main(int argc, char* argv[])
     }
     for (int i = 1; i < argc; i++)
         args.insert(argv[i]);
-    // First, see if user is testing a specific class
+    // See if the user is running stress tests
+    if (args.find("-t") != args.end())
+        stress = true;
+    // See if user is testing a specific class
     if (args.find("-c") != args.end())
     {
         // This would be so much easier with reflection...
@@ -119,8 +129,7 @@ int main(int argc, char* argv[])
             std::cerr << "Invalid class passed on command line." << endl;
             return -1;
         }
-        instance->runPassTests(false);
-        instance->runFailTests(false);
+        runTests(instance, stress, false);
         delete instance;
         return 0;
     }
@@ -137,8 +146,7 @@ int main(int argc, char* argv[])
         // Run tests on FileReaderFactory
         instance = new TestFileReaderFactory(VALID_COURSES, INVALID_COURSES,
                 VALID_PROFS, INVALID_PROFS, VALID_ROOMS, INVALID_ROOMS);
-        instance->runPassTests();
-        instance->runFailTests();
+        runTests(instance, stress);
         delete instance;
     }
     else
@@ -148,8 +156,7 @@ int main(int argc, char* argv[])
     {
         // Run tests on ConflictPreprocessor
         instance = new TestConflictPreprocessor();
-        instance->runPassTests();
-        instance->runFailTests();
+        runTests(instance, stress);
         delete instance;
     }
     else
@@ -159,8 +166,7 @@ int main(int argc, char* argv[])
     {
         // Run tests on the Schedule
         instance = new TestSchedule();
-        instance->runPassTests();
-        instance->runFailTests();
+        runTests(instance, stress);
         delete instance;
     }
     else
@@ -170,8 +176,7 @@ int main(int argc, char* argv[])
     {
         // Run tests on the GreedyScheduleGenerator
         instance = new TestGreedyScheduleGenerator();
-        instance->runPassTests();
-        instance->runFailTests();
+        runTests(instance, stress);
         delete instance;
     }
     else
@@ -181,8 +186,7 @@ int main(int argc, char* argv[])
     {
         // Run tests on the GeneticScheduleGenerator
         instance = new TestGeneticScheduleGenerator();
-        instance->runPassTests();
-        instance->runFailTests();
+        runTests(instance, stress);
         delete instance;
     }
     else
@@ -192,8 +196,7 @@ int main(int argc, char* argv[])
     {
         // Run tests on the ScheduleWriter
         instance = new  TestScheduleWriter();
-        instance->runPassTests();
-        instance->runFailTests();
+        runTests(instance, stress);
         delete instance;
     }
     else
@@ -202,4 +205,12 @@ int main(int argc, char* argv[])
     // Done
     cout << endl << "Testing complete." << endl;
     return 0;
+}
+
+void runTests(TestRunner* instance, bool stress, bool runPre)
+{
+    instance->runPassTests(runPre);
+    instance->runFailTests(runPre);
+    if (stress)
+        instance->runStressTests();
 }

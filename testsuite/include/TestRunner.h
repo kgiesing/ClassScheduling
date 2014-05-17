@@ -63,6 +63,13 @@ protected:
      */
     virtual void testPass(void);
     /**
+     * Hook for subclasses to run tests on a specific component. These
+     * tests should fail. This method is called by runPassTests(void).
+     * Default implementation simply outputs that there are no pass tests
+     * written.
+     */
+    virtual void testFail(void);
+    /**
      * Hook for subclasses to run stress tests on a specific component.
      * Subclasses should call every method they wish to test, over and over
      * again, until the number of seconds has elapsed (per method).
@@ -72,13 +79,6 @@ protected:
      * @param Number of seconds to perform each test.
      */
     virtual void testStress(unsigned);
-    /**
-     * Hook for subclasses to run tests on a specific component. These
-     * tests should fail. This method is called by runPassTests(void).
-     * Default implementation simply outputs that there are no pass tests
-     * written.
-     */
-    virtual void testFail(void);
 private:
     string _component; /**< Name of component being tested. */
 };
