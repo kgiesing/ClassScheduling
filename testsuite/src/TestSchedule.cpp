@@ -270,7 +270,7 @@ void TestSchedule::testStress(unsigned seconds)
     bool found;
 
     // Create object
-    cout << "Creating object and finding least-efficient parameters..." << endl;
+    cout << "Creating object and test data..." << endl;
     instance = DataCreator::createSchedule();
     // Search through Schedule, last to first, to find first non-empty slot
     vector<Room> rooms = instance.getRooms();
