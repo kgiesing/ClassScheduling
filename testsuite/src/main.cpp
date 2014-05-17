@@ -31,7 +31,8 @@ void runTests(TestRunner*, bool, bool = true);
  * - -s: run tests on the Schedule object
  * - -t: run sTress tests. These tests will be run on any of the components
  *       that are tested. If you do not pass this argument, stress tests will
- *       not be run at all.
+ *       not be run at all; and if you do pass this argument, no tests other
+ *       than stress tests will be run.
  * (Note: the colon, ":", is not part of the argument.)
  * @param Argument count
  * @param Argument values
@@ -209,8 +210,11 @@ int main(int argc, char* argv[])
 
 void runTests(TestRunner* instance, bool stress, bool runPre)
 {
-    instance->runPassTests(runPre);
-    instance->runFailTests(runPre);
-    if (stress)
+    if(stress)
         instance->runStressTests();
+    else
+    {
+        instance->runPassTests(runPre);
+        instance->runFailTests(runPre);
+    }
 }
