@@ -1,14 +1,7 @@
+#include "../include/TestHeaders.h"
 #include <iostream>
 #include <set>
 #include <string>
-#include "../include/DataCreator.h"
-#include "../include/TestConflictPreprocessor.h"
-#include "../include/TestFileReaderFactory.h"
-#include "../include/TestGeneticScheduleGenerator.h"
-#include "../include/TestGreedyScheduleGenerator.h"
-#include "../include/TestSchedule.h"
-#include "../include/TestScheduleWriter.h"
-#include "../include/TestScoreCalculators.h"
 
 using namespace std;
 
@@ -24,6 +17,9 @@ const string INVALID_ROOMS   = "./res/rooms_fail.txt";
  * Main method for the test suite.
  * Accepts any of the following command-line arguments, in any order.
  * Passing no arguments results in tests being run for all components.
+ * - -c: run tests on a specific class. If you use this argument, the next
+ *       argument passed must be the name of the class to test. Using this
+ *       argument will override any other arguments.
  * - -i: run tests on the input component (Reader classes)
  * - -n: run tests on the geNetic schedule generator
  * - -o: (lower-case "oh"): run tests on the output component (Writer)
@@ -37,7 +33,7 @@ const string INVALID_ROOMS   = "./res/rooms_fail.txt";
  */
 int main(int argc, char* argv[])
 {
-    TestRunner* instance;
+    TestRunner* instance = 0;
 
     // Parse the command line arguments
     set<string> args;
@@ -53,7 +49,81 @@ int main(int argc, char* argv[])
     }
     for (int i = 1; i < argc; i++)
         args.insert(argv[i]);
-
+    // First, see if user is testing a specific class
+    if (args.find("-i") != args.end())
+    {
+        // This would be so much easier with reflection...
+        if (args.find("ConflictPreprocessor") != args.end())
+            instance = new TestConflictPreprocessor();
+        if (args.find("Course") != args.end())
+            instance = new TestCourse();
+        if (args.find("CourseReader") != args.end())
+        {
+            // Dynamically create invalid data
+            DataCreator::createVectorFile(INVALID_COURSES,
+                    DataCreator::createCourse(), 50);
+            instance = new TestCourseReader(VALID_COURSES, INVALID_COURSES);
+        }
+        if (args.find("FileReaderFactory") != args.end())
+        {
+            // Dynamically create invalid data
+            DataCreator::createVectorFile(INVALID_COURSES,
+                    DataCreator::createCourse(), 50);
+            DataCreator::createVectorFile(INVALID_PROFS,
+                    DataCreator::createProf(), 10);
+            DataCreator::createVectorFile(INVALID_ROOMS,
+                    DataCreator::createRoom(), 5);
+            instance = new TestFileReaderFactory(VALID_COURSES, INVALID_COURSES,
+                    VALID_PROFS, INVALID_PROFS, VALID_ROOMS, INVALID_ROOMS);
+        }
+        if (args.find("GeneticScheduleGenerator") != args.end())
+            instance = new TestGeneticScheduleGenerator();
+        if (args.find("GreedyScheduleGenerator") != args.end())
+            instance = new TestGreedyScheduleGenerator();
+        if (args.find("Prof") != args.end())
+            instance = new TestProf();
+        if (args.find("ProfInfo") != args.end())
+            instance = new TestProfInfo();
+        if (args.find("ProfReader") != args.end())
+        {
+            // Dynamically create invalid data
+            DataCreator::createVectorFile(INVALID_PROFS,
+                    DataCreator::createProf());
+            instance = new TestProfReader(VALID_PROFS, INVALID_PROFS);
+        }
+        if (args.find("Room") != args.end())
+            instance = new TestRoom();
+        if (args.find("RoomReader") != args.end())
+        {
+            // Dynamically create invalid data
+            DataCreator::createVectorFile(INVALID_ROOMS,
+                    DataCreator::createCourse());
+            instance = new TestRoomReader(VALID_ROOMS, INVALID_ROOMS);
+        }
+        if (args.find("Schedule") != args.end())
+            instance = new TestSchedule();
+        if (args.find("ScheduleCalculator") != args.end())
+            instance = new TestScheduleCalculator();
+        if (args.find("ScheduleWriter") != args.end())
+            instance = new TestScheduleWriter();
+        if (args.find("ScoreCalculator") != args.end())
+            instance = new TestScoreCalculators();
+        // These are concrete subclasses; test superclass
+        if (args.find("LinearScoreCalculator") != args.end())
+            instance = new TestScoreCalculators();
+        if (args.find("WeightedScoreCalculator") != args.end())
+            instance = new TestScoreCalculators();
+        // instance may still be null if the class isn't valid
+        if (instance == 0)
+        {
+            std::cerr << "Invalid class passed on command line." << endl;
+            return -1;
+        }
+        instance->runPassTests(false);
+        instance->runFailTests(false);
+        delete instance;
+        return 0;
+    }
     if(args.find("-i") != args.end())
     {
         // Dynamically create invalid data
@@ -66,7 +136,7 @@ int main(int argc, char* argv[])
 
         // Run tests on FileReaderFactory
         instance = new TestFileReaderFactory(VALID_COURSES, INVALID_COURSES,
-        VALID_PROFS, INVALID_PROFS, VALID_ROOMS, INVALID_ROOMS);
+                VALID_PROFS, INVALID_PROFS, VALID_ROOMS, INVALID_ROOMS);
         instance->runPassTests();
         instance->runFailTests();
         delete instance;

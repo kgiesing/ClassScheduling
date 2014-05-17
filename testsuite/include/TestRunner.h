@@ -26,14 +26,16 @@ public:
      * Runs tests on this component that should pass.
      * This method calls the virtual function testPass(), catching any
      * errors that occur, and printing to std::cerr when they do.
+     * @param Whether to run the sub-component tests. Default is true.
      */
-    virtual void runPassTests(void);
+    virtual void runPassTests(bool = true);
     /**
      * Runs tests on this component that should fail.
      * This method calls the virtual function testFail(), catching any
      * errors that occur, and printing to std::cerr when they do.
+     * @param Whether to run the sub-component tests. Default is true.
      */
-    virtual void runFailTests(void);
+    virtual void runFailTests(bool = true);
 protected:
     /**
      * Hook for subclasses to run tests on their sub-components.

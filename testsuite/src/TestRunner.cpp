@@ -1,13 +1,16 @@
 #include "../include/TestRunner.h"
 #include <exception>
 
-void TestRunner::runPassTests(void)
+void TestRunner::runPassTests(bool runPre)
 {
-    cout << "Running pass tests for sub-components of "
-         << this->getComponent() << "...\n";
-    this->preTest(true);
-    cout << "Pass tests for sub-components of " << this->getComponent()
-         << " complete.\n\n";
+    if (runPre)
+    {
+        cout << "Running pass tests for sub-components of "
+             << this->getComponent() << "...\n";
+        this->preTest(true);
+        cout << "Pass tests for sub-components of " << this->getComponent()
+             << " complete.\n\n";
+    }
     try
     {
         cout << "Running pass tests for " << this->getComponent() << "...\n";
@@ -29,13 +32,16 @@ void TestRunner::runPassTests(void)
     }
 }
 
-void TestRunner::runFailTests(void)
+void TestRunner::runFailTests(bool runPre)
 {
-    cout << "Running fail tests for sub-components of "
-         << this->getComponent() << "...\n";
-    this->preTest(false);
-    cout << "Fail tests for sub-components of " << this->getComponent()
-         << " complete.\n\n";
+    if (runPre)
+    {
+        cout << "Running fail tests for sub-components of "
+             << this->getComponent() << "...\n";
+        this->preTest(false);
+        cout << "Fail tests for sub-components of " << this->getComponent()
+             << " complete.\n\n";
+    }
     try
     {
         cout << "Running fail tests for " << this->getComponent() << "...\n";
