@@ -157,13 +157,16 @@ void TestSchedule::testPass(void)
     cout << "Testing copy constructor..." << endl;
     duplicate = new Schedule(*instance);
     cout << "\tSuccessfully copied Schedule object" << endl
-         << "\tDeleting old Schedule..." << endl;
-    delete instance;
-    instance = duplicate;
-    cout << "Old Schedule deleted." << endl;
+         << "\tDeleting original Schedule..." << endl;
+    Schedule* temp = duplicate;
+    duplicate = instance;
+    instance = temp;
+    delete duplicate;
+    cout << "Original Schedule deleted. Deleting copy..." << endl;
 
     // Done
     delete instance;
+    cout << "Done." << endl;
 }
 
 void TestSchedule::testFail(void)
