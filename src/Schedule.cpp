@@ -28,8 +28,15 @@ Schedule::Schedule(vector < Room > rooms, vector < Prof > prof, vector < Course 
 	}
 }
 
-bool Schedule::setCourse(const Course& course, const Room& room, Weekdays firstMeeting, TimeBlock timeBlock){
-	if (course.getEnrolled() > room.getCapacity()){
+bool Schedule::setCourse(const Course& course, const Room& room, Weekdays firstMeeting, TimeBlock timeBlock) {
+    // Bounds checks
+    if (_schedule.find(room) == _schedule.end())
+        return false;
+    if (firstMeeting >= WEEKDAYS_SIZE)
+        return false;
+    if (timeBlock >= TIMEBLOCK_SIZE)
+        return false;
+	if (course.getEnrolled() > room.getCapacity()) {
 		return false;
 	}
 	int numberOfTimeBlocks = course.getTimeBlocks();
@@ -41,18 +48,20 @@ bool Schedule::setCourse(const Course& course, const Room& room, Weekdays firstM
 		if (firstMeeting > TUES){
 			firstMeeting = (Weekdays)(firstMeeting - 2);
 		}
-	}
-	_schedule.at(room).at(firstMeeting).at(timeBlock) = course;
-
-	switch (numberOfTimeBlocks){
-	case 2:
+        _schedule.at(room).at(firstMeeting).at(timeBlock) = course;
 		_schedule.at(room).at((Weekdays)(firstMeeting + 2)).at(timeBlock) = course;
-		break;
 	}
 	return true;
 }
 
-Course Schedule::getCourse(const Room& room, Weekdays day, TimeBlock timeBlock){
+Course Schedule::getCourse(const Room& room, Weekdays day, TimeBlock timeBlock) {
+    // Bounds checks
+    if (_schedule.find(room) == _schedule.end())
+        return Course(); // Temporary stack object returned by value
+    if (day >= WEEKDAYS_SIZE)
+        return Course(); // Temporary stack object returned by value
+    if (timeBlock >= TIMEBLOCK_SIZE)
+        return Course(); // Temporary stack object returned by value
 	return _schedule.at(room).at(day).at(timeBlock);
 }
 
@@ -126,26 +135,39 @@ vector < Weekdays > Schedule::getWeekdaysFor(const Course& course){
 }
 
 // returns true if swap was successful, false otherwise
-bool Schedule::swapCourses(Room room1, Weekdays weekdays1, TimeBlock timeBlock1, Room room2, Weekdays weekdays2, TimeBlock timeBlock2){
-	Course c1, c2;
-	if (room1.getCapacity() < c2.getEnrolled() || room2.getCapacity() < c1.getEnrolled()){
-		return false;
-	}
-	else {
-		c1 = getCourse(room1, weekdays1, timeBlock1);
-		c2 = getCourse(room2, weekdays2, timeBlock2);
-		setCourse(c2, room1, weekdays1, timeBlock1);
-		setCourse(c1, room2, weekdays2, timeBlock2);
-		return true;
-	}
+bool Schedule::swapCourses(Room room1, Weekdays weekdays1, TimeBlock timeBlock1,
+                           Room room2, Weekdays weekdays2, TimeBlock timeBlock2)
+{
+    // Bounds checks
+    if (_schedule.find(room1) == _schedule.end())
+        return false;
+    if (_schedule.find(room2) == _schedule.end())
+        return false;
+    if (weekdays1 >= WEEKDAYS_SIZE || weekdays2 >= WEEKDAYS_SIZE)
+        return false;
+    if (timeBlock1 >= TIMEBLOCK_SIZE || timeBlock2 >= TIMEBLOCK_SIZE)
+        return false;
 
+    Course c1, c2;
+    c1 = getCourse(room1, weekdays1, timeBlock1);
+    c2 = getCourse(room2, weekdays2, timeBlock2);
+    if (room1.getCapacity() < c2.getEnrolled()
+            || room2.getCapacity() < c1.getEnrolled())
+        return false;
+    setCourse(c2, room1, weekdays1, timeBlock1);
+    setCourse(c1, room2, weekdays2, timeBlock2);
+    return true;
 }
 
-Prof Schedule::getProf(string id){
+Prof Schedule::getProf(string id) {
+    if (_professors.find(id) == _professors.end())
+        return Prof(); // Temporary stack object returned by value
 	return _professors.at(id);
 }
 
 Prof Schedule::getProf(Course c){
+    if (_professors.find(c.getProfId()) == _professors.end())
+        return Prof(); // Temporary stack object returned by value
 	return _professors.at(c.getProfId());
 }
 
@@ -172,9 +194,11 @@ map <string, Prof> Schedule::getProfs(){
 vector <Course> Schedule::getCoursesTaughtBy(Prof& prof){
 	typedef map<string, Course>::iterator iterator;
 	vector <Course> courseVec;
+    if (_professors.find(prof.getId()) == _professors.end())
+        return courseVec; // Empty vector
 	for (iterator it = _courses.begin(); it != _courses.end(); it++)
 	{
-		if (prof == getProf(it->second.getProfId())){
+		if (prof.getId() == it->second.getProfId()) {
 			courseVec.push_back(it->second);
 		}
 	}
