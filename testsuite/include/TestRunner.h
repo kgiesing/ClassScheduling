@@ -46,7 +46,7 @@ public:
      * efficiency tests on its sub-components.
      * @param Number of seconds to run the test.
      */
-    virtual void runEfficiencyTests(unsigned = 5);
+    virtual void runStressTests(unsigned = 5);
 protected:
     /**
      * Hook for subclasses to run tests on their sub-components.
@@ -62,6 +62,16 @@ protected:
      * written.
      */
     virtual void testPass(void);
+    /**
+     * Hook for subclasses to run stress tests on a specific component.
+     * Subclasses should call every method they wish to test, over and over
+     * again, until the number of seconds has elapsed (per method).
+     * This method is called by runStressTests().
+     * Default implementation simply outputs that there are no pass tests
+     * written.
+     * @param Number of seconds to perform each test.
+     */
+    virtual void testStress(unsigned);
     /**
      * Hook for subclasses to run tests on a specific component. These
      * tests should fail. This method is called by runPassTests(void).

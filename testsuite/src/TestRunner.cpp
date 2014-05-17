@@ -70,10 +70,30 @@ void TestRunner::runFailTests(bool runPre)
 
 }
 
-void TestRunner::runEfficiencyTests(unsigned seconds)
+void TestRunner::runStressTests(unsigned seconds)
 {
-    cout << "\t[No efficiency tests written for " << this->getComponent()
-         << "]" << endl;
+    // If seconds is zero, don't run tests at all
+    if (seconds <= 0)
+        return;
+    try
+    {
+        cout << "Running stress tests for " << this->getComponent() << "...\n";
+        this->testStress(seconds);
+        cout << "stress tests for " << this->getComponent() << " complete.\n\n";
+    }
+    catch (std::exception& e)
+    {
+        cerr << endl << "****************************************"
+             << endl << "Stress test exception in " << this->getComponent()
+             << ":\n\t" << e.what()
+             << endl << "****************************************" << endl;
+    }
+    catch (...)
+    {
+        cerr << endl << "****************************************"
+             << endl << "Stress test exception in " << this->getComponent()
+             << endl << "****************************************" << endl;
+    }
 }
 
 void TestRunner::preTest(bool)
@@ -92,4 +112,10 @@ void TestRunner::testFail(void)
 {
     cout << "\t[No fail tests written for " << this->getComponent() << "]"
          << endl;
+}
+
+void TestRunner::testStress(unsigned seconds)
+{
+    cout << "\t[No stress tests written for " << this->getComponent()
+         << "]" << endl;
 }
