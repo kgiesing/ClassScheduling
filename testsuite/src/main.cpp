@@ -50,7 +50,7 @@ int main(int argc, char* argv[])
     for (int i = 1; i < argc; i++)
         args.insert(argv[i]);
     // First, see if user is testing a specific class
-    if (args.find("-i") != args.end())
+    if (args.find("-c") != args.end())
     {
         // This would be so much easier with reflection...
         if (args.find("ConflictPreprocessor") != args.end())

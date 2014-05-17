@@ -11,6 +11,9 @@ void TestRunner::runPassTests(bool runPre)
         cout << "Pass tests for sub-components of " << this->getComponent()
              << " complete.\n\n";
     }
+    else
+        cout << "[Skipping pass tests for sub-components of "
+             << this->getComponent() << "]" << endl;
     try
     {
         cout << "Running pass tests for " << this->getComponent() << "...\n";
@@ -42,6 +45,9 @@ void TestRunner::runFailTests(bool runPre)
         cout << "Fail tests for sub-components of " << this->getComponent()
              << " complete.\n\n";
     }
+    else
+        cout << "[Skipping fail tests for sub-components of "
+             << this->getComponent() << "]" << endl;
     try
     {
         cout << "Running fail tests for " << this->getComponent() << "...\n";
