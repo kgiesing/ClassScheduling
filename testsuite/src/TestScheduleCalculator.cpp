@@ -53,8 +53,9 @@ void TestScheduleCalculator::testStress(unsigned seconds)
     }
     cout << "\t" << iterations << " iterations in "
          << seconds << " seconds" << endl;
+    cout << "\tResulting score was: " << s.getScore() << endl;
 
-     // Stress test LinearScoreCalculator
+    // Stress test LinearScoreCalculator
     cout << "Stress testing calculateScore(s, linear)..." << endl;
     iterations = 0;
     future = time(NULL) + seconds;
@@ -65,6 +66,7 @@ void TestScheduleCalculator::testStress(unsigned seconds)
     }
     cout << "\t" << iterations << " iterations in "
          << seconds << " seconds" << endl;
+    cout << "\tResulting score was: " << s.getScore() << endl;
 
     // Stress test Dzmitry's version with WeightedScoreCalculator
     cout << "Stress testing calculateScore(s, weighted, profs)..." << endl;
@@ -77,9 +79,10 @@ void TestScheduleCalculator::testStress(unsigned seconds)
     }
     cout << "\t" << iterations << " iterations in "
          << seconds << " seconds" << endl;
+    cout << "\tResulting score was: " << s.getScore() << endl;
 
      // Stress test Dzmitry's version with LinearScoreCalculator
-    cout << "Stress testing calculateScore(s, linear)..." << endl;
+    cout << "Stress testing calculateScore(s, linear, profs)..." << endl;
     iterations = 0;
     future = time(NULL) + seconds;
     while (time(NULL) < future)
@@ -89,5 +92,6 @@ void TestScheduleCalculator::testStress(unsigned seconds)
     }
     cout << "\t" << iterations << " iterations in "
          << seconds << " seconds" << endl;
+    cout << "\tResulting score was: " << s.getScore() << endl;
 }
 
