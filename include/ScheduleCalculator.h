@@ -18,6 +18,8 @@ public:
      *
      */
     static double calculateScore(Schedule*, ScoreCalculator&);
+    /** Dzmitry's version. */
+    static double calculateScore(Schedule*, ScoreCalculator&, map<string, Prof>);
 private:
     /** Private constructor. */
     ScheduleCalculator() { }
