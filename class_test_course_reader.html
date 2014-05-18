@@ -31,6 +31,7 @@
   <td style="padding-left: 0.5em;">
    <div id="projectname">ClassScheduling
    </div>
+   <div id="projectbrief">A project to schedule college courses.</div>
   </td>
  </tr>
  </tbody>
@@ -92,7 +93,7 @@ $(document).ready(function(){initNavTree('class_test_course_reader.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -110,59 +111,19 @@ $(document).ready(function(){initNavTree('class_test_course_reader.html','');});
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="_test_course_reader_8h_source.html">TestCourseReader.h</a>&gt;</code></p>
-<div class="dynheader">
-Inheritance diagram for TestCourseReader:</div>
-<div class="dyncontent">
- <div class="center">
-  <img src="class_test_course_reader.png" usemap="#TestCourseReader_map" alt=""/>
-  <map id="TestCourseReader_map" name="TestCourseReader_map">
-<area href="class_test_file_readers.html" alt="TestFileReaders" shape="rect" coords="0,56,117,80"/>
-<area href="class_test_runner.html" alt="TestRunner" shape="rect" coords="0,0,117,24"/>
-</map>
- </div></div>
+<p>This class tests the <a class="el" href="class_prof.html" title="This class represents a single professor. ">Prof</a> class.  
+ <a href="class_test_course_reader.html#details">More...</a></p>
+
+<p>Inherits TestFileReaders.</p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a3f9e2697a6abe2e089830843b76d19df"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_test_course_reader.html#a3f9e2697a6abe2e089830843b76d19df">TestCourseReader</a> (string, string)</td></tr>
+<tr class="memdesc:a3f9e2697a6abe2e089830843b76d19df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#a3f9e2697a6abe2e089830843b76d19df">More...</a><br /></td></tr>
 <tr class="separator:a3f9e2697a6abe2e089830843b76d19df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_class_test_file_readers"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_test_file_readers')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_test_file_readers.html">TestFileReaders</a></td></tr>
-<tr class="memitem:a1ff3db03d838161d695e261b1a0547b1 inherit pub_methods_class_test_file_readers"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_test_file_readers.html#a1ff3db03d838161d695e261b1a0547b1">TestFileReaders</a> (string component, string valid, string invalid)</td></tr>
-<tr class="separator:a1ff3db03d838161d695e261b1a0547b1 inherit pub_methods_class_test_file_readers"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_class_test_runner"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_test_runner')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_test_runner.html">TestRunner</a></td></tr>
-<tr class="memitem:a20840dbe3e6171b70bb15c3abf661878 inherit pub_methods_class_test_runner"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_test_runner.html#a20840dbe3e6171b70bb15c3abf661878">TestRunner</a> (string component)</td></tr>
-<tr class="separator:a20840dbe3e6171b70bb15c3abf661878 inherit pub_methods_class_test_runner"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab6d861e83212fbb601a7ae0e9594ee13 inherit pub_methods_class_test_runner"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_test_runner.html#ab6d861e83212fbb601a7ae0e9594ee13">~TestRunner</a> (void)</td></tr>
-<tr class="separator:ab6d861e83212fbb601a7ae0e9594ee13 inherit pub_methods_class_test_runner"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad71e85508f5ad962047fd9495774ebb4 inherit pub_methods_class_test_runner"><td class="memItemLeft" align="right" valign="top">virtual const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_test_runner.html#ad71e85508f5ad962047fd9495774ebb4">getComponent</a> () const </td></tr>
-<tr class="separator:ad71e85508f5ad962047fd9495774ebb4 inherit pub_methods_class_test_runner"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0abef14a2c13b8cf179347e8556e8405 inherit pub_methods_class_test_runner"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_test_runner.html#a0abef14a2c13b8cf179347e8556e8405">runPassTests</a> (bool=true)</td></tr>
-<tr class="separator:a0abef14a2c13b8cf179347e8556e8405 inherit pub_methods_class_test_runner"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9dd3d3a81eba954e64882af12c9334cb inherit pub_methods_class_test_runner"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_test_runner.html#a9dd3d3a81eba954e64882af12c9334cb">runFailTests</a> (bool=true)</td></tr>
-<tr class="separator:a9dd3d3a81eba954e64882af12c9334cb inherit pub_methods_class_test_runner"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a63fba1d4ee8002354fda8991b12960b0 inherit pub_methods_class_test_runner"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_test_runner.html#a63fba1d4ee8002354fda8991b12960b0">runStressTests</a> (unsigned=5)</td></tr>
-<tr class="separator:a63fba1d4ee8002354fda8991b12960b0 inherit pub_methods_class_test_runner"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
-Additional Inherited Members</h2></td></tr>
-<tr class="inherit_header pro_methods_class_test_file_readers"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_class_test_file_readers')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="class_test_file_readers.html">TestFileReaders</a></td></tr>
-<tr class="memitem:add76d42c4a422e3be20d252a249174e7 inherit pro_methods_class_test_file_readers"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_test_file_readers.html#add76d42c4a422e3be20d252a249174e7">testPass</a> (void)</td></tr>
-<tr class="separator:add76d42c4a422e3be20d252a249174e7 inherit pro_methods_class_test_file_readers"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7d0a4a60aea04323e68d134d9278bbe0 inherit pro_methods_class_test_file_readers"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_test_file_readers.html#a7d0a4a60aea04323e68d134d9278bbe0">testFail</a> (void)</td></tr>
-<tr class="separator:a7d0a4a60aea04323e68d134d9278bbe0 inherit pro_methods_class_test_file_readers"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pro_methods_class_test_runner"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_class_test_runner')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="class_test_runner.html">TestRunner</a></td></tr>
-<tr class="memitem:a177d32f58a2464170c314b19a41527e8 inherit pro_methods_class_test_runner"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_test_runner.html#a177d32f58a2464170c314b19a41527e8">testStress</a> (unsigned)</td></tr>
-<tr class="separator:a177d32f58a2464170c314b19a41527e8 inherit pro_methods_class_test_runner"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pro_attribs_class_test_file_readers"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_test_file_readers')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_test_file_readers.html">TestFileReaders</a></td></tr>
-<tr class="memitem:af92b9a9fb427a0bd09061a25b09c19a9 inherit pro_attribs_class_test_file_readers"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af92b9a9fb427a0bd09061a25b09c19a9"></a>
-string&#160;</td><td class="memItemRight" valign="bottom"><b>_valid</b></td></tr>
-<tr class="separator:af92b9a9fb427a0bd09061a25b09c19a9 inherit pro_attribs_class_test_file_readers"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad31ff8d762374a6ad6a904a18f40fcb1 inherit pro_attribs_class_test_file_readers"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad31ff8d762374a6ad6a904a18f40fcb1"></a>
-string&#160;</td><td class="memItemRight" valign="bottom"><b>_invalid</b></td></tr>
-<tr class="separator:ad31ff8d762374a6ad6a904a18f40fcb1 inherit pro_attribs_class_test_file_readers"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This class tests the <a class="el" href="class_prof.html">Prof</a> class. </p>
+<div class="textblock"><p>This class tests the <a class="el" href="class_prof.html" title="This class represents a single professor. ">Prof</a> class. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a3f9e2697a6abe2e089830843b76d19df"></a>
 <div class="memitem">
@@ -187,7 +148,9 @@ string&#160;</td><td class="memItemRight" valign="bottom"><b>_invalid</b></td></
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Constructor. </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Constructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">Filename</td><td>for file containing valid data. </td></tr>
     <tr><td class="paramname">Filename</td><td>for file containing invalid data. </td></tr>
@@ -198,7 +161,7 @@ string&#160;</td><td class="memItemRight" valign="bottom"><b>_invalid</b></td></
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="_test_course_reader_8h_source.html">TestCourseReader.h</a></li>
+<li>TestCourseReader.h</li>
 <li>TestCourseReader.cpp</li>
 </ul>
 </div><!-- contents -->
@@ -207,7 +170,7 @@ string&#160;</td><td class="memItemRight" valign="bottom"><b>_invalid</b></td></
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_test_course_reader.html">TestCourseReader</a></li>
-    <li class="footer">Generated on Sun May 18 2014 18:59:52 for ClassScheduling by
+    <li class="footer">Generated on Sun May 18 2014 19:50:48 for ClassScheduling by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>

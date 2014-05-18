@@ -31,6 +31,7 @@
   <td style="padding-left: 0.5em;">
    <div id="projectname">ClassScheduling
    </div>
+   <div id="projectbrief">A project to schedule college courses.</div>
   </td>
  </tr>
  </tbody>
@@ -92,7 +93,7 @@ $(document).ready(function(){initNavTree('class_reader.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -110,22 +111,25 @@ $(document).ready(function(){initNavTree('class_reader.html','');});
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="_reader_8h_source.html">Reader.h</a>&gt;</code></p>
+<p>Pure abstract base class (interface) for objects that read something.  
+ <a href="class_reader.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for Reader&lt; T &gt;:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_reader.png" usemap="#Reader&lt; T &gt;_map" alt=""/>
   <map id="Reader&lt; T &gt;_map" name="Reader&lt; T &gt;_map">
-<area href="class_file_reader.html" alt="FileReader&lt; T &gt;" shape="rect" coords="0,56,105,80"/>
+<area href="class_file_reader.html" title="Abstract base class for objects that read something from file. " alt="FileReader&lt; T &gt;" shape="rect" coords="0,56,105,80"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a4cf3170291f85df54c1f1834091b54bd"><td class="memItemLeft" align="right" valign="top">virtual T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_reader.html#a4cf3170291f85df54c1f1834091b54bd">read</a> ()=0</td></tr>
+<tr class="memdesc:a4cf3170291f85df54c1f1834091b54bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads something.  <a href="#a4cf3170291f85df54c1f1834091b54bd">More...</a><br /></td></tr>
 <tr class="separator:a4cf3170291f85df54c1f1834091b54bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6ea2127cf57746e5a99e1c90fb3045f9"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_reader.html#a6ea2127cf57746e5a99e1c90fb3045f9">~Reader</a> (void)</td></tr>
+<tr class="memdesc:a6ea2127cf57746e5a99e1c90fb3045f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor.  <a href="#a6ea2127cf57746e5a99e1c90fb3045f9">More...</a><br /></td></tr>
 <tr class="separator:a6ea2127cf57746e5a99e1c90fb3045f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -157,6 +161,7 @@ template&lt;typename T&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
 <p>Virtual destructor. </p>
 
 </div>
@@ -184,14 +189,16 @@ template&lt;typename T&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Reads something. </p><dl class="section return"><dt>Returns</dt><dd>Whatever is read. </dd></dl>
+
+<p>Reads something. </p>
+<dl class="section return"><dt>Returns</dt><dd>Whatever is read. </dd></dl>
 
 <p>Implemented in <a class="el" href="class_course_reader.html#a5060719528da57680ea621df4426c3e3">CourseReader</a>, <a class="el" href="class_prof_reader.html#a7e428c2177d8cf2a890c84ef7899fb9b">ProfReader</a>, and <a class="el" href="class_room_reader.html#af4e0cfcfd0a93267bc1e5a7e2a984a08">RoomReader</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="_reader_8h_source.html">Reader.h</a></li>
+<li>Reader.h</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -199,7 +206,7 @@ template&lt;typename T&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_reader.html">Reader</a></li>
-    <li class="footer">Generated on Sun May 18 2014 18:59:52 for ClassScheduling by
+    <li class="footer">Generated on Sun May 18 2014 19:50:48 for ClassScheduling by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>

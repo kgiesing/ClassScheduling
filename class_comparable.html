@@ -31,6 +31,7 @@
   <td style="padding-left: 0.5em;">
    <div id="projectname">ClassScheduling
    </div>
+   <div id="projectbrief">A project to schedule college courses.</div>
   </td>
  </tr>
  </tbody>
@@ -92,7 +93,7 @@ $(document).ready(function(){initNavTree('class_comparable.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -111,34 +112,19 @@ $(document).ready(function(){initNavTree('class_comparable.html','');});
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="_comparable_8h_source.html">Comparable.h</a>&gt;</code></p>
+<p>This class is the base class for all objects that can be compared to each other using the comparison operators.  
+ <a href="class_comparable.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:afaaf8bb9f89014054d4dbf3fd293e6ca"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afaaf8bb9f89014054d4dbf3fd293e6ca"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const T &amp;rhs) const </td></tr>
-<tr class="separator:afaaf8bb9f89014054d4dbf3fd293e6ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aae23c4d9fac0fd46250bfb0d8390f72c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aae23c4d9fac0fd46250bfb0d8390f72c"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator!=</b> (const T &amp;rhs) const </td></tr>
-<tr class="separator:aae23c4d9fac0fd46250bfb0d8390f72c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a18ffd7337c4d89a87babb870928f69e9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a18ffd7337c4d89a87babb870928f69e9"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;</b> (const T &amp;rhs) const </td></tr>
-<tr class="separator:a18ffd7337c4d89a87babb870928f69e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4518b3bb71d9f54d2346934777f38fd3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4518b3bb71d9f54d2346934777f38fd3"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;=</b> (const T &amp;rhs) const </td></tr>
-<tr class="separator:a4518b3bb71d9f54d2346934777f38fd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2bab52b70ca28c1ca0703c0ddba1e4c2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2bab52b70ca28c1ca0703c0ddba1e4c2"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&gt;</b> (const T &amp;rhs) const </td></tr>
-<tr class="separator:a2bab52b70ca28c1ca0703c0ddba1e4c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a90f9b2637a6d1c04bf59aaba4f9773ba"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a90f9b2637a6d1c04bf59aaba4f9773ba"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&gt;=</b> (const T &amp;rhs) const </td></tr>
-<tr class="separator:a90f9b2637a6d1c04bf59aaba4f9773ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac9ce1cecca673003b5f7a12cb6d31a3d"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_comparable.html#ac9ce1cecca673003b5f7a12cb6d31a3d">~Comparable</a> (void)</td></tr>
+<tr class="memdesc:ac9ce1cecca673003b5f7a12cb6d31a3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor.  <a href="#ac9ce1cecca673003b5f7a12cb6d31a3d">More...</a><br /></td></tr>
 <tr class="separator:ac9ce1cecca673003b5f7a12cb6d31a3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:a6128a6c3c1f90cbc62e47822ca16ea60"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_comparable.html#a6128a6c3c1f90cbc62e47822ca16ea60">compare</a> (const T &amp;rhs) const =0</td></tr>
+<tr class="memdesc:a6128a6c3c1f90cbc62e47822ca16ea60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compares this object to an object on the right hand side.  <a href="#a6128a6c3c1f90cbc62e47822ca16ea60">More...</a><br /></td></tr>
 <tr class="separator:a6128a6c3c1f90cbc62e47822ca16ea60"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -170,6 +156,7 @@ template&lt;class T&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
 <p>Virtual destructor. </p>
 
 </div>
@@ -198,7 +185,9 @@ template&lt;class T&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Compares this object to an object on the right hand side. Implementing classes should follow these rules:</p><ul>
+
+<p>Compares this object to an object on the right hand side. </p>
+<p>Implementing classes should follow these rules:</p><ul>
 <li>If the object has an ID, and the ID of the RHS matches the ID of this object, then this function should return 0, regardless of any other member variables.</li>
 <li>Otherwise, the function should sort by whatever member variables are appropriate.</li>
 </ul>
@@ -213,7 +202,7 @@ template&lt;class T&gt; </div>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="_comparable_8h_source.html">Comparable.h</a></li>
+<li>Comparable.h</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -221,7 +210,7 @@ template&lt;class T&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_comparable.html">Comparable</a></li>
-    <li class="footer">Generated on Sun May 18 2014 18:59:52 for ClassScheduling by
+    <li class="footer">Generated on Sun May 18 2014 19:50:48 for ClassScheduling by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>

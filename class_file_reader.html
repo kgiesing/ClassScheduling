@@ -31,6 +31,7 @@
   <td style="padding-left: 0.5em;">
    <div id="projectname">ClassScheduling
    </div>
+   <div id="projectbrief">A project to schedule college courses.</div>
   </td>
  </tr>
  </tbody>
@@ -92,7 +93,7 @@ $(document).ready(function(){initNavTree('class_file_reader.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -111,38 +112,47 @@ $(document).ready(function(){initNavTree('class_file_reader.html','');});
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="_file_reader_8h_source.html">FileReader.h</a>&gt;</code></p>
+<p>Abstract base class for objects that read something from file.  
+ <a href="class_file_reader.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for FileReader&lt; T &gt;:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_file_reader.png" usemap="#FileReader&lt; T &gt;_map" alt=""/>
   <map id="FileReader&lt; T &gt;_map" name="FileReader&lt; T &gt;_map">
-<area href="class_reader.html" alt="Reader&lt; T &gt;" shape="rect" coords="0,0,105,24"/>
+<area href="class_reader.html" title="Pure abstract base class (interface) for objects that read something. " alt="Reader&lt; T &gt;" shape="rect" coords="0,0,105,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aea9705c601f69796d0b388a8c4e3be7a"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file_reader.html#aea9705c601f69796d0b388a8c4e3be7a">~FileReader</a> (void)</td></tr>
+<tr class="memdesc:aea9705c601f69796d0b388a8c4e3be7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor.  <a href="#aea9705c601f69796d0b388a8c4e3be7a">More...</a><br /></td></tr>
 <tr class="separator:aea9705c601f69796d0b388a8c4e3be7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a75e5cf4f912e1ec541f0e776bedd48cd"><td class="memItemLeft" align="right" valign="top">virtual string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file_reader.html#a75e5cf4f912e1ec541f0e776bedd48cd">getFilename</a> (void) const </td></tr>
+<tr class="memdesc:a75e5cf4f912e1ec541f0e776bedd48cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the file name.  <a href="#a75e5cf4f912e1ec541f0e776bedd48cd">More...</a><br /></td></tr>
 <tr class="separator:a75e5cf4f912e1ec541f0e776bedd48cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0d1bba161c5a3c4bcbaa794ea97f8e9f"><td class="memItemLeft" align="right" valign="top">virtual char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file_reader.html#a0d1bba161c5a3c4bcbaa794ea97f8e9f">getDelimiter</a> (void) const </td></tr>
+<tr class="memdesc:a0d1bba161c5a3c4bcbaa794ea97f8e9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the delimiter between fields in the file.  <a href="#a0d1bba161c5a3c4bcbaa794ea97f8e9f">More...</a><br /></td></tr>
 <tr class="separator:a0d1bba161c5a3c4bcbaa794ea97f8e9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afc839e76d89d8b0929abfe02c7f4a592"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file_reader.html#afc839e76d89d8b0929abfe02c7f4a592">setFilename</a> (const string &amp;filename)</td></tr>
+<tr class="memdesc:afc839e76d89d8b0929abfe02c7f4a592"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the file name.  <a href="#afc839e76d89d8b0929abfe02c7f4a592">More...</a><br /></td></tr>
 <tr class="separator:afc839e76d89d8b0929abfe02c7f4a592"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4bf2ed443a62975d86580fe1956792d5"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file_reader.html#a4bf2ed443a62975d86580fe1956792d5">setDelimiter</a> (char delim)</td></tr>
+<tr class="memdesc:a4bf2ed443a62975d86580fe1956792d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the the delimiter between fields in the file.  <a href="#a4bf2ed443a62975d86580fe1956792d5">More...</a><br /></td></tr>
 <tr class="separator:a4bf2ed443a62975d86580fe1956792d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_reader"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_reader')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_reader.html">Reader&lt; T &gt;</a></td></tr>
 <tr class="memitem:a4cf3170291f85df54c1f1834091b54bd inherit pub_methods_class_reader"><td class="memItemLeft" align="right" valign="top">virtual T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_reader.html#a4cf3170291f85df54c1f1834091b54bd">read</a> ()=0</td></tr>
+<tr class="memdesc:a4cf3170291f85df54c1f1834091b54bd inherit pub_methods_class_reader"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads something.  <a href="#a4cf3170291f85df54c1f1834091b54bd">More...</a><br /></td></tr>
 <tr class="separator:a4cf3170291f85df54c1f1834091b54bd inherit pub_methods_class_reader"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6ea2127cf57746e5a99e1c90fb3045f9 inherit pub_methods_class_reader"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_reader.html#a6ea2127cf57746e5a99e1c90fb3045f9">~Reader</a> (void)</td></tr>
+<tr class="memdesc:a6ea2127cf57746e5a99e1c90fb3045f9 inherit pub_methods_class_reader"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor.  <a href="#a6ea2127cf57746e5a99e1c90fb3045f9">More...</a><br /></td></tr>
 <tr class="separator:a6ea2127cf57746e5a99e1c90fb3045f9 inherit pub_methods_class_reader"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:a8289c1960524366355fc212aeffbcbd0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file_reader.html#a8289c1960524366355fc212aeffbcbd0">FileReader</a> (string filename, char delim=',')</td></tr>
+<tr class="memdesc:a8289c1960524366355fc212aeffbcbd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Protected constructor.  <a href="#a8289c1960524366355fc212aeffbcbd0">More...</a><br /></td></tr>
 <tr class="separator:a8289c1960524366355fc212aeffbcbd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -174,6 +184,7 @@ template&lt;typename T&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
 <p>Virtual destructor. </p>
 
 </div>
@@ -211,6 +222,7 @@ template&lt;typename T&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
 <p>Protected constructor. </p>
 
 </div>
@@ -239,7 +251,9 @@ template&lt;typename T&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Returns the delimiter between fields in the file. </p><dl class="section return"><dt>Returns</dt><dd>string The file name. </dd></dl>
+
+<p>Returns the delimiter between fields in the file. </p>
+<dl class="section return"><dt>Returns</dt><dd>string The file name. </dd></dl>
 
 </div>
 </div>
@@ -266,7 +280,9 @@ template&lt;typename T&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Returns the file name. </p><dl class="section return"><dt>Returns</dt><dd>string The file name. </dd></dl>
+
+<p>Returns the file name. </p>
+<dl class="section return"><dt>Returns</dt><dd>string The file name. </dd></dl>
 
 </div>
 </div>
@@ -293,7 +309,9 @@ template&lt;typename T&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Sets the the delimiter between fields in the file. </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Sets the the delimiter between fields in the file. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">delim</td><td>char The the delimiter between fields in the file. </td></tr>
   </table>
@@ -325,7 +343,9 @@ template&lt;typename T&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Sets the file name. </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Sets the file name. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">filename</td><td>const string&amp; The file name. </td></tr>
   </table>
@@ -335,7 +355,7 @@ template&lt;typename T&gt; </div>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="_file_reader_8h_source.html">FileReader.h</a></li>
+<li>FileReader.h</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -343,7 +363,7 @@ template&lt;typename T&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_file_reader.html">FileReader</a></li>
-    <li class="footer">Generated on Sun May 18 2014 18:59:52 for ClassScheduling by
+    <li class="footer">Generated on Sun May 18 2014 19:50:48 for ClassScheduling by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>

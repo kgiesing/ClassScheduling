@@ -31,6 +31,7 @@
   <td style="padding-left: 0.5em;">
    <div id="projectname">ClassScheduling
    </div>
+   <div id="projectbrief">A project to schedule college courses.</div>
   </td>
  </tr>
  </tbody>
@@ -92,7 +93,7 @@ $(document).ready(function(){initNavTree('class_test_course_reader.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -109,25 +110,13 @@ $(document).ready(function(){initNavTree('class_test_course_reader.html','');});
 
 <p>This is the complete list of members for <a class="el" href="class_test_course_reader.html">TestCourseReader</a>, including all inherited members.</p>
 <table class="directory">
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>_invalid</b> (defined in <a class="el" href="class_test_file_readers.html">TestFileReaders</a>)</td><td class="entry"><a class="el" href="class_test_file_readers.html">TestFileReaders</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>_valid</b> (defined in <a class="el" href="class_test_file_readers.html">TestFileReaders</a>)</td><td class="entry"><a class="el" href="class_test_file_readers.html">TestFileReaders</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_test_runner.html#ad71e85508f5ad962047fd9495774ebb4">getComponent</a>() const </td><td class="entry"><a class="el" href="class_test_runner.html">TestRunner</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_test_runner.html#a9dd3d3a81eba954e64882af12c9334cb">runFailTests</a>(bool=true)</td><td class="entry"><a class="el" href="class_test_runner.html">TestRunner</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_test_runner.html#a0abef14a2c13b8cf179347e8556e8405">runPassTests</a>(bool=true)</td><td class="entry"><a class="el" href="class_test_runner.html">TestRunner</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_test_runner.html#a63fba1d4ee8002354fda8991b12960b0">runStressTests</a>(unsigned=5)</td><td class="entry"><a class="el" href="class_test_runner.html">TestRunner</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_test_course_reader.html#a3f9e2697a6abe2e089830843b76d19df">TestCourseReader</a>(string, string)</td><td class="entry"><a class="el" href="class_test_course_reader.html">TestCourseReader</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_test_file_readers.html#a7d0a4a60aea04323e68d134d9278bbe0">testFail</a>(void)</td><td class="entry"><a class="el" href="class_test_file_readers.html">TestFileReaders</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_test_file_readers.html#a1ff3db03d838161d695e261b1a0547b1">TestFileReaders</a>(string component, string valid, string invalid)</td><td class="entry"><a class="el" href="class_test_file_readers.html">TestFileReaders</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_test_file_readers.html#add76d42c4a422e3be20d252a249174e7">testPass</a>(void)</td><td class="entry"><a class="el" href="class_test_file_readers.html">TestFileReaders</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_test_runner.html#a20840dbe3e6171b70bb15c3abf661878">TestRunner</a>(string component)</td><td class="entry"><a class="el" href="class_test_runner.html">TestRunner</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_test_runner.html#a177d32f58a2464170c314b19a41527e8">testStress</a>(unsigned)</td><td class="entry"><a class="el" href="class_test_runner.html">TestRunner</a></td><td class="entry"><span class="mlabel">protected</span><span class="mlabel">virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_test_runner.html#ab6d861e83212fbb601a7ae0e9594ee13">~TestRunner</a>(void)</td><td class="entry"><a class="el" href="class_test_runner.html">TestRunner</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sun May 18 2014 18:59:52 for ClassScheduling by
+    <li class="footer">Generated on Sun May 18 2014 19:50:48 for ClassScheduling by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>

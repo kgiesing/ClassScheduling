@@ -31,6 +31,7 @@
   <td style="padding-left: 0.5em;">
    <div id="projectname">ClassScheduling
    </div>
+   <div id="projectbrief">A project to schedule college courses.</div>
   </td>
  </tr>
  </tbody>
@@ -92,7 +93,7 @@ $(document).ready(function(){initNavTree('class_score_calculator.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -110,24 +111,26 @@ $(document).ready(function(){initNavTree('class_score_calculator.html','');});
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="_score_calculator_8h_source.html">ScoreCalculator.h</a>&gt;</code></p>
+<p>Abstract base class (interface) for functor objects that calculate the score for a professor.  
+ <a href="class_score_calculator.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for ScoreCalculator:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_score_calculator.png" usemap="#ScoreCalculator_map" alt=""/>
   <map id="ScoreCalculator_map" name="ScoreCalculator_map">
-<area href="class_linear_score_calculator.html" alt="LinearScoreCalculator" shape="rect" coords="0,56,156,80"/>
-<area href="class_weighted_score_calculator.html" alt="WeightedScoreCalculator" shape="rect" coords="166,56,322,80"/>
+<area href="class_linear_score_calculator.html" title="An implementation of ScoreCalculator that calculates professor score by simply measuring the gaps bet..." alt="LinearScoreCalculator" shape="rect" coords="0,56,156,80"/>
+<area href="class_weighted_score_calculator.html" title="An implementation of ScoreCalculator that calculates professor score by weighting separate days as "h..." alt="WeightedScoreCalculator" shape="rect" coords="166,56,322,80"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a0f6491eaec35ba3f36717cdfd1b56173"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_score_calculator.html#a0f6491eaec35ba3f36717cdfd1b56173">operator()</a> (<a class="el" href="class_prof_info.html">ProfInfo</a> &amp;)=0</td></tr>
-<tr class="memdesc:a0f6491eaec35ba3f36717cdfd1b56173"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the score for a professor. The function operator will be passed a reference to a <a class="el" href="class_prof_info.html">ProfInfo</a> object. Upon return, the <a class="el" href="class_prof_info.html">ProfInfo</a> object will be updated with the score for the <a class="el" href="class_prof.html">Prof</a> it represents. As a matter of convenience, the score is also returned from the function.  <a href="#a0f6491eaec35ba3f36717cdfd1b56173">More...</a><br /></td></tr>
+<tr class="memdesc:a0f6491eaec35ba3f36717cdfd1b56173"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the score for a professor.  <a href="#a0f6491eaec35ba3f36717cdfd1b56173">More...</a><br /></td></tr>
 <tr class="separator:a0f6491eaec35ba3f36717cdfd1b56173"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6a3803d1da0dfc0552c8c560a39b3dc7"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_score_calculator.html#a6a3803d1da0dfc0552c8c560a39b3dc7">~ScoreCalculator</a> (void)</td></tr>
+<tr class="memdesc:a6a3803d1da0dfc0552c8c560a39b3dc7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor.  <a href="#a6a3803d1da0dfc0552c8c560a39b3dc7">More...</a><br /></td></tr>
 <tr class="separator:a6a3803d1da0dfc0552c8c560a39b3dc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -154,6 +157,7 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
 <p>Virtual destructor. </p>
 
 </div>
@@ -181,10 +185,10 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Calculates the score for a professor. The function operator will be passed a reference to a <a class="el" href="class_prof_info.html">ProfInfo</a> object. Upon return, the <a class="el" href="class_prof_info.html">ProfInfo</a> object will be updated with the score for the <a class="el" href="class_prof.html">Prof</a> it represents. As a matter of convenience, the score is also returned from the function. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Calculates the score for a professor. </p>
+<p>The function operator will be passed a reference to a <a class="el" href="class_prof_info.html" title="This class represents information about a Professor. ">ProfInfo</a> object. Upon return, the <a class="el" href="class_prof_info.html" title="This class represents information about a Professor. ">ProfInfo</a> object will be updated with the score for the <a class="el" href="class_prof.html" title="This class represents a single professor. ">Prof</a> it represents. As a matter of convenience, the score is also returned from the function. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_prof_info.html">ProfInfo</a></td><td>reference. </td></tr>
+    <tr><td class="paramname"><a class="el" href="class_prof_info.html" title="This class represents information about a Professor. ">ProfInfo</a></td><td>reference. </td></tr>
   </table>
   </dd>
 </dl>
@@ -195,7 +199,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="_score_calculator_8h_source.html">ScoreCalculator.h</a></li>
+<li>ScoreCalculator.h</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -203,7 +207,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_score_calculator.html">ScoreCalculator</a></li>
-    <li class="footer">Generated on Sun May 18 2014 18:59:52 for ClassScheduling by
+    <li class="footer">Generated on Sun May 18 2014 19:50:48 for ClassScheduling by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>

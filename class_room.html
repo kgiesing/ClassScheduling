@@ -31,6 +31,7 @@
   <td style="padding-left: 0.5em;">
    <div id="projectname">ClassScheduling
    </div>
+   <div id="projectbrief">A project to schedule college courses.</div>
   </td>
  </tr>
  </tbody>
@@ -92,7 +93,7 @@ $(document).ready(function(){initNavTree('class_room.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -110,7 +111,8 @@ $(document).ready(function(){initNavTree('class_room.html','');});
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="_room_8h_source.html">Room.h</a>&gt;</code></p>
+<p>This class represents a single room.  
+ <a href="class_room.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for Room:</div>
 <div class="dyncontent">
@@ -124,35 +126,23 @@ Inheritance diagram for Room:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aee325a7ed34308c66ecf228c2b730093"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_room.html#aee325a7ed34308c66ecf228c2b730093">Room</a> (const std::string &amp;id=&quot;&quot;, int capacity=0)</td></tr>
+<tr class="memdesc:aee325a7ed34308c66ecf228c2b730093"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#aee325a7ed34308c66ecf228c2b730093">More...</a><br /></td></tr>
 <tr class="separator:aee325a7ed34308c66ecf228c2b730093"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9ce3088c79b2d7e60e14e8a6509c3447"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_room.html#a9ce3088c79b2d7e60e14e8a6509c3447">getCapacity</a> () const </td></tr>
+<tr class="memdesc:a9ce3088c79b2d7e60e14e8a6509c3447"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the room capacity.  <a href="#a9ce3088c79b2d7e60e14e8a6509c3447">More...</a><br /></td></tr>
 <tr class="separator:a9ce3088c79b2d7e60e14e8a6509c3447"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3ecdd24d1f8b0958954ceab63b404e64"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_room.html#a3ecdd24d1f8b0958954ceab63b404e64">getId</a> () const </td></tr>
+<tr class="memdesc:a3ecdd24d1f8b0958954ceab63b404e64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the room ID.  <a href="#a3ecdd24d1f8b0958954ceab63b404e64">More...</a><br /></td></tr>
 <tr class="separator:a3ecdd24d1f8b0958954ceab63b404e64"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac641151e6f5f3cf2ae2571cb31de4500"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_room.html#ac641151e6f5f3cf2ae2571cb31de4500">setCapacity</a> (int capacity)</td></tr>
+<tr class="memdesc:ac641151e6f5f3cf2ae2571cb31de4500"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the room capacity.  <a href="#ac641151e6f5f3cf2ae2571cb31de4500">More...</a><br /></td></tr>
 <tr class="separator:ac641151e6f5f3cf2ae2571cb31de4500"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a12558e57cae4be0ae3f6b4baf5bd3a45"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_room.html#a12558e57cae4be0ae3f6b4baf5bd3a45">setId</a> (const std::string &amp;id)</td></tr>
+<tr class="memdesc:a12558e57cae4be0ae3f6b4baf5bd3a45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the room ID.  <a href="#a12558e57cae4be0ae3f6b4baf5bd3a45">More...</a><br /></td></tr>
 <tr class="separator:a12558e57cae4be0ae3f6b4baf5bd3a45"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_comparable"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_comparable')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_comparable.html">Comparable&lt; Room &gt;</a></td></tr>
-<tr class="memitem:afaaf8bb9f89014054d4dbf3fd293e6ca inherit pub_methods_class_comparable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afaaf8bb9f89014054d4dbf3fd293e6ca"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="class_room.html">Room</a> &amp;rhs) const</td></tr>
-<tr class="separator:afaaf8bb9f89014054d4dbf3fd293e6ca inherit pub_methods_class_comparable"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aae23c4d9fac0fd46250bfb0d8390f72c inherit pub_methods_class_comparable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aae23c4d9fac0fd46250bfb0d8390f72c"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator!=</b> (const <a class="el" href="class_room.html">Room</a> &amp;rhs) const</td></tr>
-<tr class="separator:aae23c4d9fac0fd46250bfb0d8390f72c inherit pub_methods_class_comparable"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a18ffd7337c4d89a87babb870928f69e9 inherit pub_methods_class_comparable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a18ffd7337c4d89a87babb870928f69e9"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;</b> (const <a class="el" href="class_room.html">Room</a> &amp;rhs) const</td></tr>
-<tr class="separator:a18ffd7337c4d89a87babb870928f69e9 inherit pub_methods_class_comparable"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4518b3bb71d9f54d2346934777f38fd3 inherit pub_methods_class_comparable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4518b3bb71d9f54d2346934777f38fd3"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;=</b> (const <a class="el" href="class_room.html">Room</a> &amp;rhs) const</td></tr>
-<tr class="separator:a4518b3bb71d9f54d2346934777f38fd3 inherit pub_methods_class_comparable"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2bab52b70ca28c1ca0703c0ddba1e4c2 inherit pub_methods_class_comparable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2bab52b70ca28c1ca0703c0ddba1e4c2"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&gt;</b> (const <a class="el" href="class_room.html">Room</a> &amp;rhs) const</td></tr>
-<tr class="separator:a2bab52b70ca28c1ca0703c0ddba1e4c2 inherit pub_methods_class_comparable"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a90f9b2637a6d1c04bf59aaba4f9773ba inherit pub_methods_class_comparable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a90f9b2637a6d1c04bf59aaba4f9773ba"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&gt;=</b> (const <a class="el" href="class_room.html">Room</a> &amp;rhs) const</td></tr>
-<tr class="separator:a90f9b2637a6d1c04bf59aaba4f9773ba inherit pub_methods_class_comparable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac9ce1cecca673003b5f7a12cb6d31a3d inherit pub_methods_class_comparable"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_comparable.html#ac9ce1cecca673003b5f7a12cb6d31a3d">~Comparable</a> (void)</td></tr>
+<tr class="memdesc:ac9ce1cecca673003b5f7a12cb6d31a3d inherit pub_methods_class_comparable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor.  <a href="#ac9ce1cecca673003b5f7a12cb6d31a3d">More...</a><br /></td></tr>
 <tr class="separator:ac9ce1cecca673003b5f7a12cb6d31a3d inherit pub_methods_class_comparable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
@@ -184,10 +174,12 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Constructor. </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Constructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_room.html">Room</a></td><td>capacity. </td></tr>
-    <tr><td class="paramname"><a class="el" href="class_room.html">Room</a></td><td>ID. </td></tr>
+    <tr><td class="paramname"><a class="el" href="class_room.html" title="This class represents a single room. ">Room</a></td><td>capacity. </td></tr>
+    <tr><td class="paramname"><a class="el" href="class_room.html" title="This class represents a single room. ">Room</a></td><td>ID. </td></tr>
   </table>
   </dd>
 </dl>
@@ -215,7 +207,9 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Returns the room capacity. </p><dl class="section return"><dt>Returns</dt><dd>Constant reference to the room capacity. </dd></dl>
+
+<p>Returns the room capacity. </p>
+<dl class="section return"><dt>Returns</dt><dd>Constant reference to the room capacity. </dd></dl>
 
 </div>
 </div>
@@ -239,7 +233,9 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Returns the room ID. </p><dl class="section return"><dt>Returns</dt><dd>Constant reference to the room ID. </dd></dl>
+
+<p>Returns the room ID. </p>
+<dl class="section return"><dt>Returns</dt><dd>Constant reference to the room ID. </dd></dl>
 
 </div>
 </div>
@@ -264,7 +260,9 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Sets the room capacity. </p><dl class="section return"><dt>Returns</dt><dd>Constant reference to the room capacity. </dd></dl>
+
+<p>Sets the room capacity. </p>
+<dl class="section return"><dt>Returns</dt><dd>Constant reference to the room capacity. </dd></dl>
 
 </div>
 </div>
@@ -289,12 +287,14 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Sets the room ID. </p><dl class="section return"><dt>Returns</dt><dd>Constant reference to the room ID. </dd></dl>
+
+<p>Sets the room ID. </p>
+<dl class="section return"><dt>Returns</dt><dd>Constant reference to the room ID. </dd></dl>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="_room_8h_source.html">Room.h</a></li>
+<li>Room.h</li>
 <li>Room.cpp</li>
 </ul>
 </div><!-- contents -->
@@ -303,7 +303,7 @@ Additional Inherited Members</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_room.html">Room</a></li>
-    <li class="footer">Generated on Sun May 18 2014 18:59:52 for ClassScheduling by
+    <li class="footer">Generated on Sun May 18 2014 19:50:48 for ClassScheduling by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>

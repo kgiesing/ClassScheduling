@@ -31,6 +31,7 @@
   <td style="padding-left: 0.5em;">
    <div id="projectname">ClassScheduling
    </div>
+   <div id="projectbrief">A project to schedule college courses.</div>
   </td>
  </tr>
  </tbody>
@@ -92,7 +93,7 @@ $(document).ready(function(){initNavTree('class_course_reader.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -110,7 +111,8 @@ $(document).ready(function(){initNavTree('class_course_reader.html','');});
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="_course_reader_8h_source.html">CourseReader.h</a>&gt;</code></p>
+<p>This class reads a list of <a class="el" href="class_course.html" title="This class represents a single course. ">Course</a> objects from a CSV file.  
+ <a href="class_course_reader.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for CourseReader:</div>
 <div class="dyncontent">
@@ -124,71 +126,45 @@ Inheritance diagram for CourseReader:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aac84a23c4a0ea7033e6903c3fcf10e26"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_course_reader.html#aac84a23c4a0ea7033e6903c3fcf10e26">CourseReader</a> (std::string filename, char delim=',')</td></tr>
+<tr class="memitem:aac84a23c4a0ea7033e6903c3fcf10e26"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aac84a23c4a0ea7033e6903c3fcf10e26"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_course_reader.html#aac84a23c4a0ea7033e6903c3fcf10e26">CourseReader</a> (std::string filename, char delim=',')</td></tr>
+<tr class="memdesc:aac84a23c4a0ea7033e6903c3fcf10e26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor with filename. <br /></td></tr>
 <tr class="separator:aac84a23c4a0ea7033e6903c3fcf10e26"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5060719528da57680ea621df4426c3e3"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_course.html">Course</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_course_reader.html#a5060719528da57680ea621df4426c3e3">read</a> ()</td></tr>
+<tr class="memdesc:a5060719528da57680ea621df4426c3e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads something.  <a href="#a5060719528da57680ea621df4426c3e3">More...</a><br /></td></tr>
 <tr class="separator:a5060719528da57680ea621df4426c3e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_file_reader"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_file_reader')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_file_reader.html">FileReader&lt; std::vector&lt; Course &gt; &gt;</a></td></tr>
 <tr class="memitem:aea9705c601f69796d0b388a8c4e3be7a inherit pub_methods_class_file_reader"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file_reader.html#aea9705c601f69796d0b388a8c4e3be7a">~FileReader</a> (void)</td></tr>
+<tr class="memdesc:aea9705c601f69796d0b388a8c4e3be7a inherit pub_methods_class_file_reader"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor.  <a href="#aea9705c601f69796d0b388a8c4e3be7a">More...</a><br /></td></tr>
 <tr class="separator:aea9705c601f69796d0b388a8c4e3be7a inherit pub_methods_class_file_reader"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a75e5cf4f912e1ec541f0e776bedd48cd inherit pub_methods_class_file_reader"><td class="memItemLeft" align="right" valign="top">virtual string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file_reader.html#a75e5cf4f912e1ec541f0e776bedd48cd">getFilename</a> (void) const</td></tr>
+<tr class="memdesc:a75e5cf4f912e1ec541f0e776bedd48cd inherit pub_methods_class_file_reader"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the file name.  <a href="#a75e5cf4f912e1ec541f0e776bedd48cd">More...</a><br /></td></tr>
 <tr class="separator:a75e5cf4f912e1ec541f0e776bedd48cd inherit pub_methods_class_file_reader"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0d1bba161c5a3c4bcbaa794ea97f8e9f inherit pub_methods_class_file_reader"><td class="memItemLeft" align="right" valign="top">virtual char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file_reader.html#a0d1bba161c5a3c4bcbaa794ea97f8e9f">getDelimiter</a> (void) const</td></tr>
+<tr class="memdesc:a0d1bba161c5a3c4bcbaa794ea97f8e9f inherit pub_methods_class_file_reader"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the delimiter between fields in the file.  <a href="#a0d1bba161c5a3c4bcbaa794ea97f8e9f">More...</a><br /></td></tr>
 <tr class="separator:a0d1bba161c5a3c4bcbaa794ea97f8e9f inherit pub_methods_class_file_reader"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afc839e76d89d8b0929abfe02c7f4a592 inherit pub_methods_class_file_reader"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file_reader.html#afc839e76d89d8b0929abfe02c7f4a592">setFilename</a> (const string &amp;filename)</td></tr>
+<tr class="memdesc:afc839e76d89d8b0929abfe02c7f4a592 inherit pub_methods_class_file_reader"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the file name.  <a href="#afc839e76d89d8b0929abfe02c7f4a592">More...</a><br /></td></tr>
 <tr class="separator:afc839e76d89d8b0929abfe02c7f4a592 inherit pub_methods_class_file_reader"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4bf2ed443a62975d86580fe1956792d5 inherit pub_methods_class_file_reader"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file_reader.html#a4bf2ed443a62975d86580fe1956792d5">setDelimiter</a> (char delim)</td></tr>
+<tr class="memdesc:a4bf2ed443a62975d86580fe1956792d5 inherit pub_methods_class_file_reader"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the the delimiter between fields in the file.  <a href="#a4bf2ed443a62975d86580fe1956792d5">More...</a><br /></td></tr>
 <tr class="separator:a4bf2ed443a62975d86580fe1956792d5 inherit pub_methods_class_file_reader"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_reader"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_reader')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_reader.html">Reader&lt; std::vector&lt; Course &gt; &gt;</a></td></tr>
 <tr class="memitem:a6ea2127cf57746e5a99e1c90fb3045f9 inherit pub_methods_class_reader"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_reader.html#a6ea2127cf57746e5a99e1c90fb3045f9">~Reader</a> (void)</td></tr>
+<tr class="memdesc:a6ea2127cf57746e5a99e1c90fb3045f9 inherit pub_methods_class_reader"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor.  <a href="#a6ea2127cf57746e5a99e1c90fb3045f9">More...</a><br /></td></tr>
 <tr class="separator:a6ea2127cf57746e5a99e1c90fb3045f9 inherit pub_methods_class_reader"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_methods_class_file_reader"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_class_file_reader')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="class_file_reader.html">FileReader&lt; std::vector&lt; Course &gt; &gt;</a></td></tr>
 <tr class="memitem:a8289c1960524366355fc212aeffbcbd0 inherit pro_methods_class_file_reader"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file_reader.html#a8289c1960524366355fc212aeffbcbd0">FileReader</a> (string filename, char delim=',')</td></tr>
+<tr class="memdesc:a8289c1960524366355fc212aeffbcbd0 inherit pro_methods_class_file_reader"><td class="mdescLeft">&#160;</td><td class="mdescRight">Protected constructor.  <a href="#a8289c1960524366355fc212aeffbcbd0">More...</a><br /></td></tr>
 <tr class="separator:a8289c1960524366355fc212aeffbcbd0 inherit pro_methods_class_file_reader"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This class reads a list of <a class="el" href="class_course.html">Course</a> objects from a CSV file.</p>
-<p><a class="el" href="class_course.html">Course</a> CSV file fields: course ID, course name, Professor ID, number of enrolled students (as an integer), number of time periods required by the course (as an integer), list of conflicting course ID’s (if no conflicts exist, this section shall be empty) </p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="aac84a23c4a0ea7033e6903c3fcf10e26"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">CourseReader::CourseReader </td>
-          <td>(</td>
-          <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>filename</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char&#160;</td>
-          <td class="paramname"><em>delim</em> = <code>','</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Constructor with filename </p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
+<div class="textblock"><p>This class reads a list of <a class="el" href="class_course.html" title="This class represents a single course. ">Course</a> objects from a CSV file. </p>
+<p><a class="el" href="class_course.html" title="This class represents a single course. ">Course</a> CSV file fields: course ID, course name, Professor ID, number of enrolled students (as an integer), number of time periods required by the course (as an integer), list of conflicting course ID’s (if no conflicts exist, this section shall be empty) </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a5060719528da57680ea621df4426c3e3"></a>
 <div class="memitem">
 <div class="memproto">
@@ -209,14 +185,16 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Reads something. </p><dl class="section return"><dt>Returns</dt><dd>Whatever is read. </dd></dl>
+
+<p>Reads something. </p>
+<dl class="section return"><dt>Returns</dt><dd>Whatever is read. </dd></dl>
 
 <p>Implements <a class="el" href="class_reader.html#a4cf3170291f85df54c1f1834091b54bd">Reader&lt; std::vector&lt; Course &gt; &gt;</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="_course_reader_8h_source.html">CourseReader.h</a></li>
+<li>CourseReader.h</li>
 <li>CourseReader.cpp</li>
 </ul>
 </div><!-- contents -->
@@ -225,7 +203,7 @@ Additional Inherited Members</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_course_reader.html">CourseReader</a></li>
-    <li class="footer">Generated on Sun May 18 2014 18:59:52 for ClassScheduling by
+    <li class="footer">Generated on Sun May 18 2014 19:50:48 for ClassScheduling by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>

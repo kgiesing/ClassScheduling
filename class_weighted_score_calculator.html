@@ -31,6 +31,7 @@
   <td style="padding-left: 0.5em;">
    <div id="projectname">ClassScheduling
    </div>
+   <div id="projectbrief">A project to schedule college courses.</div>
   </td>
  </tr>
  </tbody>
@@ -92,7 +93,7 @@ $(document).ready(function(){initNavTree('class_weighted_score_calculator.html',
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -110,28 +111,30 @@ $(document).ready(function(){initNavTree('class_weighted_score_calculator.html',
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="_weighted_score_calculator_8h_source.html">WeightedScoreCalculator.h</a>&gt;</code></p>
+<p>An implementation of <a class="el" href="class_score_calculator.html" title="Abstract base class (interface) for functor objects that calculate the score for a professor...">ScoreCalculator</a> that calculates professor score by weighting separate days as "heavier" than large schedule gaps within the same day.  
+ <a href="class_weighted_score_calculator.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for WeightedScoreCalculator:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_weighted_score_calculator.png" usemap="#WeightedScoreCalculator_map" alt=""/>
   <map id="WeightedScoreCalculator_map" name="WeightedScoreCalculator_map">
-<area href="class_score_calculator.html" alt="ScoreCalculator" shape="rect" coords="0,0,156,24"/>
+<area href="class_score_calculator.html" title="Abstract base class (interface) for functor objects that calculate the score for a professor..." alt="ScoreCalculator" shape="rect" coords="0,0,156,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a9eb5460a09e4dad92f14a320505fe6e4"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_weighted_score_calculator.html#a9eb5460a09e4dad92f14a320505fe6e4">operator()</a> (<a class="el" href="class_prof_info.html">ProfInfo</a> &amp;)</td></tr>
-<tr class="memdesc:a9eb5460a09e4dad92f14a320505fe6e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the score for a professor. The function operator will be passed a reference to a <a class="el" href="class_prof_info.html">ProfInfo</a> object. Upon return, the <a class="el" href="class_prof_info.html">ProfInfo</a> object will be updated with the score for the <a class="el" href="class_prof.html">Prof</a> it represents. As a matter of convenience, the score is also returned from the function.  <a href="#a9eb5460a09e4dad92f14a320505fe6e4">More...</a><br /></td></tr>
+<tr class="memdesc:a9eb5460a09e4dad92f14a320505fe6e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the score for a professor.  <a href="#a9eb5460a09e4dad92f14a320505fe6e4">More...</a><br /></td></tr>
 <tr class="separator:a9eb5460a09e4dad92f14a320505fe6e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_score_calculator"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_score_calculator')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_score_calculator.html">ScoreCalculator</a></td></tr>
 <tr class="memitem:a6a3803d1da0dfc0552c8c560a39b3dc7 inherit pub_methods_class_score_calculator"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_score_calculator.html#a6a3803d1da0dfc0552c8c560a39b3dc7">~ScoreCalculator</a> (void)</td></tr>
+<tr class="memdesc:a6a3803d1da0dfc0552c8c560a39b3dc7 inherit pub_methods_class_score_calculator"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor.  <a href="#a6a3803d1da0dfc0552c8c560a39b3dc7">More...</a><br /></td></tr>
 <tr class="separator:a6a3803d1da0dfc0552c8c560a39b3dc7 inherit pub_methods_class_score_calculator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>An implementation of <a class="el" href="class_score_calculator.html">ScoreCalculator</a> that calculates professor score by weighting separate days as "heavier" than large schedule gaps within the same day. </p>
+<div class="textblock"><p>An implementation of <a class="el" href="class_score_calculator.html" title="Abstract base class (interface) for functor objects that calculate the score for a professor...">ScoreCalculator</a> that calculates professor score by weighting separate days as "heavier" than large schedule gaps within the same day. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a9eb5460a09e4dad92f14a320505fe6e4"></a>
 <div class="memitem">
@@ -155,10 +158,10 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Calculates the score for a professor. The function operator will be passed a reference to a <a class="el" href="class_prof_info.html">ProfInfo</a> object. Upon return, the <a class="el" href="class_prof_info.html">ProfInfo</a> object will be updated with the score for the <a class="el" href="class_prof.html">Prof</a> it represents. As a matter of convenience, the score is also returned from the function. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Calculates the score for a professor. </p>
+<p>The function operator will be passed a reference to a <a class="el" href="class_prof_info.html" title="This class represents information about a Professor. ">ProfInfo</a> object. Upon return, the <a class="el" href="class_prof_info.html" title="This class represents information about a Professor. ">ProfInfo</a> object will be updated with the score for the <a class="el" href="class_prof.html" title="This class represents a single professor. ">Prof</a> it represents. As a matter of convenience, the score is also returned from the function. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_prof_info.html">ProfInfo</a></td><td>reference. </td></tr>
+    <tr><td class="paramname"><a class="el" href="class_prof_info.html" title="This class represents information about a Professor. ">ProfInfo</a></td><td>reference. </td></tr>
   </table>
   </dd>
 </dl>
@@ -169,7 +172,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="_weighted_score_calculator_8h_source.html">WeightedScoreCalculator.h</a></li>
+<li>WeightedScoreCalculator.h</li>
 <li>WeightedScoreCalculator.cpp</li>
 </ul>
 </div><!-- contents -->
@@ -178,7 +181,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_weighted_score_calculator.html">WeightedScoreCalculator</a></li>
-    <li class="footer">Generated on Sun May 18 2014 18:59:52 for ClassScheduling by
+    <li class="footer">Generated on Sun May 18 2014 19:50:48 for ClassScheduling by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>

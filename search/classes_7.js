@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['prof',['Prof',['../class_prof.html',1,'']]],
-  ['profinfo',['ProfInfo',['../class_prof_info.html',1,'']]],
-  ['profreader',['ProfReader',['../class_prof_reader.html',1,'']]]
+  ['testcourse',['TestCourse',['../class_test_course.html',1,'']]],
+  ['testcoursereader',['TestCourseReader',['../class_test_course_reader.html',1,'']]],
+  ['testprof',['TestProf',['../class_test_prof.html',1,'']]]
 ];

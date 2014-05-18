@@ -31,6 +31,7 @@
   <td style="padding-left: 0.5em;">
    <div id="projectname">ClassScheduling
    </div>
+   <div id="projectbrief">A project to schedule college courses.</div>
   </td>
  </tr>
  </tbody>
@@ -67,6 +68,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li class="current"><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -89,7 +91,7 @@ $(document).ready(function(){initNavTree('files.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -105,54 +107,8 @@ $(document).ready(function(){initNavTree('files.html','');});
 <div class="contents">
 <div class="textblock">Here is a list of all documented files with brief descriptions:</div><div class="directory">
 <table class="directory">
-<tr id="row_0_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_comparable_8h_source.html"><span class="icondoc"></span></a><b>Comparable.h</b></td><td class="desc"></td></tr>
-<tr id="row_1_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_conflict_preprocessor_8h_source.html"><span class="icondoc"></span></a><b>ConflictPreprocessor.h</b></td><td class="desc"></td></tr>
-<tr id="row_2_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_course_8h_source.html"><span class="icondoc"></span></a><b>Course.h</b></td><td class="desc"></td></tr>
-<tr id="row_3_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_course_reader_8h_source.html"><span class="icondoc"></span></a><b>CourseReader.h</b></td><td class="desc"></td></tr>
-<tr id="row_4_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_data_creator_8h_source.html"><span class="icondoc"></span></a><b>DataCreator.h</b></td><td class="desc"></td></tr>
-<tr id="row_5_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_file_reader_8h_source.html"><span class="icondoc"></span></a><b>FileReader.h</b></td><td class="desc"></td></tr>
-<tr id="row_6_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_file_reader_factory_8h_source.html"><span class="icondoc"></span></a><b>FileReaderFactory.h</b></td><td class="desc"></td></tr>
-<tr id="row_7_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_file_writer_8h_source.html"><span class="icondoc"></span></a><b>FileWriter.h</b></td><td class="desc"></td></tr>
-<tr id="row_8_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_genetic_schedule_generator_8h_source.html"><span class="icondoc"></span></a><b>GeneticScheduleGenerator.h</b></td><td class="desc"></td></tr>
-<tr id="row_9_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_greedy_schedule_generator_8h_source.html"><span class="icondoc"></span></a><b>GreedyScheduleGenerator.h</b></td><td class="desc"></td></tr>
-<tr id="row_10_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_linear_score_calculator_8h_source.html"><span class="icondoc"></span></a><b>LinearScoreCalculator.h</b></td><td class="desc"></td></tr>
-<tr id="row_11_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_map_printer_8h_source.html"><span class="icondoc"></span></a><b>MapPrinter.h</b></td><td class="desc"></td></tr>
-<tr id="row_12_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_object_printer_8h_source.html"><span class="icondoc"></span></a><b>ObjectPrinter.h</b></td><td class="desc"></td></tr>
-<tr id="row_13_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_prof_8h_source.html"><span class="icondoc"></span></a><b>Prof.h</b></td><td class="desc"></td></tr>
-<tr id="row_14_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_prof_info_8h_source.html"><span class="icondoc"></span></a><b>ProfInfo.h</b></td><td class="desc"></td></tr>
-<tr id="row_15_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_prof_reader_8h_source.html"><span class="icondoc"></span></a><b>ProfReader.h</b></td><td class="desc"></td></tr>
-<tr id="row_16_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_reader_8h_source.html"><span class="icondoc"></span></a><b>Reader.h</b></td><td class="desc"></td></tr>
-<tr id="row_17_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_reader_factory_8h_source.html"><span class="icondoc"></span></a><b>ReaderFactory.h</b></td><td class="desc"></td></tr>
-<tr id="row_18_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_room_8h_source.html"><span class="icondoc"></span></a><b>Room.h</b></td><td class="desc"></td></tr>
-<tr id="row_19_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_room_reader_8h_source.html"><span class="icondoc"></span></a><b>RoomReader.h</b></td><td class="desc"></td></tr>
-<tr id="row_20_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_schedule_8h_source.html"><span class="icondoc"></span></a><b>Schedule.h</b></td><td class="desc"></td></tr>
-<tr id="row_21_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_schedule_calculator_8h_source.html"><span class="icondoc"></span></a><b>ScheduleCalculator.h</b></td><td class="desc"></td></tr>
-<tr id="row_22_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_schedule_generator_8h_source.html"><span class="icondoc"></span></a><b>ScheduleGenerator.h</b></td><td class="desc"></td></tr>
-<tr id="row_23_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_schedule_writer_8h_source.html"><span class="icondoc"></span></a><b>ScheduleWriter.h</b></td><td class="desc"></td></tr>
-<tr id="row_24_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_score_calculator_8h_source.html"><span class="icondoc"></span></a><b>ScoreCalculator.h</b></td><td class="desc"></td></tr>
-<tr id="row_25_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_test_conflict_preprocessor_8h_source.html"><span class="icondoc"></span></a><b>TestConflictPreprocessor.h</b></td><td class="desc"></td></tr>
-<tr id="row_26_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_test_course_8h_source.html"><span class="icondoc"></span></a><b>TestCourse.h</b></td><td class="desc"></td></tr>
-<tr id="row_27_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_test_course_reader_8h_source.html"><span class="icondoc"></span></a><b>TestCourseReader.h</b></td><td class="desc"></td></tr>
-<tr id="row_28_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_test_file_reader_factory_8h_source.html"><span class="icondoc"></span></a><b>TestFileReaderFactory.h</b></td><td class="desc"></td></tr>
-<tr id="row_29_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_test_file_readers_8h_source.html"><span class="icondoc"></span></a><b>TestFileReaders.h</b></td><td class="desc"></td></tr>
-<tr id="row_30_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_test_genetic_schedule_generator_8h_source.html"><span class="icondoc"></span></a><b>TestGeneticScheduleGenerator.h</b></td><td class="desc"></td></tr>
-<tr id="row_31_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_test_greedy_schedule_generator_8h_source.html"><span class="icondoc"></span></a><b>TestGreedyScheduleGenerator.h</b></td><td class="desc"></td></tr>
-<tr id="row_32_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_test_headers_8h_source.html"><span class="icondoc"></span></a><b>TestHeaders.h</b></td><td class="desc"></td></tr>
-<tr id="row_33_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_test_prof_8h_source.html"><span class="icondoc"></span></a><b>TestProf.h</b></td><td class="desc"></td></tr>
-<tr id="row_34_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_test_prof_info_8h_source.html"><span class="icondoc"></span></a><b>TestProfInfo.h</b></td><td class="desc"></td></tr>
-<tr id="row_35_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_test_prof_reader_8h_source.html"><span class="icondoc"></span></a><b>TestProfReader.h</b></td><td class="desc"></td></tr>
-<tr id="row_36_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_test_room_8h_source.html"><span class="icondoc"></span></a><b>TestRoom.h</b></td><td class="desc"></td></tr>
-<tr id="row_37_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_test_room_reader_8h_source.html"><span class="icondoc"></span></a><b>TestRoomReader.h</b></td><td class="desc"></td></tr>
-<tr id="row_38_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_test_runner_8h_source.html"><span class="icondoc"></span></a><b>TestRunner.h</b></td><td class="desc"></td></tr>
-<tr id="row_39_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_test_schedule_8h_source.html"><span class="icondoc"></span></a><b>TestSchedule.h</b></td><td class="desc"></td></tr>
-<tr id="row_40_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_test_schedule_calculator_8h_source.html"><span class="icondoc"></span></a><b>TestScheduleCalculator.h</b></td><td class="desc"></td></tr>
-<tr id="row_41_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_test_schedule_writer_8h_source.html"><span class="icondoc"></span></a><b>TestScheduleWriter.h</b></td><td class="desc"></td></tr>
-<tr id="row_42_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_test_score_calculators_8h_source.html"><span class="icondoc"></span></a><b>TestScoreCalculators.h</b></td><td class="desc"></td></tr>
-<tr id="row_43_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_time_block_8h_source.html"><span class="icondoc"></span></a><b>TimeBlock.h</b></td><td class="desc"></td></tr>
-<tr id="row_44_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_vector_printer_8h_source.html"><span class="icondoc"></span></a><b>VectorPrinter.h</b></td><td class="desc"></td></tr>
-<tr id="row_45_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_weekdays_8h_source.html"><span class="icondoc"></span></a><b>Weekdays.h</b></td><td class="desc"></td></tr>
-<tr id="row_46_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_weighted_score_calculator_8h_source.html"><span class="icondoc"></span></a><b>WeightedScoreCalculator.h</b></td><td class="desc"></td></tr>
-<tr id="row_47_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_writer_8h_source.html"><span class="icondoc"></span></a><b>Writer.h</b></td><td class="desc"></td></tr>
+<tr id="row_0_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="testsuite_2src_2main_8cpp.html" target="_self">testsuite/src/main.cpp</a></td><td class="desc">File containing the test suite's <a class="el" href="testsuite_2src_2main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main method for the test suite. ">main()</a> function </td></tr>
+<tr id="row_1_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="src_2main_8cpp.html" target="_self">src/main.cpp</a></td><td class="desc">File containing the program's <a class="el" href="src_2main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="Class Schedule main loop. ">main()</a> function </td></tr>
 </table>
 </div><!-- directory -->
 </div><!-- contents -->
@@ -160,7 +116,7 @@ $(document).ready(function(){initNavTree('files.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sun May 18 2014 18:59:52 for ClassScheduling by
+    <li class="footer">Generated on Sun May 18 2014 19:50:48 for ClassScheduling by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>

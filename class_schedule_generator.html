@@ -31,6 +31,7 @@
   <td style="padding-left: 0.5em;">
    <div id="projectname">ClassScheduling
    </div>
+   <div id="projectbrief">A project to schedule college courses.</div>
   </td>
  </tr>
  </tbody>
@@ -92,7 +93,7 @@ $(document).ready(function(){initNavTree('class_schedule_generator.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -111,34 +112,31 @@ $(document).ready(function(){initNavTree('class_schedule_generator.html','');});
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="_schedule_generator_8h_source.html">ScheduleGenerator.h</a>&gt;</code></p>
-<div class="dynheader">
-Inheritance diagram for ScheduleGenerator:</div>
-<div class="dyncontent">
- <div class="center">
-  <img src="class_schedule_generator.png" usemap="#ScheduleGenerator_map" alt=""/>
-  <map id="ScheduleGenerator_map" name="ScheduleGenerator_map">
-<area href="class_genetic_schedule_generator.html" alt="GeneticScheduleGenerator" shape="rect" coords="0,56,165,80"/>
-<area href="class_greedy_schedule_generator.html" alt="GreedyScheduleGenerator" shape="rect" coords="175,56,340,80"/>
-</map>
- </div></div>
+<p>This is an abstract base class used by the various algorithms to generate <a class="el" href="class_schedule.html" title="This class represents a schedule for all courses. ">Schedule</a> objects.  
+ <a href="class_schedule_generator.html#details">More...</a></p>
+
+<p>Inherited by GeneticScheduleGenerator, and GreedyScheduleGenerator.</p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aa0c53d64e925152ad29e07a52c49c284"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule_generator.html#aa0c53d64e925152ad29e07a52c49c284">~ScheduleGenerator</a> (void)</td></tr>
+<tr class="memdesc:aa0c53d64e925152ad29e07a52c49c284"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor.  <a href="#aa0c53d64e925152ad29e07a52c49c284">More...</a><br /></td></tr>
 <tr class="separator:aa0c53d64e925152ad29e07a52c49c284"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a257b6e8dbd93d08a4476a84c2d43155e"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="class_schedule.html">Schedule</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule_generator.html#a257b6e8dbd93d08a4476a84c2d43155e">getSchedule</a> ()=0</td></tr>
+<tr class="memdesc:a257b6e8dbd93d08a4476a84c2d43155e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the <a class="el" href="class_schedule.html" title="This class represents a schedule for all courses. ">Schedule</a> object.  <a href="#a257b6e8dbd93d08a4476a84c2d43155e">More...</a><br /></td></tr>
 <tr class="separator:a257b6e8dbd93d08a4476a84c2d43155e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a41eef60081f766059bf0ccb100044f26"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule_generator.html#a41eef60081f766059bf0ccb100044f26">getTimeout</a> ()</td></tr>
+<tr class="memdesc:a41eef60081f766059bf0ccb100044f26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the timeout (last millisecond that this object should still be working to generate the optimal schedule).  <a href="#a41eef60081f766059bf0ccb100044f26">More...</a><br /></td></tr>
 <tr class="separator:a41eef60081f766059bf0ccb100044f26"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:aa7d2c803ae6fe7b4a0e166e76bc4cca8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule_generator.html#aa7d2c803ae6fe7b4a0e166e76bc4cca8">ScheduleGenerator</a> (long timeout)</td></tr>
+<tr class="memdesc:aa7d2c803ae6fe7b4a0e166e76bc4cca8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the abstract <a class="el" href="class_schedule_generator.html" title="This is an abstract base class used by the various algorithms to generate Schedule objects...">ScheduleGenerator</a> base class.  <a href="#aa7d2c803ae6fe7b4a0e166e76bc4cca8">More...</a><br /></td></tr>
 <tr class="separator:aa7d2c803ae6fe7b4a0e166e76bc4cca8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This is an abstract base class used by the various algorithms to generate <a class="el" href="class_schedule.html">Schedule</a> objects. </p>
+<div class="textblock"><p>This is an abstract base class used by the various algorithms to generate <a class="el" href="class_schedule.html" title="This class represents a schedule for all courses. ">Schedule</a> objects. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="aa0c53d64e925152ad29e07a52c49c284"></a>
 <div class="memitem">
@@ -161,6 +159,7 @@ Protected Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
 <p>Virtual destructor. </p>
 
 </div>
@@ -186,7 +185,9 @@ Protected Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Constructor for the abstract <a class="el" href="class_schedule_generator.html">ScheduleGenerator</a> base class. Subclasses should construct the vectors themselves, if necessary, either by accepting them as constructor arguments, or from a <a class="el" href="class_schedule.html">Schedule</a>.</p>
+
+<p>Constructor for the abstract <a class="el" href="class_schedule_generator.html" title="This is an abstract base class used by the various algorithms to generate Schedule objects...">ScheduleGenerator</a> base class. </p>
+<p>Subclasses should construct the vectors themselves, if necessary, either by accepting them as constructor arguments, or from a <a class="el" href="class_schedule.html" title="This class represents a schedule for all courses. ">Schedule</a>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">timeout</td><td>The initial time when the program was started. </td></tr>
@@ -217,9 +218,9 @@ Protected Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Gets the <a class="el" href="class_schedule.html">Schedule</a> object. Subclasses will use different algorithms to generate an optimized schedule. </p><dl class="section return"><dt>Returns</dt><dd>An optimal (or near-optimal) schedule. </dd></dl>
 
-<p>Implemented in <a class="el" href="class_genetic_schedule_generator.html#ac95ce32b42718d94a91b2acff8cb4d43">GeneticScheduleGenerator</a>, and <a class="el" href="class_greedy_schedule_generator.html#a7c6c2f502ae3688503ebc3268c5f6931">GreedyScheduleGenerator</a>.</p>
+<p>Gets the <a class="el" href="class_schedule.html" title="This class represents a schedule for all courses. ">Schedule</a> object. </p>
+<p>Subclasses will use different algorithms to generate an optimized schedule. </p><dl class="section return"><dt>Returns</dt><dd>An optimal (or near-optimal) schedule. </dd></dl>
 
 </div>
 </div>
@@ -243,12 +244,14 @@ Protected Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Returns the timeout (last millisecond that this object should still be working to generate the optimal schedule). </p><dl class="section return"><dt>Returns</dt><dd>The timeout. </dd></dl>
+
+<p>Returns the timeout (last millisecond that this object should still be working to generate the optimal schedule). </p>
+<dl class="section return"><dt>Returns</dt><dd>The timeout. </dd></dl>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="_schedule_generator_8h_source.html">ScheduleGenerator.h</a></li>
+<li>ScheduleGenerator.h</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -256,7 +259,7 @@ Protected Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_schedule_generator.html">ScheduleGenerator</a></li>
-    <li class="footer">Generated on Sun May 18 2014 18:59:52 for ClassScheduling by
+    <li class="footer">Generated on Sun May 18 2014 19:50:48 for ClassScheduling by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>

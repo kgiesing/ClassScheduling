@@ -7,16 +7,18 @@
 
 var indexSectionsWithContent =
 {
-  0: "cdfglmoprstvw~",
-  1: "cdfglmoprstvw",
-  2: "cfgloprstw~"
+  0: "cdfglmoprstw~",
+  1: "cdflprstw",
+  2: "st",
+  3: "cfglmoprstw~"
 };
 
 var indexSectionNames =
 {
   0: "all",
   1: "classes",
-  2: "functions"
+  2: "files",
+  3: "functions"
 };
 
 function convertToId(search)

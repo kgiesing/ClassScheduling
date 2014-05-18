@@ -31,6 +31,7 @@
   <td style="padding-left: 0.5em;">
    <div id="projectname">ClassScheduling
    </div>
+   <div id="projectbrief">A project to schedule college courses.</div>
   </td>
  </tr>
  </tbody>
@@ -92,7 +93,7 @@ $(document).ready(function(){initNavTree('class_prof_info.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -110,31 +111,40 @@ $(document).ready(function(){initNavTree('class_prof_info.html','');});
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="_prof_info_8h_source.html">ProfInfo.h</a>&gt;</code></p>
+<p>This class represents information about a Professor.  
+ <a href="class_prof_info.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a5f1b17f3f93b57b6873f5ed23f2d4579"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_prof_info.html#a5f1b17f3f93b57b6873f5ed23f2d4579">ProfInfo</a> (const <a class="el" href="class_prof.html">Prof</a> &amp;prof)</td></tr>
+<tr class="memdesc:a5f1b17f3f93b57b6873f5ed23f2d4579"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#a5f1b17f3f93b57b6873f5ed23f2d4579">More...</a><br /></td></tr>
 <tr class="separator:a5f1b17f3f93b57b6873f5ed23f2d4579"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac5425015323dc9aeafc6335c8a5120c8"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_prof_info.html#ac5425015323dc9aeafc6335c8a5120c8">getDaysOnCampus</a> () const </td></tr>
+<tr class="memdesc:ac5425015323dc9aeafc6335c8a5120c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of days this professor spends on campus.  <a href="#ac5425015323dc9aeafc6335c8a5120c8">More...</a><br /></td></tr>
 <tr class="separator:ac5425015323dc9aeafc6335c8a5120c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a82c899591b1ada353b3ddcd067dc386c"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_prof_info.html#a82c899591b1ada353b3ddcd067dc386c">getNumCourses</a> () const </td></tr>
+<tr class="memdesc:a82c899591b1ada353b3ddcd067dc386c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of courses this professor teaches.  <a href="#a82c899591b1ada353b3ddcd067dc386c">More...</a><br /></td></tr>
 <tr class="separator:a82c899591b1ada353b3ddcd067dc386c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2c31898a7f60be0cc4b56bb97d6c821b"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_prof.html">Prof</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_prof_info.html#a2c31898a7f60be0cc4b56bb97d6c821b">getProf</a> () const </td></tr>
+<tr class="memdesc:a2c31898a7f60be0cc4b56bb97d6c821b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the professor about which we are holding information.  <a href="#a2c31898a7f60be0cc4b56bb97d6c821b">More...</a><br /></td></tr>
 <tr class="separator:a2c31898a7f60be0cc4b56bb97d6c821b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5cf054febacedb56e1eb89d9e11cb57b"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_prof_info.html#a5cf054febacedb56e1eb89d9e11cb57b">getScore</a> () const </td></tr>
-<tr class="memdesc:a5cf054febacedb56e1eb89d9e11cb57b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the professor's score. The score should be calculated using one of the subclasses of the <a class="el" href="class_score_calculator.html">ScoreCalculator</a> base class (a functor).  <a href="#a5cf054febacedb56e1eb89d9e11cb57b">More...</a><br /></td></tr>
+<tr class="memdesc:a5cf054febacedb56e1eb89d9e11cb57b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the professor's score.  <a href="#a5cf054febacedb56e1eb89d9e11cb57b">More...</a><br /></td></tr>
 <tr class="separator:a5cf054febacedb56e1eb89d9e11cb57b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afbb47e58b3c2d233411d3c037e2d2542"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_prof_info.html#afbb47e58b3c2d233411d3c037e2d2542">getTotalTime</a> () const </td></tr>
+<tr class="memdesc:afbb47e58b3c2d233411d3c037e2d2542"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the total number of time blocks the professor spends on campus.  <a href="#afbb47e58b3c2d233411d3c037e2d2542">More...</a><br /></td></tr>
 <tr class="separator:afbb47e58b3c2d233411d3c037e2d2542"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8b410201744c11153affd90af645604b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_prof_info.html#a8b410201744c11153affd90af645604b">setDaysOnCampus</a> (unsigned days)</td></tr>
+<tr class="memdesc:a8b410201744c11153affd90af645604b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the number of days this professor spends on campus.  <a href="#a8b410201744c11153affd90af645604b">More...</a><br /></td></tr>
 <tr class="separator:a8b410201744c11153affd90af645604b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1f23437d847063670fa61da070fcdec7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_prof_info.html#a1f23437d847063670fa61da070fcdec7">setNumCourses</a> (unsigned courses)</td></tr>
+<tr class="memdesc:a1f23437d847063670fa61da070fcdec7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the number of courses this professor teaches.  <a href="#a1f23437d847063670fa61da070fcdec7">More...</a><br /></td></tr>
 <tr class="separator:a1f23437d847063670fa61da070fcdec7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5ab67ff6492ea762471001f12177d2a1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_prof_info.html#a5ab67ff6492ea762471001f12177d2a1">setScore</a> (double score)</td></tr>
-<tr class="memdesc:a5ab67ff6492ea762471001f12177d2a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the professor's score. The score should be calculated using one of the subclasses of the <a class="el" href="class_score_calculator.html">ScoreCalculator</a> base class (a functor).  <a href="#a5ab67ff6492ea762471001f12177d2a1">More...</a><br /></td></tr>
+<tr class="memdesc:a5ab67ff6492ea762471001f12177d2a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the professor's score.  <a href="#a5ab67ff6492ea762471001f12177d2a1">More...</a><br /></td></tr>
 <tr class="separator:a5ab67ff6492ea762471001f12177d2a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a053548eef9d63e9fcf53c66b7f720b8d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_prof_info.html#a053548eef9d63e9fcf53c66b7f720b8d">setTotalTime</a> (unsigned timeBlocks)</td></tr>
+<tr class="memdesc:a053548eef9d63e9fcf53c66b7f720b8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the total number of time blocks the professor spends on campus.  <a href="#a053548eef9d63e9fcf53c66b7f720b8d">More...</a><br /></td></tr>
 <tr class="separator:a053548eef9d63e9fcf53c66b7f720b8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -161,7 +171,9 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Constructor. </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Constructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">Professor</td><td>about which we are holding information. </td></tr>
   </table>
@@ -191,7 +203,9 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Returns the number of days this professor spends on campus. </p><dl class="section return"><dt>Returns</dt><dd>The number of days this professor spends on campus. </dd></dl>
+
+<p>Returns the number of days this professor spends on campus. </p>
+<dl class="section return"><dt>Returns</dt><dd>The number of days this professor spends on campus. </dd></dl>
 
 </div>
 </div>
@@ -215,7 +229,9 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Returns the number of courses this professor teaches. </p><dl class="section return"><dt>Returns</dt><dd>Number of courses this professor teaches. </dd></dl>
+
+<p>Returns the number of courses this professor teaches. </p>
+<dl class="section return"><dt>Returns</dt><dd>Number of courses this professor teaches. </dd></dl>
 
 </div>
 </div>
@@ -239,7 +255,9 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Returns the professor about which we are holding information. </p><dl class="section return"><dt>Returns</dt><dd>Professor about which we are holding information. </dd></dl>
+
+<p>Returns the professor about which we are holding information. </p>
+<dl class="section return"><dt>Returns</dt><dd>Professor about which we are holding information. </dd></dl>
 
 </div>
 </div>
@@ -264,8 +282,8 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the professor's score. The score should be calculated using one of the subclasses of the <a class="el" href="class_score_calculator.html">ScoreCalculator</a> base class (a functor). </p>
-<dl class="section return"><dt>Returns</dt><dd>The total number of time blocks the professor spends on campus. </dd></dl>
+<p>Returns the professor's score. </p>
+<p>The score should be calculated using one of the subclasses of the <a class="el" href="class_score_calculator.html" title="Abstract base class (interface) for functor objects that calculate the score for a professor...">ScoreCalculator</a> base class (a functor). </p><dl class="section return"><dt>Returns</dt><dd>The total number of time blocks the professor spends on campus. </dd></dl>
 
 </div>
 </div>
@@ -289,7 +307,9 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Returns the total number of time blocks the professor spends on campus. </p><dl class="section return"><dt>Returns</dt><dd>The total number of time blocks the professor spends on campus. </dd></dl>
+
+<p>Returns the total number of time blocks the professor spends on campus. </p>
+<dl class="section return"><dt>Returns</dt><dd>The total number of time blocks the professor spends on campus. </dd></dl>
 
 </div>
 </div>
@@ -314,7 +334,9 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Sets the number of days this professor spends on campus. </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Sets the number of days this professor spends on campus. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">The</td><td>number of days this professor spends on campus. </td></tr>
   </table>
@@ -344,7 +366,9 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Sets the number of courses this professor teaches. </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Sets the number of courses this professor teaches. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">Number</td><td>of courses this professor teaches. </td></tr>
   </table>
@@ -375,8 +399,8 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Sets the professor's score. The score should be calculated using one of the subclasses of the <a class="el" href="class_score_calculator.html">ScoreCalculator</a> base class (a functor). </p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Sets the professor's score. </p>
+<p>The score should be calculated using one of the subclasses of the <a class="el" href="class_score_calculator.html" title="Abstract base class (interface) for functor objects that calculate the score for a professor...">ScoreCalculator</a> base class (a functor). </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">The</td><td>total number of time blocks the professor spends on campus. </td></tr>
   </table>
@@ -406,7 +430,9 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Sets the total number of time blocks the professor spends on campus. </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Sets the total number of time blocks the professor spends on campus. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">The</td><td>total number of time blocks the professor spends on campus. </td></tr>
   </table>
@@ -416,7 +442,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="_prof_info_8h_source.html">ProfInfo.h</a></li>
+<li>ProfInfo.h</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -424,7 +450,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_prof_info.html">ProfInfo</a></li>
-    <li class="footer">Generated on Sun May 18 2014 18:59:52 for ClassScheduling by
+    <li class="footer">Generated on Sun May 18 2014 19:50:48 for ClassScheduling by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>

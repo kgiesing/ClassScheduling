@@ -92,7 +92,7 @@ $(document).ready(function(){initNavTree('class_map_printer.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -113,18 +113,25 @@ $(document).ready(function(){initNavTree('class_map_printer.html','');});
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a164bf7671db326a1e2fed5d61cedd565"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_printer.html#a164bf7671db326a1e2fed5d61cedd565">print</a> (const map&lt; string, <a class="el" href="class_course.html">Course</a> &gt; &amp;, string=&quot;&quot;, ostream &amp;=cout)</td></tr>
+<tr class="memdesc:a164bf7671db326a1e2fed5d61cedd565"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a map of string-to-Course objects to an output stream.  <a href="#a164bf7671db326a1e2fed5d61cedd565">More...</a><br /></td></tr>
 <tr class="separator:a164bf7671db326a1e2fed5d61cedd565"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6675764c99e621d920a326c481f0e490"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_printer.html#a6675764c99e621d920a326c481f0e490">print</a> (const map&lt; string, <a class="el" href="class_prof.html">Prof</a> &gt; &amp;, string=&quot;&quot;, ostream &amp;=cout)</td></tr>
+<tr class="memdesc:a6675764c99e621d920a326c481f0e490"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a map of string-to-Prof objects to an output stream.  <a href="#a6675764c99e621d920a326c481f0e490">More...</a><br /></td></tr>
 <tr class="separator:a6675764c99e621d920a326c481f0e490"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0e4eb8481e61b9de2d9c91d302e32121"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_printer.html#a0e4eb8481e61b9de2d9c91d302e32121">print</a> (const map&lt; string, <a class="el" href="class_prof_info.html">ProfInfo</a> &gt; &amp;, string=&quot;&quot;, ostream &amp;=cout)</td></tr>
+<tr class="memdesc:a0e4eb8481e61b9de2d9c91d302e32121"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a map of string-to-ProfInfo objects to an output stream.  <a href="#a0e4eb8481e61b9de2d9c91d302e32121">More...</a><br /></td></tr>
 <tr class="separator:a0e4eb8481e61b9de2d9c91d302e32121"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:affd3031a883c6184088f20f60431b579"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_printer.html#affd3031a883c6184088f20f60431b579">print</a> (const map&lt; string, <a class="el" href="class_prof_info.html">ProfInfo</a> * &gt; &amp;, string=&quot;&quot;, ostream &amp;=cout)</td></tr>
+<tr class="memdesc:affd3031a883c6184088f20f60431b579"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a map of string-to-pointers-to-ProfInfo objects to an output stream.  <a href="#affd3031a883c6184088f20f60431b579">More...</a><br /></td></tr>
 <tr class="separator:affd3031a883c6184088f20f60431b579"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a82cf91b896aa542167ee417c5a41621d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_printer.html#a82cf91b896aa542167ee417c5a41621d">print</a> (const map&lt; string, <a class="el" href="class_room.html">Room</a> &gt; &amp;, string=&quot;&quot;, ostream &amp;=cout)</td></tr>
+<tr class="memdesc:a82cf91b896aa542167ee417c5a41621d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a map of string-to-Room objects to an output stream.  <a href="#a82cf91b896aa542167ee417c5a41621d">More...</a><br /></td></tr>
 <tr class="separator:a82cf91b896aa542167ee417c5a41621d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5df0d107166342d018f59f99a2d00b4a"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_printer.html#a5df0d107166342d018f59f99a2d00b4a">print</a> (const map&lt; string, TimeBlock &gt; &amp;, string=&quot;&quot;, ostream &amp;=cout)</td></tr>
+<tr class="memitem:a5df0d107166342d018f59f99a2d00b4a"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_printer.html#a5df0d107166342d018f59f99a2d00b4a">print</a> (const map&lt; string, <a class="el" href="_time_block_8h.html#ac71bbf2c16de62f61e6e1117aeebbd3b">TimeBlock</a> &gt; &amp;, string=&quot;&quot;, ostream &amp;=cout)</td></tr>
+<tr class="memdesc:a5df0d107166342d018f59f99a2d00b4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a map of string-to-TimeBlock enum values to an output stream.  <a href="#a5df0d107166342d018f59f99a2d00b4a">More...</a><br /></td></tr>
 <tr class="separator:a5df0d107166342d018f59f99a2d00b4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a21b1337697e75529546ff560688ac319"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_printer.html#a21b1337697e75529546ff560688ac319">print</a> (const map&lt; string, Weekdays &gt; &amp;, string=&quot;&quot;, ostream &amp;=cout)</td></tr>
+<tr class="memitem:a21b1337697e75529546ff560688ac319"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_printer.html#a21b1337697e75529546ff560688ac319">print</a> (const map&lt; string, <a class="el" href="_weekdays_8h.html#a818e4263f04fc483063f7d5a70d75861">Weekdays</a> &gt; &amp;, string=&quot;&quot;, ostream &amp;=cout)</td></tr>
+<tr class="memdesc:a21b1337697e75529546ff560688ac319"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a map of string-to-Weekday enum values to an output stream.  <a href="#a21b1337697e75529546ff560688ac319">More...</a><br /></td></tr>
 <tr class="separator:a21b1337697e75529546ff560688ac319"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -165,11 +172,13 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Prints a map of string-to-Course objects to an output stream. </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Prints a map of string-to-Course objects to an output stream. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">std::map&lt;string,Course&gt;</td><td>to print </td></tr>
     <tr><td class="paramname">std::string</td><td>to print before every new line </td></tr>
-    <tr><td class="paramname">std::ostream</td><td>to output <a class="el" href="class_course.html">Course</a> map; defaults to std::cout </td></tr>
+    <tr><td class="paramname">std::ostream</td><td>to output <a class="el" href="class_course.html" title="This class represents a single course. ">Course</a> map; defaults to std::cout </td></tr>
   </table>
   </dd>
 </dl>
@@ -213,11 +222,13 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Prints a map of string-to-Prof objects to an output stream. </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Prints a map of string-to-Prof objects to an output stream. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">std::map&lt;string,Course&gt;</td><td>to print </td></tr>
     <tr><td class="paramname">std::string</td><td>to print before every new line </td></tr>
-    <tr><td class="paramname">std::ostream</td><td>to output <a class="el" href="class_prof.html">Prof</a> map; defaults to std::cout </td></tr>
+    <tr><td class="paramname">std::ostream</td><td>to output <a class="el" href="class_prof.html" title="This class represents a single professor. ">Prof</a> map; defaults to std::cout </td></tr>
   </table>
   </dd>
 </dl>
@@ -261,11 +272,13 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Prints a map of string-to-ProfInfo objects to an output stream. </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Prints a map of string-to-ProfInfo objects to an output stream. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">std::map&lt;string,Course&gt;</td><td>to print </td></tr>
     <tr><td class="paramname">std::string</td><td>to print before every new line </td></tr>
-    <tr><td class="paramname">std::ostream</td><td>to output <a class="el" href="class_prof.html">Prof</a> map; defaults to std::cout </td></tr>
+    <tr><td class="paramname">std::ostream</td><td>to output <a class="el" href="class_prof.html" title="This class represents a single professor. ">Prof</a> map; defaults to std::cout </td></tr>
   </table>
   </dd>
 </dl>
@@ -309,11 +322,13 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Prints a map of string-to-pointers-to-ProfInfo objects to an output stream. </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Prints a map of string-to-pointers-to-ProfInfo objects to an output stream. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">std::map&lt;string,Course&gt;</td><td>to print </td></tr>
     <tr><td class="paramname">std::string</td><td>to print before every new line </td></tr>
-    <tr><td class="paramname">std::ostream</td><td>to output <a class="el" href="class_prof.html">Prof</a> map; defaults to std::cout </td></tr>
+    <tr><td class="paramname">std::ostream</td><td>to output <a class="el" href="class_prof.html" title="This class represents a single professor. ">Prof</a> map; defaults to std::cout </td></tr>
   </table>
   </dd>
 </dl>
@@ -357,11 +372,13 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Prints a map of string-to-Room objects to an output stream. </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Prints a map of string-to-Room objects to an output stream. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">std::map&lt;string,Course&gt;</td><td>to print </td></tr>
     <tr><td class="paramname">std::string</td><td>to print before every new line </td></tr>
-    <tr><td class="paramname">std::ostream</td><td>to output <a class="el" href="class_room.html">Room</a> map; defaults to std::cout </td></tr>
+    <tr><td class="paramname">std::ostream</td><td>to output <a class="el" href="class_room.html" title="This class represents a single room. ">Room</a> map; defaults to std::cout </td></tr>
   </table>
   </dd>
 </dl>
@@ -378,7 +395,7 @@ Static Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void MapPrinter::print </td>
           <td>(</td>
-          <td class="paramtype">const map&lt; string, TimeBlock &gt; &amp;&#160;</td>
+          <td class="paramtype">const map&lt; string, <a class="el" href="_time_block_8h.html#ac71bbf2c16de62f61e6e1117aeebbd3b">TimeBlock</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>m</em>, </td>
         </tr>
         <tr>
@@ -405,7 +422,9 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Prints a map of string-to-TimeBlock enum values to an output stream. </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Prints a map of string-to-TimeBlock enum values to an output stream. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">std::map&lt;string,Course&gt;</td><td>to print </td></tr>
     <tr><td class="paramname">std::string</td><td>to print before every new line </td></tr>
@@ -426,7 +445,7 @@ Static Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void MapPrinter::print </td>
           <td>(</td>
-          <td class="paramtype">const map&lt; string, Weekdays &gt; &amp;&#160;</td>
+          <td class="paramtype">const map&lt; string, <a class="el" href="_weekdays_8h.html#a818e4263f04fc483063f7d5a70d75861">Weekdays</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>m</em>, </td>
         </tr>
         <tr>
@@ -453,7 +472,9 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Prints a map of string-to-Weekday enum values to an output stream. </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Prints a map of string-to-Weekday enum values to an output stream. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">std::map&lt;string,Course&gt;</td><td>print </td></tr>
     <tr><td class="paramname">std::string</td><td>to print before every new line </td></tr>
@@ -465,8 +486,8 @@ Static Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="_map_printer_8h_source.html">MapPrinter.h</a></li>
-<li>MapPrinter.cpp</li>
+<li><a class="el" href="_map_printer_8h.html">MapPrinter.h</a></li>
+<li><a class="el" href="_map_printer_8cpp.html">MapPrinter.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -474,7 +495,7 @@ Static Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_map_printer.html">MapPrinter</a></li>
-    <li class="footer">Generated on Sun May 18 2014 18:59:52 for ClassScheduling by
+    <li class="footer">Generated on Sun May 18 2014 19:36:54 for ClassScheduling by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>

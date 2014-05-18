@@ -31,6 +31,7 @@
   <td style="padding-left: 0.5em;">
    <div id="projectname">ClassScheduling
    </div>
+   <div id="projectbrief">A project to schedule college courses.</div>
   </td>
  </tr>
  </tbody>
@@ -92,7 +93,7 @@ $(document).ready(function(){initNavTree('class_prof.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -110,7 +111,8 @@ $(document).ready(function(){initNavTree('class_prof.html','');});
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="_prof_8h_source.html">Prof.h</a>&gt;</code></p>
+<p>This class represents a single professor.  
+ <a href="class_prof.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for Prof:</div>
 <div class="dyncontent">
@@ -124,39 +126,29 @@ Inheritance diagram for Prof:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a6fca79f919ac2396be4c955cca0dab7b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_prof.html#a6fca79f919ac2396be4c955cca0dab7b">Prof</a> (const std::string &amp;id=&quot;&quot;, const std::string &amp;firstName=&quot;&quot;, const std::string &amp;lastName=&quot;&quot;)</td></tr>
+<tr class="memdesc:a6fca79f919ac2396be4c955cca0dab7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#a6fca79f919ac2396be4c955cca0dab7b">More...</a><br /></td></tr>
 <tr class="separator:a6fca79f919ac2396be4c955cca0dab7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5b843e131420ded2358e7d1a4c504e4b"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_prof.html#a5b843e131420ded2358e7d1a4c504e4b">getFirstName</a> () const </td></tr>
+<tr class="memdesc:a5b843e131420ded2358e7d1a4c504e4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the first name of the professor.  <a href="#a5b843e131420ded2358e7d1a4c504e4b">More...</a><br /></td></tr>
 <tr class="separator:a5b843e131420ded2358e7d1a4c504e4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeee5a92347bc378d0f959c4a83c3c78a"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_prof.html#aeee5a92347bc378d0f959c4a83c3c78a">getLastName</a> () const </td></tr>
+<tr class="memdesc:aeee5a92347bc378d0f959c4a83c3c78a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the last name of the professor.  <a href="#aeee5a92347bc378d0f959c4a83c3c78a">More...</a><br /></td></tr>
 <tr class="separator:aeee5a92347bc378d0f959c4a83c3c78a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af0ea26ddb5395c4a51d9f60a48594a19"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_prof.html#af0ea26ddb5395c4a51d9f60a48594a19">getId</a> () const </td></tr>
+<tr class="memdesc:af0ea26ddb5395c4a51d9f60a48594a19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the id of the professor.  <a href="#af0ea26ddb5395c4a51d9f60a48594a19">More...</a><br /></td></tr>
 <tr class="separator:af0ea26ddb5395c4a51d9f60a48594a19"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a23161b0a169cfa9bfc12f2dcc38d7716"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_prof.html#a23161b0a169cfa9bfc12f2dcc38d7716">setFirstName</a> (const std::string &amp;firstName)</td></tr>
+<tr class="memdesc:a23161b0a169cfa9bfc12f2dcc38d7716"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the first name of the professor.  <a href="#a23161b0a169cfa9bfc12f2dcc38d7716">More...</a><br /></td></tr>
 <tr class="separator:a23161b0a169cfa9bfc12f2dcc38d7716"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aff558b7df6769b8ecbef61952ba8a8e6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_prof.html#aff558b7df6769b8ecbef61952ba8a8e6">setLastName</a> (const std::string &amp;lastName)</td></tr>
+<tr class="memdesc:aff558b7df6769b8ecbef61952ba8a8e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the last name of the professor.  <a href="#aff558b7df6769b8ecbef61952ba8a8e6">More...</a><br /></td></tr>
 <tr class="separator:aff558b7df6769b8ecbef61952ba8a8e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6ecc6d8ced29253467a6914d094dcc88"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_prof.html#a6ecc6d8ced29253467a6914d094dcc88">setId</a> (const std::string &amp;id)</td></tr>
+<tr class="memdesc:a6ecc6d8ced29253467a6914d094dcc88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the ID of the professor.  <a href="#a6ecc6d8ced29253467a6914d094dcc88">More...</a><br /></td></tr>
 <tr class="separator:a6ecc6d8ced29253467a6914d094dcc88"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_comparable"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_comparable')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_comparable.html">Comparable&lt; Prof &gt;</a></td></tr>
-<tr class="memitem:afaaf8bb9f89014054d4dbf3fd293e6ca inherit pub_methods_class_comparable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afaaf8bb9f89014054d4dbf3fd293e6ca"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="class_prof.html">Prof</a> &amp;rhs) const</td></tr>
-<tr class="separator:afaaf8bb9f89014054d4dbf3fd293e6ca inherit pub_methods_class_comparable"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aae23c4d9fac0fd46250bfb0d8390f72c inherit pub_methods_class_comparable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aae23c4d9fac0fd46250bfb0d8390f72c"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator!=</b> (const <a class="el" href="class_prof.html">Prof</a> &amp;rhs) const</td></tr>
-<tr class="separator:aae23c4d9fac0fd46250bfb0d8390f72c inherit pub_methods_class_comparable"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a18ffd7337c4d89a87babb870928f69e9 inherit pub_methods_class_comparable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a18ffd7337c4d89a87babb870928f69e9"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;</b> (const <a class="el" href="class_prof.html">Prof</a> &amp;rhs) const</td></tr>
-<tr class="separator:a18ffd7337c4d89a87babb870928f69e9 inherit pub_methods_class_comparable"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4518b3bb71d9f54d2346934777f38fd3 inherit pub_methods_class_comparable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4518b3bb71d9f54d2346934777f38fd3"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;=</b> (const <a class="el" href="class_prof.html">Prof</a> &amp;rhs) const</td></tr>
-<tr class="separator:a4518b3bb71d9f54d2346934777f38fd3 inherit pub_methods_class_comparable"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2bab52b70ca28c1ca0703c0ddba1e4c2 inherit pub_methods_class_comparable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2bab52b70ca28c1ca0703c0ddba1e4c2"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&gt;</b> (const <a class="el" href="class_prof.html">Prof</a> &amp;rhs) const</td></tr>
-<tr class="separator:a2bab52b70ca28c1ca0703c0ddba1e4c2 inherit pub_methods_class_comparable"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a90f9b2637a6d1c04bf59aaba4f9773ba inherit pub_methods_class_comparable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a90f9b2637a6d1c04bf59aaba4f9773ba"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&gt;=</b> (const <a class="el" href="class_prof.html">Prof</a> &amp;rhs) const</td></tr>
-<tr class="separator:a90f9b2637a6d1c04bf59aaba4f9773ba inherit pub_methods_class_comparable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac9ce1cecca673003b5f7a12cb6d31a3d inherit pub_methods_class_comparable"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_comparable.html#ac9ce1cecca673003b5f7a12cb6d31a3d">~Comparable</a> (void)</td></tr>
+<tr class="memdesc:ac9ce1cecca673003b5f7a12cb6d31a3d inherit pub_methods_class_comparable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor.  <a href="#ac9ce1cecca673003b5f7a12cb6d31a3d">More...</a><br /></td></tr>
 <tr class="separator:ac9ce1cecca673003b5f7a12cb6d31a3d inherit pub_methods_class_comparable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
@@ -194,7 +186,9 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Constructor. </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Constructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">Professor</td><td>ID. </td></tr>
     <tr><td class="paramname">First</td><td>name of professor. </td></tr>
@@ -226,7 +220,9 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Returns the first name of the professor. </p><dl class="section return"><dt>Returns</dt><dd>The first name of the professor. </dd></dl>
+
+<p>Returns the first name of the professor. </p>
+<dl class="section return"><dt>Returns</dt><dd>The first name of the professor. </dd></dl>
 
 </div>
 </div>
@@ -250,7 +246,9 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Returns the id of the professor. </p><dl class="section return"><dt>Returns</dt><dd>The id of the professor. </dd></dl>
+
+<p>Returns the id of the professor. </p>
+<dl class="section return"><dt>Returns</dt><dd>The id of the professor. </dd></dl>
 
 </div>
 </div>
@@ -274,7 +272,9 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Returns the last name of the professor. </p><dl class="section return"><dt>Returns</dt><dd>The last name of the professor. </dd></dl>
+
+<p>Returns the last name of the professor. </p>
+<dl class="section return"><dt>Returns</dt><dd>The last name of the professor. </dd></dl>
 
 </div>
 </div>
@@ -299,7 +299,9 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Sets the first name of the professor. </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Sets the first name of the professor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">The</td><td>first name of the professor. </td></tr>
   </table>
@@ -329,7 +331,9 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Sets the ID of the professor. </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Sets the ID of the professor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">The</td><td>ID of the professor. </td></tr>
   </table>
@@ -359,7 +363,9 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Sets the last name of the professor. </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Sets the last name of the professor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">The</td><td>last name of the professor. </td></tr>
   </table>
@@ -369,7 +375,7 @@ Additional Inherited Members</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="_prof_8h_source.html">Prof.h</a></li>
+<li>Prof.h</li>
 <li>Prof.cpp</li>
 </ul>
 </div><!-- contents -->
@@ -378,7 +384,7 @@ Additional Inherited Members</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_prof.html">Prof</a></li>
-    <li class="footer">Generated on Sun May 18 2014 18:59:52 for ClassScheduling by
+    <li class="footer">Generated on Sun May 18 2014 19:50:48 for ClassScheduling by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>

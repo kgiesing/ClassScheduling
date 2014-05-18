@@ -92,7 +92,7 @@ $(document).ready(function(){initNavTree('class_schedule_calculator.html','');})
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -113,6 +113,7 @@ $(document).ready(function(){initNavTree('class_schedule_calculator.html','');})
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a0529873e427989ae92a8b1408f92be40"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule_calculator.html#a0529873e427989ae92a8b1408f92be40">calculateScore</a> (<a class="el" href="class_schedule.html">Schedule</a> *, <a class="el" href="class_score_calculator.html">ScoreCalculator</a> &amp;)</td></tr>
+<tr class="memdesc:a0529873e427989ae92a8b1408f92be40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the score for an entire <a class="el" href="class_schedule.html" title="This class represents a schedule for all courses. ">Schedule</a>.  <a href="#a0529873e427989ae92a8b1408f92be40">More...</a><br /></td></tr>
 <tr class="separator:a0529873e427989ae92a8b1408f92be40"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -147,10 +148,12 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Calculates the score for an entire <a class="el" href="class_schedule.html">Schedule</a>. The score will be saved into the <a class="el" href="class_schedule.html">Schedule</a> object, and also returned from the function, simply as a convenience. </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Calculates the score for an entire <a class="el" href="class_schedule.html" title="This class represents a schedule for all courses. ">Schedule</a>. </p>
+<p>The score will be saved into the <a class="el" href="class_schedule.html" title="This class represents a schedule for all courses. ">Schedule</a> object, and also returned from the function, simply as a convenience. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">Pointer</td><td>to <a class="el" href="class_schedule.html">Schedule</a> object. </td></tr>
-    <tr><td class="paramname"><a class="el" href="class_score_calculator.html">ScoreCalculator</a></td><td>to use to calculate each professor's score. </td></tr>
+    <tr><td class="paramname">Pointer</td><td>to <a class="el" href="class_schedule.html" title="This class represents a schedule for all courses. ">Schedule</a> object. </td></tr>
+    <tr><td class="paramname"><a class="el" href="class_score_calculator.html" title="Abstract base class (interface) for functor objects that calculate the score for a professor...">ScoreCalculator</a></td><td>to use to calculate each professor's score. </td></tr>
   </table>
   </dd>
 </dl>
@@ -159,8 +162,8 @@ Static Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="_schedule_calculator_8h_source.html">ScheduleCalculator.h</a></li>
-<li>ScheduleCalculator.cpp</li>
+<li><a class="el" href="_schedule_calculator_8h.html">ScheduleCalculator.h</a></li>
+<li><a class="el" href="_schedule_calculator_8cpp.html">ScheduleCalculator.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -168,7 +171,7 @@ Static Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_schedule_calculator.html">ScheduleCalculator</a></li>
-    <li class="footer">Generated on Sun May 18 2014 18:59:52 for ClassScheduling by
+    <li class="footer">Generated on Sun May 18 2014 19:36:55 for ClassScheduling by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>

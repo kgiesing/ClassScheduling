@@ -31,6 +31,7 @@
   <td style="padding-left: 0.5em;">
    <div id="projectname">ClassScheduling
    </div>
+   <div id="projectbrief">A project to schedule college courses.</div>
   </td>
  </tr>
  </tbody>
@@ -92,7 +93,7 @@ $(document).ready(function(){initNavTree('class_course.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -118,12 +119,6 @@ $(document).ready(function(){initNavTree('class_course.html','');});
   <tr class="even"><td class="entry"><a class="el" href="class_course.html#a6a8e5b9d3cff9590cbc909ba4f99fa9e">getName</a>() const </td><td class="entry"><a class="el" href="class_course.html">Course</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr><td class="entry"><a class="el" href="class_course.html#a628b93ac3b945b1d2cd19c41402f61aa">getProfId</a>() const </td><td class="entry"><a class="el" href="class_course.html">Course</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_course.html#ae75daddc17975305dd9bc03ebbdeb185">getTimeBlocks</a>(void) const </td><td class="entry"><a class="el" href="class_course.html">Course</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>operator!=</b>(const Course &amp;rhs) const (defined in <a class="el" href="class_comparable.html">Comparable&lt; Course &gt;</a>)</td><td class="entry"><a class="el" href="class_comparable.html">Comparable&lt; Course &gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>operator&lt;</b>(const Course &amp;rhs) const (defined in <a class="el" href="class_comparable.html">Comparable&lt; Course &gt;</a>)</td><td class="entry"><a class="el" href="class_comparable.html">Comparable&lt; Course &gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>operator&lt;=</b>(const Course &amp;rhs) const (defined in <a class="el" href="class_comparable.html">Comparable&lt; Course &gt;</a>)</td><td class="entry"><a class="el" href="class_comparable.html">Comparable&lt; Course &gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>operator==</b>(const Course &amp;rhs) const (defined in <a class="el" href="class_comparable.html">Comparable&lt; Course &gt;</a>)</td><td class="entry"><a class="el" href="class_comparable.html">Comparable&lt; Course &gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>operator&gt;</b>(const Course &amp;rhs) const (defined in <a class="el" href="class_comparable.html">Comparable&lt; Course &gt;</a>)</td><td class="entry"><a class="el" href="class_comparable.html">Comparable&lt; Course &gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>operator&gt;=</b>(const Course &amp;rhs) const (defined in <a class="el" href="class_comparable.html">Comparable&lt; Course &gt;</a>)</td><td class="entry"><a class="el" href="class_comparable.html">Comparable&lt; Course &gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
   <tr><td class="entry"><a class="el" href="class_course.html#a7c0182cd8a5702c2b168bf89fae1a86f">setConflicts</a>(const set&lt; string &gt; &amp;conflicts)</td><td class="entry"><a class="el" href="class_course.html">Course</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_course.html#aa14214091f292e8f5c3670c6982bf4d2">setEnrolled</a>(int enrolled)</td><td class="entry"><a class="el" href="class_course.html">Course</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr><td class="entry"><a class="el" href="class_course.html#a5f150125179eac658dd39dea1409923b">setId</a>(const string &amp;id)</td><td class="entry"><a class="el" href="class_course.html">Course</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
@@ -136,7 +131,7 @@ $(document).ready(function(){initNavTree('class_course.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sun May 18 2014 18:59:52 for ClassScheduling by
+    <li class="footer">Generated on Sun May 18 2014 19:50:48 for ClassScheduling by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>

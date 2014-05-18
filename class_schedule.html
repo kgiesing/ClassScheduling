@@ -31,6 +31,7 @@
   <td style="padding-left: 0.5em;">
    <div id="projectname">ClassScheduling
    </div>
+   <div id="projectbrief">A project to schedule college courses.</div>
   </td>
  </tr>
  </tbody>
@@ -92,7 +93,7 @@ $(document).ready(function(){initNavTree('class_schedule.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -110,50 +111,71 @@ $(document).ready(function(){initNavTree('class_schedule.html','');});
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="_schedule_8h_source.html">Schedule.h</a>&gt;</code></p>
+<p>This class represents a schedule for all courses.  
+ <a href="class_schedule.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a9f5c23837537defbf6ddbd4be7748c58"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule.html#a9f5c23837537defbf6ddbd4be7748c58">Schedule</a> (void)</td></tr>
+<tr class="memdesc:a9f5c23837537defbf6ddbd4be7748c58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <a href="#a9f5c23837537defbf6ddbd4be7748c58">More...</a><br /></td></tr>
 <tr class="separator:a9f5c23837537defbf6ddbd4be7748c58"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaa68fc46a844d2d3c71763480e96b3c9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule.html#aaa68fc46a844d2d3c71763480e96b3c9">Schedule</a> (vector&lt; <a class="el" href="class_room.html">Room</a> &gt;, vector&lt; <a class="el" href="class_prof.html">Prof</a> &gt;, vector&lt; <a class="el" href="class_course.html">Course</a> &gt;)</td></tr>
+<tr class="memdesc:aaa68fc46a844d2d3c71763480e96b3c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the <a class="el" href="class_schedule.html" title="This class represents a schedule for all courses. ">Schedule</a> using vectors returned from the <a class="el" href="class_reader.html" title="Pure abstract base class (interface) for objects that read something. ">Reader</a> classes.  <a href="#aaa68fc46a844d2d3c71763480e96b3c9">More...</a><br /></td></tr>
 <tr class="separator:aaa68fc46a844d2d3c71763480e96b3c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a75abb24723e7f3007cd91b0a65136b4d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule.html#a75abb24723e7f3007cd91b0a65136b4d">Schedule</a> (const <a class="el" href="class_schedule.html">Schedule</a> &amp;schedule)</td></tr>
+<tr class="memdesc:a75abb24723e7f3007cd91b0a65136b4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor.  <a href="#a75abb24723e7f3007cd91b0a65136b4d">More...</a><br /></td></tr>
 <tr class="separator:a75abb24723e7f3007cd91b0a65136b4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a39402f1f39c02c95b51ab0cdfc6c3002"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_schedule.html">Schedule</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule.html#a39402f1f39c02c95b51ab0cdfc6c3002">operator=</a> (const <a class="el" href="class_schedule.html">Schedule</a> &amp;)</td></tr>
+<tr class="memdesc:a39402f1f39c02c95b51ab0cdfc6c3002"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overloaded assignment operator.  <a href="#a39402f1f39c02c95b51ab0cdfc6c3002">More...</a><br /></td></tr>
 <tr class="separator:a39402f1f39c02c95b51ab0cdfc6c3002"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a638946924674a1a0e669ba18fe70ed9b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_course.html">Course</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule.html#a638946924674a1a0e669ba18fe70ed9b">getCourse</a> (const <a class="el" href="class_room.html">Room</a> &amp;, Weekdays, TimeBlock)</td></tr>
+<tr class="memdesc:a638946924674a1a0e669ba18fe70ed9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a course scheduled at a given room, day, and time.  <a href="#a638946924674a1a0e669ba18fe70ed9b">More...</a><br /></td></tr>
 <tr class="separator:a638946924674a1a0e669ba18fe70ed9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae0321b72bc4978870c93e0f4e65ed9f5"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="class_course.html">Course</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule.html#ae0321b72bc4978870c93e0f4e65ed9f5">getCoursesAt</a> (Weekdays, TimeBlock)</td></tr>
+<tr class="memdesc:ae0321b72bc4978870c93e0f4e65ed9f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a courses scheduled on a given day and time.  <a href="#ae0321b72bc4978870c93e0f4e65ed9f5">More...</a><br /></td></tr>
 <tr class="separator:ae0321b72bc4978870c93e0f4e65ed9f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4905548f96103cd3d7c4bc84117252c0"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="class_course.html">Course</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule.html#a4905548f96103cd3d7c4bc84117252c0">getCoursesTaughtBy</a> (<a class="el" href="class_prof.html">Prof</a> &amp;)</td></tr>
+<tr class="memdesc:a4905548f96103cd3d7c4bc84117252c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets all the courses taught by a specific professor.  <a href="#a4905548f96103cd3d7c4bc84117252c0">More...</a><br /></td></tr>
 <tr class="separator:a4905548f96103cd3d7c4bc84117252c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6ce1e54f26c469810656f9c6138ee947"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="class_course.html">Course</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule.html#a6ce1e54f26c469810656f9c6138ee947">getCoursesOnGivenDayTaughtBy</a> (<a class="el" href="class_prof.html">Prof</a> &amp;, Weekdays)</td></tr>
+<tr class="memdesc:a6ce1e54f26c469810656f9c6138ee947"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets all the courses taught by a specific professor on a specific day.  <a href="#a6ce1e54f26c469810656f9c6138ee947">More...</a><br /></td></tr>
 <tr class="separator:a6ce1e54f26c469810656f9c6138ee947"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aff8324447ce2e50be2d66099347c1522"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_prof.html">Prof</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule.html#aff8324447ce2e50be2d66099347c1522">getProf</a> (string)</td></tr>
+<tr class="memdesc:aff8324447ce2e50be2d66099347c1522"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the <a class="el" href="class_prof.html" title="This class represents a single professor. ">Prof</a> object associated with a specific ID.  <a href="#aff8324447ce2e50be2d66099347c1522">More...</a><br /></td></tr>
 <tr class="separator:aff8324447ce2e50be2d66099347c1522"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0157d72998dbfc085f4fdd0727c522b8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_prof.html">Prof</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule.html#a0157d72998dbfc085f4fdd0727c522b8">getProf</a> (<a class="el" href="class_course.html">Course</a>)</td></tr>
+<tr class="memdesc:a0157d72998dbfc085f4fdd0727c522b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the professor who teaches a specific course.  <a href="#a0157d72998dbfc085f4fdd0727c522b8">More...</a><br /></td></tr>
 <tr class="separator:a0157d72998dbfc085f4fdd0727c522b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a485435f434cc3488b5dece0b0ba68f95"><td class="memItemLeft" align="right" valign="top">map&lt; string, <a class="el" href="class_prof.html">Prof</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule.html#a485435f434cc3488b5dece0b0ba68f95">getProfs</a> (void)</td></tr>
+<tr class="memdesc:a485435f434cc3488b5dece0b0ba68f95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a map of all the professors in the schedule, keyed by their ID's.  <a href="#a485435f434cc3488b5dece0b0ba68f95">More...</a><br /></td></tr>
 <tr class="separator:a485435f434cc3488b5dece0b0ba68f95"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad2fe4df6b4ff3452cb846e40d8b6744f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_room.html">Room</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule.html#ad2fe4df6b4ff3452cb846e40d8b6744f">getRoomFor</a> (const <a class="el" href="class_course.html">Course</a> &amp;)</td></tr>
+<tr class="memdesc:ad2fe4df6b4ff3452cb846e40d8b6744f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the room in which a course is scheduled.  <a href="#ad2fe4df6b4ff3452cb846e40d8b6744f">More...</a><br /></td></tr>
 <tr class="separator:ad2fe4df6b4ff3452cb846e40d8b6744f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeaf1a3df45751696e25d90e31f89ce44"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="class_room.html">Room</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule.html#aeaf1a3df45751696e25d90e31f89ce44">getRooms</a> (void)</td></tr>
+<tr class="memdesc:aeaf1a3df45751696e25d90e31f89ce44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets all the rooms in the schedule.  <a href="#aeaf1a3df45751696e25d90e31f89ce44">More...</a><br /></td></tr>
 <tr class="separator:aeaf1a3df45751696e25d90e31f89ce44"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a608c11c86282dbcbfb7614916d009153"><td class="memItemLeft" align="right" valign="top">map&lt; <a class="el" href="class_room.html">Room</a>, vector&lt; vector<br class="typebreak" />
 &lt; <a class="el" href="class_course.html">Course</a> &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule.html#a608c11c86282dbcbfb7614916d009153">getSchedule</a> ()</td></tr>
+<tr class="memdesc:a608c11c86282dbcbfb7614916d009153"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the internals of this object.  <a href="#a608c11c86282dbcbfb7614916d009153">More...</a><br /></td></tr>
 <tr class="separator:a608c11c86282dbcbfb7614916d009153"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a14a2bd38151bfb9a6fe4256d4f33375a"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule.html#a14a2bd38151bfb9a6fe4256d4f33375a">getScore</a> (void)</td></tr>
+<tr class="memdesc:a14a2bd38151bfb9a6fe4256d4f33375a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the score for this schedule.  <a href="#a14a2bd38151bfb9a6fe4256d4f33375a">More...</a><br /></td></tr>
 <tr class="separator:a14a2bd38151bfb9a6fe4256d4f33375a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae09af91135de6712a29a631f3d07a1d6"><td class="memItemLeft" align="right" valign="top">TimeBlock&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule.html#ae09af91135de6712a29a631f3d07a1d6">getTimeFor</a> (const <a class="el" href="class_course.html">Course</a> &amp;)</td></tr>
+<tr class="memdesc:ae09af91135de6712a29a631f3d07a1d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the times in which a course is scheduled.  <a href="#ae09af91135de6712a29a631f3d07a1d6">More...</a><br /></td></tr>
 <tr class="separator:ae09af91135de6712a29a631f3d07a1d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae11c4babea4bcb6a7bd83d2475218687"><td class="memItemLeft" align="right" valign="top">vector&lt; Weekdays &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule.html#ae11c4babea4bcb6a7bd83d2475218687">getWeekdaysFor</a> (const <a class="el" href="class_course.html">Course</a> &amp;)</td></tr>
+<tr class="memdesc:ae11c4babea4bcb6a7bd83d2475218687"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the days on which a course is scheduled.  <a href="#ae11c4babea4bcb6a7bd83d2475218687">More...</a><br /></td></tr>
 <tr class="separator:ae11c4babea4bcb6a7bd83d2475218687"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aec77f95755a29545d88768f91ce9bd30"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule.html#aec77f95755a29545d88768f91ce9bd30">setCourse</a> (const <a class="el" href="class_course.html">Course</a> &amp;, const <a class="el" href="class_room.html">Room</a> &amp;, Weekdays, TimeBlock)</td></tr>
+<tr class="memdesc:aec77f95755a29545d88768f91ce9bd30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a course for a given room, day, and time.  <a href="#aec77f95755a29545d88768f91ce9bd30">More...</a><br /></td></tr>
 <tr class="separator:aec77f95755a29545d88768f91ce9bd30"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a449f96e71ba040fd668d0b1b76fbaa16"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule.html#a449f96e71ba040fd668d0b1b76fbaa16">setScore</a> (double score)</td></tr>
+<tr class="memdesc:a449f96e71ba040fd668d0b1b76fbaa16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the score for this schedule.  <a href="#a449f96e71ba040fd668d0b1b76fbaa16">More...</a><br /></td></tr>
 <tr class="separator:a449f96e71ba040fd668d0b1b76fbaa16"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af0a36c0a88f544cf78912a292a2b3745"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule.html#af0a36c0a88f544cf78912a292a2b3745">swapCourses</a> (<a class="el" href="class_room.html">Room</a>, Weekdays, TimeBlock, <a class="el" href="class_room.html">Room</a>, Weekdays, TimeBlock)</td></tr>
+<tr class="memdesc:af0a36c0a88f544cf78912a292a2b3745"><td class="mdescLeft">&#160;</td><td class="mdescRight">Swaps the courses in the given rooms at the given days and times.  <a href="#af0a36c0a88f544cf78912a292a2b3745">More...</a><br /></td></tr>
 <tr class="separator:af0a36c0a88f544cf78912a292a2b3745"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -180,6 +202,7 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
 <p>Default constructor. </p>
 
 </div>
@@ -213,15 +236,18 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Constructs the <a class="el" href="class_schedule.html">Schedule</a> using vectors returned from the <a class="el" href="class_reader.html">Reader</a> classes. </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Constructs the <a class="el" href="class_schedule.html" title="This class represents a schedule for all courses. ">Schedule</a> using vectors returned from the <a class="el" href="class_reader.html" title="Pure abstract base class (interface) for objects that read something. ">Reader</a> classes. </p>
+<p>Constructor for the schedule.</p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">std::vector</td><td>of <a class="el" href="class_room.html">Room</a> objects </td></tr>
-    <tr><td class="paramname">std::vector</td><td>of <a class="el" href="class_prof.html">Prof</a> objects </td></tr>
-    <tr><td class="paramname">std::vector</td><td>of <a class="el" href="class_course.html">Course</a> objects</td></tr>
+    <tr><td class="paramname">std::vector</td><td>of <a class="el" href="class_room.html" title="This class represents a single room. ">Room</a> objects </td></tr>
+    <tr><td class="paramname">std::vector</td><td>of <a class="el" href="class_prof.html" title="This class represents a single professor. ">Prof</a> objects </td></tr>
+    <tr><td class="paramname">std::vector</td><td>of <a class="el" href="class_course.html" title="This class represents a single course. ">Course</a> objects</td></tr>
   </table>
   </dd>
 </dl>
-<p>Constructor for the schedule. Creates the empty schedule </p>
+<p>Creates the empty schedule </p>
 
 </div>
 </div>
@@ -238,6 +264,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
 <p>Copy constructor. </p>
 
 </div>
@@ -272,7 +299,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Gets a course scheduled at a given room, day, and time. </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Gets a course scheduled at a given room, day, and time. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">The</td><td>room in which a course is taught. </td></tr>
     <tr><td class="paramname">THe</td><td>day on which a course is taught. </td></tr>
@@ -280,7 +309,7 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_course.html">Course</a> scheduled for that room at that day and time. If no course is scheduled, will return a default <a class="el" href="class_course.html">Course</a> object whose information is blank. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_course.html" title="This class represents a single course. ">Course</a> scheduled for that room at that day and time. If no course is scheduled, will return a default <a class="el" href="class_course.html" title="This class represents a single course. ">Course</a> object whose information is blank. </dd></dl>
 
 </div>
 </div>
@@ -307,14 +336,16 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Gets a courses scheduled on a given day and time. </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Gets a courses scheduled on a given day and time. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">THe</td><td>day on which courses are taught. </td></tr>
     <tr><td class="paramname">THe</td><td>time in which courses are taught. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>std::vector of <a class="el" href="class_course.html">Course</a> objects scheduled at that day and time. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>std::vector of <a class="el" href="class_course.html" title="This class represents a single course. ">Course</a> objects scheduled at that day and time. </dd></dl>
 
 </div>
 </div>
@@ -341,7 +372,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Gets all the courses taught by a specific professor on a specific day. </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Gets all the courses taught by a specific professor on a specific day. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">The</td><td>professor. </td></tr>
   </table>
@@ -364,7 +397,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Gets all the courses taught by a specific professor. </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Gets all the courses taught by a specific professor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">The</td><td>professor. </td></tr>
   </table>
@@ -387,13 +422,15 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Gets the <a class="el" href="class_prof.html">Prof</a> object associated with a specific ID. </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Gets the <a class="el" href="class_prof.html" title="This class represents a single professor. ">Prof</a> object associated with a specific ID. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">The</td><td>professor's ID. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The <a class="el" href="class_prof.html">Prof</a> object associated with the ID. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The <a class="el" href="class_prof.html" title="This class represents a single professor. ">Prof</a> object associated with the ID. </dd></dl>
 
 </div>
 </div>
@@ -410,7 +447,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Gets the professor who teaches a specific course. </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Gets the professor who teaches a specific course. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">The</td><td>course. </td></tr>
   </table>
@@ -433,7 +472,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Gets a map of all the professors in the schedule, keyed by their ID's. </p><dl class="section return"><dt>Returns</dt><dd>std::map of ID's to <a class="el" href="class_prof.html">Prof</a> objects. </dd></dl>
+
+<p>Gets a map of all the professors in the schedule, keyed by their ID's. </p>
+<dl class="section return"><dt>Returns</dt><dd>std::map of ID's to <a class="el" href="class_prof.html" title="This class represents a single professor. ">Prof</a> objects. </dd></dl>
 
 </div>
 </div>
@@ -450,7 +491,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Gets the room in which a course is scheduled. </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Gets the room in which a course is scheduled. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">The</td><td>course. </td></tr>
   </table>
@@ -473,7 +516,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Gets all the rooms in the schedule. </p><dl class="section return"><dt>Returns</dt><dd>std::vector of all the Rooms in the schedule. </dd></dl>
+
+<p>Gets all the rooms in the schedule. </p>
+<dl class="section return"><dt>Returns</dt><dd>std::vector of all the Rooms in the schedule. </dd></dl>
 
 </div>
 </div>
@@ -489,6 +534,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
 <p>Returns the internals of this object. </p>
 
 </div>
@@ -514,7 +560,9 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Gets the score for this schedule. </p><dl class="section return"><dt>Returns</dt><dd>The score for this schedule. </dd></dl>
+
+<p>Gets the score for this schedule. </p>
+<dl class="section return"><dt>Returns</dt><dd>The score for this schedule. </dd></dl>
 
 </div>
 </div>
@@ -531,7 +579,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Gets the times in which a course is scheduled. </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Gets the times in which a course is scheduled. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">The</td><td>course. </td></tr>
   </table>
@@ -554,7 +604,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Gets the days on which a course is scheduled. </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Gets the days on which a course is scheduled. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">The</td><td>course. </td></tr>
   </table>
@@ -577,6 +629,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
 <p>Overloaded assignment operator. </p>
 
 </div>
@@ -616,7 +669,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Sets a course for a given room, day, and time. </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Sets a course for a given room, day, and time. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">The</td><td>course to set. </td></tr>
     <tr><td class="paramname">The</td><td>room to assign the course. </td></tr>
@@ -650,7 +705,9 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Sets the score for this schedule. </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Sets the score for this schedule. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">The</td><td>score for this schedule. </td></tr>
   </table>
@@ -706,12 +763,14 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Swaps the courses in the given rooms at the given days and times. </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Swaps the courses in the given rooms at the given days and times. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_room.html">Room</a></td><td>for the first course to swap. </td></tr>
+    <tr><td class="paramname"><a class="el" href="class_room.html" title="This class represents a single room. ">Room</a></td><td>for the first course to swap. </td></tr>
     <tr><td class="paramname">Weekday</td><td>for the first course to swap. </td></tr>
     <tr><td class="paramname">Time</td><td>for the first course to swap. </td></tr>
-    <tr><td class="paramname"><a class="el" href="class_room.html">Room</a></td><td>for the second course to swap. </td></tr>
+    <tr><td class="paramname"><a class="el" href="class_room.html" title="This class represents a single room. ">Room</a></td><td>for the second course to swap. </td></tr>
     <tr><td class="paramname">Weekday</td><td>for the second course to swap. </td></tr>
     <tr><td class="paramname">Time</td><td>for the second course to swap. </td></tr>
   </table>
@@ -722,7 +781,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="_schedule_8h_source.html">Schedule.h</a></li>
+<li>Schedule.h</li>
 <li>Schedule.cpp</li>
 </ul>
 </div><!-- contents -->
@@ -731,7 +790,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_schedule.html">Schedule</a></li>
-    <li class="footer">Generated on Sun May 18 2014 18:59:52 for ClassScheduling by
+    <li class="footer">Generated on Sun May 18 2014 19:50:48 for ClassScheduling by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>

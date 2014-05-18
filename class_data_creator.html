@@ -31,6 +31,7 @@
   <td style="padding-left: 0.5em;">
    <div id="projectname">ClassScheduling
    </div>
+   <div id="projectbrief">A project to schedule college courses.</div>
   </td>
  </tr>
  </tbody>
@@ -92,7 +93,7 @@ $(document).ready(function(){initNavTree('class_data_creator.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -110,31 +111,43 @@ $(document).ready(function(){initNavTree('class_data_creator.html','');});
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="_data_creator_8h_source.html">DataCreator.h</a>&gt;</code></p>
+<p>This class is used to create test data.  
+ <a href="class_data_creator.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a2edfa7566abaa033dd4e4d1a4de27a5c"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_course.html">Course</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data_creator.html#a2edfa7566abaa033dd4e4d1a4de27a5c">createCourse</a> (void)</td></tr>
+<tr class="memdesc:a2edfa7566abaa033dd4e4d1a4de27a5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a random <a class="el" href="class_course.html" title="This class represents a single course. ">Course</a> object.  <a href="#a2edfa7566abaa033dd4e4d1a4de27a5c">More...</a><br /></td></tr>
 <tr class="separator:a2edfa7566abaa033dd4e4d1a4de27a5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae82a38ee106b5021695ca73f9eecf68b"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_prof.html">Prof</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data_creator.html#ae82a38ee106b5021695ca73f9eecf68b">createProf</a> (void)</td></tr>
+<tr class="memdesc:ae82a38ee106b5021695ca73f9eecf68b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a random <a class="el" href="class_prof.html" title="This class represents a single professor. ">Prof</a> object.  <a href="#ae82a38ee106b5021695ca73f9eecf68b">More...</a><br /></td></tr>
 <tr class="separator:ae82a38ee106b5021695ca73f9eecf68b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa519025204880e53807494d6d9d102a8"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_room.html">Room</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data_creator.html#aa519025204880e53807494d6d9d102a8">createRoom</a> (void)</td></tr>
+<tr class="memdesc:aa519025204880e53807494d6d9d102a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a random <a class="el" href="class_room.html" title="This class represents a single room. ">Room</a> object.  <a href="#aa519025204880e53807494d6d9d102a8">More...</a><br /></td></tr>
 <tr class="separator:aa519025204880e53807494d6d9d102a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae53e6c457f4b6938da70eef80696bc18"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_schedule.html">Schedule</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data_creator.html#ae53e6c457f4b6938da70eef80696bc18">createSchedule</a> (void)</td></tr>
+<tr class="memdesc:ae53e6c457f4b6938da70eef80696bc18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a random (possibly invalid) <a class="el" href="class_schedule.html" title="This class represents a schedule for all courses. ">Schedule</a> object.  <a href="#ae53e6c457f4b6938da70eef80696bc18">More...</a><br /></td></tr>
 <tr class="separator:ae53e6c457f4b6938da70eef80696bc18"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a257bdeadebcfe451a24c13dc2e280fe5"><td class="memItemLeft" align="right" valign="top">static vector&lt; <a class="el" href="class_course.html">Course</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data_creator.html#a257bdeadebcfe451a24c13dc2e280fe5">createVector</a> (<a class="el" href="class_course.html">Course</a>, int=20)</td></tr>
+<tr class="memdesc:a257bdeadebcfe451a24c13dc2e280fe5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a vector of a specific size, filled with random <a class="el" href="class_course.html" title="This class represents a single course. ">Course</a> objects.  <a href="#a257bdeadebcfe451a24c13dc2e280fe5">More...</a><br /></td></tr>
 <tr class="separator:a257bdeadebcfe451a24c13dc2e280fe5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae37805193a255a584f428e6354ada29f"><td class="memItemLeft" align="right" valign="top">static vector&lt; <a class="el" href="class_prof.html">Prof</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data_creator.html#ae37805193a255a584f428e6354ada29f">createVector</a> (<a class="el" href="class_prof.html">Prof</a>, int=20)</td></tr>
+<tr class="memdesc:ae37805193a255a584f428e6354ada29f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a vector of a specific size, filled with random <a class="el" href="class_prof.html" title="This class represents a single professor. ">Prof</a> objects.  <a href="#ae37805193a255a584f428e6354ada29f">More...</a><br /></td></tr>
 <tr class="separator:ae37805193a255a584f428e6354ada29f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6b3ecebb54bec00026544079500d6f51"><td class="memItemLeft" align="right" valign="top">static vector&lt; <a class="el" href="class_room.html">Room</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data_creator.html#a6b3ecebb54bec00026544079500d6f51">createVector</a> (<a class="el" href="class_room.html">Room</a>, int=20)</td></tr>
+<tr class="memdesc:a6b3ecebb54bec00026544079500d6f51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a vector of a specific size, filled with random <a class="el" href="class_room.html" title="This class represents a single room. ">Room</a> objects.  <a href="#a6b3ecebb54bec00026544079500d6f51">More...</a><br /></td></tr>
 <tr class="separator:a6b3ecebb54bec00026544079500d6f51"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aabd4c4bcebfd909e1f7746f78e89df5e"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data_creator.html#aabd4c4bcebfd909e1f7746f78e89df5e">createVectorFile</a> (string, <a class="el" href="class_course.html">Course</a>, int=20)</td></tr>
+<tr class="memdesc:aabd4c4bcebfd909e1f7746f78e89df5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a CSV files from a vector of a specific size, filled with random <a class="el" href="class_course.html" title="This class represents a single course. ">Course</a> objects.  <a href="#aabd4c4bcebfd909e1f7746f78e89df5e">More...</a><br /></td></tr>
 <tr class="separator:aabd4c4bcebfd909e1f7746f78e89df5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a86d4cddd8d86f2272022c6f1c010a870"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data_creator.html#a86d4cddd8d86f2272022c6f1c010a870">createVectorFile</a> (string, <a class="el" href="class_prof.html">Prof</a>, int=20)</td></tr>
+<tr class="memdesc:a86d4cddd8d86f2272022c6f1c010a870"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a CSV files from a vector of a specific size, filled with random <a class="el" href="class_prof.html" title="This class represents a single professor. ">Prof</a> objects.  <a href="#a86d4cddd8d86f2272022c6f1c010a870">More...</a><br /></td></tr>
 <tr class="separator:a86d4cddd8d86f2272022c6f1c010a870"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae3de81031feb32d578ef540138d17f53"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data_creator.html#ae3de81031feb32d578ef540138d17f53">createVectorFile</a> (string, <a class="el" href="class_room.html">Room</a>, int=20)</td></tr>
+<tr class="memdesc:ae3de81031feb32d578ef540138d17f53"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a CSV files from a vector of a specific size, filled with random <a class="el" href="class_room.html" title="This class represents a single room. ">Room</a> objects.  <a href="#ae3de81031feb32d578ef540138d17f53">More...</a><br /></td></tr>
 <tr class="separator:ae3de81031feb32d578ef540138d17f53"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a14ebc2bf3a7dadddda032b75c0156940"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data_creator.html#a14ebc2bf3a7dadddda032b75c0156940">loadProfs</a> (vector&lt; <a class="el" href="class_course.html">Course</a> &gt; &amp;, const vector&lt; <a class="el" href="class_prof.html">Prof</a> &gt; &amp;)</td></tr>
+<tr class="memdesc:a14ebc2bf3a7dadddda032b75c0156940"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads the vector of <a class="el" href="class_course.html" title="This class represents a single course. ">Course</a> objects with random <a class="el" href="class_prof.html" title="This class represents a single professor. ">Prof</a> ID's from the vector of <a class="el" href="class_prof.html" title="This class represents a single professor. ">Prof</a> objects.  <a href="#a14ebc2bf3a7dadddda032b75c0156940">More...</a><br /></td></tr>
 <tr class="separator:a14ebc2bf3a7dadddda032b75c0156940"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -161,7 +174,8 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Creates a random <a class="el" href="class_course.html">Course</a> object. </p>
+
+<p>Creates a random <a class="el" href="class_course.html" title="This class represents a single course. ">Course</a> object. </p>
 
 </div>
 </div>
@@ -186,7 +200,8 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Creates a random <a class="el" href="class_prof.html">Prof</a> object. </p>
+
+<p>Creates a random <a class="el" href="class_prof.html" title="This class represents a single professor. ">Prof</a> object. </p>
 
 </div>
 </div>
@@ -211,7 +226,8 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Creates a random <a class="el" href="class_room.html">Room</a> object. </p>
+
+<p>Creates a random <a class="el" href="class_room.html" title="This class represents a single room. ">Room</a> object. </p>
 
 </div>
 </div>
@@ -236,7 +252,8 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Creates a random (possibly invalid) <a class="el" href="class_schedule.html">Schedule</a> object. </p>
+
+<p>Creates a random (possibly invalid) <a class="el" href="class_schedule.html" title="This class represents a schedule for all courses. ">Schedule</a> object. </p>
 
 </div>
 </div>
@@ -271,14 +288,16 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Creates a vector of a specific size, filled with random <a class="el" href="class_course.html">Course</a> objects. The number of objects is randomized; the second parameter is only the suggested size of the vector to create. </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Creates a vector of a specific size, filled with random <a class="el" href="class_course.html" title="This class represents a single course. ">Course</a> objects. </p>
+<p>The number of objects is randomized; the second parameter is only the suggested size of the vector to create. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">Object</td><td>used as type for overloading. Otherwise ignored. </td></tr>
     <tr><td class="paramname">Suggested</td><td>number of members to create. Default 20. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>std::vector of random <a class="el" href="class_course.html">Course</a> objects. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>std::vector of random <a class="el" href="class_course.html" title="This class represents a single course. ">Course</a> objects. </dd></dl>
 
 </div>
 </div>
@@ -313,14 +332,16 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Creates a vector of a specific size, filled with random <a class="el" href="class_prof.html">Prof</a> objects. The number of objects is randomized; the second parameter is only the suggested size of the vector to create. </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Creates a vector of a specific size, filled with random <a class="el" href="class_prof.html" title="This class represents a single professor. ">Prof</a> objects. </p>
+<p>The number of objects is randomized; the second parameter is only the suggested size of the vector to create. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">Object</td><td>used as type for overloading. Otherwise ignored. </td></tr>
     <tr><td class="paramname">Suggested</td><td>number of members to create. Default 20. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>std::vector of random <a class="el" href="class_prof.html">Prof</a> objects. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>std::vector of random <a class="el" href="class_prof.html" title="This class represents a single professor. ">Prof</a> objects. </dd></dl>
 
 </div>
 </div>
@@ -355,14 +376,16 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Creates a vector of a specific size, filled with random <a class="el" href="class_room.html">Room</a> objects. The number of objects is randomized; the second parameter is only the suggested size of the vector to create. </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Creates a vector of a specific size, filled with random <a class="el" href="class_room.html" title="This class represents a single room. ">Room</a> objects. </p>
+<p>The number of objects is randomized; the second parameter is only the suggested size of the vector to create. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">Object</td><td>used as type for overloading. Otherwise ignored. </td></tr>
     <tr><td class="paramname">Suggested</td><td>number of members to create. Default 20. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>std::vector of random <a class="el" href="class_room.html">Room</a> objects. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>std::vector of random <a class="el" href="class_room.html" title="This class represents a single room. ">Room</a> objects. </dd></dl>
 
 </div>
 </div>
@@ -403,7 +426,9 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Creates a CSV files from a vector of a specific size, filled with random <a class="el" href="class_course.html">Course</a> objects. The number of objects is randomized; the second parameter is only the suggested size of the vector to create. </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Creates a CSV files from a vector of a specific size, filled with random <a class="el" href="class_course.html" title="This class represents a single course. ">Course</a> objects. </p>
+<p>The number of objects is randomized; the second parameter is only the suggested size of the vector to create. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">File</td><td>name, including path. </td></tr>
     <tr><td class="paramname">Object</td><td>used as type for overloading. Otherwise ignored. </td></tr>
@@ -452,7 +477,9 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Creates a CSV files from a vector of a specific size, filled with random <a class="el" href="class_prof.html">Prof</a> objects. The number of objects is randomized; the second parameter is only the suggested size of the vector to create. </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Creates a CSV files from a vector of a specific size, filled with random <a class="el" href="class_prof.html" title="This class represents a single professor. ">Prof</a> objects. </p>
+<p>The number of objects is randomized; the second parameter is only the suggested size of the vector to create. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">File</td><td>name, including path. </td></tr>
     <tr><td class="paramname">Object</td><td>used as type for overloading. Otherwise ignored. </td></tr>
@@ -501,7 +528,9 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Creates a CSV files from a vector of a specific size, filled with random <a class="el" href="class_room.html">Room</a> objects. The number of objects is randomized; the second parameter is only the suggested size of the vector to create. </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Creates a CSV files from a vector of a specific size, filled with random <a class="el" href="class_room.html" title="This class represents a single room. ">Room</a> objects. </p>
+<p>The number of objects is randomized; the second parameter is only the suggested size of the vector to create. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">File</td><td>name, including path. </td></tr>
     <tr><td class="paramname">Object</td><td>used as type for overloading. Otherwise ignored. </td></tr>
@@ -544,10 +573,12 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Loads the vector of <a class="el" href="class_course.html">Course</a> objects with random <a class="el" href="class_prof.html">Prof</a> ID's from the vector of <a class="el" href="class_prof.html">Prof</a> objects. </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Loads the vector of <a class="el" href="class_course.html" title="This class represents a single course. ">Course</a> objects with random <a class="el" href="class_prof.html" title="This class represents a single professor. ">Prof</a> ID's from the vector of <a class="el" href="class_prof.html" title="This class represents a single professor. ">Prof</a> objects. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">Mutable</td><td>vector of <a class="el" href="class_course.html">Course</a> objects. </td></tr>
-    <tr><td class="paramname">Constant</td><td>vector of <a class="el" href="class_prof.html">Prof</a> objects. </td></tr>
+    <tr><td class="paramname">Mutable</td><td>vector of <a class="el" href="class_course.html" title="This class represents a single course. ">Course</a> objects. </td></tr>
+    <tr><td class="paramname">Constant</td><td>vector of <a class="el" href="class_prof.html" title="This class represents a single professor. ">Prof</a> objects. </td></tr>
   </table>
   </dd>
 </dl>
@@ -555,7 +586,7 @@ Static Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="_data_creator_8h_source.html">DataCreator.h</a></li>
+<li>DataCreator.h</li>
 <li>DataCreator.cpp</li>
 </ul>
 </div><!-- contents -->
@@ -564,7 +595,7 @@ Static Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_data_creator.html">DataCreator</a></li>
-    <li class="footer">Generated on Sun May 18 2014 18:59:52 for ClassScheduling by
+    <li class="footer">Generated on Sun May 18 2014 19:50:48 for ClassScheduling by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>

@@ -31,6 +31,7 @@
   <td style="padding-left: 0.5em;">
    <div id="projectname">ClassScheduling
    </div>
+   <div id="projectbrief">A project to schedule college courses.</div>
   </td>
  </tr>
  </tbody>
@@ -92,7 +93,7 @@ $(document).ready(function(){initNavTree('class_file_writer.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -111,36 +112,45 @@ $(document).ready(function(){initNavTree('class_file_writer.html','');});
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="_file_writer_8h_source.html">FileWriter.h</a>&gt;</code></p>
+<p>Abstract base class for objects that write something to file.  
+ <a href="class_file_writer.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for FileWriter&lt; T &gt;:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_file_writer.png" usemap="#FileWriter&lt; T &gt;_map" alt=""/>
   <map id="FileWriter&lt; T &gt;_map" name="FileWriter&lt; T &gt;_map">
-<area href="class_writer.html" alt="Writer&lt; T &gt;" shape="rect" coords="0,0,98,24"/>
+<area href="class_writer.html" title="Abstract base class (interface) for objects that write their contents to something. " alt="Writer&lt; T &gt;" shape="rect" coords="0,0,98,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:af44aac18c2dc23f277ae5d42383b38e7"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file_writer.html#af44aac18c2dc23f277ae5d42383b38e7">~FileWriter</a> (void)</td></tr>
+<tr class="memdesc:af44aac18c2dc23f277ae5d42383b38e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor.  <a href="#af44aac18c2dc23f277ae5d42383b38e7">More...</a><br /></td></tr>
 <tr class="separator:af44aac18c2dc23f277ae5d42383b38e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1000ccb7080fe119951438616290c3a0"><td class="memItemLeft" align="right" valign="top">virtual string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file_writer.html#a1000ccb7080fe119951438616290c3a0">getFilename</a> (void)</td></tr>
+<tr class="memdesc:a1000ccb7080fe119951438616290c3a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the file name.  <a href="#a1000ccb7080fe119951438616290c3a0">More...</a><br /></td></tr>
 <tr class="separator:a1000ccb7080fe119951438616290c3a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afe44a1980004c620ec539627641156e1"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file_writer.html#afe44a1980004c620ec539627641156e1">setFilename</a> (const string &amp;filename)</td></tr>
+<tr class="memdesc:afe44a1980004c620ec539627641156e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the file name.  <a href="#afe44a1980004c620ec539627641156e1">More...</a><br /></td></tr>
 <tr class="separator:afe44a1980004c620ec539627641156e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_writer"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_writer')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_writer.html">Writer&lt; T &gt;</a></td></tr>
 <tr class="memitem:a7d2bab108eb77963d6e12b40ac5d9638 inherit pub_methods_class_writer"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_writer.html#a7d2bab108eb77963d6e12b40ac5d9638">~Writer</a> (void)</td></tr>
+<tr class="memdesc:a7d2bab108eb77963d6e12b40ac5d9638 inherit pub_methods_class_writer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor.  <a href="#a7d2bab108eb77963d6e12b40ac5d9638">More...</a><br /></td></tr>
 <tr class="separator:a7d2bab108eb77963d6e12b40ac5d9638 inherit pub_methods_class_writer"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abc898694e5b83419da4e510998711e8d inherit pub_methods_class_writer"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_writer.html#abc898694e5b83419da4e510998711e8d">setContents</a> (T contents)=0</td></tr>
+<tr class="memdesc:abc898694e5b83419da4e510998711e8d inherit pub_methods_class_writer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the writable contents of this object.  <a href="#abc898694e5b83419da4e510998711e8d">More...</a><br /></td></tr>
 <tr class="separator:abc898694e5b83419da4e510998711e8d inherit pub_methods_class_writer"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a556918faf49f66c3073b55002d800540 inherit pub_methods_class_writer"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_writer.html#a556918faf49f66c3073b55002d800540">write</a> ()=0</td></tr>
+<tr class="memitem:a556918faf49f66c3073b55002d800540 inherit pub_methods_class_writer"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a556918faf49f66c3073b55002d800540"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_writer.html#a556918faf49f66c3073b55002d800540">write</a> ()=0</td></tr>
+<tr class="memdesc:a556918faf49f66c3073b55002d800540 inherit pub_methods_class_writer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes the contents of this object. <br /></td></tr>
 <tr class="separator:a556918faf49f66c3073b55002d800540 inherit pub_methods_class_writer"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:a3ad0bae083ff61695de0834ca4cb24b6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file_writer.html#a3ad0bae083ff61695de0834ca4cb24b6">FileWriter</a> (string filename)</td></tr>
+<tr class="memdesc:a3ad0bae083ff61695de0834ca4cb24b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Protected constructor.  <a href="#a3ad0bae083ff61695de0834ca4cb24b6">More...</a><br /></td></tr>
 <tr class="separator:a3ad0bae083ff61695de0834ca4cb24b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -172,6 +182,7 @@ template&lt;typename T&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
 <p>Virtual destructor. </p>
 
 </div>
@@ -199,6 +210,7 @@ template&lt;typename T&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
 <p>Protected constructor. </p>
 
 </div>
@@ -227,7 +239,9 @@ template&lt;typename T&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Returns the file name. </p><dl class="section return"><dt>Returns</dt><dd>The file name. </dd></dl>
+
+<p>Returns the file name. </p>
+<dl class="section return"><dt>Returns</dt><dd>The file name. </dd></dl>
 
 </div>
 </div>
@@ -254,7 +268,9 @@ template&lt;typename T&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Sets the file name. </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Sets the file name. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">The</td><td>file name. </td></tr>
   </table>
@@ -264,7 +280,7 @@ template&lt;typename T&gt; </div>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="_file_writer_8h_source.html">FileWriter.h</a></li>
+<li>FileWriter.h</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -272,7 +288,7 @@ template&lt;typename T&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_file_writer.html">FileWriter</a></li>
-    <li class="footer">Generated on Sun May 18 2014 18:59:52 for ClassScheduling by
+    <li class="footer">Generated on Sun May 18 2014 19:50:48 for ClassScheduling by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>

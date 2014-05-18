@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['calculatescore',['calculateScore',['../class_schedule_calculator.html#a0529873e427989ae92a8b1408f92be40',1,'ScheduleCalculator']]],
   ['compare',['compare',['../class_comparable.html#a6128a6c3c1f90cbc62e47822ca16ea60',1,'Comparable']]],
   ['course',['Course',['../class_course.html#a47049fe05b86e2e9443a951ac596d41a',1,'Course::Course(void)'],['../class_course.html#ad5eee18cbe544e2bbcbe70cb801227eb',1,'Course::Course(const string &amp;id, const string &amp;name, const string &amp;profId, int enrolled, int timeBlocks, const set&lt; string &gt; &amp;conflicts)']]],
   ['coursereader',['CourseReader',['../class_course_reader.html#aac84a23c4a0ea7033e6903c3fcf10e26',1,'CourseReader']]],

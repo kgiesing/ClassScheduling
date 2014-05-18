@@ -92,7 +92,7 @@ $(document).ready(function(){initNavTree('class_schedule_writer.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -111,9 +111,9 @@ $(document).ready(function(){initNavTree('class_schedule_writer.html','');});
 <table class="directory">
   <tr class="even"><td class="entry"><a class="el" href="class_file_writer.html#a3ad0bae083ff61695de0834ca4cb24b6">FileWriter</a>(string filename)</td><td class="entry"><a class="el" href="class_file_writer.html">FileWriter&lt; Schedule * &gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">protected</span></td></tr>
   <tr><td class="entry"><a class="el" href="class_file_writer.html#a1000ccb7080fe119951438616290c3a0">getFilename</a>(void)</td><td class="entry"><a class="el" href="class_file_writer.html">FileWriter&lt; Schedule * &gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>ScheduleWriter</b>(std::string filename, std::string delimiter=&quot;\t&quot;) (defined in <a class="el" href="class_schedule_writer.html">ScheduleWriter</a>)</td><td class="entry"><a class="el" href="class_schedule_writer.html">ScheduleWriter</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_schedule_writer.html#ae80c9832b238b8d1493b9bbe26bbb0db">ScheduleWriter</a>(std::string filename, std::string delimiter=&quot;\t&quot;)</td><td class="entry"><a class="el" href="class_schedule_writer.html">ScheduleWriter</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr><td class="entry"><a class="el" href="class_schedule_writer.html#a7349eaba8a87809e91c9ed9f0c83faf5">setContents</a>(Schedule *contents)</td><td class="entry"><a class="el" href="class_schedule_writer.html">ScheduleWriter</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>setFieldDelimiter</b>(const std::string delimiter) (defined in <a class="el" href="class_schedule_writer.html">ScheduleWriter</a>)</td><td class="entry"><a class="el" href="class_schedule_writer.html">ScheduleWriter</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_schedule_writer.html#a2a715e31ca5c4a2d18c20d6d5f103bb8">setFieldDelimiter</a>(const std::string delimiter)</td><td class="entry"><a class="el" href="class_schedule_writer.html">ScheduleWriter</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_file_writer.html#afe44a1980004c620ec539627641156e1">setFilename</a>(const string &amp;filename)</td><td class="entry"><a class="el" href="class_file_writer.html">FileWriter&lt; Schedule * &gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_schedule_writer.html#af21af71a978e82812c0154df42149ff7">write</a>()</td><td class="entry"><a class="el" href="class_schedule_writer.html">ScheduleWriter</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
   <tr><td class="entry"><a class="el" href="class_file_writer.html#af44aac18c2dc23f277ae5d42383b38e7">~FileWriter</a>(void)</td><td class="entry"><a class="el" href="class_file_writer.html">FileWriter&lt; Schedule * &gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
@@ -123,7 +123,7 @@ $(document).ready(function(){initNavTree('class_schedule_writer.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sun May 18 2014 18:59:52 for ClassScheduling by
+    <li class="footer">Generated on Sun May 18 2014 19:36:55 for ClassScheduling by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>

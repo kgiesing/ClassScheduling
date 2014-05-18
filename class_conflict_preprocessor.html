@@ -92,7 +92,7 @@ $(document).ready(function(){initNavTree('class_conflict_preprocessor.html','');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -113,6 +113,7 @@ $(document).ready(function(){initNavTree('class_conflict_preprocessor.html','');
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ac62d8e6d26b9c1fb29943c7ef804a858"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_conflict_preprocessor.html#ac62d8e6d26b9c1fb29943c7ef804a858">preprocess</a> (vector&lt; <a class="el" href="class_course.html">Course</a> &gt; &amp;)</td></tr>
+<tr class="memdesc:ac62d8e6d26b9c1fb29943c7ef804a858"><td class="mdescLeft">&#160;</td><td class="mdescRight">Preprocesses the list of <a class="el" href="class_course.html" title="This class represents a single course. ">Course</a> objects.  <a href="#ac62d8e6d26b9c1fb29943c7ef804a858">More...</a><br /></td></tr>
 <tr class="separator:ac62d8e6d26b9c1fb29943c7ef804a858"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -137,7 +138,9 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Preprocesses the list of <a class="el" href="class_course.html">Course</a> objects. It does this by going through the list of Courses. For each <a class="el" href="class_course.html">Course</a>, it gets the <a class="el" href="class_prof.html">Prof</a> ID for that course. It then sets the </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Preprocesses the list of <a class="el" href="class_course.html" title="This class represents a single course. ">Course</a> objects. </p>
+<p>It does this by going through the list of Courses. For each <a class="el" href="class_course.html" title="This class represents a single course. ">Course</a>, it gets the <a class="el" href="class_prof.html" title="This class represents a single professor. ">Prof</a> ID for that course. It then sets the </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">The</td><td>vector of courses read from the input file. </td></tr>
   </table>
@@ -147,8 +150,8 @@ Static Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="_conflict_preprocessor_8h_source.html">ConflictPreprocessor.h</a></li>
-<li>ConflictPreprocessor.cpp</li>
+<li><a class="el" href="_conflict_preprocessor_8h.html">ConflictPreprocessor.h</a></li>
+<li><a class="el" href="_conflict_preprocessor_8cpp.html">ConflictPreprocessor.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -156,7 +159,7 @@ Static Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_conflict_preprocessor.html">ConflictPreprocessor</a></li>
-    <li class="footer">Generated on Sun May 18 2014 18:59:52 for ClassScheduling by
+    <li class="footer">Generated on Sun May 18 2014 19:36:54 for ClassScheduling by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>

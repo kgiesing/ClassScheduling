@@ -92,7 +92,7 @@ $(document).ready(function(){initNavTree('class_greedy_schedule_generator.html',
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -115,29 +115,71 @@ Inheritance diagram for GreedyScheduleGenerator:</div>
  <div class="center">
   <img src="class_greedy_schedule_generator.png" usemap="#GreedyScheduleGenerator_map" alt=""/>
   <map id="GreedyScheduleGenerator_map" name="GreedyScheduleGenerator_map">
-<area href="class_schedule_generator.html" alt="ScheduleGenerator" shape="rect" coords="0,0,164,24"/>
+<area href="class_schedule_generator.html" title="This is an abstract base class used by the various algorithms to generate Schedule objects..." alt="ScheduleGenerator" shape="rect" coords="0,0,164,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a6876f41520cb1f13ccdaf98e946689c7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6876f41520cb1f13ccdaf98e946689c7"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>GreedyScheduleGenerator</b> (vector&lt; <a class="el" href="class_room.html">Room</a> &gt; &amp;, vector&lt; <a class="el" href="class_prof.html">Prof</a> &gt; &amp;, vector&lt; <a class="el" href="class_course.html">Course</a> &gt; &amp;, long)</td></tr>
+<tr class="memitem:a6876f41520cb1f13ccdaf98e946689c7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_greedy_schedule_generator.html#a6876f41520cb1f13ccdaf98e946689c7">GreedyScheduleGenerator</a> (vector&lt; <a class="el" href="class_room.html">Room</a> &gt; &amp;, vector&lt; <a class="el" href="class_prof.html">Prof</a> &gt; &amp;, vector&lt; <a class="el" href="class_course.html">Course</a> &gt; &amp;, long)</td></tr>
 <tr class="separator:a6876f41520cb1f13ccdaf98e946689c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7c6c2f502ae3688503ebc3268c5f6931"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_schedule.html">Schedule</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_greedy_schedule_generator.html#a7c6c2f502ae3688503ebc3268c5f6931">getSchedule</a> (void)</td></tr>
+<tr class="memdesc:a7c6c2f502ae3688503ebc3268c5f6931"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the <a class="el" href="class_schedule.html" title="This class represents a schedule for all courses. ">Schedule</a> object.  <a href="#a7c6c2f502ae3688503ebc3268c5f6931">More...</a><br /></td></tr>
 <tr class="separator:a7c6c2f502ae3688503ebc3268c5f6931"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_schedule_generator"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_schedule_generator')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_schedule_generator.html">ScheduleGenerator</a></td></tr>
 <tr class="memitem:aa0c53d64e925152ad29e07a52c49c284 inherit pub_methods_class_schedule_generator"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule_generator.html#aa0c53d64e925152ad29e07a52c49c284">~ScheduleGenerator</a> (void)</td></tr>
+<tr class="memdesc:aa0c53d64e925152ad29e07a52c49c284 inherit pub_methods_class_schedule_generator"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor.  <a href="#aa0c53d64e925152ad29e07a52c49c284">More...</a><br /></td></tr>
 <tr class="separator:aa0c53d64e925152ad29e07a52c49c284 inherit pub_methods_class_schedule_generator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a41eef60081f766059bf0ccb100044f26 inherit pub_methods_class_schedule_generator"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule_generator.html#a41eef60081f766059bf0ccb100044f26">getTimeout</a> ()</td></tr>
+<tr class="memdesc:a41eef60081f766059bf0ccb100044f26 inherit pub_methods_class_schedule_generator"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the timeout (last millisecond that this object should still be working to generate the optimal schedule).  <a href="#a41eef60081f766059bf0ccb100044f26">More...</a><br /></td></tr>
 <tr class="separator:a41eef60081f766059bf0ccb100044f26 inherit pub_methods_class_schedule_generator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_methods_class_schedule_generator"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_class_schedule_generator')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="class_schedule_generator.html">ScheduleGenerator</a></td></tr>
 <tr class="memitem:aa7d2c803ae6fe7b4a0e166e76bc4cca8 inherit pro_methods_class_schedule_generator"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule_generator.html#aa7d2c803ae6fe7b4a0e166e76bc4cca8">ScheduleGenerator</a> (long timeout)</td></tr>
+<tr class="memdesc:aa7d2c803ae6fe7b4a0e166e76bc4cca8 inherit pro_methods_class_schedule_generator"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the abstract <a class="el" href="class_schedule_generator.html" title="This is an abstract base class used by the various algorithms to generate Schedule objects...">ScheduleGenerator</a> base class.  <a href="#aa7d2c803ae6fe7b4a0e166e76bc4cca8">More...</a><br /></td></tr>
 <tr class="separator:aa7d2c803ae6fe7b4a0e166e76bc4cca8 inherit pro_methods_class_schedule_generator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a6876f41520cb1f13ccdaf98e946689c7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GreedyScheduleGenerator::GreedyScheduleGenerator </td>
+          <td>(</td>
+          <td class="paramtype">vector&lt; <a class="el" href="class_room.html">Room</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>rooms</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vector&lt; <a class="el" href="class_prof.html">Prof</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>profs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vector&lt; <a class="el" href="class_course.html">Course</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>courses</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long&#160;</td>
+          <td class="paramname"><em>timeout</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a7c6c2f502ae3688503ebc3268c5f6931"></a>
 <div class="memitem">
@@ -160,15 +202,17 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Gets the <a class="el" href="class_schedule.html">Schedule</a> object. Subclasses will use different algorithms to generate an optimized schedule. </p><dl class="section return"><dt>Returns</dt><dd>An optimal (or near-optimal) schedule. </dd></dl>
+
+<p>Gets the <a class="el" href="class_schedule.html" title="This class represents a schedule for all courses. ">Schedule</a> object. </p>
+<p>Subclasses will use different algorithms to generate an optimized schedule. </p><dl class="section return"><dt>Returns</dt><dd>An optimal (or near-optimal) schedule. </dd></dl>
 
 <p>Implements <a class="el" href="class_schedule_generator.html#a257b6e8dbd93d08a4476a84c2d43155e">ScheduleGenerator</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="_greedy_schedule_generator_8h_source.html">GreedyScheduleGenerator.h</a></li>
-<li>GreedyScheduleGenerator.cpp</li>
+<li><a class="el" href="_greedy_schedule_generator_8h.html">GreedyScheduleGenerator.h</a></li>
+<li><a class="el" href="_greedy_schedule_generator_8cpp.html">GreedyScheduleGenerator.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -176,7 +220,7 @@ Additional Inherited Members</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_greedy_schedule_generator.html">GreedyScheduleGenerator</a></li>
-    <li class="footer">Generated on Sun May 18 2014 18:59:52 for ClassScheduling by
+    <li class="footer">Generated on Sun May 18 2014 19:36:54 for ClassScheduling by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>

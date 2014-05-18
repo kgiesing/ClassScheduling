@@ -1,13 +1,12 @@
 var searchData=
 [
+  ['main_2ecpp',['main.cpp',['../src_2main_8cpp.html',1,'']]],
   ['schedule',['Schedule',['../class_schedule.html',1,'Schedule'],['../class_schedule.html#a9f5c23837537defbf6ddbd4be7748c58',1,'Schedule::Schedule(void)'],['../class_schedule.html#aaa68fc46a844d2d3c71763480e96b3c9',1,'Schedule::Schedule(vector&lt; Room &gt;, vector&lt; Prof &gt;, vector&lt; Course &gt;)'],['../class_schedule.html#a75abb24723e7f3007cd91b0a65136b4d',1,'Schedule::Schedule(const Schedule &amp;schedule)']]],
-  ['schedulecalculator',['ScheduleCalculator',['../class_schedule_calculator.html',1,'']]],
   ['schedulegenerator',['ScheduleGenerator',['../class_schedule_generator.html',1,'ScheduleGenerator'],['../class_schedule_generator.html#aa7d2c803ae6fe7b4a0e166e76bc4cca8',1,'ScheduleGenerator::ScheduleGenerator()']]],
-  ['schedulewriter',['ScheduleWriter',['../class_schedule_writer.html',1,'']]],
   ['scorecalculator',['ScoreCalculator',['../class_score_calculator.html',1,'']]],
   ['setcapacity',['setCapacity',['../class_room.html#ac641151e6f5f3cf2ae2571cb31de4500',1,'Room']]],
   ['setconflicts',['setConflicts',['../class_course.html#a7c0182cd8a5702c2b168bf89fae1a86f',1,'Course']]],
-  ['setcontents',['setContents',['../class_schedule_writer.html#a7349eaba8a87809e91c9ed9f0c83faf5',1,'ScheduleWriter::setContents()'],['../class_writer.html#abc898694e5b83419da4e510998711e8d',1,'Writer::setContents()']]],
+  ['setcontents',['setContents',['../class_writer.html#abc898694e5b83419da4e510998711e8d',1,'Writer']]],
   ['setcourse',['setCourse',['../class_schedule.html#aec77f95755a29545d88768f91ce9bd30',1,'Schedule']]],
   ['setdaysoncampus',['setDaysOnCampus',['../class_prof_info.html#a8b410201744c11153affd90af645604b',1,'ProfInfo']]],
   ['setdelimiter',['setDelimiter',['../class_file_reader.html#a4bf2ed443a62975d86580fe1956792d5',1,'FileReader::setDelimiter()'],['../class_file_reader_factory.html#a244d4c32a60de56a0044d2de9086c819',1,'FileReaderFactory::setDelimiter()']]],

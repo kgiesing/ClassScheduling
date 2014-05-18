@@ -31,6 +31,7 @@
   <td style="padding-left: 0.5em;">
    <div id="projectname">ClassScheduling
    </div>
+   <div id="projectbrief">A project to schedule college courses.</div>
   </td>
  </tr>
  </tbody>
@@ -92,7 +93,7 @@ $(document).ready(function(){initNavTree('class_course.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -110,7 +111,8 @@ $(document).ready(function(){initNavTree('class_course.html','');});
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="_course_8h_source.html">Course.h</a>&gt;</code></p>
+<p>This class represents a single course.  
+ <a href="class_course.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for Course:</div>
 <div class="dyncontent">
@@ -124,55 +126,53 @@ Inheritance diagram for Course:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a47049fe05b86e2e9443a951ac596d41a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_course.html#a47049fe05b86e2e9443a951ac596d41a">Course</a> (void)</td></tr>
+<tr class="memdesc:a47049fe05b86e2e9443a951ac596d41a"><td class="mdescLeft">&#160;</td><td class="mdescRight">No-arg constructor.  <a href="#a47049fe05b86e2e9443a951ac596d41a">More...</a><br /></td></tr>
 <tr class="separator:a47049fe05b86e2e9443a951ac596d41a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad5eee18cbe544e2bbcbe70cb801227eb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_course.html#ad5eee18cbe544e2bbcbe70cb801227eb">Course</a> (const string &amp;id, const string &amp;name, const string &amp;profId, int enrolled, int timeBlocks, const set&lt; string &gt; &amp;conflicts)</td></tr>
+<tr class="memdesc:ad5eee18cbe544e2bbcbe70cb801227eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#ad5eee18cbe544e2bbcbe70cb801227eb">More...</a><br /></td></tr>
 <tr class="separator:ad5eee18cbe544e2bbcbe70cb801227eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab25241ba1328b7d5461c191b4f28cf8a"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_course.html#ab25241ba1328b7d5461c191b4f28cf8a">getEnrolled</a> () const </td></tr>
+<tr class="memdesc:ab25241ba1328b7d5461c191b4f28cf8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of students enrolled in the course.  <a href="#ab25241ba1328b7d5461c191b4f28cf8a">More...</a><br /></td></tr>
 <tr class="separator:ab25241ba1328b7d5461c191b4f28cf8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8eb179b10656b0ecb23871a608ab9f70"><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_course.html#a8eb179b10656b0ecb23871a608ab9f70">getId</a> () const </td></tr>
+<tr class="memdesc:a8eb179b10656b0ecb23871a608ab9f70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the course ID.  <a href="#a8eb179b10656b0ecb23871a608ab9f70">More...</a><br /></td></tr>
 <tr class="separator:a8eb179b10656b0ecb23871a608ab9f70"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a628b93ac3b945b1d2cd19c41402f61aa"><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_course.html#a628b93ac3b945b1d2cd19c41402f61aa">getProfId</a> () const </td></tr>
+<tr class="memdesc:a628b93ac3b945b1d2cd19c41402f61aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the ID of the professor who teaches this course.  <a href="#a628b93ac3b945b1d2cd19c41402f61aa">More...</a><br /></td></tr>
 <tr class="separator:a628b93ac3b945b1d2cd19c41402f61aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9ef959e2e9fb235c128d3155a3ccc7fe"><td class="memItemLeft" align="right" valign="top">const set&lt; string &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_course.html#a9ef959e2e9fb235c128d3155a3ccc7fe">getConflicts</a> () const </td></tr>
+<tr class="memdesc:a9ef959e2e9fb235c128d3155a3ccc7fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the ID's of the courses that conflict with this course.  <a href="#a9ef959e2e9fb235c128d3155a3ccc7fe">More...</a><br /></td></tr>
 <tr class="separator:a9ef959e2e9fb235c128d3155a3ccc7fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae26e42e110949e212ecf4deea6c5b4c0"><td class="memItemLeft" align="right" valign="top">set&lt; string &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_course.html#ae26e42e110949e212ecf4deea6c5b4c0">getConflicts</a> ()</td></tr>
+<tr class="memdesc:ae26e42e110949e212ecf4deea6c5b4c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the ID's of the courses that conflict with this course.  <a href="#ae26e42e110949e212ecf4deea6c5b4c0">More...</a><br /></td></tr>
 <tr class="separator:ae26e42e110949e212ecf4deea6c5b4c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6a8e5b9d3cff9590cbc909ba4f99fa9e"><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_course.html#a6a8e5b9d3cff9590cbc909ba4f99fa9e">getName</a> () const </td></tr>
+<tr class="memdesc:a6a8e5b9d3cff9590cbc909ba4f99fa9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the name of this course.  <a href="#a6a8e5b9d3cff9590cbc909ba4f99fa9e">More...</a><br /></td></tr>
 <tr class="separator:a6a8e5b9d3cff9590cbc909ba4f99fa9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae75daddc17975305dd9bc03ebbdeb185"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_course.html#ae75daddc17975305dd9bc03ebbdeb185">getTimeBlocks</a> (void) const </td></tr>
+<tr class="memdesc:ae75daddc17975305dd9bc03ebbdeb185"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of time blocks this course requires.  <a href="#ae75daddc17975305dd9bc03ebbdeb185">More...</a><br /></td></tr>
 <tr class="separator:ae75daddc17975305dd9bc03ebbdeb185"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa14214091f292e8f5c3670c6982bf4d2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_course.html#aa14214091f292e8f5c3670c6982bf4d2">setEnrolled</a> (int enrolled)</td></tr>
+<tr class="memdesc:aa14214091f292e8f5c3670c6982bf4d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the number of students enrolled in the course.  <a href="#aa14214091f292e8f5c3670c6982bf4d2">More...</a><br /></td></tr>
 <tr class="separator:aa14214091f292e8f5c3670c6982bf4d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5f150125179eac658dd39dea1409923b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_course.html#a5f150125179eac658dd39dea1409923b">setId</a> (const string &amp;id)</td></tr>
+<tr class="memdesc:a5f150125179eac658dd39dea1409923b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the course ID.  <a href="#a5f150125179eac658dd39dea1409923b">More...</a><br /></td></tr>
 <tr class="separator:a5f150125179eac658dd39dea1409923b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae3a36e58e253627b5e690b25c6ba56c9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_course.html#ae3a36e58e253627b5e690b25c6ba56c9">setProfId</a> (const string &amp;profId)</td></tr>
+<tr class="memdesc:ae3a36e58e253627b5e690b25c6ba56c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the ID of the professor who teaches this course.  <a href="#ae3a36e58e253627b5e690b25c6ba56c9">More...</a><br /></td></tr>
 <tr class="separator:ae3a36e58e253627b5e690b25c6ba56c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7c0182cd8a5702c2b168bf89fae1a86f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_course.html#a7c0182cd8a5702c2b168bf89fae1a86f">setConflicts</a> (const set&lt; string &gt; &amp;conflicts)</td></tr>
+<tr class="memdesc:a7c0182cd8a5702c2b168bf89fae1a86f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the ID's of the courses that conflict with this course.  <a href="#a7c0182cd8a5702c2b168bf89fae1a86f">More...</a><br /></td></tr>
 <tr class="separator:a7c0182cd8a5702c2b168bf89fae1a86f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af05fd0f0263918e5c17da5fb89c9b7fe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_course.html#af05fd0f0263918e5c17da5fb89c9b7fe">setName</a> (const string &amp;name)</td></tr>
+<tr class="memdesc:af05fd0f0263918e5c17da5fb89c9b7fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the name of this course.  <a href="#af05fd0f0263918e5c17da5fb89c9b7fe">More...</a><br /></td></tr>
 <tr class="separator:af05fd0f0263918e5c17da5fb89c9b7fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad42cf496bc118f7f6b333357cfaad164"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_course.html#ad42cf496bc118f7f6b333357cfaad164">setTimeBlocks</a> (int timeBlocks)</td></tr>
+<tr class="memdesc:ad42cf496bc118f7f6b333357cfaad164"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the number of time blocks this course requires.  <a href="#ad42cf496bc118f7f6b333357cfaad164">More...</a><br /></td></tr>
 <tr class="separator:ad42cf496bc118f7f6b333357cfaad164"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_comparable"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_comparable')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_comparable.html">Comparable&lt; Course &gt;</a></td></tr>
-<tr class="memitem:afaaf8bb9f89014054d4dbf3fd293e6ca inherit pub_methods_class_comparable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afaaf8bb9f89014054d4dbf3fd293e6ca"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="class_course.html">Course</a> &amp;rhs) const</td></tr>
-<tr class="separator:afaaf8bb9f89014054d4dbf3fd293e6ca inherit pub_methods_class_comparable"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aae23c4d9fac0fd46250bfb0d8390f72c inherit pub_methods_class_comparable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aae23c4d9fac0fd46250bfb0d8390f72c"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator!=</b> (const <a class="el" href="class_course.html">Course</a> &amp;rhs) const</td></tr>
-<tr class="separator:aae23c4d9fac0fd46250bfb0d8390f72c inherit pub_methods_class_comparable"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a18ffd7337c4d89a87babb870928f69e9 inherit pub_methods_class_comparable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a18ffd7337c4d89a87babb870928f69e9"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;</b> (const <a class="el" href="class_course.html">Course</a> &amp;rhs) const</td></tr>
-<tr class="separator:a18ffd7337c4d89a87babb870928f69e9 inherit pub_methods_class_comparable"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4518b3bb71d9f54d2346934777f38fd3 inherit pub_methods_class_comparable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4518b3bb71d9f54d2346934777f38fd3"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;=</b> (const <a class="el" href="class_course.html">Course</a> &amp;rhs) const</td></tr>
-<tr class="separator:a4518b3bb71d9f54d2346934777f38fd3 inherit pub_methods_class_comparable"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2bab52b70ca28c1ca0703c0ddba1e4c2 inherit pub_methods_class_comparable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2bab52b70ca28c1ca0703c0ddba1e4c2"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&gt;</b> (const <a class="el" href="class_course.html">Course</a> &amp;rhs) const</td></tr>
-<tr class="separator:a2bab52b70ca28c1ca0703c0ddba1e4c2 inherit pub_methods_class_comparable"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a90f9b2637a6d1c04bf59aaba4f9773ba inherit pub_methods_class_comparable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a90f9b2637a6d1c04bf59aaba4f9773ba"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&gt;=</b> (const <a class="el" href="class_course.html">Course</a> &amp;rhs) const</td></tr>
-<tr class="separator:a90f9b2637a6d1c04bf59aaba4f9773ba inherit pub_methods_class_comparable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac9ce1cecca673003b5f7a12cb6d31a3d inherit pub_methods_class_comparable"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_comparable.html#ac9ce1cecca673003b5f7a12cb6d31a3d">~Comparable</a> (void)</td></tr>
+<tr class="memdesc:ac9ce1cecca673003b5f7a12cb6d31a3d inherit pub_methods_class_comparable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor.  <a href="#ac9ce1cecca673003b5f7a12cb6d31a3d">More...</a><br /></td></tr>
 <tr class="separator:ac9ce1cecca673003b5f7a12cb6d31a3d inherit pub_methods_class_comparable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
@@ -194,6 +194,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
 <p>No-arg constructor. </p>
 
 </div>
@@ -245,10 +246,12 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Constructor. </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Constructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_course.html">Course</a></td><td>ID. </td></tr>
-    <tr><td class="paramname"><a class="el" href="class_course.html">Course</a></td><td>name. </td></tr>
+    <tr><td class="paramname"><a class="el" href="class_course.html" title="This class represents a single course. ">Course</a></td><td>ID. </td></tr>
+    <tr><td class="paramname"><a class="el" href="class_course.html" title="This class represents a single course. ">Course</a></td><td>name. </td></tr>
     <tr><td class="paramname">ID</td><td>of professor who teaches the course. </td></tr>
     <tr><td class="paramname">Number</td><td>of students enrolled in the course. </td></tr>
     <tr><td class="paramname">Number</td><td>of time blocks required by this course. </td></tr>
@@ -280,7 +283,9 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Returns the ID's of the courses that conflict with this course. </p><dl class="section return"><dt>Returns</dt><dd>A constant vector containing the ID's of the courses that conflict with this course. </dd></dl>
+
+<p>Returns the ID's of the courses that conflict with this course. </p>
+<dl class="section return"><dt>Returns</dt><dd>A constant vector containing the ID's of the courses that conflict with this course. </dd></dl>
 
 </div>
 </div>
@@ -304,7 +309,9 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Returns the ID's of the courses that conflict with this course. </p><dl class="section return"><dt>Returns</dt><dd>A mutable vector containing the ID's of the courses that conflict with this course. </dd></dl>
+
+<p>Returns the ID's of the courses that conflict with this course. </p>
+<dl class="section return"><dt>Returns</dt><dd>A mutable vector containing the ID's of the courses that conflict with this course. </dd></dl>
 
 </div>
 </div>
@@ -328,7 +335,9 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Returns the number of students enrolled in the course. </p><dl class="section return"><dt>Returns</dt><dd>The number of students enrolled in the course. </dd></dl>
+
+<p>Returns the number of students enrolled in the course. </p>
+<dl class="section return"><dt>Returns</dt><dd>The number of students enrolled in the course. </dd></dl>
 
 </div>
 </div>
@@ -352,7 +361,9 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Returns the course ID. </p><dl class="section return"><dt>Returns</dt><dd>The course ID. </dd></dl>
+
+<p>Returns the course ID. </p>
+<dl class="section return"><dt>Returns</dt><dd>The course ID. </dd></dl>
 
 </div>
 </div>
@@ -376,7 +387,9 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Returns the name of this course. </p><dl class="section return"><dt>Returns</dt><dd>The name of this course. </dd></dl>
+
+<p>Returns the name of this course. </p>
+<dl class="section return"><dt>Returns</dt><dd>The name of this course. </dd></dl>
 
 </div>
 </div>
@@ -400,7 +413,9 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Returns the ID of the professor who teaches this course. </p><dl class="section return"><dt>Returns</dt><dd>The ID of the professor who teaches this course. </dd></dl>
+
+<p>Returns the ID of the professor who teaches this course. </p>
+<dl class="section return"><dt>Returns</dt><dd>The ID of the professor who teaches this course. </dd></dl>
 
 </div>
 </div>
@@ -425,7 +440,9 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Returns the number of time blocks this course requires. </p><dl class="section return"><dt>Returns</dt><dd>The number of time blocks this course requires. </dd></dl>
+
+<p>Returns the number of time blocks this course requires. </p>
+<dl class="section return"><dt>Returns</dt><dd>The number of time blocks this course requires. </dd></dl>
 
 </div>
 </div>
@@ -450,7 +467,9 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Sets the ID's of the courses that conflict with this course. </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Sets the ID's of the courses that conflict with this course. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">A</td><td>constant vector containing the ID's of the courses that conflict with this course. </td></tr>
   </table>
@@ -480,7 +499,9 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Sets the number of students enrolled in the course. </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Sets the number of students enrolled in the course. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">The</td><td>number of students enrolled in the course. </td></tr>
   </table>
@@ -510,7 +531,9 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Sets the course ID. </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Sets the course ID. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">The</td><td>course ID. </td></tr>
   </table>
@@ -540,7 +563,9 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Sets the name of this course. </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Sets the name of this course. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">The</td><td>name of this course. </td></tr>
   </table>
@@ -570,7 +595,9 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Sets the ID of the professor who teaches this course. </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Sets the ID of the professor who teaches this course. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">The</td><td>ID of the professor who teaches this course. </td></tr>
   </table>
@@ -600,7 +627,9 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Sets the number of time blocks this course requires. </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Sets the number of time blocks this course requires. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">The</td><td>number of time blocks this course requires. </td></tr>
   </table>
@@ -610,7 +639,7 @@ Additional Inherited Members</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="_course_8h_source.html">Course.h</a></li>
+<li>Course.h</li>
 <li>Course.cpp</li>
 </ul>
 </div><!-- contents -->
@@ -619,7 +648,7 @@ Additional Inherited Members</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_course.html">Course</a></li>
-    <li class="footer">Generated on Sun May 18 2014 18:59:52 for ClassScheduling by
+    <li class="footer">Generated on Sun May 18 2014 19:50:48 for ClassScheduling by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>
