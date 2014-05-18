@@ -4,12 +4,13 @@
 #include "../include/Schedule.h"
 
 #include <fstream>
+#include <iomanip>
 
 using std::ofstream;
 using std::string;
 using std::vector;
 
-void ScheduleWriter::setFieldDelimiter(string delimiter) {
+void ScheduleWriter::setFieldDelimiter(const string delimiter) {
 	_delimiter = delimiter;
 }
 
@@ -32,15 +33,15 @@ void ScheduleWriter::write() {
 
 			for(unsigned i = 0; i < courses.size(); i++) {
 				Room r = _contents->getRoomFor(courses[i]);
-				file << courses[i].getId() << _delimiter
-					 << courses[i].getName() << _delimiter
-					 << r.getId() << _delimiter
-					 << (_contents->getProf(courses[i])).getId() << _delimiter
-					 << courses[i].getEnrolled() << _delimiter
-					 << r.getCapacity() << "\n";
+				file << setw(50) << courses[i].getId() << _delimiter
+				     << setw(50) << courses[i].getName() << _delimiter
+				     << setw(50) << r.getLastName() << ", " << r.getFirstName() << _delimiter
+				     << setw(50) << << (_contents->getProf(courses[i])).getId() << _delimiter
+				     << setw(50) << courses[i].getEnrolled() << _delimiter
+				     << setw(50) << r.getCapacity() << endl;
 			}
 
-			file << "\n\n";
+			file << endl << endl;
 		}
 	}
 
