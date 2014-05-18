@@ -22,7 +22,7 @@ void runTests(TestRunner*, bool, bool = true);
  * Passing no arguments results in tests being run for all components.
  * - -c: run tests on a specific Class. If you use this argument, the next
  *       argument passed must be the name of the class to test. Using this
- *       argument will override any other arguments.
+ *       argument will override any other arguments except -t.
  * - -i: run tests on the Input component (Reader classes)
  * - -n: run tests on the geNetic schedule generator
  * - -o: (lower-case "oh"): run tests on the Output component (Writer)

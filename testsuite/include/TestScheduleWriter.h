@@ -10,7 +10,7 @@ public:
     /** Default constructor */
     TestScheduleWriter() : TestRunner("ScheduleWriter") { }
 protected:
-    // virtual void testPass(void);
+    virtual void testPass(void);
     // virtual void testFail(void);
 };
 
