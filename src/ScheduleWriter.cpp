@@ -10,6 +10,7 @@ using std::ofstream;
 using std::setw;
 using std::string;
 using std::vector;
+using std::endl;
 
 void ScheduleWriter::setFieldDelimiter(const string delimiter) {
 	_delimiter = delimiter;
