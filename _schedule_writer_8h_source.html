@@ -113,7 +113,7 @@ $(document).ready(function(){initNavTree('_schedule_writer_8h_source.html','');}
 <div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="class_schedule_writer.html">    8</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_schedule_writer.html">ScheduleWriter</a> : <span class="keyword">public</span> <a class="code" href="class_file_writer.html">FileWriter</a>&lt;Schedule*&gt; {</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <a class="code" href="class_schedule_writer.html">ScheduleWriter</a>(std::string filename, std::string delimiter = <span class="stringliteral">&quot;\t&quot;</span>) : <a class="code" href="class_file_writer.html#a3ad0bae083ff61695de0834ca4cb24b6">FileWriter</a>(filename) , _delimiter(delimiter) { };</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keywordtype">void</span> setFieldDelimiter(std::string delimiter);</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keywordtype">void</span> setFieldDelimiter(<span class="keyword">const</span> std::string delimiter);</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_schedule_writer.html#a7349eaba8a87809e91c9ed9f0c83faf5">setContents</a>(<a class="code" href="class_schedule.html">Schedule</a> *contents);</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_schedule_writer.html#af21af71a978e82812c0154df42149ff7">write</a>();</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">private</span>:</div>
@@ -122,19 +122,19 @@ $(document).ready(function(){initNavTree('_schedule_writer_8h_source.html','');}
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;};</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#endif // SCHEDULEWRITER_H</span></div>
-<div class="ttc" id="class_schedule_writer_html_af21af71a978e82812c0154df42149ff7"><div class="ttname"><a href="class_schedule_writer.html#af21af71a978e82812c0154df42149ff7">ScheduleWriter::write</a></div><div class="ttdeci">void write()</div><div class="ttdef"><b>Definition:</b> ScheduleWriter.cpp:20</div></div>
+<div class="ttc" id="class_schedule_writer_html_af21af71a978e82812c0154df42149ff7"><div class="ttname"><a href="class_schedule_writer.html#af21af71a978e82812c0154df42149ff7">ScheduleWriter::write</a></div><div class="ttdeci">void write()</div><div class="ttdef"><b>Definition:</b> ScheduleWriter.cpp:22</div></div>
 <div class="ttc" id="class_file_writer_html_a3ad0bae083ff61695de0834ca4cb24b6"><div class="ttname"><a href="class_file_writer.html#a3ad0bae083ff61695de0834ca4cb24b6">FileWriter&lt; Schedule * &gt;::FileWriter</a></div><div class="ttdeci">FileWriter(string filename)</div><div class="ttdef"><b>Definition:</b> FileWriter.h:30</div></div>
 <div class="ttc" id="class_schedule_writer_html"><div class="ttname"><a href="class_schedule_writer.html">ScheduleWriter</a></div><div class="ttdef"><b>Definition:</b> ScheduleWriter.h:8</div></div>
 <div class="ttc" id="class_file_writer_html"><div class="ttname"><a href="class_file_writer.html">FileWriter</a></div><div class="ttdef"><b>Definition:</b> FileWriter.h:14</div></div>
 <div class="ttc" id="class_schedule_html"><div class="ttname"><a href="class_schedule.html">Schedule</a></div><div class="ttdef"><b>Definition:</b> Schedule.h:21</div></div>
-<div class="ttc" id="class_schedule_writer_html_a7349eaba8a87809e91c9ed9f0c83faf5"><div class="ttname"><a href="class_schedule_writer.html#a7349eaba8a87809e91c9ed9f0c83faf5">ScheduleWriter::setContents</a></div><div class="ttdeci">void setContents(Schedule *contents)</div><div class="ttdef"><b>Definition:</b> ScheduleWriter.cpp:16</div></div>
+<div class="ttc" id="class_schedule_writer_html_a7349eaba8a87809e91c9ed9f0c83faf5"><div class="ttname"><a href="class_schedule_writer.html#a7349eaba8a87809e91c9ed9f0c83faf5">ScheduleWriter::setContents</a></div><div class="ttdeci">void setContents(Schedule *contents)</div><div class="ttdef"><b>Definition:</b> ScheduleWriter.cpp:18</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><b>ScheduleWriter.h</b></li>
-    <li class="footer">Generated on Sun May 18 2014 05:16:09 for ClassScheduling by
+    <li class="footer">Generated on Sun May 18 2014 18:59:52 for ClassScheduling by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>

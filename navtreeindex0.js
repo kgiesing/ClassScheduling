@@ -177,7 +177,7 @@ var NAVTREEINDEX0 =
 "class_schedule_generator.html#aa0c53d64e925152ad29e07a52c49c284":[0,0,22,0],
 "class_schedule_generator.html#aa7d2c803ae6fe7b4a0e166e76bc4cca8":[0,0,22,1],
 "class_schedule_writer.html":[0,0,23],
-"class_schedule_writer.html#a16c180a83e914cff532252889cb43174":[0,0,23,2],
+"class_schedule_writer.html#a2a715e31ca5c4a2d18c20d6d5f103bb8":[0,0,23,2],
 "class_schedule_writer.html#a7349eaba8a87809e91c9ed9f0c83faf5":[0,0,23,1],
 "class_schedule_writer.html#ae80c9832b238b8d1493b9bbe26bbb0db":[0,0,23,0],
 "class_schedule_writer.html#af21af71a978e82812c0154df42149ff7":[0,0,23,3],
