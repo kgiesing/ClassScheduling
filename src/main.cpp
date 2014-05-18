@@ -1,3 +1,4 @@
+/** @file File containing the program's main() function. */
 #include <iostream>
 #include <stdlib.h>
 #include <vector>
@@ -22,41 +23,41 @@ using std::endl;
 
 /**
  * Class Schedule main loop
- *  
+ *
  * This software simulates creating an optimal class schedule
- * based on matching courses to rooms and professors, such that every 
- * course has a room with the proper capacity, and the amount of time 
+ * based on matching courses to rooms and professors, such that every
+ * course has a room with the proper capacity, and the amount of time
  * professors spend on campus is minimized.
- * 
+ *
  * This program uses command line interface, at the command line when running the program:
  *
- * -There should be 3 files of input, one for the list of rooms, one for the list of 
+ * -There should be 3 files of input, one for the list of rooms, one for the list of
  * professors, and one for the list of courses.
  * --These filenames must be entered all together, in this order, on the command line.
  * -Each entry in any one of these lists should be on its own line.
- * -The delimiter that separates the fields of each entry on each list is by default a 
+ * -The delimiter that separates the fields of each entry on each list is by default a
  * comma (",").
- * --To change the delimiter to some newDelimiter, "-d newDelimiter" can be entered on the 
+ * --To change the delimiter to some newDelimiter, "-d newDelimiter" can be entered on the
  * command line BEFORE the filenames.
  * -The limitation of time that program will try to optimize is by default 1 minute
  * --To change the time to new number, "-t newTime" can be entered on the command line
  * BEFORE the filenames. E.g:-t 2 for 2 minutes.
  * -The score calculator that used to optimize is by default "LinearScoreCalculator"
- * --To change the calculator, "-w" or "-l" can be entered on the command line BEFORE the 
+ * --To change the calculator, "-w" or "-l" can be entered on the command line BEFORE the
  * filenames. "-w" is for WeightedScoreCalculator, "-l" is for LinearScoreCalculator.
  * -The output file of the resulting schedule is by default "schedule.txt".
  * --To change the file to some outputFile, "-o outputFile" can be entered on the command line
  * before or after the filenames (but not in the middle of them).
  *
- * Below is how each room, professor, and course should be listed on each line, with their fields 
+ * Below is how each room, professor, and course should be listed on each line, with their fields
  * listed from left to right:
  *
  * -Rooms: Each room has a room ID and a max capacity (2 fields: string, int).
- * -Professors: Each professor has a professor ID, a first name and a last name (3 fields: 
+ * -Professors: Each professor has a professor ID, a first name and a last name (3 fields:
  * string, string, string).
- * -Courses: Each course has a course ID, a name, a professor ID matching who's teaching it, 
- * the number of enrolled students, how many times the class meets per week, and a  * list of 
- * conflicting courses (by ID) (5+ fields for the whole line: string, string, string, int, int, 
+ * -Courses: Each course has a course ID, a name, a professor ID matching who's teaching it,
+ * the number of enrolled students, how many times the class meets per week, and a  * list of
+ * conflicting courses (by ID) (5+ fields for the whole line: string, string, string, int, int,
  * {string, string ...}).
  *
  * The output is as follows:
@@ -67,11 +68,11 @@ using std::endl;
  * --Each line has the course name, the room ID, the ID of the professor teaching it, the number
  * of enrolled student, and the room's capacity, separated by the delimiter.
  *
- * Main loop will first create readers to read data from the file which 
- * provided by users. Then a crude schedule will be formed by greedy 
- * algorithm. After it, the schedule will be optimized by using genetic 
+ * Main loop will first create readers to read data from the file which
+ * provided by users. Then a crude schedule will be formed by greedy
+ * algorithm. After it, the schedule will be optimized by using genetic
  * algorithm. Finally, schedule will be save in the file that users specify,
- * or by default "schedule.txt". 
+ * or by default "schedule.txt".
  */
 int main(int argc, char* argv[])
 {
