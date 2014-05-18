@@ -12,9 +12,8 @@ void TestScheduleWriter::testPass(void)
 
     instance = new ScheduleWriter(filename);
     cout << "Successfully created ScheduleWriter object with data:" << endl
-         << "\tfilename: \"" << filename << "\"" << endl
-         << "\tschedule: " << endl;
-    ObjectPrinter::print(s);
+         << "\tFilename: \"" << filename << "\"" << endl << "\t";
+    ObjectPrinter::print(s, "\t");
 
     // Test accessors
     cout << "Testing accessors..." << endl;
