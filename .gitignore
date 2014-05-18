@@ -46,3 +46,4 @@ doxygen/
 *.idb
 *.log
 *.unsuccessfulbuild
+testsuite/SCHEDULEWRITER_OUTPUT.txt
