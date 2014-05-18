@@ -1,4 +1,4 @@
-/** @file File containing the program's main() function. */
+/** File containing the program's main() function. @file */
 #include <iostream>
 #include <stdlib.h>
 #include <vector>

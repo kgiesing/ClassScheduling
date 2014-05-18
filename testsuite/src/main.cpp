@@ -1,4 +1,4 @@
-/** @file File containing the test suite's main() function. */
+/** File containing the test suite's main() function. @file */
 #include "../include/TestHeaders.h"
 #include <iostream>
 #include <set>
