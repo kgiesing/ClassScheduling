@@ -7,6 +7,7 @@
 #include <iomanip>
 
 using std::ofstream;
+using std::setw;
 using std::string;
 using std::vector;
 
