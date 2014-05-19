@@ -26,6 +26,9 @@ void ScheduleWriter::write() {
 	//key.
 	file << "CE - Course Enrollment" << endl << "RC - Room Capacity" << endl << endl;
 
+	// Score
+	file << "Score: " << _contents->getScore() << endl << endl;
+
 	for(int weekday = MON; weekday < WEEKDAYS_SIZE; weekday++) {
 		Weekdays w = (Weekdays) weekday;
 		for(int block = START_08_00; block < TIMEBLOCK_SIZE; block++) {
