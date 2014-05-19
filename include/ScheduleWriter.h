@@ -14,6 +14,8 @@ public:
 private:
     std::string _delimiter;
     Schedule *_contents;
+    /** "Ellipsizes" string, so it won't go past a specific length. */
+    string ellipsize(const string&, unsigned);
 };
 
 #endif // SCHEDULEWRITER_H

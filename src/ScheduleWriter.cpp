@@ -3,6 +3,7 @@
 #include "../include/TimeBlock.h"
 #include "../include/Schedule.h"
 
+#include <cctype> // for ispunct
 #include <fstream>
 #include <iomanip>
 
@@ -49,4 +50,23 @@ void ScheduleWriter::write() {
 	}
 
 	file.close();
+}
+
+string ScheduleWriter::ellipsize(const string& input, unsigned maxLength)
+{
+    // Sanity check
+    if (input.length() >= maxLength || maxLength < 3)
+        return input;
+    unsigned pos = maxLength - 3; // Account for 3-char ellipsis
+    // Find the last word boundary before the max length
+    while (input[pos] != ' ' && pos > 0)
+        pos--;
+    // If last char is punctuation, it can be replaced
+    while (ispunct(input[pos]) && pos > 0)
+        pos--;
+    // If position is zero, put ellipsis in the middle of the word
+    if (pos == 0)
+        pos = maxLength - 3;
+    // Return the substring, with the ellipsis appended
+    return input.substr(0, pos) + "...";
 }
