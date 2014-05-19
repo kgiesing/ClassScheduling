@@ -27,6 +27,11 @@ Schedule* GeneticScheduleGenerator::getSchedule(){
 	Weekdays day1, day2;
 	TimeBlock time1, time2;
 	long endTime = getTimeout();
+	if (0 == numberOfRooms){
+		cerr << "Schedule is empty. Scheduling can not be performed." << endl;
+		return _schedule;
+		//throw runtime_error("Schedule is empty. Scheduling can not be performed.");
+	}
 	do{
 		Schedule* _changedSchedule = new Schedule(*bestSchedule);
 		room1 = rooms.at(rand() % numberOfRooms);
