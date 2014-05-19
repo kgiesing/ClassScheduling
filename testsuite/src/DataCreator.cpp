@@ -5,39 +5,67 @@
 #include <sstream> // for converting int to string
 
 Course DataCreator::createCourse(void)
+
 {
     Course c;
-    string names[] = {"Art", "Biology", "Chemistry", "Classics",
-            "Computer Science", "Film Studies", "Literature", "Mathematics",
-            "Music", "Physics"};
-    string abbrs[] = {"ART", "BIO", "CHEM", "CLSICS", "CS", "FILM", "LIT", "MATH",
-            "MUS", "PHYS"};
+    Prof p;
+    std::stringstream ss;
+    string names[] = {"Accounting/Finance", "Africana Studies",
+            "American Studies", "Anthropology", "Arabic", "Art",
+            "Asian Studies", "Business Communications", "Biochemistry",
+            "Biology", "Community Development", "Chemistry", "Chinese",
+            "Classics", "Communication Studies", "Criminal Justice",
+            "Critical Reading & Writing", "Computer Science", "Dance",
+            "Early Childhood Education", "Economics", "Education",
+            "Exercise and Health Science", "Engineering", "English",
+            "Environmental Studies", "French", "German", "Gerontology",
+            "Global Affairs", "Greek", "History", "Humanities",
+            "Human Services", "International Relations",
+            "Information Technology", "Italian", "Japanese",
+            "Latin American Studies", "Latin", "Legal Education Services",
+            "Linguistics", "Mathematics", "Modern Languages", "Management",
+            "Marketing", "Management Information Systems", "Music",
+            "Native American Studies", "Nursing", "Philosophy", "Physics",
+            "Political Science", "Portuguese", "Psychology",
+            "Study of Religion", "Russian", "Sociology", "Spanish",
+            "Theatre Arts", "Vietnamese", "Women's Studies"};
+    string abbrs[] = {"AF", "AFRSTY", "AMST", "ANTH", "ARABIC", "ART", "ASIAN",
+            "BC", "BIOCHM", "BIOL", "CDVCTR", "CHEM", "CHINSE", "CLSICS",
+            "COMSTU", "CRMJUS", "CRW", "CS", "DANCE", "ECHD", "ECON", "EDCG",
+            "EHS", "ENGIN", "ENGL", "ENVSTY", "FRENCH", "GERMAN", "GERON",
+            "GLBAFF", "GREEK", "HIST", "HUMAN", "HUMCTR", "IR", "IT", "ITAL",
+            "JAPAN", "LATAM", "LATIN", "LAWCTR", "LING", "MATH", "MDNLNG",
+            "MGT", "MKT", "MSIS", "MUSIC", "NAIS", "NURSNG", "PHIL", "PHYSIC",
+            "POLSCI", "PORT", "PSYCH", "RELSTY", "RUSS", "SOCIOL", "SPAN",
+            "THRART", "VIET", "WOST"};
     string levels[] = {"Introductory", "Intermediate", "Advanced",
-            "Special Topics in"};
-    string nums[] = {"110", "220", "340", "440"};
-    string profIds[] = {"12345678", "23456781", "34567812", "45678123",
-            "56781234", "67812345", "78123456", "81234567"};
+                       "Topics in", "Graduate"};
+    string nums[] = {"110", "220", "340", "440", "650"};
     // Generate random course
-    int type = rand() % 10;
-    int level = rand() % 4;
+    int type = rand() % 62;
+    int level = rand() % 5;
 
-    c.setId(abbrs[type] + "-" + nums[level] + "-01");
+    ss << abbrs[type] << "-" + nums[level] << "-" << (rand() % 2 + 1);
+    c.setId(ss.str());
     c.setName(levels[level] + " " + names[type]);
     // Note that there is NO guarantee that this Prof exists!
-    c.setProfId(profIds[rand() % 8]);
+    p = createProf();
+    c.setProfId(p.getId());
     c.setEnrolled(rand() % 40);
 
     // Create some random conflicts
     set<string> conflicts;
     int numConflicts = rand() % 4;
     int newType = type;
-    for (int i = 0; i < numConflicts; i++)
+    for(int i = 0; i < numConflicts; i++)
     {
         // Conflict is different course at same level
         // Note that there is NO guarantee that this Course exists!
-        while (newType == type)
+        while(newType == type)
             newType = (type + rand()) % 9;
-        conflicts.insert(abbrs[newType] + "-" + nums[level]);
+        ss.str("");
+        ss << abbrs[newType] << "-" + nums[level] << "-" << (rand() % 2 + 1);
+        conflicts.insert(ss.str());
     }
     c.setConflicts(conflicts);
 
@@ -46,18 +74,26 @@ Course DataCreator::createCourse(void)
 
 Prof DataCreator::createProf(void)
 {
-    string fnames[] = {"Alfred", "Bob", "Emily", "Lin", "Martin", "Mary",
-            "Patricia", "Peter", "Ronald", "William"};
-    string lnames[] = {"Campbell", "Chen", "Jackson", "Johnson", "Lee", "Nguyen",
-            "Patel", "Rodriguez", "Singh", "Wong"};
+    string fnames[] = {"Alfred", "Amy", "Ava", "Bob", "Christopher", "David",
+            "Emily", "Isabella", "Jacob", "James", "Jason", "Jennifer", "John",
+            "Kimberly", "Liam", "Lin", "Lisa", "Martin", "Mason", "Matthew",
+            "Mary", "Michael", "Michelle", "Noah", "Olivia", "Patricia",
+            "Peter", "Ronald", "Sophia" ,"William"};
+    string lnames[] = {"Allen" ,"Anderson", "Brown", "Campbell", "Chen",
+            "Clark", "Davis", "Garcia", "Gonzalez", "Hall", "Harris",
+            "Hernandez", "Jackson", "Johnson", "Jones", "Lee", "Lewis",
+            "Lopez", "Martin", "Martinez", "Miller", "Moore", "Nguyen",
+            "Patel", "Perez", "Robinson", "Rodriguez", "Sanchez", "Singh",
+            "Smith", "Taylor", "Thomas", "Thompson", "Walker", "White",
+            "Williams", "Wilson", "Wong", "Wright", "Young"};
     Prof p;
     // ID is simply an 8-digit number
     std::stringstream ss;
     ss << (rand() % 9999999) + 10000000 * (rand() % 9 + 1);
     p.setId(ss.str());
     // Randomly set first and last names
-    p.setFirstName(fnames[rand() % 10]);
-    p.setLastName(lnames[rand() % 10]);
+    p.setFirstName(fnames[rand() % 30]);
+    p.setLastName(lnames[rand() % 40]);
     return p;
 }
 
@@ -70,7 +106,8 @@ Room DataCreator::createRoom(void)
     Room r;
     // ID is derived from the above
     int floor = rand() % 4;
-    string id = bldgs[rand() % 3] + "-" + floors[floor] + rooms[rand() % 10];
+    string id = bldgs[rand() % 3] + "-" + floors[floor] + "-"
+            + floors[rand() % 4] + rooms[rand() % 10];
     // Capacity should be divisible by 5, and in range 20 - 100
     int capacity = 5 * (rand() % 16) + 20;
     // If it's on the ground floor, it may be a lecture hall; add 0 - 400
@@ -136,37 +173,70 @@ Schedule DataCreator::createSchedule(void)
 
 vector<Course> DataCreator::createVector(Course type, int members)
 {
-    set<Course> sorted;
+    vector<Course> result;
+    map<string, Course> sorted;
+    map<string, Course>::iterator it;
+    Course member;
+
     srand(time(NULL) + rand() % 1000);
     int spread = members / 4;
     members += (rand() % spread) - spread / 2;
+    members = (members < 1 ? 1 : members);
     for (int i = 0; i < members; i++)
-        sorted.insert(createCourse());
-    vector<Course> result(sorted.rbegin(), sorted.rend());
+    {
+        do
+            member = createCourse();
+        while (sorted.find(member.getId()) != sorted.end());
+        sorted[member.getId()] = member;
+    }
+    for (it = sorted.begin(); it != sorted.end(); it++)
+        result.push_back(it->second);
     return result;
 }
 
 vector<Prof> DataCreator::createVector(Prof type, int members)
 {
-    set<Prof> sorted;
+    vector<Prof> result;
+    map<string, Prof> sorted;
+    map<string, Prof>::iterator it;
+    Prof member;
+
     srand(time(NULL) + rand() % 1000);
     int spread = members / 4;
     members += (rand() % spread) - spread / 2;
+    members = (members < 1 ? 1 : members);
     for (int i = 0; i < members; i++)
-        sorted.insert(createProf());
-    vector<Prof> result(sorted.begin(), sorted.end());
+    {
+        do
+            member = createProf();
+        while (sorted.find(member.getId()) != sorted.end());
+        sorted[member.getId()] = member;
+    }
+    for (it = sorted.begin(); it != sorted.end(); it++)
+        result.push_back(it->second);
     return result;
 }
 
 vector<Room> DataCreator::createVector(Room type, int members)
 {
-    set<Room> sorted;
+    vector<Room> result;
+    map<string, Room> sorted;
+    map<string, Room>::iterator it;
+    Room member;
+
     srand(time(NULL) + rand() % 1000);
     int spread = members / 4;
     members += (rand() % spread) - spread / 2;
+    members = (members < 1 ? 1 : members);
     for (int i = 0; i < members; i++)
-        sorted.insert(createRoom());
-    vector<Room> result(sorted.rbegin(), sorted.rend());
+    {
+        do
+            member = createRoom();
+        while (sorted.find(member.getId()) != sorted.end());
+        sorted[member.getId()] = member;
+    }
+    for (it = sorted.begin(); it != sorted.end(); it++)
+        result.push_back(it->second);
     return result;
 }
 bool DataCreator::createVectorFile(string filename, Course c, int members)
