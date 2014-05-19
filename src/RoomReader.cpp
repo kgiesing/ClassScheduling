@@ -1,13 +1,7 @@
 #include "../include/RoomReader.h"
-#include <iostream> // for cerr
-#include <fstream>
 #include <set>
 
-using std::cerr;
-using std::endl;
-using std::ifstream;
 using std::set;
-using std::string;
 using std::vector;
 
 vector<Room> RoomReader::read()
@@ -21,10 +15,7 @@ vector<Room> RoomReader::read()
 
     file.open(this->getFilename().c_str());
     if (!file.is_open())
-    {
-        cerr << "Could not open file: " << this->getFilename() << endl;
-        return vector<Room>();
-    }
+        throw runtime_error("Could not open file: " + this->getFilename());
     while (!file.eof())
     {
         getline(file, id, this->getDelimiter());

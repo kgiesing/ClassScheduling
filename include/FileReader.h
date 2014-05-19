@@ -2,9 +2,13 @@
 #ifndef FILEREADER_H
 #define FILEREADER_H
 
-#include <string>
 #include "Reader.h"
+#include <fstream>   // for subclasses using ifstream
+#include <stdexcept> // for subclasses throwing runtime_error
+#include <string>
 
+using std::ifstream;
+using std::runtime_error;
 using std::string;
 
 /**
