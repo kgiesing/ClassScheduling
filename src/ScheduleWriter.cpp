@@ -36,8 +36,8 @@ void ScheduleWriter::write() {
 			for(unsigned i = 0; i < courses.size(); i++) {
 				Room r = _contents->getRoomFor(courses[i]);
 				Prof p = _contents->getProf(courses[i]);
-				file << setw(8) << courses[i].getId() << _delimiter
-				     << setw(15) << courses[i].getName() << _delimiter
+				file << setw(7) << courses[i].getId() << _delimiter
+				     << setw(40) << courses[i].getName() << _delimiter
 				     << setw(7) << r.getId() << _delimiter
 				     << setw(20) << p.getLastName() << ", " << p.getFirstName() << _delimiter
 				     << setw(3) << courses[i].getEnrolled() << _delimiter
