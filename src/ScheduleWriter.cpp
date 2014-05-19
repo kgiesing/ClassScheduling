@@ -47,8 +47,8 @@ void ScheduleWriter::write() {
 				Room r = _contents->getRoomFor(courses[i]);
 				Prof p = _contents->getProf(courses[i]);
 				
-				printCourseLine(file, courses[i].getId(), courses[i].getName(), r.getId(),
-					p.getLastName(), courses[i].getEnrolled(), r.getCapacity());;
+				printCourseLine(file, _delimiter, courses[i].getId(), courses[i].getName(),
+					r.getId(), p.getLastName(), courses[i].getEnrolled(), r.getCapacity());
 			}
 
 			file << endl << endl;
@@ -77,8 +77,9 @@ string ScheduleWriter::ellipsize(const string& input, unsigned maxLength)
     return input.substr(0, pos) + "...";
 }
 
-void ScheduleWriter::printCourseLine(ostream& f, const string& _delimiter, const string& courseID, const string& courseName,
-	const string& room, const string& prof, const string& enrollment, const string& capacity) {
+void ScheduleWriter::printCourseLine(ostream& f, const string& _delimiter, const string& courseID,
+	const string& courseName, const string& room, const string& prof, const string& enrollment,
+	const string& capacity) {
 	
 	// delimiter is best " | ", 3 characters.
 	f << left << setw(14) << ellipsize(courseID) << _delimiter
