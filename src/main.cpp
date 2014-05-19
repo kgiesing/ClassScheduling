@@ -208,6 +208,7 @@ int main(int argc, char* argv[])
 
     cout << "Done\n" << endl;
     cout << "Scheduling Finished" << endl;
+    cout << "Schedule is saved in file: " << outputN << endl;
 
     delete schedule;
   } catch (std::runtime_error& e) {
