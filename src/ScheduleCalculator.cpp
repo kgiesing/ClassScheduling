@@ -1,5 +1,4 @@
 #include "../include/ScheduleCalculator.h"
-
 #include "../include/Weekdays.h"
 #include "../include/TimeBlock.h"
 
@@ -32,12 +31,12 @@ double ScheduleCalculator::calculateScore(Schedule* s, ScoreCalculator& sc)
         info.insert(make_pair(it->first, pi));
     }
 
-    // Iterate over the entire schedule
-    for (unsigned r = 0; r < rooms.size(); r++)
+    // Iterate over the entire schedule, by day and time
+    for (int d = MON; d < WEEKDAYS_SIZE; d++)
     {
-        for (int d = MON; d < WEEKDAYS_SIZE; d++)
+        for (int t = START_08_00; t < TIMEBLOCK_SIZE; t++)
         {
-            for (int t = START_08_00; t < TIMEBLOCK_SIZE; t++)
+            for (unsigned r = 0; r < rooms.size(); r++)
             {
                 wd  = static_cast<Weekdays>(d);
                 tb  = static_cast<TimeBlock>(t);
