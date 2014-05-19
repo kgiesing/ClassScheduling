@@ -7,5 +7,9 @@ var searchData=
   ['reader_3c_20std_3a_3avector_3c_20room_20_3e_20_3e',['Reader&lt; std::vector&lt; Room &gt; &gt;',['../class_reader.html',1,'']]],
   ['readerfactory',['ReaderFactory',['../class_reader_factory.html',1,'ReaderFactory'],['../class_reader_factory.html#aafc5c0ff481d184d82702a1591e66f97',1,'ReaderFactory::ReaderFactory()']]],
   ['room',['Room',['../class_room.html',1,'Room'],['../class_room.html#aee325a7ed34308c66ecf228c2b730093',1,'Room::Room()']]],
-  ['roomreader',['RoomReader',['../class_room_reader.html',1,'RoomReader'],['../class_room_reader.html#ab616b6e266f8a6bd23d36a82da3a5cce',1,'RoomReader::RoomReader()']]]
+  ['roomreader',['RoomReader',['../class_room_reader.html',1,'RoomReader'],['../class_room_reader.html#ab616b6e266f8a6bd23d36a82da3a5cce',1,'RoomReader::RoomReader()']]],
+  ['runfailtests',['runFailTests',['../class_test_runner.html#a9dd3d3a81eba954e64882af12c9334cb',1,'TestRunner']]],
+  ['runpasstests',['runPassTests',['../class_test_runner.html#a0abef14a2c13b8cf179347e8556e8405',1,'TestRunner']]],
+  ['runstresstests',['runStressTests',['../class_test_runner.html#a63fba1d4ee8002354fda8991b12960b0',1,'TestRunner']]],
+  ['runtest',['runTest',['../class_test_file_readers.html#a1fdbbe91d63742ecefe25f0fe301b543',1,'TestFileReaders']]]
 ];

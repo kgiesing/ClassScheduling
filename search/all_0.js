@@ -1,10 +1,12 @@
 var searchData=
 [
+  ['calculatescore',['calculateScore',['../class_schedule_calculator.html#a0529873e427989ae92a8b1408f92be40',1,'ScheduleCalculator']]],
   ['comparable',['Comparable',['../class_comparable.html',1,'']]],
   ['comparable_3c_20course_20_3e',['Comparable&lt; Course &gt;',['../class_comparable.html',1,'']]],
   ['comparable_3c_20prof_20_3e',['Comparable&lt; Prof &gt;',['../class_comparable.html',1,'']]],
   ['comparable_3c_20room_20_3e',['Comparable&lt; Room &gt;',['../class_comparable.html',1,'']]],
   ['compare',['compare',['../class_comparable.html#a6128a6c3c1f90cbc62e47822ca16ea60',1,'Comparable']]],
+  ['conflictpreprocessor',['ConflictPreprocessor',['../class_conflict_preprocessor.html',1,'']]],
   ['course',['Course',['../class_course.html',1,'Course'],['../class_course.html#a47049fe05b86e2e9443a951ac596d41a',1,'Course::Course(void)'],['../class_course.html#ad5eee18cbe544e2bbcbe70cb801227eb',1,'Course::Course(const string &amp;id, const string &amp;name, const string &amp;profId, int enrolled, int timeBlocks, const set&lt; string &gt; &amp;conflicts)']]],
   ['coursereader',['CourseReader',['../class_course_reader.html',1,'CourseReader'],['../class_course_reader.html#aac84a23c4a0ea7033e6903c3fcf10e26',1,'CourseReader::CourseReader()']]],
   ['createcourse',['createCourse',['../class_data_creator.html#a2edfa7566abaa033dd4e4d1a4de27a5c',1,'DataCreator']]],

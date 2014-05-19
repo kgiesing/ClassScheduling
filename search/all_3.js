@@ -1,6 +1,8 @@
 var searchData=
 [
+  ['geneticschedulegenerator',['GeneticScheduleGenerator',['../class_genetic_schedule_generator.html',1,'']]],
   ['getcapacity',['getCapacity',['../class_room.html#a9ce3088c79b2d7e60e14e8a6509c3447',1,'Room']]],
+  ['getcomponent',['getComponent',['../class_test_runner.html#ad71e85508f5ad962047fd9495774ebb4',1,'TestRunner']]],
   ['getconflicts',['getConflicts',['../class_course.html#a9ef959e2e9fb235c128d3155a3ccc7fe',1,'Course::getConflicts() const '],['../class_course.html#ae26e42e110949e212ecf4deea6c5b4c0',1,'Course::getConflicts()']]],
   ['getcourse',['getCourse',['../class_schedule.html#a638946924674a1a0e669ba18fe70ed9b',1,'Schedule']]],
   ['getcourses',['getCourses',['../class_reader_factory.html#a2ec1dbb609148a952ac769d63de9d040',1,'ReaderFactory::getCourses()'],['../class_file_reader_factory.html#a77950c44c91f2fafd8472a99eb164651',1,'FileReaderFactory::getCourses()']]],
@@ -21,11 +23,12 @@ var searchData=
   ['getprofs',['getProfs',['../class_schedule.html#a485435f434cc3488b5dece0b0ba68f95',1,'Schedule::getProfs()'],['../class_reader_factory.html#aaedee9401242c5513806791e4f0e68d6',1,'ReaderFactory::getProfs()'],['../class_file_reader_factory.html#aae3fc6a84bb136f41009f886d4c51270',1,'FileReaderFactory::getProfs()']]],
   ['getroomfor',['getRoomFor',['../class_schedule.html#ad2fe4df6b4ff3452cb846e40d8b6744f',1,'Schedule']]],
   ['getrooms',['getRooms',['../class_schedule.html#aeaf1a3df45751696e25d90e31f89ce44',1,'Schedule::getRooms()'],['../class_reader_factory.html#a0950490a26e6aca4971992f2d1f6e97b',1,'ReaderFactory::getRooms()'],['../class_file_reader_factory.html#adde429280ee62d2da8c82370297fa443',1,'FileReaderFactory::getRooms()']]],
-  ['getschedule',['getSchedule',['../class_schedule.html#a608c11c86282dbcbfb7614916d009153',1,'Schedule::getSchedule()'],['../class_schedule_generator.html#a257b6e8dbd93d08a4476a84c2d43155e',1,'ScheduleGenerator::getSchedule()']]],
+  ['getschedule',['getSchedule',['../class_schedule.html#a608c11c86282dbcbfb7614916d009153',1,'Schedule::getSchedule()'],['../class_schedule_generator.html#a257b6e8dbd93d08a4476a84c2d43155e',1,'ScheduleGenerator::getSchedule()'],['../class_genetic_schedule_generator.html#ac95ce32b42718d94a91b2acff8cb4d43',1,'GeneticScheduleGenerator::getSchedule()'],['../class_greedy_schedule_generator.html#a7c6c2f502ae3688503ebc3268c5f6931',1,'GreedyScheduleGenerator::getSchedule()']]],
   ['getscore',['getScore',['../class_schedule.html#a14a2bd38151bfb9a6fe4256d4f33375a',1,'Schedule::getScore()'],['../class_prof_info.html#a5cf054febacedb56e1eb89d9e11cb57b',1,'ProfInfo::getScore()']]],
   ['gettimeblocks',['getTimeBlocks',['../class_course.html#ae75daddc17975305dd9bc03ebbdeb185',1,'Course']]],
   ['gettimefor',['getTimeFor',['../class_schedule.html#ae09af91135de6712a29a631f3d07a1d6',1,'Schedule']]],
   ['gettimeout',['getTimeout',['../class_schedule_generator.html#a41eef60081f766059bf0ccb100044f26',1,'ScheduleGenerator']]],
   ['gettotaltime',['getTotalTime',['../class_prof_info.html#afbb47e58b3c2d233411d3c037e2d2542',1,'ProfInfo']]],
-  ['getweekdaysfor',['getWeekdaysFor',['../class_schedule.html#ae11c4babea4bcb6a7bd83d2475218687',1,'Schedule']]]
+  ['getweekdaysfor',['getWeekdaysFor',['../class_schedule.html#ae11c4babea4bcb6a7bd83d2475218687',1,'Schedule']]],
+  ['greedyschedulegenerator',['GreedyScheduleGenerator',['../class_greedy_schedule_generator.html',1,'']]]
 ];

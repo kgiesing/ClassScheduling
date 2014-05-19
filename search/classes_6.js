@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['schedule',['Schedule',['../class_schedule.html',1,'']]],
-  ['schedulegenerator',['ScheduleGenerator',['../class_schedule_generator.html',1,'']]],
-  ['scorecalculator',['ScoreCalculator',['../class_score_calculator.html',1,'']]]
+  ['objectprinter',['ObjectPrinter',['../class_object_printer.html',1,'']]]
 ];
