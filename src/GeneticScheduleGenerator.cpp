@@ -1,11 +1,12 @@
 #include "../include/GeneticScheduleGenerator.h"
-#include <cstdlib>
-#include <time.h>
-#include <algorithm>
-#include "../include/Weekdays.h"
-#include "../include/TimeBlock.h"
-#include <iostream>
 #include "../include/ScheduleCalculator.h"
+#include "../include/TimeBlock.h"
+#include "../include/Weekdays.h"
+#include <algorithm>
+#include <cstdlib>
+#include <iostream>
+#include <stdexcept> // for runtime_error
+#include <time.h>
 
 GeneticScheduleGenerator::GeneticScheduleGenerator(ScoreCalculator& sc, Schedule* schedule, long timeout )
 	: ScheduleGenerator(timeout) , _sc(sc) {
@@ -28,9 +29,9 @@ Schedule* GeneticScheduleGenerator::getSchedule(){
 	TimeBlock time1, time2;
 	long endTime = getTimeout();
 	if (0 == numberOfRooms){
-		cerr << "Schedule is empty. Scheduling can not be performed." << endl;
-		return _schedule;
-		//throw runtime_error("Schedule is empty. Scheduling can not be performed.");
+		// cerr << "Schedule is empty. Scheduling can not be performed." << endl;
+		// return _schedule;
+		throw std::runtime_error("Schedule is empty. Scheduling can not be performed.");
 	}
 	do{
 		Schedule* _changedSchedule = new Schedule(*bestSchedule);
