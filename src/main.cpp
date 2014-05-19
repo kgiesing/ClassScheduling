@@ -43,7 +43,7 @@ using std::endl;
  * -The limitation of time that program will try to optimize is by default 60 seconds
  * --To change the time to new number, "-t newTime" can be entered on the command line
  * BEFORE the filenames. E.g:-t 30 for 30 seconds.
- * -The score calculator that used to optimize is by default "LinearScoreCalculator"
+ * -The score calculator that used to optimize is by default "WeightedScoreCalculator"
  * --To change the calculator, "-w" or "-l" can be entered on the command line BEFORE the
  * filenames. "-w" is for WeightedScoreCalculator, "-l" is for LinearScoreCalculator.
  * -The output file of the resulting schedule is by default "schedule.txt".
@@ -121,9 +121,9 @@ int main(int argc, char* argv[])
       delimiterN = argv[++i][0];
       i++;
     } else if (c == "-l"){
+      defCal = false;
       i++;
     } else if (c == "-w"){
-      defCal = false;
       i++;
     } else {
       //using atol from stdlib to convert char array to long
@@ -185,9 +185,9 @@ int main(int argc, char* argv[])
     //if user does not indicate calculator, linear score calculator
     //will be used.
     if(defCal)
-      calculator = new LinearScoreCalculator();
-    else
       calculator = new WeightedScoreCalculator();
+    else
+      calculator = new LinearScoreCalculator();
 
     //Try to optimize the schedule
     //Will be changed depends on implementation of GeneticScheduler

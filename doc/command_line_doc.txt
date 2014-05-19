@@ -7,7 +7,7 @@ At the command line when running the program:
 --To change the delimiter to some newDelimiter, "-d newDelimiter" can be entered on the command line BEFORE the filenames.
 -The limitation of time that program will try to optimize is by default 60 seconds
 --To change the time to new number, "-t newTime" can be entered on the command line BEFORE the filenames. E.g:-t 30 for 30 seconds.
--The score calculator that used to optimize is by default "LinearScoreCalculator"
+-The score calculator that used to optimize is by default "WeightedScoreCalculator"
 --To change the calculator, "-w" or "-l" can be entered on the command line BEFORE the filenames. "-w" is for WeightedScoreCalculator, "-l" is for LinearScoreCalculator.
 -The output file of the resulting schedule is by default "schedule.txt".
 --To change the file to some outputFile, "-o outputFile" can be entered on the command line before or after the filenames (but not in the middle of them).
