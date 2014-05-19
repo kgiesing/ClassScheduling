@@ -4,7 +4,8 @@
 
 #include "FileWriter.h"
 #include "Schedule.h"
-#include <fstream>
+
+using std::ostream;
 
 class ScheduleWriter : public FileWriter<Schedule*> {
 public:
