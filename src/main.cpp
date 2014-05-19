@@ -39,9 +39,9 @@ using std::endl;
  * comma (",").
  * --To change the delimiter to some newDelimiter, "-d newDelimiter" can be entered on the
  * command line BEFORE the filenames.
- * -The limitation of time that program will try to optimize is by default 1 minute
+ * -The limitation of time that program will try to optimize is by default 60 seconds
  * --To change the time to new number, "-t newTime" can be entered on the command line
- * BEFORE the filenames. E.g:-t 2 for 2 minutes.
+ * BEFORE the filenames. E.g:-t 30 for 30 seconds.
  * -The score calculator that used to optimize is by default "LinearScoreCalculator"
  * --To change the calculator, "-w" or "-l" can be entered on the command line BEFORE the
  * filenames. "-w" is for WeightedScoreCalculator, "-l" is for LinearScoreCalculator.
@@ -126,7 +126,7 @@ int main(int argc, char* argv[])
       i++;
     } else {
       //using atol from stdlib to convert char array to long
-      addTime = atol(argv[++i]) * 60;
+      addTime = atol(argv[++i]);
       i++;
     }
 
@@ -193,6 +193,7 @@ int main(int argc, char* argv[])
   generator = new GeneticScheduleGenerator(*calculator, schedule, t);
 
   cout << "Optimizing Schedule" << endl;
+  cout << "It will take about " << addTime << " seconds" << endl;
 
   schedule = generator->getSchedule();
   delete generator;
