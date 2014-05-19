@@ -6,6 +6,7 @@
 #include <cctype> // for ispunct
 #include <fstream>
 #include <iomanip>
+#include <sstream>
 
 using namespace std;
 
@@ -47,8 +48,12 @@ void ScheduleWriter::write() {
 				Room r = _contents->getRoomFor(courses[i]);
 				Prof p = _contents->getProf(courses[i]);
 				
+				stringstream enrolled, capacity;
+				enrolled << courses[i].getEnrolled();
+				capacity << r.getCapacity();
+				
 				printCourseLine(file, _delimiter, courses[i].getId(), courses[i].getName(),
-					r.getId(), p.getLastName(), courses[i].getEnrolled(), r.getCapacity());
+					r.getId(), p.getLastName(), enrolled.str(), capacity.str());
 			}
 
 			file << endl << endl;
@@ -78,8 +83,8 @@ string ScheduleWriter::ellipsize(const string& input, unsigned maxLength)
 }
 
 void ScheduleWriter::printCourseLine(ostream& f, const string& _delimiter, const string& courseID,
-	const string& courseName, const string& room, const string& prof, const int enrollment,
-	const int capacity) {
+	const string& courseName, const string& room, const string& prof, const string& enrollment,
+	const string& capacity) {
 	
 	// delimiter is best " | ", 3 characters.
 	f << left << setw(14) << ellipsize(courseID, 14) << _delimiter
