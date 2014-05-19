@@ -7,11 +7,7 @@
 #include <fstream>
 #include <iomanip>
 
-using std::ofstream;
-using std::setw;
-using std::string;
-using std::vector;
-using std::endl;
+using namespace std;
 
 void ScheduleWriter::setFieldDelimiter(const string delimiter) {
 	_delimiter = delimiter;
@@ -25,6 +21,9 @@ void ScheduleWriter::write() {
 	ofstream file;
 
 	file.open(this->getFilename().c_str());
+	
+	//key.
+	file << "CE - Course Enrollment" << endl << "RC - Room Capacity" << endl << endl;
 
 	for(int weekday = MON; weekday < WEEKDAYS_SIZE; weekday++) {
 		Weekdays w = (Weekdays) weekday;
@@ -33,16 +32,23 @@ void ScheduleWriter::write() {
 
 			file << w << " at " << t << ":\n\n";
 			vector<Course> courses = _contents->getCoursesAt(w, t);
-
+			
+			//header
+			printCourseLine(file, _delimiter, "Course ID", "Course Name", "Room", "Professor", "CE", "RC");
+			
+			//breaker line.
+			file << setfill('-');
+			printCourseLine(file, _delimiter, "-", "-", "-", "-", "-", "-");
+			file << setfill(' ');
+			
+			//the output.
+			
 			for(unsigned i = 0; i < courses.size(); i++) {
 				Room r = _contents->getRoomFor(courses[i]);
 				Prof p = _contents->getProf(courses[i]);
-				file << setw(7) << courses[i].getId() << _delimiter
-				     << setw(40) << courses[i].getName() << _delimiter
-				     << setw(7) << r.getId() << _delimiter
-				     << setw(20) << p.getLastName() << ", " << p.getFirstName() << _delimiter
-				     << setw(3) << courses[i].getEnrolled() << _delimiter
-				     << setw(3) << r.getCapacity() << endl;
+				
+				printCourseLine(file, courses[i].getId(), courses[i].getName(), r.getId(),
+					p.getLastName(), courses[i].getEnrolled(), r.getCapacity());;
 			}
 
 			file << endl << endl;
@@ -69,4 +75,16 @@ string ScheduleWriter::ellipsize(const string& input, unsigned maxLength)
         pos = maxLength - 2;
     // Return the substring, with the ellipsis appended
     return input.substr(0, pos) + "...";
+}
+
+void ScheduleWriter::printCourseLine(ostream& f, const string& _delimiter, const string& courseID, const string& courseName,
+	const string& room, const string& prof, const string& enrollment, const string& capacity) {
+	
+	// delimiter is best " | ", 3 characters.
+	f << left << setw(14) << ellipsize(courseID) << _delimiter
+	<< setw(25) << ellipsize(courseName) << _delimiter
+	<< setw(14) << ellipsize(room) << _delimiter
+	<< setw(14) << ellipsize(prof) << _delimiter
+	<< setw(2) << ellipsize(enrollment) << _delimiter
+	<< setw(2) << ellipsize(capacity) << endl;
 }
