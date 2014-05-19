@@ -15,8 +15,6 @@ public:
   Schedule* getSchedule(void);
 private:
 	Schedule* _schedule;
-	double calculateScore(Prof, Schedule*, double);
-	double calculateScore(map < string, Prof >, Schedule*);
   std::map<string, ProfInfo> profInfoMap;
   ScoreCalculator& _sc;
   map<string, double> _scores;
