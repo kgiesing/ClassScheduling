@@ -6,11 +6,12 @@
 #include "Schedule.h"
 
 using std::ostream;
+using std::string;
 
 class ScheduleWriter : public FileWriter<Schedule*> {
 public:
-    ScheduleWriter(std::string filename, std::string delimiter = "\t") : FileWriter(filename) , _delimiter(delimiter) { };
-    void setFieldDelimiter(const std::string delimiter);
+    ScheduleWriter(string filename, string delimiter = "\t") : FileWriter(filename) , _delimiter(delimiter) { };
+    void setFieldDelimiter(const string delimiter);
     void setContents(Schedule *contents);
     void write();
 private:
