@@ -4,6 +4,7 @@
 
 #include "FileWriter.h"
 #include "Schedule.h"
+#include <fstream>
 
 class ScheduleWriter : public FileWriter<Schedule*> {
 public:
@@ -14,7 +15,7 @@ public:
 private:
     std::string _delimiter;
     Schedule *_contents;
-    void printCourseLine(const string&, const string&, const string&, const string&, const string&, const string&, const string&);
+    void printCourseLine(ofstream& f, const string&, const string&, const string&, const string&, const string&, const string&, const string&);
     /** "Ellipsizes" string, so it won't go past a specific length. */
     string ellipsize(const string&, unsigned);
 };
