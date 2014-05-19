@@ -95,7 +95,7 @@ int main(int argc, char* argv[])
   ScoreCalculator* calculator;
 
   //default value for output file
-  outputN = "schedule.txt";
+  outputN = "Schedule.txt";
 
   if(argc < 4)
     {
@@ -136,7 +136,7 @@ int main(int argc, char* argv[])
   courseN = argv[i++];
 
   //if "-o output" appear at end, record the output file name
-  if((c = argv[i]) == "-o")
+  if(argv[i] != NULL && (c = argv[i]) == "-o")
     outputN = argv[++i];
 
   /* end of implementation of command line interface */
@@ -155,10 +155,15 @@ int main(int argc, char* argv[])
   else
     reader = new FileReaderFactory();
 
+  cout << "Reading Data" << endl;
+
+
   roomV = reader->getRooms(roomN);
   profV = reader->getProfs(profN);
   courseV = reader->getCourses(courseN);
   delete reader;
+
+  cout << "Done\n" << endl;
 
   //add conflict
   ConflictPreprocessor::preprocess(courseV);
@@ -169,10 +174,13 @@ int main(int argc, char* argv[])
   //Will be changed depends on implementation of GreedyScheduler
   t += addTime;
   generator = new GreedyScheduleGenerator(roomV, profV, courseV, t);
+
+  cout << "Generating Schedule" << endl;
+
   schedule = generator->getSchedule();
   delete generator;
 
-
+  cout << "Done\n" << endl;
   //if user does not indicate calculator, linear score calculator
   //will be used.
   if(defCal)
@@ -183,6 +191,9 @@ int main(int argc, char* argv[])
   //Try to optimize the schedule
   //Will be changed depends on implementation of GeneticScheduler
   generator = new GeneticScheduleGenerator(*calculator, schedule, t);
+
+  cout << "Optimizing Schedule" << endl;
+
   schedule = generator->getSchedule();
   delete generator;
   delete calculator;
@@ -192,6 +203,10 @@ int main(int argc, char* argv[])
   ScheduleWriter writer(outputN);
   writer.setContents(schedule);
   writer.write();
+
+  cout << "Done\n" << endl;
+  cout << "Scheduling Finished" << endl;
+
   delete schedule;
 
   return 0;
