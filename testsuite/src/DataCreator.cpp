@@ -7,20 +7,21 @@
 Course DataCreator::createCourse(void)
 {
     Course c;
-    string names[] = {"Art", "Biology", "Chemistry", "Computer Science",
-            "Film", "Literature", "Mathematics", "Music", "Physics"};
-    string abbrs[] = {"ART", "BIO", "CHEM", "CS", "FILM", "LIT", "MATH",
+    string names[] = {"Art", "Biology", "Chemistry", "Classics",
+            "Computer Science", "Film Studies", "Literature", "Mathematics",
+            "Music", "Physics"};
+    string abbrs[] = {"ART", "BIO", "CHEM", "CLSICS", "CS", "FILM", "LIT", "MATH",
             "MUS", "PHYS"};
-    string levels[] = {"Beginning", "Introductory", "Intermediate",
-            "Advanced"};
+    string levels[] = {"Introductory", "Intermediate", "Advanced",
+            "Special Topics in"};
     string nums[] = {"110", "220", "340", "440"};
     string profIds[] = {"12345678", "23456781", "34567812", "45678123",
             "56781234", "67812345", "78123456", "81234567"};
     // Generate random course
-    int type = rand() % 9;
+    int type = rand() % 10;
     int level = rand() % 4;
 
-    c.setId(abbrs[type] + "-" + nums[level]);
+    c.setId(abbrs[type] + "-" + nums[level] + "-01");
     c.setName(levels[level] + " " + names[type]);
     // Note that there is NO guarantee that this Prof exists!
     c.setProfId(profIds[rand() % 8]);
