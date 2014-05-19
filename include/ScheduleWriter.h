@@ -17,7 +17,7 @@ public:
 private:
     std::string _delimiter;
     Schedule *_contents;
-    void printCourseLine(ostream& f, const string&, const string&, const string&, const string&, const string&, const string&, const string&);
+    void printCourseLine(ostream& f, const string&, const string&, const string&, const string&, const string&, const int, const int);
     /** "Ellipsizes" string, so it won't go past a specific length. */
     string ellipsize(const string&, unsigned);
 };
