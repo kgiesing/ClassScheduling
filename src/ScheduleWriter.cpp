@@ -55,9 +55,9 @@ void ScheduleWriter::write() {
 string ScheduleWriter::ellipsize(const string& input, unsigned maxLength)
 {
     // Sanity check
-    if (input.length() >= maxLength || maxLength < 3)
+    if (input.length() <= maxLength || maxLength < 3)
         return input;
-    unsigned pos = maxLength - 3; // Account for 3-char ellipsis
+    unsigned pos = maxLength - 2; // Account for 3-char ellipsis, 0-index
     // Find the last word boundary before the max length
     while (input[pos] != ' ' && pos > 0)
         pos--;
@@ -66,7 +66,7 @@ string ScheduleWriter::ellipsize(const string& input, unsigned maxLength)
         pos--;
     // If position is zero, put ellipsis in the middle of the word
     if (pos == 0)
-        pos = maxLength - 3;
+        pos = maxLength - 2;
     // Return the substring, with the ellipsis appended
     return input.substr(0, pos) + "...";
 }
